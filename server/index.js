@@ -1,0 +1,25 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const logger = require('morgan');
+const helmet = require('helmet');
+
+//create a basic express application
+const app = express();
+
+//configure middlewares on the server
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(logger('dev'));
+app.use(helmet());
+
+//configure application routes
+app.get('/', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Successful connection to server'
+  });
+});
+
+module.exports = app;

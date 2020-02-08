@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 // creating MessageSchema
 const MessageSchema = new Schema({
-  forum_id: {
+  forum: {
     type: Schema.Types.ObjectId,
     ref: 'Forum',
     required: true

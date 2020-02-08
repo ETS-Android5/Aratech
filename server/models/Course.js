@@ -3,15 +3,15 @@ const Schema = mongoose.Schema;
 
 // creating CourseSchema
 const CourseSchema = new Schema({
-  Name: {
+  name: {
     type: String,
     required: true
   },
-  CourseCode: {
+  courseCode: {
     type: String,
     required: true
   },
-  Description: {
+  description: {
     type: String
   }
 });

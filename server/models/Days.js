@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 //creating DaysSchema
 const DaysSchema = new Schema({
-  Name: {
+  name: {
     type: String,
     required: true
   }

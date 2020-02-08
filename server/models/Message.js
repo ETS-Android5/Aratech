@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 // creating MessageSchema
 const MessageSchema = new Schema({
   forum_id: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: 'Forum',
     required: true
   },
   body: {

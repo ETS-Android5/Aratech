@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 const StudentSchema = new Schema({
   email: {
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
   indexNo: {
     type: Number,

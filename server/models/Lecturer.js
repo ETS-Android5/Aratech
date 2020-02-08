@@ -3,6 +3,11 @@ const Schema = mongoose.Schema;
 
 // creating LecturerSchema
 const LecturerSchema = new Schema({
+  email: {
+    type: String,
+    required: true,
+    trim: true
+  },
   fName: {
     type: String,
     required: true

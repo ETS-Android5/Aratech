@@ -8,6 +8,8 @@
         android:minSdkVersion="22"
         android:targetSdkVersion="29" />
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -17,8 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.aratech.lecturemonitor.IntroActivity" />
-        <activity android:name="com.aratech.lecturemonitor.MainActivity" >
+        <activity android:name="com.aratech.lecturemonitor.ui.activities.IntroActivity" />
+        <activity android:name="com.aratech.lecturemonitor.ui.activities.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />

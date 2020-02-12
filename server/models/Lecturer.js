@@ -17,6 +17,13 @@ const LecturerSchema = new Schema({
     required: true
   },
   otherNames: String,
+  courses: [
+    {
+      type: Schema.Types.ObjectId,
+      required: true,
+      ref: 'Course'
+    }
+  ],
   password: {
     type: String,
     required: true

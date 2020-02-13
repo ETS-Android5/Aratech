@@ -5,7 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.Menu;
+import android.app.Activity;
+import android.view.*;
 import com.aratech.lecturemonitor.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -13,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         //code to run after application has delayed for a few seconds
@@ -28,5 +33,6 @@ public class MainActivity extends AppCompatActivity {
         //delay screen for 3 seconds
         Handler handler = new Handler();
         handler.postDelayed(runnable, 3000);
+
     }
 }

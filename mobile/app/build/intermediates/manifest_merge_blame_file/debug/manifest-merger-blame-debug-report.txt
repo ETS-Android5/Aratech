@@ -11,7 +11,7 @@
 9-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml
 10
 11    <application
-11-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:5:5-21:19
+11-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:5:5-24:19
 12        android:allowBackup="true"
 12-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -25,28 +25,32 @@
 17-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:9:9-54
 18        android:supportsRtl="true"
 18-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:10:9-35
-19        android:theme="@style/AppTheme" >
-19-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:11:9-40
-20        <activity android:name="com.aratech.lecturemonitor.IntroActivity" />
-20-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:12:9-60
-20-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:12:19-48
-21        <activity android:name="com.aratech.lecturemonitor.MainActivity" >
-21-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:13:9-20:20
-21-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:13:19-47
-22            <intent-filter>
-22-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:14:13-19:29
-23                <action android:name="android.intent.action.MAIN" />
-23-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:15:17-69
-23-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:15:25-66
-24                <action android:name="android.intent.action.VIEW" />
-24-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:16:17-69
-24-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:16:25-66
-25
-26                <category android:name="android.intent.category.LAUNCHER" />
-26-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:18:17-77
-26-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:18:27-74
-27            </intent-filter>
-28        </activity>
-29    </application>
-30
-31</manifest>
+19        android:testOnly="true"
+20        android:theme="@style/AppTheme" >
+20-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:11:9-40
+21        <activity android:name="com.aratech.lecturemonitor.ui.activities.IntroActivity" />
+21-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:12:9-74
+21-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:12:19-62
+22        <activity
+22-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:13:9-23:20
+23            android:name="com.aratech.lecturemonitor.ui.activities.MainActivity"
+23-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:14:13-55
+24            android:screenOrientation="portrait" >
+24-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:15:13-49
+25            <intent-filter>
+25-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:17:13-22:29
+26                <action android:name="android.intent.action.MAIN" />
+26-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:18:17-69
+26-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:18:25-66
+27                <action android:name="android.intent.action.VIEW" />
+27-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:19:17-69
+27-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:19:25-66
+28
+29                <category android:name="android.intent.category.LAUNCHER" />
+29-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:21:17-77
+29-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:21:27-74
+30            </intent-filter>
+31        </activity>
+32    </application>
+33
+34</manifest>

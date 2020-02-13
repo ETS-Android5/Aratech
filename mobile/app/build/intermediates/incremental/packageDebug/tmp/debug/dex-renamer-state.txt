@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 #Wed Feb 12 21:36:24 GMT 2020
 base.0=D\:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
+=======
+#Thu Feb 13 02:10:43 GMT 2020
+base.0=/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/build/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex
+>>>>>>> 8faab02373ef04e3260afd7951a11799f3abc939
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=D\:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
+base.1=/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/build/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex

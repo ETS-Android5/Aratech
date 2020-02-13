@@ -21,13 +21,9 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity android:name="com.aratech.lecturemonitor.ui.activities.IntroActivity" />
-<<<<<<< HEAD
         <activity
             android:name="com.aratech.lecturemonitor.ui.activities.MainActivity"
             android:screenOrientation="portrait" >
-=======
-        <activity android:name="com.aratech.lecturemonitor.ui.activities.MainActivity" >
->>>>>>> 2d8d22e05f7fed3078658a21160a4061a4d1080f
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />

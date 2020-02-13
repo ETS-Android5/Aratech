@@ -18,6 +18,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //code for full screen for the splash
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
         //code to run after application has delayed for a few seconds
@@ -29,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         };
+
+
+
 
         //delay screen for 3 seconds
         Handler handler = new Handler();

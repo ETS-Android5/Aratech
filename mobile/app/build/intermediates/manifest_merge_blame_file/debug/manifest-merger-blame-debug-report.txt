@@ -6,10 +6,11 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="22"
-8-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml
+8-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml
+9-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml
 10
+<<<<<<< HEAD
 11    <application
 11-->/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/src/main/AndroidManifest.xml:5:5-24:19
 12        android:allowBackup="true"
@@ -54,3 +55,49 @@
 32    </application>
 33
 34</manifest>
+=======
+11    <uses-permission android:name="android.permission.VIBRATE" />
+11-->[com.wdullaer:materialdatetimepicker:3.2.0] C:\Users\fgyim\.gradle\caches\transforms-2\files-2.1\4b21fcbd437a27ead5e85731efacc30e\jetified-materialdatetimepicker-3.2.0\AndroidManifest.xml:26:5-66
+11-->[com.wdullaer:materialdatetimepicker:3.2.0] C:\Users\fgyim\.gradle\caches\transforms-2\files-2.1\4b21fcbd437a27ead5e85731efacc30e\jetified-materialdatetimepicker-3.2.0\AndroidManifest.xml:26:22-63
+12
+13    <application
+13-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:5:5-21:19
+14        android:allowBackup="true"
+14-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:6:9-35
+15        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+15-->[androidx.core:core:1.1.0] C:\Users\fgyim\.gradle\caches\transforms-2\files-2.1\e9dab9c67c1ee3668e0bbf86c6d8cbd8\core-1.1.0\AndroidManifest.xml:24:18-86
+16        android:debuggable="true"
+17        android:icon="@mipmap/ic_launcher"
+17-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:7:9-43
+18        android:label="@string/app_name"
+18-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:8:9-41
+19        android:roundIcon="@mipmap/ic_launcher_round"
+19-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:9:9-54
+20        android:supportsRtl="true"
+20-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:10:9-35
+21        android:theme="@style/AppTheme" >
+21-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:11:9-40
+22        <activity android:name="com.aratech.lecturemonitor.ui.activities.IntroActivity" />
+22-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:12:9-74
+22-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:12:19-62
+23        <activity android:name="com.aratech.lecturemonitor.ui.activities.MainActivity" >
+23-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:13:9-20:20
+23-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:13:19-61
+24            <intent-filter>
+24-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:14:13-19:29
+25                <action android:name="android.intent.action.MAIN" />
+25-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:15:17-69
+25-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:15:25-66
+26                <action android:name="android.intent.action.VIEW" />
+26-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:16:17-69
+26-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:16:25-66
+27
+28                <category android:name="android.intent.category.LAUNCHER" />
+28-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:18:17-77
+28-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:18:27-74
+29            </intent-filter>
+30        </activity>
+31    </application>
+32
+33</manifest>
+>>>>>>> 2d8d22e05f7fed3078658a21160a4061a4d1080f

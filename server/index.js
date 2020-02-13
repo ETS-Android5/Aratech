@@ -4,8 +4,13 @@ const cors = require('cors');
 const logger = require('morgan');
 const helmet = require('helmet');
 
+const authRoutes = require('./routes/auth');
+
 //create a basic express application
 const app = express();
+
+//connect to db
+require('./utils/db')();
 
 //configure middlewares on the server
 app.use(cors());
@@ -15,11 +20,6 @@ app.use(logger('dev'));
 app.use(helmet());
 
 //configure application routes
-app.get('/', (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: 'Successful connection to server'
-  });
-});
+app.use('/api/auth', authRoutes);
 
 module.exports = app;

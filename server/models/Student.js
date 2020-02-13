@@ -37,7 +37,7 @@ const StudentSchema = new Schema({
     type: Boolean,
     default: false
   },
-  Level: {
+  level: {
     type: Number,
     required: true
   }

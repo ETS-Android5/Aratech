@@ -1,0 +1,11 @@
+//animation to make the button move from the bottom
+@keyframes moveFromBottom {
+    0% {
+      transform: translateY(5rem);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(0);
+      opacity: 1;
+    }
+  }

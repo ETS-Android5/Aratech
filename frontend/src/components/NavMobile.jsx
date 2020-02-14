@@ -4,7 +4,7 @@ const NavMobile = props => (
   <div id="offcanvas" data-uk-offcanvas="flip: true; overlay: true">
     <div className="uk-offcanvas-bar">
       <a className="uk-logo" href="index.html">
-        curso
+        Lecture Monitor
       </a>
       <button
         className="uk-offcanvas-close"

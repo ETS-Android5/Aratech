@@ -1,14 +1,21 @@
 import React from 'react';
-import './App.css';
-import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import Landing from './pages/Landing';
 import NavMobile from './components/NavMobile';
+
+import './App.css';
 
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <Navbar />
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/about" component={Landing} />
+        </Switch>
+        <NavMobile />
+      </Router>
     );
   }
 }

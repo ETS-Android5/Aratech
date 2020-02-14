@@ -1,11 +1,9 @@
 import React from 'react';
 
-import NavMobile from './NavMobile';
-
 const Navbar = props => (
   <React.Fragment>
     <div
-      data-uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; 
+      data-uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container  
 	  cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-dark; top: 500"
     >
       <nav className="uk-navbar-container uk-letter-spacing-small uk-text-bold">
@@ -81,8 +79,7 @@ const Navbar = props => (
               </div>
               <a
                 className="uk-navbar-toggle uk-hidden@m"
-                href="#offcanvas"
-                data-uk-toggle
+                data-uk-toggle="target: #offcanvas"
               >
                 <span data-uk-navbar-toggle-icon></span>
               </a>
@@ -91,7 +88,6 @@ const Navbar = props => (
         </div>
       </nav>
     </div>
-    <NavMobile />
   </React.Fragment>
 );
 

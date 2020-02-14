@@ -14,6 +14,7 @@ class App extends React.Component {
           <Route exact path="/" component={Landing} />
           <Route exact path="/about" component={Landing} />
         </Switch>
+        {/* Include the mobile nav in every page */}
         <NavMobile />
       </Router>
     );

@@ -6,7 +6,7 @@ const LECTURE_MONITOR_ADMIN = 'admin@lecturemonitor.com';
 sgMail.setApiKey(process.env.SG_API_KEY);
 
 //confirmation email
-exports.sendConfirmationEmail = (email, confirmationToken) => {
+exports.sendConfirmationEmail = async (email, confirmationToken) => {
   console.log('Sending email...');
   //message options
   const messageOpts = {
@@ -17,13 +17,14 @@ exports.sendConfirmationEmail = (email, confirmationToken) => {
       'LECTURE MONITOR. Please click on the link below or copy and paste in your browser to\n' +
       'Complete the verification process\n\n' +
       `${process.env.FRONTEND_URL}/confirmemail/${confirmationToken}`,
-    subject: 'Confirm your email'
+    subject: 'Confirm Your Email'
   };
 
   //send email
-  sgMail.send(messageOpts).then(sent => {
-    if (sent) {
-      console.log('Email sent');
-    }
-  });
+  try {
+    await sgMail.send(messageOpts);
+    console.log('Email sent');
+  } catch (error) {
+    console.error(error);
+  }
 };

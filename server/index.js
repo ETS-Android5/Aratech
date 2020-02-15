@@ -9,6 +9,9 @@ const authRoutes = require('./routes/auth');
 //create a basic express application
 const app = express();
 
+//cnofigure passport
+require('./middlewares/passport');
+
 //connect to db
 require('./utils/db')();
 

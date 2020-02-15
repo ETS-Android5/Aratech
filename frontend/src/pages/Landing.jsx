@@ -1,14 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
 class Landing extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <header className="uk-cover-container uk-background-cover uk-background-norepeat uk-background-center-center">
-          <video src="" data-uk-cover></video>
+        <header
+          className="uk-cover-container uk-background-cover uk-background-norepeat uk-background-center-center"
+          style={{
+            backgroundImage: 'url(../assets/students.jpg)'
+          }}
+        >
+          {/* the background video */}
           <div className="uk-overlay uk-position-cover uk-overlay-video"></div>
           <Navbar />
           <div
@@ -44,20 +49,7 @@ class Landing extends React.Component {
                     className="uk-grid-collapse uk-width-3-4@m uk-margin-medium-top"
                     data-uk-grid
                     data-uk-scrollspy="cls: uk-animation-slide-bottom-medium; delay: 200; repeat: true"
-                  >
-                    <div className="uk-width-expand">
-                      <input
-                        className="uk-input uk-form-large uk-border-remove-right"
-                        type="text"
-                        placeholder="Find your program"
-                      />
-                    </div>
-                    <div className="uk-width-auto">
-                      <button className="uk-button uk-button-large uk-button-success-outline">
-                        Search programs
-                      </button>
-                    </div>
-                  </div>
+                  ></div>
                 </div>
                 <div
                   className="uk-margin-auto-top"
@@ -69,20 +61,27 @@ class Landing extends React.Component {
                   >
                     <div>
                       <h4 className="uk-margin-remove">
-                        Choose from over 15000 courses
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit.
                       </h4>
                       <p className="uk-margin-xsmall-top uk-text-small uk-text-muted uk-text-bold">
-                        Distinctively recaptiualize scalable potentialities
-                        through scalable web services.
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Lorem ipsum dolor, sit amet consectetur
+                        adipisicing elit. Lorem ipsum dolor, sit amet
+                        consectetur adipisicing elit. Lorem ipsum dolor, sit
+                        amet consectetur adipisicing elit.
                       </p>
                     </div>
                     <div>
                       <h4 className="uk-margin-remove">
-                        Study online at your own pace
+                        Get Notifications, Personalized Timetables and Many
+                        More.
                       </h4>
                       <p className="uk-margin-xsmall-top uk-text-small uk-text-muted uk-text-bold">
-                        Assertively actualize goal-oriented models whereas
-                        world-className e-services.
+                        We give your notifications about your classes, as to it
+                        coming on, as to when and where. We give you
+                        announcement about assignment deadlines, give u the
+                        option to submit your various assignment here.
                       </p>
                     </div>
                   </div>
@@ -92,17 +91,32 @@ class Landing extends React.Component {
                 <div>
                   <ul className="uk-subnav uk-text-xsmall uk-text-bold">
                     <li>
-                      <a className="uk-link-border" href="#" target="_blank">
+                      <a
+                        className="uk-link-border"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         facebook
                       </a>
                     </li>
                     <li>
-                      <a className="uk-link-border" href="#" target="_blank">
+                      <a
+                        className="uk-link-border"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         twitter
                       </a>
                     </li>
                     <li>
-                      <a className="uk-link-border" href="#" target="_blank">
+                      <a
+                        className="uk-link-border"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         instagram
                       </a>
                     </li>
@@ -120,8 +134,8 @@ class Landing extends React.Component {
           <div className="uk-container">
             <div className="uk-width-4-5@m">
               <h2 className="uk-heading-small">
-                <mark>Unlimited</mark> access to thousands of{' '}
-                <mark>courses</mark>
+                <mark>Lorem</mark> helloe hoer sdijfg asur sdfjger dsff{' '}
+                <mark>helaslfjf </mark>
               </h2>
             </div>
             <div
@@ -130,20 +144,19 @@ class Landing extends React.Component {
             >
               {/* <!-- @include cards-courses-1.kit --> */}
             </div>
-            <a
-              href="courses.html"
+            <Link
+              href="/vsvv"
               className="uk-button uk-button-success-outline uk-button-large uk-margin-medium-top"
             >
-              Explore courses
-            </a>
+              Lorem jgghr
+            </Link>
           </div>
         </div>
 
         <div className="uk-section uk-section-large">
           <div className="uk-container">
             <h2 className="uk-heading-small">
-              <mark>Instructors</mark> are professionals width years of
-              experience
+              <mark>Fhjdfhdg</mark> vdkfdskjf bjfsjvc jvk djfjfd
             </h2>
             <div
               className="uk-child-width-1-2@m uk-margin-large-top uk-grid-large"
@@ -161,9 +174,10 @@ class Landing extends React.Component {
                     <div>
                       <h3 className="uk-text-primary">Alex Tomson</h3>
                       <p className="uk-text-small uk-margin-xsmall">
-                        Energistically leverage other's wireless action items
-                        before market positioning applications appropriately
-                        productize best-of-breed.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Cum a architecto assumenda, nulla aperiam sint rerum
+                        Reprehenderit est at a non doloribus, necessitatibus
+                        sunt animi tenetur?quia explicabo
                       </p>
                       <div
                         data-uk-grid
@@ -191,6 +205,7 @@ class Landing extends React.Component {
                             data-uk-icon="icon: dribbble; ratio: .9"
                             className="uk-icon-link uk-icon"
                             target="_blank"
+                            rel="noopener noreferrer"
                           ></a>
                         </div>
                         <div>
@@ -199,6 +214,7 @@ class Landing extends React.Component {
                             data-uk-icon="icon: youtube; ratio: .9"
                             className="uk-icon-link uk-icon"
                             target="_blank"
+                            rel="noopener noreferrer"
                           ></a>
                         </div>
                       </div>
@@ -218,9 +234,8 @@ class Landing extends React.Component {
                     <div>
                       <h3 className="uk-text-primary">Tow Sawyer</h3>
                       <p className="uk-text-small uk-margin-xsmall">
-                        Appropriately productize best-of-breed platforms for
-                        distributed testing procedures distinctively
-                        conceptualize ethical.
+                        Reprehenderit est at a non doloribus, necessitatibus
+                        sunt animi tenetur?quia explicabo
                       </p>
                       <div
                         data-uk-grid
@@ -232,6 +247,7 @@ class Landing extends React.Component {
                             data-uk-icon="icon: twitter; ratio: .9"
                             className="uk-icon-link uk-icon"
                             target="_blank"
+                            rel="noopener noreferrer"
                           ></a>
                         </div>
                         <div>
@@ -240,6 +256,7 @@ class Landing extends React.Component {
                             data-uk-icon="icon: instagram; ratio: .9"
                             className="uk-icon-link uk-icon"
                             target="_blank"
+                            rel="noopener noreferrer"
                           ></a>
                         </div>
                         <div>
@@ -248,6 +265,7 @@ class Landing extends React.Component {
                             data-uk-icon="icon: dribbble; ratio: .9"
                             className="uk-icon-link uk-icon"
                             target="_blank"
+                            rel="noopener noreferrer"
                           ></a>
                         </div>
                         <div>
@@ -256,6 +274,7 @@ class Landing extends React.Component {
                             data-uk-icon="icon: vimeo; ratio: .9"
                             className="uk-icon-link uk-icon"
                             target="_blank"
+                            rel="noopener noreferrer"
                           ></a>
                         </div>
                       </div>
@@ -320,18 +339,20 @@ class Landing extends React.Component {
                   </h2>
                   <ul className="uk-list uk-list-large uk-list-bullet uk-text-large uk-margin-medium-top">
                     <li>
-                      Formulate alternative and professional ideas business
+                      Reprehenderit est at a non doloribus, necessitatibus sunt
+                      animi tenetur?quia explicabo
                     </li>
                     <li>
-                      Readiness and professional e-tailers. Conveniently evolve
-                      installed base ideas
+                      doloribus, necessitatibus sunt animi tenetur?quia
+                      explicabo
                     </li>
                     <li>
-                      Evolve installed base ideas vis-a-vis business processes
+                      doloribus, necessitatibus sunt animi tenetur?quia
+                      explicabo
                     </li>
                     <li>
-                      Monotonectally incubate quality manufactured products
-                      without high-quality
+                      Monotonectally incubate qdoloribus, necessitatibus sunt
+                      animi tenetur?quia explicabo
                     </li>
                   </ul>
                 </div>
@@ -343,15 +364,14 @@ class Landing extends React.Component {
         <div className="uk-section uk-section-muted uk-section-large uk-padding-remove-bottom">
           <div className="uk-container uk-container-small uk-text-center">
             <h2 className="uk-heading-small">
-              <mark>Join</mark> the thousands and learn something new{' '}
-              <mark>today</mark>
+              <mark>Lorem</mark> doloribus, necessitatibus <mark>todfd</mark>
             </h2>
-            <a
-              href="sign-up.html"
+            <Link
+              to="/signup"
               className="uk-button uk-button-primary uk-button-large uk-margin-medium-top"
             >
-              Signup for free
-            </a>
+              Sign up
+            </Link>
           </div>
           <div
             className="uk-child-width-1-5 uk-child-width-expand@m uk-margin-xlarge-top uk-grid-collapse"
@@ -408,16 +428,15 @@ class Landing extends React.Component {
             <div className="uk-grid-large" data-uk-grid>
               <div className="uk-width-1-3@m">
                 <p className="uk-text-large">
-                  Professionally build sticky ideas visavis front-end
-                  convergence. Intrinsicly enable multifunctional total linkage
-                  and also revolutionary paradigms.
+                  Pdoloribus, necessitatibusdoloribus, necessitatibus sunt animi
+                  tenetur?quia explicabo sunt animi tenetur?quia explicabo
                 </p>
-                <a
-                  href="courses.html"
+                <Link
+                  to="/fsd"
                   className="uk-button uk-button-success-outline uk-button-large uk-margin-medium-top"
                 >
                   Find your course
-                </a>
+                </Link>
               </div>
               <div className="uk-width-expand@m">
                 <div data-uk-slider="sets: true">
@@ -541,7 +560,6 @@ class Landing extends React.Component {
             </div>
           </div>
         </div>
-        <Footer />
       </React.Fragment>
     );
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = props => (
   <React.Fragment>
@@ -10,36 +11,27 @@ const Navbar = props => (
         <div className="uk-container uk-container-large">
           <div className="uk-position-z-index" data-uk-navbar>
             <div className="uk-navbar-left">
-              <a className="uk-navbar-item uk-logo" href="index.html">
-                Lecture Monitor
-              </a>
+              <Link className="uk-navbar-item uk-logo" to="/">
+                LM
+              </Link>
             </div>
             <div className="uk-navbar-center">
               <ul className="uk-navbar-nav uk-visible@m">
                 <li className="uk-active">
-                  <a href="index.html">Home</a>
+                  <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <a href="courses.html">Courses</a>
+                  <Link to="/contact">contact</Link>
                 </li>
                 <li>
-                  <a href="search.html">Search</a>
-                </li>
-                <li>
-                  <a href="#">Pages</a>
+                  <Link to="#">Account</Link>
                   <div className="uk-navbar-dropdown">
                     <ul className="uk-nav uk-navbar-dropdown-nav">
                       <li>
-                        <a href="course.html">Single Course</a>
+                        <Link to="/signin">Sign In</Link>
                       </li>
                       <li>
-                        <a href="search.html">Search</a>
-                      </li>
-                      <li>
-                        <a href="sign-in.html">Sign In</a>
-                      </li>
-                      <li>
-                        <a href="sign-up.html">Sign Up</a>
+                        <Link to="/signup">Sign Up</Link>
                       </li>
                     </ul>
                   </div>
@@ -47,34 +39,14 @@ const Navbar = props => (
               </ul>
             </div>
             <div className="uk-navbar-right">
-              <div>
-                <a
-                  className="uk-navbar-toggle"
-                  data-uk-search-icon
-                  href="#"
-                ></a>
-                <div
-                  className="uk-drop"
-                  data-uk-drop="mode: click; pos: left-center; offset: 0"
-                >
-                  <form className="uk-search uk-search-navbar uk-width-1-1">
-                    <input
-                      className="uk-search-input uk-text-demi-bold"
-                      type="search"
-                      placeholder="Search..."
-                      autoFocus
-                    />
-                  </form>
-                </div>
-              </div>
               <div className="uk-navbar-item">
                 <div>
-                  <a
+                  <Link
                     className="uk-button uk-button-success-outline"
-                    href="sign-up.html"
+                    to="/signup"
                   >
                     Sign Up
-                  </a>
+                  </Link>
                 </div>
               </div>
               <a

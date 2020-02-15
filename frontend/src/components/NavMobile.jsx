@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const NavMobile = props => (
   <div id="offcanvas" data-uk-offcanvas="flip: true; overlay: true">
     <div className="uk-offcanvas-bar">
-      <a className="uk-logo" href="index.html">
+      <Link className="uk-logo" to="/">
         Lecture Monitor
-      </a>
+      </Link>
       <button
         className="uk-offcanvas-close"
         type="button"
@@ -13,31 +14,25 @@ const NavMobile = props => (
       ></button>
       <ul className="uk-nav uk-nav-primary uk-nav-offcanvas uk-margin-medium-top uk-text-center">
         <li>
-          <a href="index.html">Home</a>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="courses.html">Courses</a>
+          <Link to="/dummy">Dummy</Link>
         </li>
         <li>
-          <a href="course.html">Single Course</a>
+          <Link to="/dummy">Dummy</Link>
         </li>
         <li>
-          <a href="search.html">Search</a>
+          <Link to="/signin">Sign In</Link>
         </li>
         <li>
-          <a href="sign-in.html">Sign In</a>
-        </li>
-        <li>
-          <a href="sign-up.html">Sign Up</a>
+          <Link to="/signup">Sign Up</Link>
         </li>
       </ul>
       <div className="uk-margin-medium-top">
-        <a
-          className="uk-button uk-width-1-1 uk-button-default"
-          href="sign-up.html"
-        >
+        <Link className="uk-button uk-width-1-1 uk-button-default" to="/signup">
           Sign Up
-        </a>
+        </Link>
       </div>
       <div className="uk-margin-medium-top uk-text-center">
         <div
@@ -50,6 +45,7 @@ const NavMobile = props => (
               data-uk-icon="icon: twitter"
               className="uk-icon-link"
               target="_blank"
+              rel="noopener noreferrer"
             ></a>
           </div>
           <div>
@@ -58,6 +54,7 @@ const NavMobile = props => (
               data-uk-icon="icon: facebook"
               className="uk-icon-link"
               target="_blank"
+              rel="noopener noreferrer"
             ></a>
           </div>
           <div>
@@ -66,6 +63,7 @@ const NavMobile = props => (
               data-uk-icon="icon: instagram"
               className="uk-icon-link"
               target="_blank"
+              rel="noopener noreferrer"
             ></a>
           </div>
           <div>
@@ -74,6 +72,7 @@ const NavMobile = props => (
               data-uk-icon="icon: vimeo"
               className="uk-icon-link"
               target="_blank"
+              rel="noopener noreferrer"
             ></a>
           </div>
         </div>

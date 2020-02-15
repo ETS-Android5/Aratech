@@ -17,17 +17,7 @@ const Footer = props => (
             <ul className="uk-list uk-list-large">
               <li>
                 <a className="uk-link-border" href="#">
-                  Courses
-                </a>
-              </li>
-              <li>
-                <a className="uk-link-border" href="#">
                   Developers
-                </a>
-              </li>
-              <li>
-                <a className="uk-link-border" href="#">
-                  Workshops
                 </a>
               </li>
               <li>
@@ -46,17 +36,7 @@ const Footer = props => (
               </li>
               <li>
                 <a className="uk-link-border" href="#">
-                  Giving Back
-                </a>
-              </li>
-              <li>
-                <a className="uk-link-border" href="#">
-                  Communities
-                </a>
-              </li>
-              <li>
-                <a className="uk-link-border" href="#">
-                  Youth Program
+                  Dammy Text
                 </a>
               </li>
             </ul>
@@ -84,6 +64,7 @@ const Footer = props => (
           <div className="uk-flex uk-flex-right@m">
             <ul className="uk-subnav">
               <li>
+                {/* Links to Aratech's social media*/}
                 <a className="uk-link-border" href="#" target="_blank">
                   Facebook
                 </a>

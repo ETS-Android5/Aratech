@@ -31,7 +31,10 @@ const LecturerSchema = new Schema({
   phoneNo: {
     type: Number,
     required: true
-  }
+  },
+  confirmationToken: String,
+  passwordResetToken: String,
+  passwordResetDate: Date
 });
 
 module.exports = mongoose.model('Lecturer', LecturerSchema);

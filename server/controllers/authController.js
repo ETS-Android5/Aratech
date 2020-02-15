@@ -1,6 +1,9 @@
+const crypto = require('crypto');
 const Joi = require('@hapi/joi');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+
+const mails = require('../utils/mails');
 
 const Student = require('../models/Student');
 const Lecturer = require('../models/Lecturer');
@@ -61,10 +64,15 @@ exports.studentSignup = async (req, res) => {
   const password = await bcrypt.hash(req.body.password, 12);
   student.password = password;
 
+  //generate a confirmation token for user
+  const confirmationToken = crypto.randomBytes(32).toString('hex');
+  student.confirmationToken = confirmationToken;
+
   //save the new student doc
   await student.save();
 
-  //todo: send the user an email to confirm the email
+  //send user a confirmation email
+  mails.sendConfirmationEmail(student.email, student.confirmationToken);
 
   //sign a token for user
   const token = jwt.sign(
@@ -133,10 +141,15 @@ exports.lecturerSignup = async (req, res) => {
   const password = await bcrypt.hash(req.body.password, 12);
   lecturer.password = password;
 
+  //generate a confirmation token for user
+  const confirmationToken = crypto.randomBytes(32).toString('hex');
+  lecturer.confirmationToken = confirmationToken;
+
   //save the new student doc
   await lecturer.save();
 
-  //todo: send the user an email to confirm the email
+  //send user a confirmation email
+  mails.sendConfirmationEmail(lecturer.email, lecturer.confirmationToken);
 
   //sign a token for user
   const token = jwt.sign(

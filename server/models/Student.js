@@ -40,7 +40,10 @@ const StudentSchema = new Schema({
   level: {
     type: Number,
     required: true
-  }
+  },
+  confirmationToken: String,
+  passwordResetToken: String,
+  passwordResetDate: Date
 });
 
 module.exports = mongoose.model('Student', StudentSchema);

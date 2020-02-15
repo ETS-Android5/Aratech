@@ -9,7 +9,7 @@ const authRoutes = require('./routes/auth');
 //create a basic express application
 const app = express();
 
-//cnofigure passport
+//configure passport
 require('./middlewares/passport');
 
 //connect to db

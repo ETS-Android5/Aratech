@@ -19,6 +19,7 @@ class App extends React.Component {
           <Route exact path="/student/signup" component={StdSignUp} />
           <Route exact path="/student/signin" component={StdSignIn} />
         </Switch>
+        {/* Include the mobile nav in every page */}
         <NavMobile />
         <Footer />
       </Router>

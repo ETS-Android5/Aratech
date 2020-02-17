@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //code to run after application has delayed for a few seconds
+        //todo: to be replaced with logic to check authentication status and other initial startup
         Runnable runnable = new Runnable() {
             @Override
             public void run() {

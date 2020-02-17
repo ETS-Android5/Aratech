@@ -1,6 +1,10 @@
 <resources>
 
-    <style name="AppTheme" parent="BaseTheme" />
+    <style
+        name="AppTheme" parent="BaseTheme"
+        >
+        <item name="android:typeface">serif</item>
+    </style>
 
     <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->

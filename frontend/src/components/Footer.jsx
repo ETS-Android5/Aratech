@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = props => (
   <footer className="uk-border-dark-top">
@@ -9,49 +10,49 @@ const Footer = props => (
           data-uk-grid
         >
           <div>
-            <a href="#" className="uk-logo">
+            <Link to="/" className="uk-logo">
               Lecture Monitor
-            </a>
+            </Link>
           </div>
           <div>
             <ul className="uk-list uk-list-large">
               <li>
-                <a className="uk-link-border" href="#">
+                <Link className="uk-link-border" to="/developers">
                   Developers
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="uk-link-border" href="#">
+                <Link className="uk-link-border" to="/contact">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
           <div>
             <ul className="uk-list uk-list-large">
               <li>
-                <a className="uk-link-border" href="#">
+                <Link className="uk-link-border" to="/initiatives">
                   Our Initiatives
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="uk-link-border" href="#">
-                  Dammy Text
-                </a>
+                <Link className="uk-link-border" to="/about">
+                  Who we are
+                </Link>
               </li>
             </ul>
           </div>
           <div>
             <ul className="uk-list uk-list-large">
               <li>
-                <a className="uk-link-border" href="#">
+                <Link className="uk-link-border" to="/terms">
                   Terms of use
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="uk-link-border" href="#">
+                <Link className="uk-link-border" to="/privacy">
                   Privacy policy
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -65,17 +66,32 @@ const Footer = props => (
             <ul className="uk-subnav">
               <li>
                 {/* Links to Aratech's social media*/}
-                <a className="uk-link-border" href="#" target="_blank">
+                <a
+                  className="uk-link-border"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Facebook
                 </a>
               </li>
               <li>
-                <a className="uk-link-border" href="#" target="_blank">
+                <a
+                  className="uk-link-border"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Twitter
                 </a>
               </li>
               <li>
-                <a className="uk-link-border" href="#" target="_blank">
+                <a
+                  className="uk-link-border"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Instagram
                 </a>
               </li>

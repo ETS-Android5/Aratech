@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = props => (
   <React.Fragment>
@@ -28,7 +28,7 @@ const Navbar = props => (
                   <div className="uk-navbar-dropdown">
                     <ul className="uk-nav uk-navbar-dropdown-nav">
                       <li>
-                        <Link to="/lecturer/signin">Lecturer - Sign In</Link>
+                        <a href="/lecturer/signin">Lecturer - Sign In</a>
                       </li>
                       <li>
                         <Link to="/lecturer/signup">Lecturer - Sign Up</Link>
@@ -47,24 +47,69 @@ const Navbar = props => (
             <div className="uk-navbar-right">
               <div className="uk-navbar-item">
                 <div>
-                  <Link
+                  <button
                     className="uk-button uk-button-success-outline"
-                    to="/signup"
+                    type="button"
+                    data-uk-toggle="target: #signup-modal"
                   >
                     Sign Up
-                  </Link>
+                  </button>
                 </div>
               </div>
-              <Link
+              <a
                 className="uk-navbar-toggle uk-hidden@m"
                 data-uk-toggle="target: #offcanvas"
               >
                 <span data-uk-navbar-toggle-icon></span>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
       </nav>
+    </div>
+    <div id="signup-modal" data-uk-modal>
+      <div className="uk-modal-dialog uk-modal-body">
+        <button
+          className="uk-modal-close-outside"
+          type="button"
+          data-uk-close
+        ></button>
+        <h2 className="uk-modal-title">Continue as Lecturer or Student</h2>
+        <Link
+          to="/lecturer/signup"
+          className="uk-button uk-button-primary uk-button-large uk-margin-medium-top"
+        >
+          Continue as Lecturer
+        </Link>
+        <Link
+          to="/student/signup"
+          className="uk-button uk-button-success-outline uk-button-large uk-margin-medium-top"
+        >
+          Continue as Student
+        </Link>
+      </div>
+    </div>
+    <div id="signin-modal" data-uk-modal>
+      <div className="uk-modal-dialog uk-modal-body">
+        <button
+          className="uk-modal-close-outside"
+          type="button"
+          data-uk-close
+        ></button>
+        <h2 className="uk-modal-title">Continue as Lecturer or Student</h2>
+        <Link
+          to="/lecturer/signin"
+          className="uk-button uk-button-primary uk-button-large uk-margin-medium-top"
+        >
+          Continue as Lecturer
+        </Link>
+        <Link
+          to="/student/signin"
+          className="uk-button uk-button-success-outline uk-button-large uk-margin-medium-top"
+        >
+          Continue as Student
+        </Link>
+      </div>
     </div>
   </React.Fragment>
 );

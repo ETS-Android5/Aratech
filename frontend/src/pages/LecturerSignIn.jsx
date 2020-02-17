@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import Navbar from "../components/Navbar";
+import Navbar from '../components/Navbar';
 
 //THIS IS THE STUDENT SIGN IN PAGE
 class LecturerSignIn extends React.Component {
@@ -16,12 +16,9 @@ class LecturerSignIn extends React.Component {
           >
             <div className="uk-width-3-4@s">
               <div className="uk-text-center uk-margin-bottom">
-                <a
-                  className="uk-logo uk-text-success uk-text-bold"
-                  href="index.html"
-                >
+                <Link className="uk-logo uk-text-success uk-text-bold" to="/">
                   Lecture Monitor
-                </a>
+                </Link>
               </div>
               <div className="uk-text-center uk-margin-medium-bottom">
                 <h1 className="uk-letter-spacing-small">Sign In</h1>
@@ -29,7 +26,7 @@ class LecturerSignIn extends React.Component {
 
               <form>
                 <div className="uk-width-1-1 uk-margin">
-                  <label className="uk-form-label" for="name">
+                  <label className="uk-form-label" htmlFor="name">
                     Staff ID
                   </label>
                   <input
@@ -40,7 +37,7 @@ class LecturerSignIn extends React.Component {
                   />
                 </div>
                 <div className="uk-width-1-1 uk-margin">
-                  <label className="uk-form-label" for="password">
+                  <label className="uk-form-label" htmlFor="password">
                     Password
                   </label>
                   <input

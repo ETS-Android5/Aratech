@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import Navbar from "../components/Navbar";
+import Navbar from '../components/Navbar';
 
 //THIS THE STUDENT SIGN UP PAGE
 class StdSignUp extends React.Component {
@@ -15,12 +16,9 @@ class StdSignUp extends React.Component {
           >
             <div className="uk-width-3-4@s">
               <div className="uk-text-center uk-margin-bottom">
-                <a
-                  className="uk-logo uk-text-success uk-text-bold"
-                  href="index.html"
-                >
+                <Link className="uk-logo uk-text-success uk-text-bold" to="/">
                   LECTURE MONITOR
-                </a>
+                </Link>
               </div>
               <div className="uk-text-center uk-margin-medium-bottom">
                 <h1 className="uk-letter-spacing-small">
@@ -120,10 +118,10 @@ class StdSignUp extends React.Component {
                 </div>
                 <div className="uk-width-1-1 uk-margin uk-text-center">
                   <p className="uk-text-small uk-margin-remove">
-                    By signing up you agree to our{" "}
-                    <a className="uk-link-border" href="#">
+                    By signing up you agree to our{' '}
+                    <Link className="uk-link-border" to="/terms">
                       terms
-                    </a>{" "}
+                    </Link>{' '}
                     of service.
                   </p>
                 </div>
@@ -145,12 +143,12 @@ class StdSignUp extends React.Component {
                 </p>
               </div>
               <div className="uk-width-1-1 uk-text-center">
-                <a
-                  href="sign-in.html"
+                <Link
+                  to="/student/signin"
                   className="uk-button uk-button-success-outline uk-button-large"
                 >
                   Sign In
-                </a>
+                </Link>
               </div>
             </div>
           </div>

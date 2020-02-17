@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import Navbar from "../components/Navbar";
+import Navbar from '../components/Navbar';
 
 class ResetPassword extends Component {
   render() {

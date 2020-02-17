@@ -10,6 +10,8 @@ import ResetPassword from "./pages/ResetPassword";
 import Footer from "./components/Footer";
 
 import "./App.css";
+import LecturerSignIn from "./pages/LecturerSignIn";
+import LecturerSignUp from "./pages/LecturerSignUp";
 
 class App extends React.Component {
   render() {
@@ -20,7 +22,10 @@ class App extends React.Component {
           <Route exact path="/about" component={Landing} />
           <Route exact path="/student/signup" component={StdSignUp} />
           <Route exact path="/student/signin" component={StdSignIn} />
-          <Route exact path="/student/signin" component={StdSignIn} />
+          <Route exact path="/lecturer/signup" component={LecturerSignUp} />
+          <Route exact path="/lecturer/signin" component={LecturerSignIn} />
+          {/*multiple student signin paths*/}
+          {/*<Route exact path="/student/signin" component={StdSignIn} />*/}
           <Route exact path="/forgotpassword" component={ForgotPassword} />
           <Route exact path="/resetpassword" component={ResetPassword} />
         </Switch>

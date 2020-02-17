@@ -1,16 +1,20 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const NavMobile = props => (
-  <div id="offcanvas" data-uk-offcanvas="flip: true; overlay: true">
-    <div className="uk-offcanvas-bar">
-      <Link className="uk-logo" to="/">
+  <div
+    id="offcanvas"
+    data-uk-offcanvas="flip: true; overlay: true"
+    className="uk-width-1-2"
+  >
+    <div className="uk-offcanvas-bar uk-width-1-1">
+      <Link className="uk-logo uk-margin-medium-right" to="/">
         Lecture Monitor
       </Link>
       <button
         className="uk-offcanvas-close"
         type="button"
-        data-uk-close="ratio: 1.2"
+        data-uk-close="ratio: 1.2 "
       ></button>
       <ul className="uk-nav uk-nav-primary uk-nav-offcanvas uk-margin-medium-top uk-text-center">
         <li>
@@ -30,7 +34,10 @@ const NavMobile = props => (
         </li>
       </ul>
       <div className="uk-margin-medium-top">
-        <Link className="uk-button uk-width-1-1 uk-button-default" to="/signup">
+        <Link
+          className="uk-button uk-width-1-1 uk-button-default uk-padding-medium"
+          to="/signup"
+        >
           Sign Up
         </Link>
       </div>

@@ -3,7 +3,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 
 //THIS THE STUDENT SIGN UP PAGE
-class StdSignUp extends React.Component {
+class LecturerSignUp extends React.Component {
   render() {
     return (
       <React.Fragment>
@@ -24,7 +24,7 @@ class StdSignUp extends React.Component {
               </div>
               <div className="uk-text-center uk-margin-medium-bottom">
                 <h1 className="uk-letter-spacing-small">
-                  Create an Account as a Student
+                  Create an Account as a Lecturer
                 </h1>
               </div>
 
@@ -68,7 +68,7 @@ class StdSignUp extends React.Component {
 
                 <div className="uk-width-1-1 uk-margin">
                   <label className="uk-form-label" for="name">
-                    Index
+                    Staff ID
                   </label>
                   <input
                     id="name"
@@ -159,4 +159,4 @@ class StdSignUp extends React.Component {
     );
   }
 }
-export default StdSignUp;
+export default LecturerSignUp;

@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import Navbar from '../components/Navbar';
+import Navbar from "../components/Navbar";
 
 class Landing extends React.Component {
   render() {
@@ -10,7 +10,7 @@ class Landing extends React.Component {
         <header
           className="uk-cover-container uk-background-cover uk-background-norepeat uk-background-center-center"
           style={{
-            backgroundImage: 'url(../assets/students.jpg)'
+            backgroundImage: "url(../assets/students.jpg)"
           }}
         >
           {/* the background video */}
@@ -43,7 +43,7 @@ class Landing extends React.Component {
                     data-uk-scrollspy="cls: uk-animation-slide-bottom-medium; repeat: true"
                   >
                     <mark>The World's </mark>
-                    Smartest <mark>Lecture Monitoring</mark> system{' '}
+                    Smartest <mark>Lecture Monitoring</mark> system{" "}
                   </h1>
                   <div
                     className="uk-grid-collapse uk-width-3-4@m uk-margin-medium-top"
@@ -134,7 +134,7 @@ class Landing extends React.Component {
           <div className="uk-container">
             <div className="uk-width-4-5@m">
               <h2 className="uk-heading-small">
-                <mark>Lorem</mark> helloe hoer sdijfg asur sdfjger dsff{' '}
+                <mark>Lorem</mark> helloe hoer sdijfg asur sdfjger dsff{" "}
                 <mark>helaslfjf </mark>
               </h2>
             </div>
@@ -414,7 +414,7 @@ class Landing extends React.Component {
           className="uk-section uk-section-large uk-background-cover uk-background-norepeat 
   uk-background-center-center uk-background-blend-soft-light uk-light uk-background-primary"
           style={{
-            backgroundImage: 'url(https://placeholder.com)'
+            backgroundImage: "url(https://placeholder.com)"
           }}
         >
           <div className="uk-container uk-container-large">

@@ -1,8 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 
-class ForgotPassword extends Component {
+//THIS IS THE STUDENT SIGN IN PAGE
+class LecturerSignIn extends React.Component {
   render() {
     return (
       <React.Fragment>
@@ -13,27 +15,52 @@ class ForgotPassword extends Component {
             data-uk-height-viewport
           >
             <div className="uk-width-3-4@s">
+              <div className="uk-text-center uk-margin-bottom">
+                <a
+                  className="uk-logo uk-text-success uk-text-bold"
+                  href="index.html"
+                >
+                  Lecture Monitor
+                </a>
+              </div>
               <div className="uk-text-center uk-margin-medium-bottom">
-                <h3 className="uk-letter-spacing-small">
-                  Enter Email to reset your password
-                </h3>
+                <h1 className="uk-letter-spacing-small">Sign In</h1>
               </div>
 
               <form>
                 <div className="uk-width-1-1 uk-margin">
                   <label className="uk-form-label" for="name">
-                    Email
+                    Staff ID
                   </label>
                   <input
-                    id="idEmail"
+                    id="name"
                     className="uk-input uk-form-large"
                     type="text"
-                    placeholder=" Email"
+                    placeholder="9346517"
                   />
+                </div>
+                <div className="uk-width-1-1 uk-margin">
+                  <label className="uk-form-label" for="password">
+                    Password
+                  </label>
+                  <input
+                    id="password"
+                    className="uk-input uk-form-large"
+                    type="password"
+                    placeholder="***********"
+                  />
+                </div>
+                <div className="uk-width-1-1 uk-margin uk-text-center">
+                  <Link
+                    className="uk-text-small uk-link-muted"
+                    to="/forgotpassword"
+                  >
+                    Forgot your password?
+                  </Link>
                 </div>
                 <div className="uk-width-1-1 uk-text-center">
                   <button className="uk-button uk-button__animate uk-button-primary uk-button-large">
-                    Send password reset email
+                    Sign In
                   </button>
                 </div>
               </form>
@@ -69,4 +96,4 @@ class ForgotPassword extends Component {
   }
 }
 
-export default ForgotPassword;
+export default LecturerSignIn;

@@ -1,6 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import Navbar from '../components/Navbar';
+import Navbar from "../components/Navbar";
+import { Link } from "react-router-dom";
 
 //THIS IS THE STUDENT SIGN IN PAGE
 class StdSignIn extends React.Component {
@@ -46,13 +47,16 @@ class StdSignIn extends React.Component {
                     id="password"
                     className="uk-input uk-form-large"
                     type="password"
-                    placeholder="Min 8 characters"
+                    placeholder="**********"
                   />
                 </div>
                 <div className="uk-width-1-1 uk-margin uk-text-center">
-                  <a className="uk-text-small uk-link-muted" href="#">
+                  <Link
+                    className="uk-text-small uk-link-muted"
+                    to="/forgotpassword"
+                  >
                     Forgot your password?
-                  </a>
+                  </Link>
                 </div>
                 <div className="uk-width-1-1 uk-text-center">
                   <button className="uk-button uk-button__animate uk-button-primary uk-button-large">

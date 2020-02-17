@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = props => (
   <React.Fragment>
@@ -28,10 +28,16 @@ const Navbar = props => (
                   <div className="uk-navbar-dropdown">
                     <ul className="uk-nav uk-navbar-dropdown-nav">
                       <li>
-                        <Link to="/signin">Sign In</Link>
+                        <Link to="/lecturer/signin">Lecturer - Sign In</Link>
                       </li>
                       <li>
-                        <Link to="/signup">Sign Up</Link>
+                        <Link to="/lecturer/signup">Lecturer - Sign Up</Link>
+                      </li>
+                      <li>
+                        <Link to="/student/signin">Student - Sign In</Link>
+                      </li>
+                      <li>
+                        <Link to="/student/signup">Student - Sign Up</Link>
                       </li>
                     </ul>
                   </div>
@@ -49,12 +55,12 @@ const Navbar = props => (
                   </Link>
                 </div>
               </div>
-              <a
+              <Link
                 className="uk-navbar-toggle uk-hidden@m"
                 data-uk-toggle="target: #offcanvas"
               >
                 <span data-uk-navbar-toggle-icon></span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

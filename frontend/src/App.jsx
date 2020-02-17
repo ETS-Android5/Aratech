@@ -24,8 +24,6 @@ class App extends React.Component {
           <Route exact path="/student/signin" component={StdSignIn} />
           <Route exact path="/lecturer/signup" component={LecturerSignUp} />
           <Route exact path="/lecturer/signin" component={LecturerSignIn} />
-          {/*multiple student signin paths*/}
-          {/*<Route exact path="/student/signin" component={StdSignIn} />*/}
           <Route exact path="/forgotpassword" component={ForgotPassword} />
           <Route exact path="/resetpassword" component={ResetPassword} />
         </Switch>

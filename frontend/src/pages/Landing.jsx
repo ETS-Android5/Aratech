@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import Navbar from '../components/Navbar';
 
@@ -13,7 +12,6 @@ class Landing extends React.Component {
             backgroundImage: 'url(../assets/students.jpg)'
           }}
         >
-          {/* the background video */}
           <div className="uk-overlay uk-position-cover uk-overlay-video"></div>
           <Navbar />
           <div

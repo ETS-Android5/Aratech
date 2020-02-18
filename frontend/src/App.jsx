@@ -1,17 +1,17 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import NavMobile from "./components/NavMobile";
-import Landing from "./pages/Landing";
-import StdSignUp from "./pages/StdSignup";
-import StdSignIn from "./pages/StdSignIn";
-import ForgotPassword from "./pages/ForgotPassword";
-import ResetPassword from "./pages/ResetPassword";
-import Footer from "./components/Footer";
+import NavMobile from './components/NavMobile';
+import Landing from './pages/Landing';
+import StdSignUp from './pages/StdSignup';
+import StdSignIn from './pages/StdSignIn';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
+import Footer from './components/Footer';
+import LecturerSignIn from './pages/LecturerSignIn';
+import LecturerSignUp from './pages/LecturerSignUp';
 
-import "./App.css";
-import LecturerSignIn from "./pages/LecturerSignIn";
-import LecturerSignUp from "./pages/LecturerSignUp";
+import './App.css';
 
 class App extends React.Component {
   render() {

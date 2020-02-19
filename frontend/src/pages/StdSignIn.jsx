@@ -2,13 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Formik } from 'formik';
+import toaster from 'toasted-notes';
 import * as Yup from 'yup';
 
 import Navbar from '../components/Navbar';
 import { Link } from 'react-router-dom';
 
+import { signinStudent } from '../store/actions/authActions';
+
 const validationSchema = Yup.object().shape({
-  indexNo: Yup.number('Must be a number').required('Index No is required'),
+  indexNo: Yup.number('Must be a number')
+    .min(1000000, 'Should be at least 7 digits')
+    .max(99999999, 'Should not be more than 8 digits')
+    .required('Index No is required'),
   password: Yup.string()
     .min(8, 'Password must be 8 characters or more')
     .max(32, 'Password cannot be more than 32 characters')
@@ -17,14 +23,30 @@ const validationSchema = Yup.object().shape({
 
 //THIS IS THE STUDENT SIGN IN PAGE
 class StdSignIn extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isLoading: false
+    };
+  }
+
   componentDidMount() {
+    const { isAuthenticated, isStudent, isLecturer, history } = this.props;
     //check if user isn't already authenticated
-    if (this.props.auth.isAuthenticated) {
-      this.props.history.push('/');
+    if (isAuthenticated) {
+      //check if user is logged in as student or lecturer
+      if (isStudent) {
+        history.push('/student/home');
+      } else if (isLecturer) {
+        history.push('/lecturer/home');
+      }
     }
   }
 
   render() {
+    const { history, signinStudent } = this.props;
+    const { isLoading } = this.state;
     return (
       <React.Fragment>
         <Navbar />
@@ -45,7 +67,24 @@ class StdSignIn extends React.Component {
               <Formik
                 initialValues={{ indexNo: '', password: '' }}
                 validationSchema={validationSchema}
-                onSubmit={(values, { setSubmitting }) => {}}
+                onSubmit={async values => {
+                  this.setState({
+                    isLoading: true
+                  });
+                  const error = await signinStudent(values, history);
+                  if (error) {
+                    this.setState({
+                      isLoading: false
+                    });
+                    toaster.notify(error, {
+                      duration: 3000,
+                      position: 'top-right'
+                    });
+                    //reset the fields
+                    values.indexNo = '';
+                    values.password = '';
+                  }
+                }}
               >
                 {({
                   values,
@@ -53,7 +92,6 @@ class StdSignIn extends React.Component {
                   touched,
                   handleChange,
                   handleBlur,
-                  isSubmitting,
                   handleSubmit
                 }) => (
                   <form onSubmit={handleSubmit}>
@@ -74,7 +112,7 @@ class StdSignIn extends React.Component {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         placeholder="9346517"
-                        disabled={isSubmitting}
+                        disabled={isLoading}
                       />
                       {touched.indexNo && errors.indexNo ? (
                         <p className="uk-text-danger">{errors.indexNo}</p>
@@ -98,7 +136,7 @@ class StdSignIn extends React.Component {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         placeholder="**********"
-                        disabled={isSubmitting}
+                        disabled={isLoading}
                       />
                       {touched.password && errors.password ? (
                         <p className="uk-text-danger">{errors.password}</p>
@@ -117,6 +155,7 @@ class StdSignIn extends React.Component {
                       <button
                         className="uk-button uk-button__animate uk-button-primary uk-button-large"
                         type="submit"
+                        disabled={isLoading}
                       >
                         Sign In
                       </button>
@@ -156,8 +195,14 @@ class StdSignIn extends React.Component {
   }
 }
 
-const matchStateToProps = ({ auth }) => ({
-  auth
+const matchStateToProps = ({
+  auth: { isAuthenticated, isStudent, isLecturer }
+}) => ({
+  isAuthenticated,
+  isStudent,
+  isLecturer
 });
 
-export default connect(matchStateToProps)(withRouter(StdSignIn));
+export default connect(matchStateToProps, { signinStudent })(
+  withRouter(StdSignIn)
+);

@@ -10,7 +10,7 @@ class Landing extends React.Component {
         <header
           className="uk-cover-container uk-background-cover uk-background-norepeat uk-background-center-center"
           style={{
-            backgroundImage: "url(../assets/students.jpg)"
+            backgroundImage: "url(" + require("../assets/students.jpg") + ")"
           }}
         >
           {/* the background video */}

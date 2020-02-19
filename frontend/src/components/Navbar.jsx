@@ -20,7 +20,7 @@ const Navbar = props => (
                 <li className="uk-active">
                   <Link to="/">Home</Link>
                 </li>
-                <li>
+                <li style={{ color: "white" }}>
                   <Link to="/contact">contact</Link>
                 </li>
                 <li>

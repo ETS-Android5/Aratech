@@ -28,7 +28,7 @@ const Navbar = props => (
                   <div className="uk-navbar-dropdown">
                     <ul className="uk-nav uk-navbar-dropdown-nav">
                       <li>
-                        <a href="/lecturer/signin">Lecturer - Sign In</a>
+                        <Link to="/lecturer/signin">Lecturer - Sign In</Link>
                       </li>
                       <li>
                         <Link to="/lecturer/signup">Lecturer - Sign Up</Link>

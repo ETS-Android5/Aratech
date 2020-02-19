@@ -77,7 +77,10 @@ exports.studentSignup = async (req, res) => {
   //sign a token for user
   const token = jwt.sign(
     {
-      id: student._id
+      id: student._id,
+      indexNo: student.indexNo,
+      email: student.email,
+      phoneNo: student.phoneNo
     },
     process.env.SECRET_OR_KEY,
     {
@@ -135,7 +138,7 @@ exports.lecturerSignup = async (req, res) => {
     });
   }
 
-  //create a new lecturer doc
+  //create a new lecturer document
   const lecturer = new Lecturer(req.body);
   //hash the user password
   const password = await bcrypt.hash(req.body.password, 12);
@@ -145,7 +148,7 @@ exports.lecturerSignup = async (req, res) => {
   const confirmationToken = crypto.randomBytes(32).toString('hex');
   lecturer.confirmationToken = confirmationToken;
 
-  //save the new student doc
+  //save the new lecturer document
   await lecturer.save();
 
   //send user a confirmation email
@@ -154,7 +157,9 @@ exports.lecturerSignup = async (req, res) => {
   //sign a token for user
   const token = jwt.sign(
     {
-      id: lecturer._id
+      id: lecturer._id,
+      email: lecturer.email,
+      phoneNo: lecturer.phoneNo
     },
     process.env.SECRET_OR_KEY,
     {
@@ -170,3 +175,126 @@ exports.lecturerSignup = async (req, res) => {
     }
   });
 };
+
+//student signin controller
+exports.studentSignin = async (req, res) => {
+  //validate student login inputs
+  const schema = Joi.object({
+    indexNo: Joi.number().required(),
+    password: Joi.string()
+      .min(8)
+      .max(32)
+      .required()
+  });
+  try {
+    await schema.validateAsync(req.body);
+  } catch (error) {
+    //error occurred while validating logging inputs
+    return res.status(400).json({
+      status: 'fail',
+      message: error.message
+    });
+  }
+
+  // no error occurred in validating loggin inputs
+  //check if the user index number exist, if no, direct user to signup
+  const student = await Student.findOne({ indexNo: req.body.indexNo });
+  if (!student) {
+    return res.status(404).json({
+      status: 'fail',
+      message: 'User is not registered! Please signup first!'
+    });
+  }
+  // compare user input password with password in database
+  const passMatch = await bcrypt.compare(req.body.password, student.password);
+  if (!passMatch) {
+    return res.status(400).json({
+      status: 'fail',
+      message: 'Password entered is incorrect! Enter the correct password'
+    });
+  }
+  //no err
+  //sign a token for user
+  const token = jwt.sign(
+    {
+      id: student._id,
+      indexNo: student.indexNo,
+      email: student.email,
+      phoneNo: student.phoneNo
+    },
+    process.env.SECRET_OR_KEY,
+    {
+      expiresIn: '2d'
+    }
+  );
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      token,
+      student
+    }
+  });
+};
+
+//lecturer signin controller
+exports.lecturerSignin = async (req, res) => {
+  //validate lecturer login inputs
+  const schema = Joi.object({
+    email: Joi.string().required(),
+    password: Joi.string()
+      .min(8)
+      .max(32)
+      .required()
+  });
+  try {
+    await schema.validateAsync(req.body);
+  } catch (error) {
+    //error occurred while validating logging inputs
+    return res.status(400).json({
+      status: 'fail',
+      message: error.message
+    });
+  }
+
+  // no error occurred in validating loggin inputs
+  //check if the user email exist, if no, direct user to signup
+  const lecturer = await Lecturer.findOne({ email: req.body.email });
+  if (!lecturer) {
+    return res.status(404).json({
+      status: 'fail',
+      message: 'User is not registered! Please signup first!'
+    });
+  }
+  // compare user input password with password in database
+  const ismatch = await bcrypt.compare(req.body.password, lecturer.password);
+  if (!ismatch) {
+    return res.status(400).json({
+      status: 'fail',
+      message:
+        'Password entered does not match user passowrd! Enter the correct password'
+    });
+  }
+  //no errors found in entered login inputs
+  //sign a token for the user
+  const token = jwt.sign(
+    {
+      id: lecturer._id,
+      email: lecturer.email,
+      phoneNo: lecturer.phoneNo
+    },
+    process.env.SECRET_OR_KEY,
+    {
+      expiresIn: '2d'
+    }
+  );
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      token,
+      lecturer
+    }
+  });
+};
+//Student Sign in controller

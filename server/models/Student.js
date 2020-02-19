@@ -37,10 +37,6 @@ const StudentSchema = new Schema({
     type: Boolean,
     default: false
   },
-  level: {
-    type: Number,
-    required: true
-  },
   isEmailVerified: {
     type: Boolean,
     default: false

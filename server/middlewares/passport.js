@@ -18,13 +18,13 @@ passport.use(
     try {
       const lecturer = await Lecturer.findById(payload.id);
       if (lecturer) {
-        done(null, lecturer);
+        done(null, { lecturer });
       } else {
         //check if it's a student
         try {
           const student = await Student.findById(payload.id);
           if (student) {
-            done(null, student);
+            done(null, { student });
           }
           i;
         } catch (error) {
@@ -38,7 +38,7 @@ passport.use(
       try {
         const student = await Student.findById(payload.id);
         if (student) {
-          done(null, student);
+          done(null, { student });
         }
         i;
       } catch (error) {

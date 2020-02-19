@@ -6,16 +6,13 @@ const DepartmentSchema = new Schema({
     type: String,
     required: true
   },
-  level: {
-    levelNo: Number,
-    courses: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Course',
-        required: true
-      }
-    ]
-  }
+  courses: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Course',
+      required: true
+    }
+  ]
 });
 
 module.exports = mongoose.model('Department', DepartmentSchema);

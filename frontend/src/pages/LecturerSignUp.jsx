@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import Navbar from "../components/Navbar";
+import Navbar from '../components/Navbar';
 
 //THIS THE STUDENT SIGN UP PAGE
 class LecturerSignUp extends React.Component {
@@ -15,12 +16,9 @@ class LecturerSignUp extends React.Component {
           >
             <div className="uk-width-3-4@s">
               <div className="uk-text-center uk-margin-bottom">
-                <a
-                  className="uk-logo uk-text-success uk-text-bold"
-                  href="index.html"
-                >
-                  LECTURE MONITOR
-                </a>
+                <Link className="uk-logo uk-text-success uk-text-bold" to="/">
+                  Lecture Monitor
+                </Link>
               </div>
               <div className="uk-text-center uk-margin-medium-bottom">
                 <h1 className="uk-letter-spacing-small">
@@ -120,10 +118,10 @@ class LecturerSignUp extends React.Component {
                 </div>
                 <div className="uk-width-1-1 uk-margin uk-text-center">
                   <p className="uk-text-small uk-margin-remove">
-                    By signing up you agree to our{" "}
+                    By signing up you agree to our{' '}
                     <a className="uk-link-border" href="#">
                       terms
-                    </a>{" "}
+                    </a>{' '}
                     of service.
                   </p>
                 </div>
@@ -141,16 +139,17 @@ class LecturerSignUp extends React.Component {
               </div>
               <div className="uk-margin-top uk-margin-medium-bottom uk-text-center">
                 <p>
-                  Already signed up, enter your details to Login to your Account
+                  Already signed up? , enter your details to Login to your
+                  Account
                 </p>
               </div>
               <div className="uk-width-1-1 uk-text-center">
-                <a
-                  href="sign-in.html"
+                <Link
+                  to="/lecturer/signin"
                   className="uk-button uk-button-success-outline uk-button-large"
                 >
                   Sign In
-                </a>
+                </Link>
               </div>
             </div>
           </div>

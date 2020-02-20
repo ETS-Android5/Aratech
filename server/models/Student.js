@@ -30,20 +30,21 @@ const StudentSchema = new Schema({
     required: true
   },
   phoneNo: {
-    type: Number,
+    type: String,
     required: true
   },
   cRep: {
     type: Boolean,
     default: false
   },
-  level: {
-    type: Number,
-    required: true
+  isEmailVerified: {
+    type: Boolean,
+    default: false
   },
   confirmationToken: String,
+  confirmationTokenExpires: Date,
   passwordResetToken: String,
-  passwordResetDate: Date
+  passwordResetTokenExpires: Date
 });
 
 module.exports = mongoose.model('Student', StudentSchema);

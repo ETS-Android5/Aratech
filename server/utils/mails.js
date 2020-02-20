@@ -16,7 +16,8 @@ exports.sendConfirmationEmail = async (email, confirmationToken) => {
       'You are receiving this email to confirm your account registered with \n' +
       'LECTURE MONITOR. Please click on the link below or copy and paste in your browser to\n' +
       'Complete the verification process\n\n' +
-      `${process.env.FRONTEND_URL}/confirmemail/${confirmationToken}`,
+      'http://localhost:3000/confirmemail/' +
+      confirmationToken,
     subject: 'Confirm Your Email'
   };
 

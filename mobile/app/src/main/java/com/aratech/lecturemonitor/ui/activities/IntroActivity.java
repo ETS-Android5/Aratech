@@ -6,6 +6,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -25,6 +26,8 @@ public class IntroActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private Button btnNext;
+
+    //titles for the intro screen
     private String[] about_title_array = {
             "Take charge with your phone",
             "Important notifications only",
@@ -37,6 +40,7 @@ public class IntroActivity extends AppCompatActivity {
             "A smart and highly secured QR code based attendance system",
             "All to equip you as you journey to the final day!!!",
     };
+    // images for the intro screen
     private int[] about_images_array = {
             R.drawable.img_wizard_1,
             R.drawable.img_wizard_2,
@@ -62,7 +66,9 @@ public class IntroActivity extends AppCompatActivity {
         //add bottom progress dots
         bottomProgressDots(0);
 
-        //set up adapter
+        /*set up adapter
+        *it is related to the splash and intro screen
+        */
         IntroPagerAdapter introPagerAdapter = new IntroPagerAdapter();
         viewPager.setAdapter(introPagerAdapter);
         viewPager.addOnPageChangeListener(viewPagerChangeListener);
@@ -74,9 +80,9 @@ public class IntroActivity extends AppCompatActivity {
                     // move to next screen
                     viewPager.setCurrentItem(current);
                 } else {
-                    //todo: move to the sign in and sign up screens
-                    Toast.makeText(IntroActivity.this, "Finish clicked", Toast.LENGTH_SHORT)
-                        .show();
+                    Intent intent = new Intent(IntroActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
                 }
             }
         });
@@ -110,6 +116,7 @@ public class IntroActivity extends AppCompatActivity {
 
         }
 
+        //
         @Override
         public void onPageSelected(int position) {
             bottomProgressDots(position);

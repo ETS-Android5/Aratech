@@ -18,18 +18,17 @@ exports.studentSignup = async (req, res) => {
     lName: Joi.string()
       .alphanum()
       .required(),
-    otherNames: Joi.string().alphanum(),
+    otherNames: Joi.string(),
     email: Joi.string()
       .email()
       .required(),
     indexNo: Joi.number().required(),
     department: Joi.string().required(),
+    phoneNo: Joi.string().required(),
     password: Joi.string()
       .min(8)
       .max(32)
-      .required(),
-    phoneNo: Joi.string().required(),
-    level: Joi.number().required()
+      .required()
   });
   try {
     await schema.validateAsync(req.body);

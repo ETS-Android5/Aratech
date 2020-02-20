@@ -4,9 +4,9 @@ import { withRouter } from 'react-router-dom';
 import { Formik } from 'formik';
 import toaster from 'toasted-notes';
 import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
 
 import Navbar from '../components/Navbar';
-import { Link } from 'react-router-dom';
 
 import { signinStudent } from '../store/actions/authActions';
 

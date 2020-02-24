@@ -297,4 +297,4 @@ exports.lecturerSignin = async (req, res) => {
     }
   });
 };
-//Student Sign in controller
+

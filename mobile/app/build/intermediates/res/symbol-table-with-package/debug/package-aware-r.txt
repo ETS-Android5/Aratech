@@ -2045,7 +2045,9 @@ id baseline
 id beginning
 id blocking
 id bottom
+id btn_login
 id btn_next
+id btn_signup
 id buttonPanel
 id cancel_action
 id center
@@ -2085,6 +2087,9 @@ id end
 id end_padder
 id enterAlways
 id enterAlwaysCollapsed
+id et_cpassword
+id et_password
+id et_username
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -2330,6 +2335,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_intro
+layout activity_login
 layout activity_main
 layout chip_view
 layout chips_input

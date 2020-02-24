@@ -1,29 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
+            "outputFile": "/Users/kwameoppong/Desktop/lecture-monitor/mobile/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\4b21fcbd437a27ead5e85731efacc30e\\jetified-materialdatetimepicker-3.2.0\\res\\values-v16\\values-v16.xml",
-                    "from": {
-                        "startLines": "2,3,6,9",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,153,286,405",
-                        "endLines": "2,5,8,11",
-                        "endColumns": "97,12,12,12",
-                        "endOffsets": "148,281,400,517"
-                    },
-                    "to": {
-                        "startLines": "3,8,11,14",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "121,392,525,644",
-                        "endLines": "3,10,13,16",
-                        "endColumns": "97,12,12,12",
-                        "endOffsets": "214,520,639,756"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\values-v16\\values-v16.xml",
+                    "source": "/Users/kwameoppong/.gradle/caches/transforms-2/files-2.1/6119d746697059b7e1b74aab4d181f56/appcompat-1.1.0/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -42,7 +23,26 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\e9dab9c67c1ee3668e0bbf86c6d8cbd8\\core-1.1.0\\res\\values-v16\\values-v16.xml",
+                    "source": "/Users/kwameoppong/.gradle/caches/transforms-2/files-2.1/57c86ff7aa4c1c6b2d77e7dadd2af7b4/jetified-materialdatetimepicker-3.2.0/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2,3,6,9",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,153,286,405",
+                        "endLines": "2,5,8,11",
+                        "endColumns": "97,12,12,12",
+                        "endOffsets": "148,281,400,517"
+                    },
+                    "to": {
+                        "startLines": "3,8,11,14",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "121,392,525,644",
+                        "endLines": "3,10,13,16",
+                        "endColumns": "97,12,12,12",
+                        "endOffsets": "214,520,639,756"
+                    }
+                },
+                {
+                    "source": "/Users/kwameoppong/.gradle/caches/transforms-2/files-2.1/e9dab9c67c1ee3668e0bbf86c6d8cbd8/core-1.1.0/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

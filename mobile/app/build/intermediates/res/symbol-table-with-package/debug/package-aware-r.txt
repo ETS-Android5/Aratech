@@ -1967,6 +1967,7 @@ drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable txt_area_dark_yellow
 drawable world_map
+font montserrat
 id ALT
 id CTRL
 id FUNCTION
@@ -2045,6 +2046,8 @@ id baseline
 id beginning
 id blocking
 id bottom
+id bt_lecturer
+id bt_student
 id btn_login
 id btn_next
 id btn_signup
@@ -2126,6 +2129,7 @@ id line1
 id line3
 id listMode
 id list_item
+id lyt_action
 id lyt_parent
 id masked
 id mdtp_am_label
@@ -2355,6 +2359,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout detailed_chip_view
+layout dialog_info
 layout item_intro
 layout item_list_filterable
 layout list_filterable_view
@@ -2434,6 +2439,8 @@ string chip_ellipsis
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string hide_bottom_view_on_scroll_behavior
+string intro_continue
+string lecturer
 string mdtp_am
 string mdtp_ampm_circle_radius_multiplier
 string mdtp_cancel
@@ -2478,6 +2485,7 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string search_menu_title
 string status_bar_notification_info_overflow
+string student
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

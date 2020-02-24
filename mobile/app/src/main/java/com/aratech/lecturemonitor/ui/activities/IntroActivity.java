@@ -2,9 +2,11 @@ package com.aratech.lecturemonitor.ui.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
@@ -12,6 +14,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -20,6 +24,8 @@ import android.widget.Toast;
 
 import com.aratech.lecturemonitor.R;
 import com.aratech.lecturemonitor.utils.Tools;
+
+import java.util.Objects;
 
 public class IntroActivity extends AppCompatActivity {
     private static int MAX_STEP = 4;
@@ -80,9 +86,7 @@ public class IntroActivity extends AppCompatActivity {
                     // move to next screen
                     viewPager.setCurrentItem(current);
                 } else {
-                    Intent intent = new Intent(IntroActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                    finish();
+                    showCustomDialog();
                 }
             }
         });
@@ -108,6 +112,38 @@ public class IntroActivity extends AppCompatActivity {
             dots[current_index].setImageResource(R.drawable.shape_circle);
             dots[current_index].setColorFilter(getResources().getColor(R.color.blue_400), PorterDuff.Mode.SRC_IN);
         }
+    }
+
+    private void showCustomDialog() {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
+        dialog.setContentView(R.layout.dialog_info);
+        dialog.setCancelable(true);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(Objects.requireNonNull(dialog.getWindow()).getAttributes());
+        lp.width = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
+
+        dialog.findViewById(R.id.bt_lecturer).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), ((AppCompatButton) v).getText().toString() + " Clicked", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+
+        dialog.findViewById(R.id.bt_student).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), ((AppCompatButton) v).getText().toString() + " Clicked", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+        dialog.getWindow().setAttributes(lp);
     }
 
     ViewPager.OnPageChangeListener viewPagerChangeListener = new ViewPager.OnPageChangeListener() {

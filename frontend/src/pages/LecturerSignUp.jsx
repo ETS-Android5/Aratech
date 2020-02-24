@@ -13,7 +13,7 @@ import Navbar from '../components/Navbar';
 //create a validation schema for the form
 const lecValidationSchema = Yup.object().shape({
   firstName: Yup.string().required('First Name is required'),
-  LastName: Yup.string().required('Last Name is required'),
+  lastName: Yup.string().required('Last Name is required'),
   email: Yup.string()
     .email('Must be a valid email')
     .required('Must provide email'),
@@ -78,6 +78,7 @@ class LecturerSignUp extends React.Component {
                 initialValues={{
                   firstName: '',
                   lastName: '',
+                  otherNames: '',
                   email: '',
                   phoneNo: '',
                   password: '',
@@ -104,6 +105,7 @@ class LecturerSignUp extends React.Component {
                     //reset the fields
                     values.firstName = '';
                     values.lastName = '';
+                    values.otherNames = '';
                     values.email = '';
                     values.phoneNo = '';
                     values.password = '';
@@ -121,11 +123,11 @@ class LecturerSignUp extends React.Component {
                 }) => (
                   <form onSubmit={handleSubmit}>
                     <div className="uk-width-1-1 uk-margin">
-                      <label className="uk-form-label" htmlFor="name">
+                      <label className="uk-form-label" htmlFor="firstName">
                         First name
                       </label>
                       <input
-                        id="name"
+                        id="firstName"
                         className={`uk-input uk-form-large ${
                           touched.firstName && errors.firstName
                             ? 'uk-form-danger'
@@ -138,17 +140,48 @@ class LecturerSignUp extends React.Component {
                         onBlur={handleBlur}
                         disabled={isLoading}
                       />
+                      {touched.firstName && errors.firstName ? (
+                        <p className="uk-text-danger">{errors.firstName}</p>
+                      ) : null}
                     </div>
 
                     <div className="uk-width-1-1 uk-margin">
-                      <label className="uk-form-label" htmlFor="name">
+                      <label className="uk-form-label" htmlFor="lastName">
                         Last name
                       </label>
                       <input
-                        id="name"
-                        className="uk-input uk-form-large"
+                        id="lastName"
+                        className={`uk-input uk-form-large ${
+                          touched.lastName && errors.lastName
+                            ? 'uk-form-danger'
+                            : null
+                        }`}
                         type="text"
                         placeholder="AraTech"
+                        value={values.lastName}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        disabled={isLoading}
+                      />
+                      {touched.lastName && errors.lastName ? (
+                        <p className="uk-text-danger">{errors.lastName}</p>
+                      ) : null}
+                    </div>
+
+                    <div className="uk-width-1-1 uk-margin">
+                      <label className="uk-form-label" htmlFor="otherNames">
+                        Other Names (Optional)
+                      </label>
+                      <input
+                        id="otherNames"
+                        name="otherNames"
+                        className="uk-input uk-form-large "
+                        type="text"
+                        value={values.otherNames}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        placeholder="AraTech"
+                        disabled={isLoading}
                       />
                     </div>
 
@@ -161,7 +194,7 @@ class LecturerSignUp extends React.Component {
                         name="email"
                         className="uk-input uk-form-large"
                         type="email"
-                        placeholder="aratech@gmail.com"
+                        placeholder="group.aratech@gmail.com"
                       />
                     </div>
 

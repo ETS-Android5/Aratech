@@ -1,4 +1,3 @@
-//External imports
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -7,10 +6,8 @@ import { Formik } from 'formik';
 import toaster from 'toasted-notes';
 import * as Yup from 'yup';
 
-//internally created components imports
 import Navbar from '../components/Navbar';
 
-//
 import { signinLecturer } from '../store/actions/authActions';
 
 //Create a schema to validate the lecturer using Yup.

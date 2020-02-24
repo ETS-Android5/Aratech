@@ -2,4 +2,7 @@
     <string name="app_name">Lecture Monitor</string>
     <string name="NEXT">NEXT</string>
     <string name="CONTINUE">CONTINUE</string>
+    <string name="intro_continue">Continue as a STUDENT or LECTURER</string>
+    <string name="student">Student</string>
+    <string name="lecturer">Lecturer</string>
 </resources>

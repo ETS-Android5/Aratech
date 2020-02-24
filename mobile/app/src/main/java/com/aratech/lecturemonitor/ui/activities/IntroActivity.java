@@ -2,15 +2,20 @@ package com.aratech.lecturemonitor.ui.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -20,11 +25,15 @@ import android.widget.Toast;
 import com.aratech.lecturemonitor.R;
 import com.aratech.lecturemonitor.utils.Tools;
 
+import java.util.Objects;
+
 public class IntroActivity extends AppCompatActivity {
     private static int MAX_STEP = 4;
 
     private ViewPager viewPager;
     private Button btnNext;
+
+    //titles for the intro screen
     private String[] about_title_array = {
             "Take charge with your phone",
             "Important notifications only",
@@ -37,6 +46,7 @@ public class IntroActivity extends AppCompatActivity {
             "A smart and highly secured QR code based attendance system",
             "All to equip you as you journey to the final day!!!",
     };
+    // images for the intro screen
     private int[] about_images_array = {
             R.drawable.img_wizard_1,
             R.drawable.img_wizard_2,
@@ -62,7 +72,9 @@ public class IntroActivity extends AppCompatActivity {
         //add bottom progress dots
         bottomProgressDots(0);
 
-        //set up adapter
+        /*set up adapter
+        *it is related to the splash and intro screen
+        */
         IntroPagerAdapter introPagerAdapter = new IntroPagerAdapter();
         viewPager.setAdapter(introPagerAdapter);
         viewPager.addOnPageChangeListener(viewPagerChangeListener);
@@ -74,9 +86,7 @@ public class IntroActivity extends AppCompatActivity {
                     // move to next screen
                     viewPager.setCurrentItem(current);
                 } else {
-                    //todo: move to the sign in and sign up screens
-                    Toast.makeText(IntroActivity.this, "Finish clicked", Toast.LENGTH_SHORT)
-                        .show();
+                    showCustomDialog();
                 }
             }
         });
@@ -104,12 +114,45 @@ public class IntroActivity extends AppCompatActivity {
         }
     }
 
+    private void showCustomDialog() {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
+        dialog.setContentView(R.layout.dialog_info);
+        dialog.setCancelable(true);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(Objects.requireNonNull(dialog.getWindow()).getAttributes());
+        lp.width = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
+
+        dialog.findViewById(R.id.bt_lecturer).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), ((AppCompatButton) v).getText().toString() + " Clicked", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+
+        dialog.findViewById(R.id.bt_student).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), ((AppCompatButton) v).getText().toString() + " Clicked", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+        dialog.getWindow().setAttributes(lp);
+    }
+
     ViewPager.OnPageChangeListener viewPagerChangeListener = new ViewPager.OnPageChangeListener() {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
         }
 
+        //
         @Override
         public void onPageSelected(int position) {
             bottomProgressDots(position);

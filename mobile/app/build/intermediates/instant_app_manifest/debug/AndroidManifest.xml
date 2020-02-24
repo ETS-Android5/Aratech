@@ -22,6 +22,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.aratech.lecturemonitor.ui.activities.LoginActivity" />
         <activity android:name="com.aratech.lecturemonitor.ui.activities.IntroActivity" />
         <activity
             android:name="com.aratech.lecturemonitor.ui.activities.MainActivity"

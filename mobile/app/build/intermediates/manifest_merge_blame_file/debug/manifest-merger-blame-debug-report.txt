@@ -15,7 +15,7 @@
 11-->[com.wdullaer:materialdatetimepicker:3.2.0] C:\Users\fgyim\.gradle\caches\transforms-2\files-2.1\4b21fcbd437a27ead5e85731efacc30e\jetified-materialdatetimepicker-3.2.0\AndroidManifest.xml:26:22-63
 12
 13    <application
-13-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:5:5-27:19
+13-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:5:5-30:19
 14        android:name="com.aratech.lecturemonitor.MyApp"
 14-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:6:9-30
 15        android:allowBackup="true"
@@ -34,29 +34,41 @@
 22        android:testOnly="true"
 23        android:theme="@style/AppTheme" >
 23-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:12:9-40
-24        <activity android:name="com.aratech.lecturemonitor.ui.activities.IntroActivity" />
-24-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:13:9-74
-24-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:13:19-62
-25        <activity
-25-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:14:9-26:20
-26            android:name="com.aratech.lecturemonitor.ui.activities.MainActivity"
-26-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:15:13-55
-27            android:screenOrientation="portrait" >
-27-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:16:13-49
-28            <intent-filter>
-28-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:20:13-25:29
-29                <action android:name="android.intent.action.MAIN" />
-29-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:21:17-69
-29-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:21:25-66
-30                <action android:name="android.intent.action.VIEW" />
-30-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:22:17-69
-30-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:22:25-66
-31
-32                <category android:name="android.intent.category.LAUNCHER" />
-32-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:24:17-77
-32-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:24:27-74
-33            </intent-filter>
-34        </activity>
-35    </application>
-36
-37</manifest>
+24        <activity
+24-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:13:9-15:51
+25            android:name="com.aratech.lecturemonitor.ui.activities.students.StudentSignupActivity"
+25-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:14:13-73
+26            android:screenOrientation="portrait" />
+26-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:15:13-49
+27        <activity
+27-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:16:9-18:51
+28            android:name="com.aratech.lecturemonitor.ui.activities.students.StudentLoginActivity"
+28-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:17:13-72
+29            android:screenOrientation="portrait" />
+29-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:18:13-49
+30        <activity android:name="com.aratech.lecturemonitor.ui.activities.IntroActivity" />
+30-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:19:9-65
+30-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:19:19-62
+31        <activity
+31-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:20:9-29:20
+32            android:name="com.aratech.lecturemonitor.ui.activities.MainActivity"
+32-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:21:13-55
+33            android:screenOrientation="portrait" >
+33-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:22:13-49
+34            <intent-filter>
+34-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:23:13-28:29
+35                <action android:name="android.intent.action.MAIN" />
+35-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:24:17-69
+35-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:24:25-66
+36                <action android:name="android.intent.action.VIEW" />
+36-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:25:17-69
+36-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:25:25-66
+37
+38                <category android:name="android.intent.category.LAUNCHER" />
+38-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:27:17-77
+38-->D:\HUB\lecture-monitor\mobile\app\src\main\AndroidManifest.xml:27:27-74
+39            </intent-filter>
+40        </activity>
+41    </application>
+42
+43</manifest>

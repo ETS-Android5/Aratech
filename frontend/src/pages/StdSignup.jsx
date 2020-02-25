@@ -36,7 +36,7 @@ class StdSignUp extends React.Component {
         .required('Index No is required'),
       department: Yup.string().oneOf(
         this.props.departmentIDs,
-        'Must be a valid department'
+        'Must select a department'
       ),
       phoneNo: Yup.string()
         .matches(

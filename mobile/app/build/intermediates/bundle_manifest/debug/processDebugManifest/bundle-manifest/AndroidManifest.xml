@@ -21,6 +21,12 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.aratech.lecturemonitor.ui.activities.students.StudentSignupActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.aratech.lecturemonitor.ui.activities.students.StudentLoginActivity"
+            android:screenOrientation="portrait" />
         <activity android:name="com.aratech.lecturemonitor.ui.activities.IntroActivity" />
         <activity
             android:name="com.aratech.lecturemonitor.ui.activities.MainActivity"

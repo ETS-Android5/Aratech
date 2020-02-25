@@ -29,6 +29,9 @@ anim design_snackbar_in
 anim design_snackbar_out
 anim floating_up
 anim slide_in_bottom
+anim slide_in_left
+anim slide_in_right
+anim stay
 animator design_appbar_state_list_animator
 animator design_fab_hide_motion_spec
 animator design_fab_show_motion_spec
@@ -303,6 +306,7 @@ attr fastScrollVerticalThumbDrawable
 attr fastScrollVerticalTrackDrawable
 attr filterable_list_backgroundColor
 attr filterable_list_textColor
+attr finalCornerAngle
 attr firstBaselineToTopHeight
 attr fix_gap
 attr flexDirection
@@ -352,6 +356,7 @@ attr iconifiedByDefault
 attr imageButtonStyle
 attr indeterminateProgressStyle
 attr initialActivityCount
+attr initialCornerAngle
 attr insetForeground
 attr isLightTheme
 attr itemBackground
@@ -560,6 +565,9 @@ attr spanCount
 attr spinBars
 attr spinnerDropDownItemStyle
 attr spinnerStyle
+attr spinning_bar_color
+attr spinning_bar_padding
+attr spinning_bar_width
 attr splitTrack
 attr srcCompat
 attr stackFromEnd
@@ -731,6 +739,7 @@ color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
 color background_material_light
+color black
 color blue_100
 color blue_200
 color blue_300
@@ -789,6 +798,8 @@ color colorCloseChip
 color colorPrimary
 color colorPrimaryDark
 color colorPrimaryLight
+color color_button_default
+color contentTextColor
 color cyan_100
 color cyan_200
 color cyan_300
@@ -804,6 +815,7 @@ color cyan_A100
 color cyan_A200
 color cyan_A400
 color cyan_A700
+color darkTextColor
 color deep_orange_100
 color deep_orange_200
 color deep_orange_300
@@ -853,6 +865,7 @@ color error_color_material_dark
 color error_color_material_light
 color foreground_material_dark
 color foreground_material_light
+color green
 color green_100
 color green_200
 color green_300
@@ -944,6 +957,7 @@ color lime_A100
 color lime_A200
 color lime_A400
 color lime_A700
+color login_bk_color
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -1074,6 +1088,7 @@ color pink_A100
 color pink_A200
 color pink_A400
 color pink_A700
+color primaryTextColor
 color primary_dark_material_dark
 color primary_dark_material_light
 color primary_material_dark
@@ -1110,6 +1125,7 @@ color red_A100
 color red_A200
 color red_A400
 color red_A700
+color register_bk_color
 color ripple_material_dark
 color ripple_material_light
 color secondary_text_default_material_dark
@@ -1140,6 +1156,7 @@ color teal_A700
 color tooltip_background_dark
 color tooltip_background_light
 color transparent
+color whiteTextColor
 color white_transparency
 color yellow_100
 color yellow_200
@@ -1303,6 +1320,7 @@ dimen fab_margin
 dimen fastscroll_default_thickness
 dimen fastscroll_margin
 dimen fastscroll_minimum_range
+dimen headerTextSize
 dimen highlight_alpha_material_colored
 dimen highlight_alpha_material_dark
 dimen highlight_alpha_material_light
@@ -1314,6 +1332,7 @@ dimen item_touch_helper_max_drag_scroll_per_frame
 dimen item_touch_helper_swipe_escape_max_velocity
 dimen item_touch_helper_swipe_escape_velocity
 dimen letter_tile_size
+dimen loginViewsMargin
 dimen mdtp_ampm_label_size
 dimen mdtp_ampm_left_padding
 dimen mdtp_date_picker_component_width
@@ -1411,6 +1430,7 @@ dimen mtrl_textinput_outline_box_expanded_padding
 dimen mtrl_toolbar_default_height
 dimen nav_header_height
 dimen nav_header_vertical_spacing
+dimen newsMoreTextSize
 dimen notification_action_icon_size
 dimen notification_action_text_size
 dimen notification_big_circle_margin
@@ -1585,6 +1605,7 @@ drawable btn_rounded_primary
 drawable btn_rounded_red
 drawable btn_rounded_white
 drawable btn_rounded_white_outline
+drawable button_background_blue
 drawable circle_shape
 drawable circle_shape_music
 drawable circle_shape_white
@@ -1614,6 +1635,7 @@ drawable ic_accessibility
 drawable ic_account_circle
 drawable ic_add
 drawable ic_add_box
+drawable ic_add_img
 drawable ic_adjust
 drawable ic_airport_shuttle
 drawable ic_apps
@@ -1624,6 +1646,7 @@ drawable ic_arrow_drop_grey
 drawable ic_arrow_right
 drawable ic_assignment
 drawable ic_attach_money
+drawable ic_back_img
 drawable ic_beach_access
 drawable ic_bluetooth
 drawable ic_book
@@ -1663,6 +1686,7 @@ drawable ic_do_not_disturb
 drawable ic_do_not_disturb_off
 drawable ic_domain
 drawable ic_done
+drawable ic_done_white_48dp
 drawable ic_email
 drawable ic_equalizer
 drawable ic_error_outline
@@ -1703,6 +1727,7 @@ drawable ic_local_florist
 drawable ic_local_movies
 drawable ic_local_offer
 drawable ic_location
+drawable ic_login_hero
 drawable ic_mail
 drawable ic_master_card
 drawable ic_mastercard_new
@@ -1748,6 +1773,7 @@ drawable ic_queue_music
 drawable ic_receipt
 drawable ic_recent
 drawable ic_refresh
+drawable ic_register_hero
 drawable ic_remove
 drawable ic_reoder
 drawable ic_repeat
@@ -1765,6 +1791,7 @@ drawable ic_shopping_basket
 drawable ic_shopping_cart
 drawable ic_show_chart
 drawable ic_shuffle
+drawable ic_side_bg
 drawable ic_signal_wifi_off
 drawable ic_sim_card
 drawable ic_skip_next
@@ -1952,6 +1979,7 @@ drawable seek_thumb_red
 drawable shape_circle
 drawable shape_circle_outline
 drawable shape_circle_outline_2dp
+drawable shape_default
 drawable shape_rect_outline
 drawable shape_round_outline
 drawable shape_round_outline_primary
@@ -1967,6 +1995,7 @@ drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable txt_area_dark_yellow
 drawable world_map
+font montserrat
 id ALT
 id CTRL
 id FUNCTION
@@ -2045,6 +2074,9 @@ id baseline
 id beginning
 id blocking
 id bottom
+id bt_lecturer
+id bt_student
+id btnRegister
 id btn_next
 id buttonPanel
 id cancel_action
@@ -2080,7 +2112,17 @@ id dialog_button
 id dimensions
 id direct
 id disableHome
+id dotsLayout
+id editTextMobile
+id editTextPassword
 id edit_query
+id edtConfirmPassword
+id edtEmail
+id edtFirstName
+id edtIndex
+id edtIndexNo
+id edtLastName
+id edtPassword
 id end
 id end_padder
 id enterAlways
@@ -2099,6 +2141,8 @@ id forever
 id ghost_view
 id glide_custom_view_target_tag
 id gone
+id gotoLogin
+id gotoRegister
 id group_divider
 id groups
 id home
@@ -2115,12 +2159,13 @@ id item_touch_helper_previous_elevation
 id label
 id labeled
 id largeLabel
-id layoutDots
 id left
 id line1
 id line3
 id listMode
 id list_item
+id login
+id lyt_action
 id lyt_parent
 id masked
 id mdtp_am_label
@@ -2213,6 +2258,8 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
+id slideLogin
+id slideSignUp
 id smallLabel
 id snackbar_action
 id snackbar_text
@@ -2244,6 +2291,10 @@ id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id text
 id text2
+id textInputEmail
+id textInputMobile
+id textInputName
+id textInputPassword
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
@@ -2331,6 +2382,8 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_intro
 layout activity_main
+layout activity_student_login
+layout activity_student_signup
 layout chip_view
 layout chips_input
 layout custom_dialog
@@ -2349,6 +2402,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout detailed_chip_view
+layout dialog_info
 layout item_intro
 layout item_list_filterable
 layout list_filterable_view
@@ -2419,15 +2473,23 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string already_have_an_account
 string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
 string character_counter_content_description
 string character_counter_pattern
 string chip_ellipsis
+string email_hint
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string forgot_password
 string hide_bottom_view_on_scroll_behavior
+string index_hint
+string index_no
+string intro_continue
+string lecturer
+string login
 string mdtp_am
 string mdtp_ampm_circle_radius_multiplier
 string mdtp_cancel
@@ -2465,6 +2527,9 @@ string mdtp_time_placeholder
 string mdtp_time_separator
 string mdtp_year_picker_description
 string mtrl_chip_close_icon_content_description
+string new_user_register_now
+string password
+string password_hint
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
@@ -2472,6 +2537,7 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string search_menu_title
 string status_bar_notification_info_overflow
+string student
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
@@ -3019,6 +3085,7 @@ style Yellow_AppCompatRatingBar
 style Yellow_Small_AppCompatRatingBar
 style Yellow_Small_AppCompatRatingBar_White
 style Yellow_Very_Small_AppCompatRatingBar
+style loginButton
 style mdtp_ActionButton
 style mdtp_ActionButton_Text
 style mdtp_ampm_label
@@ -3027,6 +3094,12 @@ style mdtp_done_button_light
 style mdtp_time_label
 style mdtp_time_label_small
 style mdtp_time_label_thin
+style modifiedEditText
+style parent
+style spinnerHintText
+style viewParent
+style viewParent_headerText
+style viewParent_headerText_NoMode
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth
@@ -3056,6 +3129,7 @@ styleable ChipView avatarIcon backgroundColor deletable deleteIcon deleteIconCol
 styleable ChipsInput chip_backgroundColor chip_deletable chip_deleteIcon chip_deleteIconColor chip_detailed_backgroundColor chip_detailed_deleteIconColor chip_detailed_textColor chip_hasAvatarIcon chip_labelColor filterable_list_backgroundColor filterable_list_textColor hint hintColor maxRows showChipDetailed textColor
 styleable CircleImageView civ_border_color civ_border_overlay civ_border_width civ_fill_color
 styleable CircularImageView civ_background_color civ_border civ_border_color civ_border_width civ_shadow civ_shadow_color civ_shadow_gravity civ_shadow_radius
+styleable CircularProgressButton finalCornerAngle initialCornerAngle spinning_bar_color spinning_bar_padding spinning_bar_width
 styleable CollapsingToolbarLayout collapsedTitleGravity collapsedTitleTextAppearance contentScrim expandedTitleGravity expandedTitleMargin expandedTitleMarginBottom expandedTitleMarginEnd expandedTitleMarginStart expandedTitleMarginTop expandedTitleTextAppearance scrimAnimationDuration scrimVisibleHeightTrigger statusBarScrim title titleEnabled toolbarId
 styleable CollapsingToolbarLayout_Layout layout_collapseMode layout_collapseParallaxMultiplier
 styleable ColorStateListItem android_color android_alpha alpha

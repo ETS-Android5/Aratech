@@ -5,4 +5,13 @@
     <string name="intro_continue">Continue as a STUDENT or LECTURER</string>
     <string name="student">Student</string>
     <string name="lecturer">Lecturer</string>
+    <string name="email_hint">group.aratech@gmail.com</string>
+    <string name="password_hint">*********</string>
+    <string name="index_hint">9343337</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="login">Login</string>
+    <string name="new_user_register_now">New user? Register Now</string>
+    <string name="already_have_an_account">Already  have \nan Account?</string>
+    <string name="index_no">Index No</string>
+    <string name="password">Password</string>
 </resources>

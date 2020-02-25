@@ -13,7 +13,7 @@ import Navbar from '../components/Navbar';
 //create a validation schema for the form
 const lecValidationSchema = Yup.object().shape({
   firstName: Yup.string().required('First Name is required'),
-  LastName: Yup.string().required('Last Name is required'),
+  lastName: Yup.string().required('Last Name is required'),
   email: Yup.string()
     .email('Must be a valid email')
     .required('Must provide email'),
@@ -78,6 +78,7 @@ class LecturerSignUp extends React.Component {
                 initialValues={{
                   firstName: '',
                   lastName: '',
+                  otherNames: '',
                   email: '',
                   phoneNo: '',
                   password: '',
@@ -104,10 +105,11 @@ class LecturerSignUp extends React.Component {
                     //reset the fields
                     values.firstName = '';
                     values.lastName = '';
+                    values.otherNames = '';
                     values.email = '';
                     values.phoneNo = '';
                     values.password = '';
-                    values.passwordConfirmation = '';
+                    values.confirmPassword = '';
                   }
                 }}
               >
@@ -121,11 +123,11 @@ class LecturerSignUp extends React.Component {
                 }) => (
                   <form onSubmit={handleSubmit}>
                     <div className="uk-width-1-1 uk-margin">
-                      <label className="uk-form-label" htmlFor="name">
+                      <label className="uk-form-label" htmlFor="firstName">
                         First name
                       </label>
                       <input
-                        id="name"
+                        id="firstName"
                         className={`uk-input uk-form-large ${
                           touched.firstName && errors.firstName
                             ? 'uk-form-danger'
@@ -138,17 +140,48 @@ class LecturerSignUp extends React.Component {
                         onBlur={handleBlur}
                         disabled={isLoading}
                       />
+                      {touched.firstName && errors.firstName ? (
+                        <p className="uk-text-danger">{errors.firstName}</p>
+                      ) : null}
                     </div>
 
                     <div className="uk-width-1-1 uk-margin">
-                      <label className="uk-form-label" htmlFor="name">
+                      <label className="uk-form-label" htmlFor="lastName">
                         Last name
                       </label>
                       <input
-                        id="name"
-                        className="uk-input uk-form-large"
+                        id="lastName"
+                        className={`uk-input uk-form-large ${
+                          touched.lastName && errors.lastName
+                            ? 'uk-form-danger'
+                            : null
+                        }`}
                         type="text"
                         placeholder="AraTech"
+                        value={values.lastName}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        disabled={isLoading}
+                      />
+                      {touched.lastName && errors.lastName ? (
+                        <p className="uk-text-danger">{errors.lastName}</p>
+                      ) : null}
+                    </div>
+
+                    <div className="uk-width-1-1 uk-margin">
+                      <label className="uk-form-label" htmlFor="otherNames">
+                        Other Names (Optional)
+                      </label>
+                      <input
+                        id="otherNames"
+                        name="otherNames"
+                        className="uk-input uk-form-large "
+                        type="text"
+                        value={values.otherNames}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        placeholder="AraTech"
+                        disabled={isLoading}
                       />
                     </div>
 
@@ -159,23 +192,45 @@ class LecturerSignUp extends React.Component {
                       <input
                         id="email"
                         name="email"
-                        className="uk-input uk-form-large"
+                        className={`uk-input uk-form-large ${
+                          touched.email && errors.email
+                            ? 'uk-form-danger'
+                            : null
+                        }`}
                         type="email"
-                        placeholder="aratech@gmail.com"
+                        placeholder="group.aratech@gmail.com"
+                        value={values.email}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        disabled={isLoading}
                       />
+                      {touched.email && errors.email ? (
+                        <p className="uk-text-danger">{errors.email}</p>
+                      ) : null}
                     </div>
 
                     <div className="uk-width-1-1 uk-margin">
-                      <label className="uk-form-label" htmlFor="name">
-                        Phone
+                      <label className="uk-form-label" htmlFor="phoneNo">
+                        Phone No
                       </label>
                       <input
-                        id="name"
+                        id="phoneNo"
                         name="phoneNo"
-                        className="uk-input uk-form-large"
+                        className={`uk-input uk-form-large ${
+                          touched.phoneNo && errors.phoneNo
+                            ? 'uk-form-danger'
+                            : null
+                        }`}
                         type="text"
-                        placeholder="+233 547 009 190"
+                        value={values.phoneNo}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        placeholder="233547009190"
+                        disabled={isLoading}
                       />
+                      {touched.phoneNo && errors.phoneNo ? (
+                        <p className="uk-text-danger">{errors.phoneNo}</p>
+                      ) : null}
                     </div>
 
                     <div className="uk-width-1-1 uk-margin">
@@ -185,26 +240,60 @@ class LecturerSignUp extends React.Component {
                       <input
                         id="password"
                         name="password"
-                        className="uk-input uk-form-large"
+                        className={`uk-input uk-form-large ${
+                          touched.password && errors.password
+                            ? 'uk-form-danger'
+                            : null
+                        }`}
                         type="password"
+                        value={values.password}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                         placeholder="Min 8 characters"
+                        disabled={isLoading}
                       />
+                      {touched.password && errors.password ? (
+                        <p className="uk-text-danger">{errors.password}</p>
+                      ) : null}
                     </div>
 
                     <div className="uk-width-1-1 uk-margin">
-                      <label className="uk-form-label" htmlFor="password">
-                        Password
+                      <label
+                        className="uk-form-label"
+                        htmlFor="confirmPassword"
+                      >
+                        Confirm Password
                       </label>
                       <input
-                        id="password"
+                        id="confirmPassword"
                         name="confirmPassword"
-                        className="uk-input uk-form-large"
+                        className={`uk-input uk-form-large ${
+                          touched.confirmPassword && errors.confirmPassword
+                            ? 'uk-form-danger'
+                            : null
+                        }`}
                         type="password"
+                        value={values.confirmPassword}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                         placeholder="Min 8 characters"
+                        disabled={isLoading}
                       />
+                      {touched.confirmPassword && errors.confirmPassword ? (
+                        <p className="uk-text-danger">
+                          {errors.confirmPassword}
+                        </p>
+                      ) : null}
                     </div>
+
                     <div className="uk-width-1-1 uk-text-center">
-                      <button className="uk-button uk-button-primary uk-button-large">
+                      <button
+                        className="uk-button uk-button-primary uk-button-large"
+                        type="submit"
+                        // onclick="UIkit.notification({message:'<span uk-icon=\'
+                        // icon: check\'></span> Sumbitting'})"
+                        disabled={isLoading}
+                      >
                         Sign Up
                       </button>
                     </div>
@@ -224,7 +313,7 @@ class LecturerSignUp extends React.Component {
           </div>
           <div
             className="uk-width-1-2@m uk-padding-large uk-flex uk-flex-middle uk-flex-center uk-light
-    uk-background-cover uk-background-norepeat uk-background-blend-overlay uk-background-primary"
+    uk-background-cover uk-background-norepeat uk-background-blend-overlay uk-background-primary "
             data-uk-height-viewport
           >
             <div>

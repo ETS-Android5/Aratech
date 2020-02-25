@@ -2076,6 +2076,7 @@ id blocking
 id bottom
 id bt_lecturer
 id bt_student
+id btnRegister
 id btn_next
 id buttonPanel
 id cancel_action
@@ -2111,8 +2112,16 @@ id dialog_button
 id dimensions
 id direct
 id disableHome
+id dotsLayout
+id editTextMobile
+id editTextPassword
 id edit_query
+id edtConfirmPassword
+id edtEmail
+id edtFirstName
 id edtIndex
+id edtIndexNo
+id edtLastName
 id edtPassword
 id end
 id end_padder
@@ -2132,6 +2141,7 @@ id forever
 id ghost_view
 id glide_custom_view_target_tag
 id gone
+id gotoLogin
 id gotoRegister
 id group_divider
 id groups
@@ -2149,7 +2159,6 @@ id item_touch_helper_previous_elevation
 id label
 id labeled
 id largeLabel
-id layoutDots
 id left
 id line1
 id line3
@@ -2249,6 +2258,7 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
+id slideLogin
 id slideSignUp
 id smallLabel
 id snackbar_action
@@ -2282,6 +2292,8 @@ id tag_unhandled_key_listeners
 id text
 id text2
 id textInputEmail
+id textInputMobile
+id textInputName
 id textInputPassword
 id textSpacerNoButtons
 id textSpacerNoTitle

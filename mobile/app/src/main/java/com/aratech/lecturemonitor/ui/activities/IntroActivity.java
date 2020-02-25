@@ -94,7 +94,7 @@ public class IntroActivity extends AppCompatActivity {
     }
 
     private void bottomProgressDots(int current_index) {
-        LinearLayout dotsLayout = findViewById(R.id.layoutDots);
+        LinearLayout dotsLayout = findViewById(R.id.dotsLayout);
         ImageView[] dots = new ImageView[MAX_STEP];
 
         dotsLayout.removeAllViews();
@@ -111,7 +111,7 @@ public class IntroActivity extends AppCompatActivity {
 
         if (dots.length > 0) {
             dots[current_index].setImageResource(R.drawable.shape_circle);
-            dots[current_index].setColorFilter(getResources().getColor(R.color.blue_400), PorterDuff.Mode.SRC_IN);
+            dots[current_index].setColorFilter(getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
         }
     }
 
@@ -160,7 +160,7 @@ public class IntroActivity extends AppCompatActivity {
 
             if(position == about_title_array.length -1){
                 btnNext.setText(getString(R.string.CONTINUE));
-                btnNext.setBackgroundColor(getResources().getColor(R.color.blue_400));
+                btnNext.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 btnNext.setTextColor(getResources().getColor(android.R.color.white));
             } else {
                 btnNext.setText(getString(R.string.NEXT));

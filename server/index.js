@@ -6,6 +6,7 @@ const helmet = require('helmet');
 
 const authRoutes = require('./routes/auth');
 const departmentRoutes = require('./routes/department');
+const timetableRoutes = require('./routes/timetable');
 
 //create a basic express application
 const app = express();
@@ -26,5 +27,6 @@ app.use(helmet());
 //configure application routes
 app.use('/api/auth', authRoutes);
 app.use('/api/departments', departmentRoutes);
+app.use('/api/timetable', timetableRoutes);
 
 module.exports = app;

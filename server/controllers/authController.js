@@ -361,9 +361,9 @@ exports.verifyEmail = async (req, res) => {
 //forget password controller
 exports.forgotPassword = async (req, res) => {
   try {
-    const student = await Student.findOne({email:req.body.email});
+    const student = await Student.findOne({ email: req.body.email });
 
-    if(student) {
+    if (student) {
       //set a password reset token for the student
       const token = crypto.randomBytes(32).toString('hex');
       student.passwordResetToken = token;
@@ -375,11 +375,26 @@ exports.forgotPassword = async (req, res) => {
         status: 'success',
         message: 'Password reset email successfully sent'
       });
+    } else {
+      const lecturer = await Lecturer.findOne({ email: req.body.email });
+      if (lecturer) {
+        //set a password reset token for the student
+        const token = crypto.randomBytes(32).toString('hex');
+        lecturer.passwordResetToken = token;
+        lecturer.passwordResetTokenExpires = Date.now() + 3600000;
+
+        mails.sendPasswordResetMail(lecturer.email, token);
+
+        return res.status(200).json({
+          status: 'success',
+          message: 'Password reset email successfully sent'
+        });
+      }
     }
-    else {
-      const lecturer = await Lecturer.findOne({email: req.body.email});
-      if(lecturer){
-         //set a password reset token for the student
+  } catch (error) {
+    const lecturer = await Lecturer.findOne({ email: req.body.email });
+    if (lecturer) {
+      //set a password reset token for the student
       const token = crypto.randomBytes(32).toString('hex');
       lecturer.passwordResetToken = token;
       lecturer.passwordResetTokenExpires = Date.now() + 3600000;
@@ -390,34 +405,18 @@ exports.forgotPassword = async (req, res) => {
         status: 'success',
         message: 'Password reset email successfully sent'
       });
-      }
     }
-  } catch (error) {
-    const lecturer = await Lecturer.findOne({email: req.body.email});
-    if(lecturer){
-       //set a password reset token for the student
-    const token = crypto.randomBytes(32).toString('hex');
-    lecturer.passwordResetToken = token;
-    lecturer.passwordResetTokenExpires = Date.now() + 3600000;
-
-    mails.sendPasswordResetMail(lecturer.email, token);
-
-    return res.status(200).json({
-      status: 'success',
-      message: 'Password reset email successfully sent'
-    });
   }
-}
-}
+};
 
 exports.resetPassword = async (req, res) => {
   const token = req.query.token;
 
-  if(!token) {
+  if (!token) {
     return res.status(401).json({
       status: 'fail',
       message: 'Must provide a token'
-    })
+    });
   }
 
   //query for student or lectuer with same password reset token
@@ -455,4 +454,4 @@ exports.resetPassword = async (req, res) => {
       message: 'Link is invalid or has expired'
     });
   }
-}
+};

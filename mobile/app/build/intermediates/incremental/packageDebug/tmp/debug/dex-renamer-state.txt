@@ -1,4 +1,4 @@
-#Tue Feb 25 22:01:29 GMT 2020
+#Wed Feb 26 16:36:54 GMT 2020
 base.0=D\:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex

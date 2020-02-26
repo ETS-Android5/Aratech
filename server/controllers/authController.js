@@ -343,7 +343,7 @@ exports.verifyEmail = async (req, res) => {
     lecturer.confirmationToken = null;
     lecturer.confirmationTokenExpires = null;
 
-    await student.save();
+    await lecturer.save();
 
     return res.status(200).json({
       status: 'success',
@@ -408,4 +408,51 @@ exports.forgotPassword = async (req, res) => {
     });
   }
 }
+}
+
+exports.resetPassword = async (req, res) => {
+  const token = req.query.token;
+
+  if(!token) {
+    return res.status(401).json({
+      status: 'fail',
+      message: 'Must provide a token'
+    })
+  }
+
+  //query for student or lectuer with same password reset token
+  const student = await Student.findOne({
+    passwordResetToken: token,
+    passwordResetTokenExpires: { $gt: Date.now() }
+  });
+  const lecturer = await Lecturer.findOne({
+    passwordResetToken: token,
+    passwordResetTokenExpires: { $gt: Date.now() }
+  });
+
+  if (student) {
+    student.password = req.body.password;
+
+    await student.save();
+
+    return res.status(200).json({
+      status: 'success',
+      message: 'Password changed successfully'
+    });
+  } else if (lecturer) {
+    lecturer.password = req.body.password;
+
+    await lecturer.save();
+
+    return res.status(200).json({
+      status: 'success',
+      message: 'Password changed successfully'
+    });
+  } else {
+    //token does not exist
+    return res.status(404).json({
+      status: 'fail',
+      message: 'Link is invalid or has expired'
+    });
+  }
 }

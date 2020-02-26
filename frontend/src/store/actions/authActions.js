@@ -1,12 +1,13 @@
-import API from '../../network/api';
-import setAuthToken from '../../network/setAuthToken';
-import { SET_CURRENT_USER } from './types';
+import API from "../../network/api";
+import setAuthToken from "../../network/setAuthToken";
+import toaster from "toasted-notes";
+import { SET_CURRENT_USER } from "./types";
 
 //sign in student
 export const signinStudent = (user, history) => async dispatch => {
   let response;
   try {
-    response = await API.post('auth/students/login', user);
+    response = await API.post("auth/students/login", user);
 
     const { student, token } = response.data.data;
 
@@ -14,13 +15,13 @@ export const signinStudent = (user, history) => async dispatch => {
     dispatch(setCurrentStudent(student));
 
     //save the token to localstorage
-    localStorage.setItem('lm-student-token', token);
+    localStorage.setItem("lm-student-token", token);
 
     //set authorization header for axios
     setAuthToken(token);
 
     //redirect the user to the authenticated page
-    history.push('/protectedroute');
+    history.push("/protectedroute");
   } catch (err) {
     return err.response.data.message;
   }
@@ -30,7 +31,7 @@ export const signinStudent = (user, history) => async dispatch => {
 export const signinLecturer = (user, history) => async dispatch => {
   let response;
   try {
-    response = await API.post('auth/lecturers/login', user);
+    response = await API.post("auth/lecturers/login", user);
 
     const { lecturer, token } = response.data.data;
 
@@ -38,13 +39,13 @@ export const signinLecturer = (user, history) => async dispatch => {
     dispatch(setCurrentLecturer(lecturer));
 
     //save the token to localstorage
-    localStorage.setItem('lm-lecturer-token', token);
+    localStorage.setItem("lm-lecturer-token", token);
 
     //set authorization header for axios
     setAuthToken(token);
 
     //redirect the user to the authenticated page
-    history.push('/protectedroute');
+    history.push("/protectedroute");
   } catch (err) {
     return err.response.data.message;
   }
@@ -54,7 +55,7 @@ export const signinLecturer = (user, history) => async dispatch => {
 export const signupStudent = (user, history) => async dispatch => {
   let response;
   try {
-    response = await API.post('auth/students/register', user);
+    response = await API.post("auth/students/register", user);
 
     const { student, token } = response.data.data;
 
@@ -62,13 +63,13 @@ export const signupStudent = (user, history) => async dispatch => {
     dispatch(setCurrentStudent(student));
 
     //save the token to localstorage
-    localStorage.setItem('lm-student-token', token);
+    localStorage.setItem("lm-student-token", token);
 
     //set authorization header for axios
     setAuthToken(token);
 
     //redirect the user to the authenticated page
-    history.push('/protectedroute');
+    history.push("/protectedroute");
   } catch (err) {
     return err.response.data.message;
   }
@@ -78,7 +79,7 @@ export const signupStudent = (user, history) => async dispatch => {
 export const signupLecturer = (user, history) => async dispatch => {
   let response;
   try {
-    response = await API.post('auth/lecturers/register', user);
+    response = await API.post("auth/lecturers/register", user);
 
     const { lecturer, token } = response.data.data;
 
@@ -86,13 +87,13 @@ export const signupLecturer = (user, history) => async dispatch => {
     dispatch(setCurrentLecturer(lecturer));
 
     //save the token to localstorage
-    localStorage.setItem('lm-lecturer-token', token);
+    localStorage.setItem("lm-lecturer-token", token);
 
     //set authorization header for axios
     setAuthToken(token);
 
     //redirect the user to the authenticated page
-    history.push('/protectedroute');
+    history.push("/protectedroute");
   } catch (err) {
     return err.response.data.message;
   }
@@ -101,8 +102,8 @@ export const signupLecturer = (user, history) => async dispatch => {
 //log out user
 export const logoutUser = () => dispatch => {
   //remove tokens from localstorage
-  localStorage.removeItem('lm-student-token');
-  localStorage.removeItem('lm-lecturer-token');
+  localStorage.removeItem("lm-student-token");
+  localStorage.removeItem("lm-lecturer-token");
 
   //remove axios authorization header
   setAuthToken(false);
@@ -114,6 +115,23 @@ export const logoutUser = () => dispatch => {
     isStudent: false,
     payload: null
   });
+};
+
+export const forgotPassword = async (email, history) => {
+  let response;
+  try {
+    response = await API.post("auth/forgotpassword", { email });
+
+    const message = response.data.message;
+    toaster.notify(message, {
+      duration: 4000,
+      position: "top"
+    });
+    history.push("/");
+  } catch (err) {
+    console.error(err.response.message);
+    return err.response.data.mesage;
+  }
 };
 
 export const setCurrentStudent = decoded => {

@@ -369,6 +369,7 @@ class Landing extends React.Component {
             <Link
               to="/signup"
               className="uk-button uk-button-primary uk-button-large uk-margin-medium-top"
+              data-uk-toggle="target: #signup-modal"
             >
               Sign up
             </Link>

@@ -1,9 +1,22 @@
 import React, { Component } from "react";
+import { Formik } from "formik";
+import { withRouter } from "react-router-dom";
+import * as Yup from "yup";
+import toaster from "toasted-notes";
 
 import Navbar from "../components/Navbar";
 
+import { forgotPassword } from "../store/actions/authActions";
+
+const validationSchema = Yup.object().shape({
+  email: Yup.string()
+    .email("Must be a valid email")
+    .required("Email is required")
+});
+
 class ForgotPassword extends Component {
   render() {
+    const { history } = this.props;
     return (
       <React.Fragment>
         <Navbar />
@@ -18,25 +31,61 @@ class ForgotPassword extends Component {
                   Enter Email to reset your password
                 </h3>
               </div>
-
-              <form>
-                <div className="uk-width-1-1 uk-margin">
-                  <label className="uk-form-label" for="name">
-                    Email
-                  </label>
-                  <input
-                    id="idEmail"
-                    className="uk-input uk-form-large"
-                    type="text"
-                    placeholder=" Email"
-                  />
-                </div>
-                <div className="uk-width-1-1 uk-text-center">
-                  <button className="uk-button uk-button__animate uk-button-primary uk-button-large">
-                    Send password reset email
-                  </button>
-                </div>
-              </form>
+              <Formik
+                initialValues={{ email: "" }}
+                validationSchema={validationSchema}
+                onSubmit={async values => {
+                  const error = await forgotPassword(values.email, history);
+                  if (error) {
+                    toaster.notify(error, {
+                      position: "top",
+                      duration: 4000
+                    });
+                  }
+                }}
+              >
+                {({
+                  values,
+                  handleSubmit,
+                  touched,
+                  errors,
+                  handleBlur,
+                  handleChange
+                }) => (
+                  <form onSubmit={handleSubmit}>
+                    <div className="uk-width-1-1 uk-margin">
+                      <label className="uk-form-label" htmlFor="email">
+                        Email
+                      </label>
+                      <input
+                        id="email"
+                        name="email"
+                        className={`uk-input uk-form-large ${
+                          touched.email && errors.email
+                            ? "uk-form-danger"
+                            : null
+                        }`}
+                        type="text"
+                        value={values.email}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        placeholder="group.aratech@gmail.com"
+                      />
+                      {touched.email && errors.email ? (
+                        <p className="uk-text-danger">{errors.email}</p>
+                      ) : null}
+                    </div>
+                    <div className="uk-width-1-1 uk-text-center">
+                      <button
+                        type="submit"
+                        className="uk-button uk-button__animate uk-button-primary uk-button-large"
+                      >
+                        Send password reset email
+                      </button>
+                    </div>
+                  </form>
+                )}
+              </Formik>
             </div>
           </div>
           <div
@@ -69,4 +118,4 @@ class ForgotPassword extends Component {
   }
 }
 
-export default ForgotPassword;
+export default withRouter(ForgotPassword);

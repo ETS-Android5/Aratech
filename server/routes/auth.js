@@ -10,4 +10,13 @@ router.post('/lecturers/register', authController.lecturerSignup);
 router.post('/students/login', authController.studentSignin);
 router.post('/lecturers/login', authController.lecturerSignin);
 
+//verify email
+router.post('/verifyemail', authController.verifyEmail);
+
+//forgot password
+router.post('/forgotpassword', authController.forgotPassword);
+
+//reset password
+router.post('/resetpassword', authController.resetPassword);
+
 module.exports = router;

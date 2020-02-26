@@ -6,9 +6,13 @@ const authController = require('../controllers/authController');
 router.post('/students/register', authController.studentSignup);
 router.post('/lecturers/register', authController.lecturerSignup);
 
-// user log in
-router.post('/students/login', authController.studentSignin);
-router.post('/lecturers/login', authController.lecturerSignin);
+//Login
+router.post('/students/login', authController.studentlogin);
+router.post('/lecturers/login', authController.lecturerlogin);
+
+
+  
+
 
 //verify email
 router.post('/verifyemail', authController.verifyEmail);

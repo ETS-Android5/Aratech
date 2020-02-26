@@ -14,4 +14,13 @@ router.post('/lecturers/login', authController.lecturerlogin);
   
 
 
+//verify email
+router.post('/verifyemail', authController.verifyEmail);
+
+//forgot password
+router.post('/forgotpassword', authController.forgotPassword);
+
+//reset password
+router.post('/resetpassword', authController.resetPassword);
+
 module.exports = router;

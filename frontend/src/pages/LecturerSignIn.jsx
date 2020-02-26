@@ -1,11 +1,52 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { Formik } from 'formik';
+import toaster from 'toasted-notes';
+import * as Yup from 'yup';
 
 import Navbar from '../components/Navbar';
 
-//THIS IS THE STUDENT SIGN IN PAGE
+import { signinLecturer } from '../store/actions/authActions';
+
+//Create a schema to validate the lecturer using Yup.
+const lecValidationSchema = Yup.object().shape({
+  email: Yup.string()
+    .email('Must be a valid email')
+    .required('Email is required'),
+  password: Yup.string()
+    .min(8, 'Password must be 8 characters or more')
+    .max(32, 'Password cannot be more than 32 characters')
+    .required('Must provide password')
+});
+
+//THIS IS THE LECTURER SIGN IN PAGE
 class LecturerSignIn extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isLoading: false
+    };
+  }
+
+  componentDidMount() {
+    const { isAuthenticated, isStudent, isLecturer, history } = this.props;
+    //check if user isn't already authenticated
+    if (isAuthenticated) {
+      //check if user is logged in as student or lecturer
+      if (isLecturer) {
+        history.push('/lecturer/home');
+      } else if (isStudent) {
+        history.push('/student/home');
+      }
+    }
+  }
+
   render() {
+    const { history, signinLecturer } = this.props;
+    const { isLoading } = this.state;
     return (
       <React.Fragment>
         <Navbar />
@@ -15,52 +56,100 @@ class LecturerSignIn extends React.Component {
             data-uk-height-viewport
           >
             <div className="uk-width-3-4@s">
-              <div className="uk-text-center uk-margin-bottom">
-                <Link className="uk-logo uk-text-success uk-text-bold" to="/">
-                  Lecture Monitor
-                </Link>
-              </div>
               <div className="uk-text-center uk-margin-medium-bottom">
                 <h1 className="uk-letter-spacing-small">Sign In</h1>
               </div>
 
-              <form>
-                <div className="uk-width-1-1 uk-margin">
-                  <label className="uk-form-label" htmlFor="name">
-                    Staff ID
-                  </label>
-                  <input
-                    id="name"
-                    className="uk-input uk-form-large"
-                    type="text"
-                    placeholder="9346517"
-                  />
-                </div>
-                <div className="uk-width-1-1 uk-margin">
-                  <label className="uk-form-label" htmlFor="password">
-                    Password
-                  </label>
-                  <input
-                    id="password"
-                    className="uk-input uk-form-large"
-                    type="password"
-                    placeholder="***********"
-                  />
-                </div>
-                <div className="uk-width-1-1 uk-margin uk-text-center">
-                  <Link
-                    className="uk-text-small uk-link-muted"
-                    to="/forgotpassword"
-                  >
-                    Forgot your password?
-                  </Link>
-                </div>
-                <div className="uk-width-1-1 uk-text-center">
-                  <button className="uk-button uk-button__animate uk-button-primary uk-button-large">
-                    Sign In
-                  </button>
-                </div>
-              </form>
+              {/* lecturer sign in forms */}
+              <Formik
+                initialValues={{ email: '', password: '' }}
+                validationSchema={lecValidationSchema}
+                onSubmit={async values => {
+                  this.setState({ isLoading: true });
+                  const err = await signinLecturer(values, history);
+                  if (err) {
+                    this.setState({ isLoading: false });
+                    toaster.notify(err, {
+                      duration: 4000,
+                      position: 'top'
+                    });
+
+                    //now reset the fields to their initial values
+                    values.email = '';
+                    values.password = '';
+                  }
+                }}
+              >
+                {({
+                  values,
+                  errors,
+                  touched,
+                  handleBlur,
+                  handleChange,
+                  handleSubmit
+                }) => (
+                  <form onSubmit={handleSubmit}>
+                    <div className="uk-width-1-1 uk-margin">
+                      <label className="uk-form-label" htmlFor="name">
+                        Email
+                      </label>
+                      <input
+                        id="email"
+                        name="email"
+                        className={`uk-input uk-form-large ${
+                          touched.email && errors.email
+                            ? 'uk-form-danger'
+                            : null
+                        } `}
+                        type="email"
+                        value={values.email}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        disabled={isLoading}
+                        placeholder="group.aratech@gmail.com"
+                      />
+
+                      {/* the text after the input */}
+                      {touched.email && errors.email ? (
+                        <p className="uk-text-danger">{errors.email}</p>
+                      ) : null}
+                    </div>
+
+                    <div className="uk-width-1-1 uk-margin">
+                      <label className="uk-form-label" htmlFor="password">
+                        Password
+                      </label>
+                      <input
+                        id="password"
+                        name="password"
+                        className={`uk-input uk-form-large ${
+                          touched.password && errors.password
+                            ? 'uk-form-danger'
+                            : null
+                        }`}
+                        type="password"
+                        value={values.password}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        placeholder="**********"
+                        disabled={isLoading}
+                      />
+                      {touched.password && errors.password ? (
+                        <p className="uk-text-danger">{errors.password}</p>
+                      ) : null}
+                    </div>
+
+                    <div className="uk-width-1-1 uk-text-center">
+                      <button
+                        className="uk-button uk-button__animate uk-button-primary uk-button-large"
+                        type="submit"
+                      >
+                        Sign In
+                      </button>
+                    </div>
+                  </form>
+                )}
+              </Formik>
             </div>
           </div>
           <div
@@ -78,12 +167,12 @@ class LecturerSignIn extends React.Component {
                 <p>Enter your personal details and join us</p>
               </div>
               <div className="uk-width-1-1 uk-text-center">
-                <a
-                  href="sign-up.html"
+                <Link
+                  to="/lecturer/signup"
                   className="uk-button uk-button-success-outline uk-button-large"
                 >
                   Sign Up
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -93,4 +182,14 @@ class LecturerSignIn extends React.Component {
   }
 }
 
-export default LecturerSignIn;
+const mapStateToProps = ({
+  auth: { isAuthenticated, isStudent, isLecturer }
+}) => ({
+  isAuthenticated,
+  isStudent,
+  isLecturer
+});
+
+export default connect(mapStateToProps, { signinLecturer })(
+  withRouter(LecturerSignIn)
+);

@@ -5,6 +5,7 @@ const logger = require('morgan');
 const helmet = require('helmet');
 
 const authRoutes = require('./routes/auth');
+const departmentRoutes = require('./routes/department');
 
 //create a basic express application
 const app = express();
@@ -24,5 +25,6 @@ app.use(helmet());
 
 //configure application routes
 app.use('/api/auth', authRoutes);
+app.use('/api/departments', departmentRoutes);
 
 module.exports = app;

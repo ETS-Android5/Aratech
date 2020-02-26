@@ -18,18 +18,17 @@ exports.studentSignup = async (req, res) => {
     lName: Joi.string()
       .alphanum()
       .required(),
-    otherNames: Joi.string().alphanum(),
+    otherNames: Joi.string(),
     email: Joi.string()
       .email()
       .required(),
     indexNo: Joi.number().required(),
     department: Joi.string().required(),
+    phoneNo: Joi.string().required(),
     password: Joi.string()
       .min(8)
       .max(32)
-      .required(),
-    phoneNo: Joi.string().required(),
-    level: Joi.number().required()
+      .required()
   });
   try {
     await schema.validateAsync(req.body);
@@ -67,6 +66,9 @@ exports.studentSignup = async (req, res) => {
   //generate a confirmation token for user
   const confirmationToken = crypto.randomBytes(32).toString('hex');
   student.confirmationToken = confirmationToken;
+
+  //expire token after one hour
+  student.confirmationTokenExpires = Date.now() + 3600000;
 
   //save the new student doc
   await student.save();
@@ -116,7 +118,9 @@ exports.lecturerSignup = async (req, res) => {
       .max(32)
       .required(),
     phoneNo: Joi.string().required(),
-    courses: Joi.array().items(Joi.string().required())
+    courses: Joi.array()
+      .items(Joi.string().required())
+      .required()
   });
   try {
     await schema.validateAsync(req.body);
@@ -147,6 +151,9 @@ exports.lecturerSignup = async (req, res) => {
   //generate a confirmation token for user
   const confirmationToken = crypto.randomBytes(32).toString('hex');
   lecturer.confirmationToken = confirmationToken;
+
+  //expire token after one hour
+  lecturer.confirmationTokenExpires = Date.now() + 3600000;
 
   //save the new lecturer document
   await lecturer.save();
@@ -298,3 +305,154 @@ exports.lecturerSignin = async (req, res) => {
   });
 };
 
+//check email verification
+exports.verifyEmail = async (req, res) => {
+  //get the validation token
+  const token = req.query.token;
+
+  if (!token) {
+    return res.status(400).json({
+      status: 'fail',
+      message: 'Must provide a token'
+    });
+  }
+
+  //query for student or lectuer with same confirmation token
+  const student = await Student.findOne({
+    confirmationToken: token,
+    confirmationTokenExpires: { $gt: Date.now() }
+  });
+  const lecturer = await Lecturer.findOne({
+    confirmationToken: token,
+    confirmationTokenExpires: { $gt: Date.now() }
+  });
+
+  if (student) {
+    student.isEmailVerified = true;
+    student.confirmationToken = null;
+    student.confirmationTokenExpires = null;
+
+    await student.save();
+
+    return res.status(200).json({
+      status: 'success',
+      message: 'Email verfied successfully'
+    });
+  } else if (lecturer) {
+    lecturer.isEmailVerified = true;
+    lecturer.confirmationToken = null;
+    lecturer.confirmationTokenExpires = null;
+
+    await lecturer.save();
+
+    return res.status(200).json({
+      status: 'success',
+      message: 'Email verified successfully'
+    });
+  } else {
+    //token does not exist
+    return res.status(404).json({
+      status: 'fail',
+      message: 'Link is invalid or has expired'
+    });
+  }
+};
+
+//forget password controller
+exports.forgotPassword = async (req, res) => {
+  try {
+    const student = await Student.findOne({email:req.body.email});
+
+    if(student) {
+      //set a password reset token for the student
+      const token = crypto.randomBytes(32).toString('hex');
+      student.passwordResetToken = token;
+      student.passwordResetTokenExpires = Date.now() + 3600000;
+
+      mails.sendPasswordResetMail(student.email, token);
+
+      return res.status(200).json({
+        status: 'success',
+        message: 'Password reset email successfully sent'
+      });
+    }
+    else {
+      const lecturer = await Lecturer.findOne({email: req.body.email});
+      if(lecturer){
+         //set a password reset token for the student
+      const token = crypto.randomBytes(32).toString('hex');
+      lecturer.passwordResetToken = token;
+      lecturer.passwordResetTokenExpires = Date.now() + 3600000;
+
+      mails.sendPasswordResetMail(lecturer.email, token);
+
+      return res.status(200).json({
+        status: 'success',
+        message: 'Password reset email successfully sent'
+      });
+      }
+    }
+  } catch (error) {
+    const lecturer = await Lecturer.findOne({email: req.body.email});
+    if(lecturer){
+       //set a password reset token for the student
+    const token = crypto.randomBytes(32).toString('hex');
+    lecturer.passwordResetToken = token;
+    lecturer.passwordResetTokenExpires = Date.now() + 3600000;
+
+    mails.sendPasswordResetMail(lecturer.email, token);
+
+    return res.status(200).json({
+      status: 'success',
+      message: 'Password reset email successfully sent'
+    });
+  }
+}
+}
+
+exports.resetPassword = async (req, res) => {
+  const token = req.query.token;
+
+  if(!token) {
+    return res.status(401).json({
+      status: 'fail',
+      message: 'Must provide a token'
+    })
+  }
+
+  //query for student or lectuer with same password reset token
+  const student = await Student.findOne({
+    passwordResetToken: token,
+    passwordResetTokenExpires: { $gt: Date.now() }
+  });
+  const lecturer = await Lecturer.findOne({
+    passwordResetToken: token,
+    passwordResetTokenExpires: { $gt: Date.now() }
+  });
+
+  if (student) {
+    student.password = req.body.password;
+
+    await student.save();
+
+    return res.status(200).json({
+      status: 'success',
+      message: 'Password changed successfully'
+    });
+  } else if (lecturer) {
+    lecturer.password = req.body.password;
+
+    await lecturer.save();
+
+    return res.status(200).json({
+      status: 'success',
+      message: 'Password changed successfully'
+    });
+  } else {
+    //token does not exist
+    return res.status(404).json({
+      status: 'fail',
+      message: 'Link is invalid or has expired'
+    });
+  }
+}

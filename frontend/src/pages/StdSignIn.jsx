@@ -4,9 +4,9 @@ import { withRouter } from 'react-router-dom';
 import { Formik } from 'formik';
 import toaster from 'toasted-notes';
 import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
 
 import Navbar from '../components/Navbar';
-import { Link } from 'react-router-dom';
 
 import { signinStudent } from '../store/actions/authActions';
 
@@ -56,11 +56,6 @@ class StdSignIn extends React.Component {
             data-uk-height-viewport
           >
             <div className="uk-width-3-4@s">
-              <div className="uk-text-center uk-margin-bottom">
-                <Link className="uk-logo uk-text-success uk-text-bold" to="/">
-                  Lecture Monitor
-                </Link>
-              </div>
               <div className="uk-text-center uk-margin-medium-bottom">
                 <h1 className="uk-letter-spacing-small">Sign In</h1>
               </div>
@@ -78,7 +73,7 @@ class StdSignIn extends React.Component {
                     });
                     toaster.notify(error, {
                       duration: 3000,
-                      position: 'top-right'
+                      position: 'top'
                     });
                     //reset the fields
                     values.indexNo = '';

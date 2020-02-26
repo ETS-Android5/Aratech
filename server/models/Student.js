@@ -37,13 +37,14 @@ const StudentSchema = new Schema({
     type: Boolean,
     default: false
   },
-  level: {
-    type: Number,
-    required: true
+  isEmailVerified: {
+    type: Boolean,
+    default: false
   },
   confirmationToken: String,
+  confirmationTokenExpires: Date,
   passwordResetToken: String,
-  passwordResetDate: Date
+  passwordResetTokenExpires: Date
 });
 
 module.exports = mongoose.model('Student', StudentSchema);

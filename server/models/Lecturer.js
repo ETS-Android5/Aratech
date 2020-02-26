@@ -32,7 +32,12 @@ const LecturerSchema = new Schema({
     type: String,
     required: true
   },
+  isEmailVerified: {
+    type: Boolean,
+    default: false
+  },
   confirmationToken: String,
+  confirmationTokenDate: Date,
   passwordResetToken: String,
   passwordResetDate: Date
 });

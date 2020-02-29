@@ -454,8 +454,4 @@ exports.resetPassword = async (req, res) => {
       message: 'Link is invalid or has expired'
     });
   }
-<<<<<<< HEAD
 };
-=======
-}
->>>>>>> d5595f8bffbeed03913bedafb796694fde7e463d

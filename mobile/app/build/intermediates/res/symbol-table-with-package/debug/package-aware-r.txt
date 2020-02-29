@@ -1573,6 +1573,7 @@ drawable abc_vector_test
 drawable avatar
 drawable avd_hide_password
 drawable avd_show_password
+drawable background_toast
 drawable bg_chip_view
 drawable bg_chip_view_opened
 drawable bg_gradient
@@ -1630,6 +1631,8 @@ drawable color_state_light
 drawable color_state_primary
 drawable color_state_white_1
 drawable color_state_white_2
+drawable confusing_toast
+drawable default_toast
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -1640,6 +1643,7 @@ drawable drop_down_arrow
 drawable edit_text_bg
 drawable edit_text_round_bg
 drawable edit_text_round_bg_outline
+drawable error_toast
 drawable ic_accessibility
 drawable ic_account_circle
 drawable ic_add
@@ -1928,6 +1932,7 @@ drawable img_wizard_1
 drawable img_wizard_2
 drawable img_wizard_3
 drawable img_wizard_4
+drawable info_toast
 drawable line_dash_grey_20
 drawable logo
 drawable logo_round
@@ -1997,6 +2002,7 @@ drawable shape_round_primary
 drawable shape_round_small
 drawable shape_round_solid
 drawable shape_rounded_orange
+drawable success_toast
 drawable swipe_up_handle
 drawable tab_rounded_accent
 drawable tab_rounded_green
@@ -2004,6 +2010,7 @@ drawable tab_rounded_primary
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable txt_area_dark_yellow
+drawable warning_toast
 drawable world_map
 font montserrat
 id ALT
@@ -2083,6 +2090,7 @@ id awesomeSpinner_downArrow
 id awesomeSpinner_hintButton
 id awesomeSpinner_spinner
 id barrier
+id base_layout
 id baseline
 id beginning
 id blocking
@@ -2106,6 +2114,7 @@ id clip_vertical
 id collapseActionView
 id column
 id column_reverse
+id confusingView
 id container
 id content
 id contentPanel
@@ -2113,6 +2122,8 @@ id coordinator
 id custom
 id customPanel
 id decor_content_parent
+id defaultView
+id defaultViewLayout
 id default_activity_button
 id delete_button
 id departments
@@ -2142,6 +2153,8 @@ id end
 id end_padder
 id enterAlways
 id enterAlwaysCollapsed
+id errorView
+id errorViewLayout
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -2167,6 +2180,7 @@ id icon_group
 id ifRoom
 id image
 id info
+id infoView
 id info_layout
 id invisible
 id italic
@@ -2177,6 +2191,7 @@ id largeLabel
 id left
 id line1
 id line3
+id linearLayout
 id listMode
 id list_item
 id loader
@@ -2250,6 +2265,7 @@ id relStdSignup
 id right
 id right_icon
 id right_side
+id root_layout
 id row
 id row_reverse
 id rtl
@@ -2300,6 +2316,7 @@ id status_bar_latest_event_content
 id stretch
 id submenuarrow
 id submit_area
+id successView
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -2326,6 +2343,7 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id toastMessage
 id top
 id topPanel
 id touch_outside
@@ -2342,6 +2360,7 @@ id useLogo
 id view_offset_helper
 id view_pager
 id visible
+id warningView
 id withText
 id wrap
 id wrap_content
@@ -2408,7 +2427,9 @@ layout activity_student_login
 layout activity_student_signup
 layout chip_view
 layout chips_input
+layout confusing_toast_layout
 layout custom_dialog
+layout default_toast_layout
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar
@@ -2425,6 +2446,8 @@ layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout detailed_chip_view
 layout dialog_info
+layout error_toast_layout
+layout info_toast_layout
 layout item_intro
 layout item_list_filterable
 layout list_filterable_view
@@ -2465,7 +2488,9 @@ layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout spinner_list_item
 layout spinner_view
+layout success_toast_layout
 layout support_simple_spinner_dropdown_item
+layout warning_toast_layout
 mipmap ic_launcher
 mipmap ic_launcher_round
 string CONTINUE

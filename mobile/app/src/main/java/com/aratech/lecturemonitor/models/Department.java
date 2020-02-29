@@ -18,6 +18,15 @@ public class Department {
     @Expose
     private List<String> courses;
 
+    public Department(String id, String name, List<String> courses) {
+        this.id = id;
+        this.name = name;
+        this.courses = courses;
+    }
+
+    public Department() {
+    }
+
     public String getId() {
         return id;
     }

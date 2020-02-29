@@ -14,6 +14,14 @@ public class DtResponse {
     @Expose
     private Data data;
 
+    public DtResponse(String status, Data data) {
+        this.status = status;
+        this.data = data;
+    }
+
+    public DtResponse() {
+    }
+
     public String getStatus() {
         return status;
     }
@@ -34,6 +42,13 @@ public class DtResponse {
         @SerializedName("departments")
         @Expose
         private List<Department> departments;
+
+        public Data() {
+        }
+
+        public Data(List<Department> departments) {
+            this.departments = departments;
+        }
 
         public List<Department> getDepartments() {
             return departments;

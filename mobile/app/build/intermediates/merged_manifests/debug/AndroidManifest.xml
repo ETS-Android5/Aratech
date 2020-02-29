@@ -31,6 +31,12 @@
             android:name="com.aratech.lecturemonitor.ui.activities.students.StudentLoginActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name="com.aratech.lecturemonitor.ui.activities.lecturers.LecturerSignupActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.aratech.lecturemonitor.ui.activities.lecturers.LecturerLoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.aratech.lecturemonitor.ui.activities.IntroActivity"
             android:screenOrientation="portrait" />
         <activity

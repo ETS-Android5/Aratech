@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aratech.lecturemonitor.R;
+import com.aratech.lecturemonitor.ui.activities.lecturers.LecturerLoginActivity;
 import com.aratech.lecturemonitor.ui.activities.students.StudentLoginActivity;
 import com.aratech.lecturemonitor.utils.Tools;
 
@@ -130,8 +131,8 @@ public class IntroActivity extends AppCompatActivity {
         dialog.findViewById(R.id.bt_lecturer).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), ((AppCompatButton) v).getText().toString() + " Clicked", Toast.LENGTH_SHORT).show();
-                dialog.dismiss();
+                Intent intent = new Intent(IntroActivity.this, LecturerLoginActivity.class);
+                startActivity(intent);
             }
         });
 

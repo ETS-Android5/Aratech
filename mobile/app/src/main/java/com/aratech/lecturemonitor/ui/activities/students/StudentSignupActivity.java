@@ -2,7 +2,6 @@ package com.aratech.lecturemonitor.ui.activities.students;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -19,7 +18,6 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.aratech.lecturemonitor.R;
 import com.aratech.lecturemonitor.models.Department;
@@ -27,6 +25,7 @@ import com.aratech.lecturemonitor.models.DtResponse;
 import com.aratech.lecturemonitor.network.ApiClient;
 import com.aratech.lecturemonitor.network.ApiInterface;
 import com.isapanah.awesomespinner.AwesomeSpinner;
+import com.sdsmdg.tastytoast.TastyToast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,12 +82,12 @@ public class StudentSignupActivity extends AppCompatActivity implements View.OnC
                     departmentsSpinner.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
                         @Override
                         public void onItemSelected(int position, String itemAtPosition) {
-
+                            //do nothing
                         }
                     });
                 }
                 else {
-                    Toast.makeText(getApplicationContext(), "Unable to fetch departments", Toast.LENGTH_SHORT)
+                    TastyToast.makeText(getApplicationContext(), "Unable to fetch departments, Cannot signup!", TastyToast.LENGTH_LONG, TastyToast.ERROR)
                             .show();
                     finish();
                 }
@@ -97,7 +96,7 @@ public class StudentSignupActivity extends AppCompatActivity implements View.OnC
             @Override
             public void onFailure(@NonNull Call<DtResponse> call, @NonNull Throwable t) {
                 Log.e("departments", t.getMessage());
-                Toast.makeText(getApplicationContext(), "No internet!", Toast.LENGTH_LONG)
+                TastyToast.makeText(getApplicationContext(), "Unable to fetch departments, Cannot signup!", TastyToast.LENGTH_LONG, TastyToast.ERROR)
                         .show();
                 finish();
             }

@@ -21,6 +21,12 @@
             android:name=".ui.activities.students.StudentLoginActivity"
             android:screenOrientation="portrait"/>
         <activity
+            android:name=".ui.activities.lecturers.LecturerSignupActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.activities.lecturers.LecturerLoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".ui.activities.IntroActivity"
             android:screenOrientation="portrait"/>
         <activity

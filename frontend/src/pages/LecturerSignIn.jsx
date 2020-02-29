@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Formik } from 'formik';
-import toaster from 'toasted-notes';
+import cogoToast from 'cogo-toast';
 import * as Yup from 'yup';
 
 import Navbar from '../components/Navbar';
@@ -69,9 +69,8 @@ class LecturerSignIn extends React.Component {
                   const err = await signinLecturer(values, history);
                   if (err) {
                     this.setState({ isLoading: false });
-                    toaster.notify(err, {
-                      duration: 4000,
-                      position: 'top'
+                    cogoToast.error(err, {
+                      position: 'top-center'
                     });
 
                     //now reset the fields to their initial values

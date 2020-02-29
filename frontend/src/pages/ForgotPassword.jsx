@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import { Formik } from "formik";
-import { withRouter } from "react-router-dom";
-import * as Yup from "yup";
-import toaster from "toasted-notes";
+import React, { Component } from 'react';
+import { Formik } from 'formik';
+import { withRouter } from 'react-router-dom';
+import * as Yup from 'yup';
+import cogoToast from 'cogo-toast';
 
-import Navbar from "../components/Navbar";
+import Navbar from '../components/Navbar';
 
-import { forgotPassword } from "../store/actions/authActions";
+import { forgotPassword } from '../store/actions/authActions';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
-    .email("Must be a valid email")
-    .required("Email is required")
+    .email('Must be a valid email')
+    .required('Email is required')
 });
 
 class ForgotPassword extends Component {
@@ -32,14 +32,13 @@ class ForgotPassword extends Component {
                 </h3>
               </div>
               <Formik
-                initialValues={{ email: "" }}
+                initialValues={{ email: '' }}
                 validationSchema={validationSchema}
                 onSubmit={async values => {
                   const error = await forgotPassword(values.email, history);
                   if (error) {
-                    toaster.notify(error, {
-                      position: "top",
-                      duration: 4000
+                    cogoToast.error(error, {
+                      position: 'top-center'
                     });
                   }
                 }}
@@ -62,7 +61,7 @@ class ForgotPassword extends Component {
                         name="email"
                         className={`uk-input uk-form-large ${
                           touched.email && errors.email
-                            ? "uk-form-danger"
+                            ? 'uk-form-danger'
                             : null
                         }`}
                         type="text"

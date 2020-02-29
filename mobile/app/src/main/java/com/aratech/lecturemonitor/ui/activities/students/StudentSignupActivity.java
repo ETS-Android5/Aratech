@@ -35,7 +35,7 @@ public class StudentSignupActivity extends AppCompatActivity implements View.OnC
     private EditText fNameEdt, lNameEdt, emailEdt, idEdt, mobileEdt, passwordEdt, confirmPasswordEdt;
     private AwesomeSpinner departmentsSpinner;
     private ScrollView scrollView;
-    RelativeLayout relativeLayout;
+    private RelativeLayout relativeLayout;
     private ProgressBar loader;
     private ImageView slideLogin;
     private TextView gotoLogin;

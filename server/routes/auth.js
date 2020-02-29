@@ -7,12 +7,8 @@ router.post('/students/register', authController.studentSignup);
 router.post('/lecturers/register', authController.lecturerSignup);
 
 //Login
-router.post('/students/login', authController.studentlogin);
-router.post('/lecturers/login', authController.lecturerlogin);
-
-
-  
-
+router.post('/students/login', authController.studentSignin);
+router.post('/lecturers/login', authController.lecturerSignin);
 
 //verify email
 router.post('/verifyemail', authController.verifyEmail);

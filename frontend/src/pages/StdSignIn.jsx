@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Formik } from 'formik';
-import toaster from 'toasted-notes';
+import cogoToast from 'cogo-toast';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 
@@ -71,9 +71,8 @@ class StdSignIn extends React.Component {
                     this.setState({
                       isLoading: false
                     });
-                    toaster.notify(error, {
-                      duration: 3000,
-                      position: 'top'
+                    cogoToast.error(error, {
+                      position: 'top-center'
                     });
                     //reset the fields
                     values.indexNo = '';

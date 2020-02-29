@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.aratech.lecturemonitor">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:name=".MyApp"
         android:allowBackup="true"
@@ -16,7 +20,9 @@
         <activity
             android:name=".ui.activities.students.StudentLoginActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activities.IntroActivity" />
+        <activity
+            android:name=".ui.activities.IntroActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.activities.MainActivity"
             android:screenOrientation="portrait">

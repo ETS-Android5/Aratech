@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+    android:id="@+id/relStdSignup"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,6 +12,7 @@
     android:layout_gravity="center">
 
     <ScrollView
+        android:id="@+id/mainSignup"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true">
@@ -88,7 +90,7 @@
                         style="@style/parent"
                         android:layout_marginTop="@dimen/loginViewsMargin">
                         <EditText
-                            android:id="@+id/edtIndexNo"
+                            android:id="@+id/edtIndex"
                             style="@style/modifiedEditText"
                             android:inputType="number"
                             android:maxLines="1"
@@ -100,19 +102,25 @@
                         style="@style/parent"
                         android:layout_marginTop="@dimen/loginViewsMargin">
                         <EditText
-                            android:id="@+id/editTextMobile"
+                            android:id="@+id/edtMobile"
                             style="@style/modifiedEditText"
                             android:inputType="phone"
                             android:maxLines="1"
                             android:hint="Mobile Number"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
+                    <com.isapanah.awesomespinner.AwesomeSpinner
+                        android:id="@+id/departments"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:spinnerHint="Select a department"/>
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputPassword"
                         style="@style/parent"
                         android:layout_marginTop="@dimen/loginViewsMargin">
                         <EditText
-                            android:id="@+id/editTextPassword"
+                            android:id="@+id/edtPassword"
                             style="@style/modifiedEditText"
                             android:hint="@string/password"
                             android:maxLines="1"
@@ -178,6 +186,13 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        />
     <View
         android:layout_marginTop="20dp"
         android:layout_alignParentTop="true"

@@ -58,6 +58,7 @@
                     android:maxLines="1"
                     android:inputType="textPassword"/>
             </com.google.android.material.textfield.TextInputLayout>
+
             <TextView
                 style="@style/viewParent"
                 android:text="@string/forgot_password"

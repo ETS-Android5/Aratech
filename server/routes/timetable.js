@@ -1,9 +1,20 @@
 const router = require('express').Router();
-const timetableController = require('../controllers/timetableController');
+const passport = require('passport');
 
-//@POST
-//personal and class timetable setup
-router.post('/personaltimetable', timetableController.personalTimetableSetup);
-router.post('/classtimetable', timetableController.classTimetableSetup);
+const personalTimetableController = require('../controllers/personalTimetableController');
+
+//get student personal timetable
+router.get(
+  '/personal',
+  passport.authenticate('jwt', { session: false }),
+  personalTimetableController.getPersonalTimetable
+);
+
+//create a new personal time table
+router.post(
+  '/personal',
+  passport.authenticate('jwt', { session: false }),
+  personalTimetableController.createPersonalTimeTable
+);
 
 module.exports = router;

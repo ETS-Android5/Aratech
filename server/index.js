@@ -20,7 +20,7 @@ require('./utils/db')();
 //configure middlewares on the server
 app.use(cors());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(logger('dev'));
 app.use(helmet());
 

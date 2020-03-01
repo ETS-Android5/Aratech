@@ -12,7 +12,7 @@ const opts = {
 };
 
 //configure passport
-passport.use(
+passport.use('jwt',
   new JWTStrategy(opts, async (payload, done) => {
     //check if it's a lecturer
     try {
@@ -26,24 +26,23 @@ passport.use(
           if (student) {
             done(null, { student });
           }
-          i;
         } catch (error) {
           done(error);
         }
       }
-      i;
     } catch (error) {
-      console.log(error.email);
+      console.log(error);
       //check if it's a student
       try {
         const student = await Student.findById(payload.id);
         if (student) {
           done(null, { student });
         }
-        i;
       } catch (error) {
         done(error);
       }
     }
   })
 );
+
+module.exports = passport;

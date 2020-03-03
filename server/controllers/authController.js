@@ -18,7 +18,10 @@ exports.studentSignup = async (req, res) => {
     lName: Joi.string()
       .alphanum()
       .required(),
-    otherNames: Joi.string(),
+    otherNames: Joi.string()
+      .alphanum()
+      .optional()
+      .allow(''),
     email: Joi.string()
       .email()
       .required(),
@@ -109,7 +112,10 @@ exports.lecturerSignup = async (req, res) => {
     lName: Joi.string()
       .alphanum()
       .required(),
-    otherNames: Joi.string().alphanum(),
+    otherNames: Joi.string()
+      .alphanum()
+      .optional()
+      .allow(''),
     email: Joi.string()
       .email()
       .required(),

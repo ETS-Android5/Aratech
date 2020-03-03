@@ -2082,6 +2082,7 @@ id add
 id alertTitle
 id all
 id always
+id appbar
 id async
 id auto
 id avatar
@@ -2148,6 +2149,7 @@ id edtIndex
 id edtIndexNo
 id edtLastName
 id edtMobile
+id edtOtherNames
 id edtPassword
 id end
 id end_padder
@@ -2240,6 +2242,7 @@ id mtrl_internal_children_alpha_tag
 id multiply
 id name
 id navigation_header_container
+id nested_scroll_view
 id never
 id none
 id normal
@@ -2318,6 +2321,7 @@ id submenuarrow
 id submit_area
 id successView
 id tabMode
+id tab_layout
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
@@ -2344,6 +2348,7 @@ id title
 id titleDividerNoCustom
 id title_template
 id toastMessage
+id toolbar
 id top
 id topPanel
 id touch_outside
@@ -2420,9 +2425,11 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_intro
+layout activity_lecturer_home
 layout activity_lecturer_login
 layout activity_lecturer_signup
 layout activity_main
+layout activity_student_home
 layout activity_student_login
 layout activity_student_signup
 layout chip_view
@@ -2447,6 +2454,7 @@ layout design_text_input_password_icon
 layout detailed_chip_view
 layout dialog_info
 layout error_toast_layout
+layout fragment_main_school
 layout info_toast_layout
 layout item_intro
 layout item_list_filterable

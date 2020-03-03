@@ -3,6 +3,7 @@ package com.aratech.lecturemonitor.network;
 import com.aratech.lecturemonitor.models.DtResponse;
 import com.aratech.lecturemonitor.models.LtResponse;
 import com.aratech.lecturemonitor.models.StResponse;
+import com.aratech.lecturemonitor.models.StSignup;
 import com.aratech.lecturemonitor.models.StdLogin;
 
 import retrofit2.Call;
@@ -21,7 +22,7 @@ public interface ApiInterface {
 
     //register student
     @POST("auth/students/register")
-    Call<StResponse> registerStudent();
+    Call<StResponse> registerStudent(@Body StSignup stSignup);
 
     //login lecturer
     @POST("auth/lecturers/login")

@@ -129,6 +129,9 @@ public class StudentLoginActivity extends AppCompatActivity implements View.OnCl
                             .putBoolean(Consts.CURRENT_USER_EMAIL_VERIFIED, student.isEmailVerified())
                             .apply();
                     loginBtn.revertAnimation();
+                    Intent intent = new Intent(StudentLoginActivity.this, StudentHomeActivity.class);
+                    startActivity(intent);
+                    finish();
                 }
                 else {
                     TastyToast.makeText(getApplicationContext(), "Invalid index number or password", TastyToast.LENGTH_SHORT, TastyToast.ERROR)

@@ -2120,6 +2120,7 @@ id container
 id content
 id contentPanel
 id coordinator
+id courses
 id custom
 id customPanel
 id decor_content_parent
@@ -2146,7 +2147,6 @@ id edtConfirmPassword
 id edtEmail
 id edtFirstName
 id edtIndex
-id edtIndexNo
 id edtLastName
 id edtMobile
 id edtOtherNames
@@ -2357,6 +2357,7 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id txtForgotPassword
 id unchecked
 id uniform
 id unlabeled

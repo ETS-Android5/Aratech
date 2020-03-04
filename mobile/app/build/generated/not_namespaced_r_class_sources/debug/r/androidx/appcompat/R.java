@@ -712,12 +712,12 @@ public final class R {
         public static final int chronometer = 0x7f0a0060;
         public static final int content = 0x7f0a0068;
         public static final int contentPanel = 0x7f0a0069;
-        public static final int custom = 0x7f0a006b;
-        public static final int customPanel = 0x7f0a006c;
-        public static final int decor_content_parent = 0x7f0a006d;
-        public static final int default_activity_button = 0x7f0a0070;
-        public static final int dialog_button = 0x7f0a0079;
-        public static final int edit_query = 0x7f0a0080;
+        public static final int custom = 0x7f0a006c;
+        public static final int customPanel = 0x7f0a006d;
+        public static final int decor_content_parent = 0x7f0a006e;
+        public static final int default_activity_button = 0x7f0a0071;
+        public static final int dialog_button = 0x7f0a007a;
+        public static final int edit_query = 0x7f0a0081;
         public static final int expand_activities_button = 0x7f0a0091;
         public static final int expanded_menu = 0x7f0a0092;
         public static final int forever = 0x7f0a009a;
@@ -788,10 +788,10 @@ public final class R {
         public static final int titleDividerNoCustom = 0x7f0a014c;
         public static final int title_template = 0x7f0a014d;
         public static final int topPanel = 0x7f0a0151;
-        public static final int unchecked = 0x7f0a0158;
-        public static final int uniform = 0x7f0a0159;
-        public static final int up = 0x7f0a015b;
-        public static final int wrap_content = 0x7f0a0163;
+        public static final int unchecked = 0x7f0a0159;
+        public static final int uniform = 0x7f0a015a;
+        public static final int up = 0x7f0a015c;
+        public static final int wrap_content = 0x7f0a0164;
     }
     public static final class integer {
         private integer() {}

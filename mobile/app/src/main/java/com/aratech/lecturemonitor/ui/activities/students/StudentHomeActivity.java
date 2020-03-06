@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.widget.NestedScrollView;
 
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 
@@ -52,7 +53,7 @@ public class StudentHomeActivity extends AppCompatActivity {
         tab_layout.addTab(tab_layout.newTab().setIcon(R.drawable.ic_person), 4);
 
         // set icon color pre-selected
-        Objects.requireNonNull(Objects.requireNonNull(tab_layout.getTabAt(0)).getIcon()).setColorFilter(getResources().getColor(R.color.deep_orange_500), PorterDuff.Mode.SRC_IN);
+        Objects.requireNonNull(Objects.requireNonNull(tab_layout.getTabAt(0)).getIcon()).setColorFilter(Color.BLUE, PorterDuff.Mode.SRC_IN);
         tab_layout.getTabAt(1).getIcon().setColorFilter(getResources().getColor(R.color.grey_60), PorterDuff.Mode.SRC_IN);
         tab_layout.getTabAt(2).getIcon().setColorFilter(getResources().getColor(R.color.grey_60), PorterDuff.Mode.SRC_IN);
         tab_layout.getTabAt(3).getIcon().setColorFilter(getResources().getColor(R.color.grey_60), PorterDuff.Mode.SRC_IN);
@@ -61,7 +62,7 @@ public class StudentHomeActivity extends AppCompatActivity {
         tab_layout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                tab.getIcon().setColorFilter(getResources().getColor(R.color.blue_800), PorterDuff.Mode.SRC_IN);
+                tab.getIcon().setColorFilter(Color.BLUE, PorterDuff.Mode.SRC_IN);
                 switch (tab.getPosition()) {
                     case 0:
                         actionBar.setTitle("Home");

@@ -17,4 +17,23 @@ router.post(
   personalTimetableController.createPersonalTimeTable
 );
 
+//update personal time table
+router.put(
+  '/personal',
+  passport.authenticate('jwt', { session: false }),
+  personalTimetableController.updatePersonalTimetable
+);
+router.patch(
+  '/personal',
+  passport.authenticate('jwt', { session: false }),
+  personalTimetableController.updatePersonalTimetable
+);
+
+//delete personal time table
+router.delete(
+  '/personal',
+  passport.authenticate('jwt', { session: false }),
+  personalTimetableController.deletePersonalTimeTable
+);
+
 module.exports = router;

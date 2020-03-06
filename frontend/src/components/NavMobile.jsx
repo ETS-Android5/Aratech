@@ -10,7 +10,7 @@ const NavMobile = props => (
     >
       <div className="uk-offcanvas-bar uk-width-1-1">
         <Link className="uk-logo uk-margin-medium-right" to="/">
-          Lecture Monitor
+          LM
         </Link>
         <button
           className="uk-offcanvas-close"
@@ -66,15 +66,6 @@ const NavMobile = props => (
               <a
                 href="https://www.instagram.com/"
                 data-uk-icon="icon: instagram"
-                className="uk-icon-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              ></a>
-            </div>
-            <div>
-              <a
-                href="https://vimeo.com/"
-                data-uk-icon="icon: vimeo"
                 className="uk-icon-link"
                 target="_blank"
                 rel="noopener noreferrer"

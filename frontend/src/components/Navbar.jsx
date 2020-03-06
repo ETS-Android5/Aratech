@@ -20,7 +20,7 @@ const Navbar = props => (
                 <li className="uk-active">
                   <Link to="/">Home</Link>
                 </li>
-                <li style={{ color: "white" }}>
+                <li style={{ color: 'white' }}>
                   <Link to="/contact">contact</Link>
                 </li>
                 <li>
@@ -78,12 +78,14 @@ const Navbar = props => (
         <Link
           to="/lecturer/signup"
           className="uk-button uk-button-primary uk-button-large uk-margin-medium-top"
+          data-uk-toggle="target: #signup-modal"
         >
           Continue as Lecturer
         </Link>
         <Link
           to="/student/signup"
           className="uk-button uk-button-success-outline uk-button-large uk-margin-medium-top"
+          data-uk-toggle="target: #signup-modal"
         >
           Continue as Student
         </Link>
@@ -100,12 +102,14 @@ const Navbar = props => (
         <Link
           to="/lecturer/signin"
           className="uk-button uk-button-primary uk-button-large uk-margin-medium-top"
+          data-uk-toggle="target: #signin-modal"
         >
           Continue as Lecturer
         </Link>
         <Link
           to="/student/signin"
           className="uk-button uk-button-success-outline uk-button-large uk-margin-medium-top"
+          data-uk-toggle="target: #signin-modal"
         >
           Continue as Student
         </Link>

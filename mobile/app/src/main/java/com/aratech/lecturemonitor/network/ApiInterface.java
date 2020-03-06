@@ -1,7 +1,9 @@
 package com.aratech.lecturemonitor.network;
 
 import com.aratech.lecturemonitor.models.DtResponse;
+import com.aratech.lecturemonitor.models.LtLogin;
 import com.aratech.lecturemonitor.models.LtResponse;
+import com.aratech.lecturemonitor.models.LtSignup;
 import com.aratech.lecturemonitor.models.StResponse;
 import com.aratech.lecturemonitor.models.StSignup;
 import com.aratech.lecturemonitor.models.StdLogin;
@@ -26,9 +28,9 @@ public interface ApiInterface {
 
     //login lecturer
     @POST("auth/lecturers/login")
-    Call<LtResponse> loginLecturer();
+    Call<LtResponse> loginLecturer(@Body LtLogin ltLogin);
 
     //register lecturer
     @POST("auth/lecturers/register")
-    Call<LtResponse> registerLecturer();
+    Call<LtResponse> registerLecturer(@Body LtSignup ltSignup);
 }

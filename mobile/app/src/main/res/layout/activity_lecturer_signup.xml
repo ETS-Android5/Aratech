@@ -85,17 +85,11 @@
                             android:hint="Email"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/parent"
-                        android:layout_marginTop="@dimen/loginViewsMargin">
-
-                        <EditText
-                            android:id="@+id/edtIndexNo"
-                            style="@style/modifiedEditText"
-                            android:hint="Lecturer ID"
-                            android:inputType="number"
-                            android:maxLines="1" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.isapanah.awesomespinner.AwesomeSpinner
+                        android:id="@+id/courses"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:spinnerHint="Select a course"/>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputMobile"

@@ -29,7 +29,7 @@ import retrofit2.Response;
 
 public class StudentLoginActivity extends AppCompatActivity implements View.OnClickListener {
     CircularProgressButton loginBtn;
-    TextView gotoRegister;
+    TextView gotoRegister, forgotPassword;
     ImageView slideSignUp;
     EditText edtIndex, edtPassword;
 
@@ -48,6 +48,7 @@ public class StudentLoginActivity extends AppCompatActivity implements View.OnCl
         loginBtn.setOnClickListener(this);
         gotoRegister.setOnClickListener(this);
         slideSignUp.setOnClickListener(this);
+        forgotPassword.setOnClickListener(this);
     }
 
     private void initUI() {
@@ -56,6 +57,7 @@ public class StudentLoginActivity extends AppCompatActivity implements View.OnCl
         slideSignUp = findViewById(R.id.slideSignUp);
         edtIndex = findViewById(R.id.edtIndex);
         edtPassword = findViewById(R.id.edtPassword);
+        forgotPassword = findViewById(R.id.txtForgotPassword);
     }
 
     @Override
@@ -64,6 +66,10 @@ public class StudentLoginActivity extends AppCompatActivity implements View.OnCl
             case R.id.login:
                 loginBtn.startAnimation();
                 login();
+                break;
+            case R.id.txtForgotPassword:
+                TastyToast.makeText(getApplicationContext(), "Forgot password not yet created", TastyToast.LENGTH_SHORT, TastyToast.INFO)
+                        .show();
                 break;
             case R.id.gotoRegister:
             case R.id.slideSignUp:

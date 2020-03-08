@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = props => (
   <React.Fragment>
@@ -17,10 +17,12 @@ const Navbar = props => (
             </div>
             <div className="uk-navbar-center">
               <ul className="uk-navbar-nav uk-visible@m">
-                <li className="uk-active">
-                  <Link to="/">Home</Link>
+                <li>
+                  <NavLink to="/" activeClassName="uk-active">
+                    Home
+                  </NavLink>
                 </li>
-                <li style={{ color: 'white' }}>
+                <li>
                   <Link to="/contact">contact</Link>
                 </li>
                 <li>
@@ -28,16 +30,36 @@ const Navbar = props => (
                   <div className="uk-navbar-dropdown">
                     <ul className="uk-nav uk-navbar-dropdown-nav">
                       <li>
-                        <Link to="/lecturer/signin">Lecturer - Sign In</Link>
+                        <NavLink
+                          activeClassName="uk-active"
+                          to="/lecturer/signin"
+                        >
+                          Lecturer - Sign In
+                        </NavLink>
                       </li>
                       <li>
-                        <Link to="/lecturer/signup">Lecturer - Sign Up</Link>
+                        <NavLink
+                          activeClassName="uk-active"
+                          to="/lecturer/signup"
+                        >
+                          Lecturer - Sign Up
+                        </NavLink>
                       </li>
                       <li>
-                        <Link to="/student/signin">Student - Sign In</Link>
+                        <NavLink
+                          activeClassName="uk-active"
+                          to="/student/signin"
+                        >
+                          Student - Sign In
+                        </NavLink>
                       </li>
                       <li>
-                        <Link to="/student/signup">Student - Sign Up</Link>
+                        <NavLink
+                          activeClassName="uk-active"
+                          to="/student/signup"
+                        >
+                          Student - Sign Up
+                        </NavLink>
                       </li>
                     </ul>
                   </div>

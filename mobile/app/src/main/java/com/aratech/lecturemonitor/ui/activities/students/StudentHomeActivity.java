@@ -32,13 +32,10 @@ public class StudentHomeActivity extends AppCompatActivity {
 
     private void initToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_menu);
-        Objects.requireNonNull(toolbar.getNavigationIcon()).setColorFilter(getResources().getColor(R.color.grey_60), PorterDuff.Mode.SRC_ATOP);
         setSupportActionBar(toolbar);
         actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.setTitle("Home");
-        actionBar.setDisplayHomeAsUpEnabled(true);
         Tools.setSystemBarColor(this, R.color.grey_20);
     }
 
@@ -48,8 +45,8 @@ public class StudentHomeActivity extends AppCompatActivity {
 
         tab_layout.addTab(tab_layout.newTab().setIcon(R.drawable.ic_home), 0);
         tab_layout.addTab(tab_layout.newTab().setIcon(R.drawable.ic_search), 1);
-        tab_layout.addTab(tab_layout.newTab().setIcon(R.drawable.ic_add_box), 2);
-        tab_layout.addTab(tab_layout.newTab().setIcon(R.drawable.ic_favorite_border), 3);
+        tab_layout.addTab(tab_layout.newTab().setIcon(android.R.drawable.ic_menu_my_calendar), 2);
+        tab_layout.addTab(tab_layout.newTab().setIcon(R.drawable.ic_notifications), 3);
         tab_layout.addTab(tab_layout.newTab().setIcon(R.drawable.ic_person), 4);
 
         // set icon color pre-selected
@@ -71,10 +68,10 @@ public class StudentHomeActivity extends AppCompatActivity {
                         actionBar.setTitle("Explore");
                         break;
                     case 2:
-                        actionBar.setTitle("Story");
+                        actionBar.setTitle("Calender");
                         break;
                     case 3:
-                        actionBar.setTitle("Activity");
+                        actionBar.setTitle("Notifications");
                         break;
                     case 4:
                         actionBar.setTitle("Profile");

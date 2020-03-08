@@ -19,6 +19,8 @@ import ResetPassword from './pages/ResetPassword';
 import Footer from './components/Footer';
 import LecturerSignIn from './pages/LecturerSignIn';
 import LecturerSignUp from './pages/LecturerSignUp';
+import EmailVeify from './pages/EmailVerify';
+import NotFound from './pages/NotFound';
 
 import './App.css';
 
@@ -42,7 +44,7 @@ if (lecturerToken) {
     store.dispatch(logoutUser());
 
     //redirect to login
-    window.location.href = '/login';
+    window.location.href = '/lecturer/login';
   }
 } else if (studentToken) {
   //check if student token is valid
@@ -61,7 +63,7 @@ if (lecturerToken) {
     store.dispatch(logoutUser());
 
     //redirect to login
-    window.location.href = '/login';
+    window.location.href = '/student/login';
   }
 }
 
@@ -79,6 +81,8 @@ class App extends React.Component {
             <Route exact path="/lecturer/signin" component={LecturerSignIn} />
             <Route exact path="/forgotpassword" component={ForgotPassword} />
             <Route exact path="/resetpassword" component={ResetPassword} />
+            <Route exact path="/confirmemail/:token" component={EmailVeify} />
+            <Route path="*" component={NotFound} />
           </Switch>
           {/* Include the mobile nav and footer in every page */}
           <NavMobile />

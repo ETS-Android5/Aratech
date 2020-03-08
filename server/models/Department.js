@@ -9,8 +9,7 @@ const DepartmentSchema = new Schema({
   courses: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Course',
-      required: true
+      ref: 'Course'
     }
   ]
 });

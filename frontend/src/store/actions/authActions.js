@@ -21,7 +21,7 @@ export const signinStudent = (user, history) => async dispatch => {
     setAuthToken(token);
 
     //redirect the user to the authenticated page
-    history.push('/protectedroute');
+    history.push('/students/home');
   } catch (err) {
     return err.response.data.message;
   }
@@ -45,7 +45,7 @@ export const signinLecturer = (user, history) => async dispatch => {
     setAuthToken(token);
 
     //redirect the user to the authenticated page
-    history.push('/protectedroute');
+    history.push('/lecturers/home');
   } catch (err) {
     return err.response.data.message;
   }

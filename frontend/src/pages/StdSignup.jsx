@@ -272,7 +272,7 @@ class StdSignUp extends React.Component {
 
                     <div className="uk-width-1-1 uk-margin">
                       <label className="uk-form-label" htmlFor="department">
-                        Department
+                        Program
                       </label>
                       <select
                         id="department"
@@ -288,7 +288,7 @@ class StdSignUp extends React.Component {
                         placeholder="Computer Engineering"
                         disabled={isLoading}
                       >
-                        <option value="default">Select your department</option>
+                        <option value="default">Select your program</option>
                         {departmentIDs.map((department, i) => (
                           <option key={department} value={department}>
                             {departmentNames[i]}

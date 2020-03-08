@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
 
+const db_uri =
+  process.env.NODE === 'development' ? process.env.DB_URI : process.env.DB_PROD;
+
 //connect to db
 const initDB = () => {
-  mongoose.connect(process.env.DB_URI, {
+  mongoose.connect(db_uri, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: true,

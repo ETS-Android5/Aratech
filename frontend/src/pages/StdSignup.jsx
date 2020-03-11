@@ -381,13 +381,17 @@ class StdSignUp extends React.Component {
                         type="submit"
                         disabled={isLoading}
                       >
-                        Sign Up
+                        {isLoading ? 'Registering ...' : 'Sign Up'}
                       </button>
                     </div>
                     <div className="uk-width-1-1 uk-margin uk-text-center">
                       <p className="uk-text-small uk-margin-remove">
                         By signing up you agree to our{' '}
-                        <Link className="uk-link-border" to="/terms">
+                        <Link
+                          className="uk-link-border"
+                          to="/terms"
+                          disabled={isLoading}
+                        >
                           terms
                         </Link>{' '}
                         of service.
@@ -415,6 +419,7 @@ class StdSignUp extends React.Component {
               <div className="uk-width-1-1 uk-text-center">
                 <Link
                   to="/student/signin"
+                  disabled={isLoading}
                   className="uk-button uk-button-success-outline uk-button-large"
                 >
                   Sign In

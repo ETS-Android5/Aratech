@@ -141,6 +141,7 @@ class StdSignIn extends React.Component {
                       <Link
                         className="uk-text-small uk-link-muted"
                         to="/forgotpassword"
+                        disabled={isLoading}
                       >
                         Forgot your password?
                       </Link>
@@ -151,7 +152,7 @@ class StdSignIn extends React.Component {
                         type="submit"
                         disabled={isLoading}
                       >
-                        Sign In
+                        {isLoading ? 'Signing in...' : 'Sign In'}
                       </button>
                     </div>
                   </form>
@@ -176,6 +177,7 @@ class StdSignIn extends React.Component {
               <div className="uk-width-1-1 uk-text-center">
                 <Link
                   to="/student/signup"
+                  disabled={isLoading}
                   className="uk-button uk-button-success-outline uk-button-large"
                 >
                   Sign Up

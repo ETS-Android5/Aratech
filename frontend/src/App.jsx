@@ -10,6 +10,7 @@ import {
   logoutUser
 } from './store/actions/authActions';
 
+import PrivateRoute from './components/PrivateRoute';
 import NavMobile from './components/NavMobile';
 import Landing from './pages/Landing';
 import StdSignUp from './pages/StdSignup';
@@ -21,6 +22,8 @@ import LecturerSignIn from './pages/LecturerSignIn';
 import LecturerSignUp from './pages/LecturerSignUp';
 import EmailVeify from './pages/EmailVerify';
 import NotFound from './pages/NotFound';
+import StdProfile from './pages/StdProfile';
+import StdHome from './pages/StdHome';
 
 import './App.css';
 
@@ -80,8 +83,22 @@ class App extends React.Component {
             <Route exact path="/lecturer/signup" component={LecturerSignUp} />
             <Route exact path="/lecturer/signin" component={LecturerSignIn} />
             <Route exact path="/forgotpassword" component={ForgotPassword} />
-            <Route exact path="/resetpassword" component={ResetPassword} />
+            <Route
+              exact
+              path="/passwordreset/:token"
+              component={ResetPassword}
+            />
             <Route exact path="/confirmemail/:token" component={EmailVeify} />
+
+            {/* private student routes */}
+            <PrivateRoute exact path="/students/home" component={StdHome} />
+            <PrivateRoute
+              exact
+              path="/students/profile"
+              component={StdProfile}
+            />
+
+            {/* 404 Not founds */}
             <Route path="*" component={NotFound} />
           </Switch>
           {/* Include the mobile nav and footer in every page */}

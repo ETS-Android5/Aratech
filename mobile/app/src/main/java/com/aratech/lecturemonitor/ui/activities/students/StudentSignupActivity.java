@@ -224,7 +224,7 @@ public class StudentSignupActivity extends AppCompatActivity implements View.OnC
                 if(response.isSuccessful()) {
                     assert response.body() != null;
                     Student student = response.body().getData().getStudent();
-                    TastyToast.makeText(getApplicationContext(), "Student Signed up successfully", TastyToast.LENGTH_SHORT, TastyToast.SUCCESS)
+                    TastyToast.makeText(getApplicationContext(), "Student Signed up successfully", TastyToast.LENGTH_LONG, TastyToast.SUCCESS)
                             .show();
                     //save logged in student to shared preferences
                     SharedPreferences authPrefs = getSharedPreferences(Consts.AUTH_SHARED_PREFS, Context.MODE_PRIVATE);
@@ -251,7 +251,7 @@ public class StudentSignupActivity extends AppCompatActivity implements View.OnC
                     finish();
                 }
                 else {
-                    TastyToast.makeText(getApplicationContext(), "Wrong input", TastyToast.LENGTH_SHORT, TastyToast.ERROR)
+                    TastyToast.makeText(getApplicationContext(), "Wrong input", TastyToast.LENGTH_LONG, TastyToast.ERROR)
                             .show();
                     fNameEdt.setText("");
                     lNameEdt.setText("");
@@ -266,7 +266,7 @@ public class StudentSignupActivity extends AppCompatActivity implements View.OnC
 
             @Override
             public void onFailure(@NonNull Call<StResponse> call, @NonNull Throwable t) {
-                TastyToast.makeText(getApplicationContext(), "Unable to sign up at this time, check your internet connection", TastyToast.LENGTH_SHORT, TastyToast.ERROR)
+                TastyToast.makeText(getApplicationContext(), "Unable to sign up at this time, check your internet connection", TastyToast.LENGTH_LONG, TastyToast.ERROR)
                         .show();
                 registerButton.revertAnimation();
             }

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.widget.NestedScrollView;
 
+import android.Manifest;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -13,7 +14,15 @@ import com.aratech.lecturemonitor.R;
 import com.aratech.lecturemonitor.utils.Tools;
 import com.aratech.lecturemonitor.utils.ViewAnimation;
 import com.google.android.material.tabs.TabLayout;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
+import com.onurkagan.ksnack_lib.Animations.Slide;
+import com.onurkagan.ksnack_lib.KSnack.KSnack;
 
+import java.util.List;
 import java.util.Objects;
 
 public class StudentHomeActivity extends AppCompatActivity {
@@ -25,6 +34,46 @@ public class StudentHomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_home);
+
+        //request for permissions
+        Dexter.withActivity(this)
+                .withPermissions(
+                        Manifest.permission.INTERNET,
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.ACCESS_COARSE_LOCATION,
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.CAMERA
+                ).withListener(new MultiplePermissionsListener() {
+            @Override
+            public void onPermissionsChecked(MultiplePermissionsReport report) {
+                    if(report.areAllPermissionsGranted()) {
+                        KSnack kSnack = new KSnack(StudentHomeActivity.this);
+                        kSnack
+                                .setMessage("Permissions successfully granted")
+                                .setAnimation(Slide.Up.getAnimation(kSnack.getSnackView()), Slide.Down.getAnimation(kSnack.getSnackView()))
+                                .setDuration(3000)
+                                .show();
+                    } else {
+                        KSnack kSnack = new KSnack(StudentHomeActivity.this);
+                        kSnack
+                                .setMessage("Permissions needed for application to function properly")
+                                .setAnimation(Slide.Up.getAnimation(kSnack.getSnackView()), Slide.Down.getAnimation(kSnack.getSnackView()))
+                                .setDuration(3000)
+                                .show();
+                    }
+            }
+
+            @Override
+            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                KSnack kSnack = new KSnack(StudentHomeActivity.this);
+                kSnack
+                        .setMessage("Permissions needed for application to function properly")
+                        .setAnimation(Slide.Up.getAnimation(kSnack.getSnackView()), Slide.Down.getAnimation(kSnack.getSnackView()))
+                        .setDuration(3000)
+                        .show();
+            }
+        }).check();
 
         initToolbar();
         initComponent();

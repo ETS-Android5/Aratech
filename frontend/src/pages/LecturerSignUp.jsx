@@ -329,6 +329,7 @@ class LecturerSignUp extends React.Component {
                 <Link
                   to="/lecturer/signin"
                   className="uk-button uk-button-success-outline uk-button-large"
+                  disabled={isLoading}
                 >
                   Sign In
                 </Link>

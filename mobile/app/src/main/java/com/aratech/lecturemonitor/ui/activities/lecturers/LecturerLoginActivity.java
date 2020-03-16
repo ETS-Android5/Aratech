@@ -120,7 +120,7 @@ public class LecturerLoginActivity extends AppCompatActivity implements View.OnC
                 if(response.isSuccessful()){
                     assert response.body() != null;
                     Lecturer lecturer = response.body().getData().getLecturer();
-                    TastyToast.makeText(getApplicationContext(), "Student Logged in successfully", TastyToast.LENGTH_SHORT, TastyToast.SUCCESS)
+                    TastyToast.makeText(getApplicationContext(), "Student Logged in successfully", TastyToast.LENGTH_LONG, TastyToast.SUCCESS)
                             .show();
                     //save logged in student to shared preferences
                     SharedPreferences authPrefs = getSharedPreferences(Consts.AUTH_SHARED_PREFS, Context.MODE_PRIVATE);
@@ -146,7 +146,7 @@ public class LecturerLoginActivity extends AppCompatActivity implements View.OnC
                     finish();
                 }
                 else {
-                    TastyToast.makeText(getApplicationContext(), "Login Failed", TastyToast.LENGTH_SHORT, TastyToast.ERROR)
+                    TastyToast.makeText(getApplicationContext(), "Login Failed", TastyToast.LENGTH_LONG, TastyToast.ERROR)
                             .show();
                     loginBtn.revertAnimation();
                 }
@@ -155,7 +155,7 @@ public class LecturerLoginActivity extends AppCompatActivity implements View.OnC
             @Override
             public void onFailure(@NotNull Call<LtResponse> call, @NotNull Throwable t) {
                 Log.d("Lecturer Login", t.getMessage());
-                TastyToast.makeText(getApplicationContext(), "Unable to login at this time, please check your internet connection", TastyToast.LENGTH_SHORT, TastyToast.ERROR)
+                TastyToast.makeText(getApplicationContext(), "Unable to login at this time, please check your internet connection", TastyToast.LENGTH_LONG, TastyToast.ERROR)
                         .show();
                 loginBtn.revertAnimation();
             }

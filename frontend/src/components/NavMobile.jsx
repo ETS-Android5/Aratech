@@ -46,7 +46,7 @@ const NavMobile = props => (
           >
             <div>
               <a
-                href="https://twitter.com/"
+                href="https://twitter.com/aratech_knust?s=08"
                 data-uk-icon="icon: twitter"
                 className="uk-icon-link"
                 target="_blank"
@@ -55,7 +55,7 @@ const NavMobile = props => (
             </div>
             <div>
               <a
-                href="https://www.facebook.com/"
+                href="https://web.facebook.com/aratech.aratech.7"
                 data-uk-icon="icon: facebook"
                 className="uk-icon-link"
                 target="_blank"
@@ -64,7 +64,7 @@ const NavMobile = props => (
             </div>
             <div>
               <a
-                href="https://www.instagram.com/"
+                href="https://www.instagram.com/_aratech"
                 data-uk-icon="icon: instagram"
                 className="uk-icon-link"
                 target="_blank"

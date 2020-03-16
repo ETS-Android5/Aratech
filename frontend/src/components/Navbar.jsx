@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logoutUser } from '../store/actions/authActions';
 
-const Navbar = props => (
+const Navbar = ({ isAuthenticated, isLecturer, isStudent, logoutUser }) => (
   <React.Fragment>
     <div
       data-uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container  
@@ -25,59 +27,75 @@ const Navbar = props => (
                 <li>
                   <Link to="/contact">contact</Link>
                 </li>
-                <li>
-                  <Link to="#">Account</Link>
-                  <div className="uk-navbar-dropdown">
-                    <ul className="uk-nav uk-navbar-dropdown-nav">
-                      <li>
-                        <NavLink
-                          activeClassName="uk-active"
-                          to="/lecturer/signin"
-                        >
-                          Lecturer - Sign In
-                        </NavLink>
-                      </li>
-                      <li>
-                        <NavLink
-                          activeClassName="uk-active"
-                          to="/lecturer/signup"
-                        >
-                          Lecturer - Sign Up
-                        </NavLink>
-                      </li>
-                      <li>
-                        <NavLink
-                          activeClassName="uk-active"
-                          to="/student/signin"
-                        >
-                          Student - Sign In
-                        </NavLink>
-                      </li>
-                      <li>
-                        <NavLink
-                          activeClassName="uk-active"
-                          to="/student/signup"
-                        >
-                          Student - Sign Up
-                        </NavLink>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
+                {!isAuthenticated ? (
+                  <li>
+                    <Link to="#">Account</Link>
+                    <div className="uk-navbar-dropdown">
+                      <ul className="uk-nav uk-navbar-dropdown-nav">
+                        <li>
+                          <NavLink
+                            activeClassName="uk-active"
+                            to="/lecturer/signin"
+                          >
+                            Lecturer - Sign In
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink
+                            activeClassName="uk-active"
+                            to="/lecturer/signup"
+                          >
+                            Lecturer - Sign Up
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink
+                            activeClassName="uk-active"
+                            to="/student/signin"
+                          >
+                            Student - Sign In
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink
+                            activeClassName="uk-active"
+                            to="/student/signup"
+                          >
+                            Student - Sign Up
+                          </NavLink>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                ) : null}
               </ul>
             </div>
             <div className="uk-navbar-right">
-              <div className="uk-navbar-item">
-                <div>
-                  <button
-                    className="uk-button uk-button-success-outline"
-                    type="button"
-                    data-uk-toggle="target: #signup-modal"
-                  >
-                    Sign Up
-                  </button>
+              {!isAuthenticated ? (
+                <div className="uk-navbar-item">
+                  <div>
+                    <button
+                      className="uk-button uk-button-success-outline"
+                      type="button"
+                      data-uk-toggle="target: #signup-modal"
+                    >
+                      Sign Up
+                    </button>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className="uk-navbar-item">
+                  <div>
+                    <button
+                      className="uk-button uk-button-success-outline"
+                      type="button"
+                      onClick={logoutUser}
+                    >
+                      Log out
+                    </button>
+                  </div>
+                </div>
+              )}
               <a
                 className="uk-navbar-toggle uk-hidden@m"
                 data-uk-toggle="target: #offcanvas"
@@ -140,4 +158,12 @@ const Navbar = props => (
   </React.Fragment>
 );
 
-export default Navbar;
+const mapStateToProps = ({
+  auth: { isAuthenticated, isStudent, isLecturer }
+}) => ({
+  isAuthenticated,
+  isStudent,
+  isLecturer
+});
+
+export default connect(mapStateToProps, { logoutUser })(Navbar);

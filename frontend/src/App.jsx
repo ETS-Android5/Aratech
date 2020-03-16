@@ -91,10 +91,10 @@ class App extends React.Component {
             <Route exact path="/confirmemail/:token" component={EmailVeify} />
 
             {/* private student routes */}
-            <PrivateRoute exact path="/students/home" component={StdHome} />
+            <PrivateRoute exact path="/student/home" component={StdHome} />
             <PrivateRoute
               exact
-              path="/students/profile"
+              path="/student/profile"
               component={StdProfile}
             />
 

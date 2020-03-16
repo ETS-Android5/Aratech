@@ -39,6 +39,8 @@ dependencies {
     implementation 'br.com.simplepass:loading-button-android:1.14.0'   //animated login button
     implementation 'com.github.sadra:AwesomeSpinner:1.5.2'             //awesome spinner library
     implementation 'com.sdsmdg.tastytoast:tastytoast:0.1.1'            //beautiful notifications
+    implementation 'com.karumi:dexter:6.0.0'                           //karumi dexter library for easy runtime permissions handling
+    implementation 'com.github.onurkagan:KSnack:1.1.1'                 //material snackbar on top of the default one
 
     //retrofit for network layer
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'

@@ -142,6 +142,7 @@ class LecturerSignIn extends React.Component {
                       <button
                         className="uk-button uk-button__animate uk-button-primary uk-button-large"
                         type="submit"
+                        disabled={isLoading}
                       >
                         Sign In
                       </button>
@@ -169,6 +170,7 @@ class LecturerSignIn extends React.Component {
                 <Link
                   to="/lecturer/signup"
                   className="uk-button uk-button-success-outline uk-button-large"
+                  disabled={isLoading}
                 >
                   Sign Up
                 </Link>

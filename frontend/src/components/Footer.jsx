@@ -68,7 +68,7 @@ const Footer = props => (
                 {/* Links to Aratech's social media*/}
                 <a
                   className="uk-link-border"
-                  href="#"
+                  href="https://web.facebook.com/aratech.aratech.7"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -78,7 +78,7 @@ const Footer = props => (
               <li>
                 <a
                   className="uk-link-border"
-                  href="#"
+                  href="https://twitter.com/aratech_knust?s=08"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -88,7 +88,7 @@ const Footer = props => (
               <li>
                 <a
                   className="uk-link-border"
-                  href="#"
+                  href="https://instagram.com/_aratech"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

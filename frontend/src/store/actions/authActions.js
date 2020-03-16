@@ -21,7 +21,7 @@ export const signinStudent = (user, history) => async dispatch => {
     setAuthToken(token);
 
     //redirect the user to the authenticated page
-    history.push('/students/home');
+    history.push('/student/home');
   } catch (err) {
     return err.response.data.message;
   }
@@ -45,7 +45,7 @@ export const signinLecturer = (user, history) => async dispatch => {
     setAuthToken(token);
 
     //redirect the user to the authenticated page
-    history.push('/lecturers/home');
+    history.push('/lecturer/home');
   } catch (err) {
     return err.response.data.message;
   }
@@ -69,7 +69,7 @@ export const signupStudent = (user, history) => async dispatch => {
     setAuthToken(token);
 
     //redirect the user to the authenticated page
-    history.push('/protectedroute');
+    history.push('/lecturer/home');
   } catch (err) {
     return err.response.data.message;
   }
@@ -93,7 +93,7 @@ export const signupLecturer = (user, history) => async dispatch => {
     setAuthToken(token);
 
     //redirect the user to the authenticated page
-    history.push('/protectedroute');
+    history.push('/lecturer/home');
   } catch (err) {
     return err.response.data.message;
   }

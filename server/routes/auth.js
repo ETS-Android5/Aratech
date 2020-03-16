@@ -1,3 +1,5 @@
+const passport = require('passport');
+
 const router = require('express').Router();
 const authController = require('../controllers/authController');
 
@@ -18,5 +20,12 @@ router.post('/forgotpassword', authController.forgotPassword);
 
 //reset password
 router.post('/resetpassword', authController.resetPassword);
+
+//resend email confirmation link
+router.post(
+  '/resendemailverify',
+  passport.authenticate('jwt', { session: false }),
+  authController.resendVerificationEmail
+);
 
 module.exports = router;

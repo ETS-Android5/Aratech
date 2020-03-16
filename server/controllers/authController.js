@@ -461,3 +461,53 @@ exports.resetPassword = async (req, res) => {
     });
   }
 };
+
+//resend email verification mail
+exports.resendVerificationEmail = async (req, res) => {
+  //check if logged user is a student or lecturer
+  const std = req.user.student;
+  const lct = req.user.lecturer;
+
+  if (std) {
+    const student = await Student.findById(std._id);
+
+    //generate a new confirmation token for student
+    const confirmationToken = crypto.randomBytes(32).toString('hex');
+    student.confirmationToken = confirmationToken;
+    //expire token after one hour
+    student.confirmationTokenExpires = Date.now() + 3600000;
+
+    await student.save();
+
+    //send new verification link
+    mails.sendConfirmationEmail(student.email, confirmationToken);
+
+    return res.status(200).json({
+      status: 'Success',
+      message: 'Confirmation email sent successfully'
+    });
+  } else if (lct) {
+    const lecturer = await Lecturer.findById(lct._id);
+
+    //generate a new confirmation token for lecturer
+    const confirmationToken = crypto.randomBytes(32).toString('hex');
+    lecturer.confirmationToken = confirmationToken;
+    //expire token after one hour
+    lecturer.confirmationTokenExpires = Date.now() + 3600000;
+
+    await lecturer.save();
+
+    //send new verification link
+    mails.sendConfirmationEmail(lecturer.email, confirmationToken);
+
+    return res.status(200).json({
+      status: 'Success',
+      message: 'Confirmation email sent successfully'
+    });
+  }
+
+  res.status(500).json({
+    status: 'Failed',
+    message: 'Oops... something went wrong, try again later...'
+  });
+};

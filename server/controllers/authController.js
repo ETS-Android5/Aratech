@@ -511,3 +511,32 @@ exports.resendVerificationEmail = async (req, res) => {
     message: 'Oops... something went wrong, try again later...'
   });
 };
+
+//get current user
+exports.me = async (req, res) => {
+  //check if logged user is a student or lecturer
+  const std = req.user.student;
+  const lct = req.user.lecturer;
+
+  if (std) {
+    return res.status(200).json({
+      status: 'Success',
+      data: {
+        student: std
+      }
+    });
+  } else if (lct) {
+    return res.status(200).json({
+      status: 'Success',
+      data: {
+        lecturer: lct
+      }
+    });
+  }
+
+  //something went wrong here
+  res.status(500).json({
+    status: 'Failed',
+    message: 'Ooops... Something went wrong here.. try again later.'
+  });
+};

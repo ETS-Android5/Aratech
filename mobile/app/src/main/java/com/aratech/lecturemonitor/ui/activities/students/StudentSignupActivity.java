@@ -242,6 +242,9 @@ public class StudentSignupActivity extends AppCompatActivity implements View.OnC
                             .edit()
                             .putString(Consts.CURRENT_USER_EMAIL, student.getEmail())
                             .putString(Consts.CURRENT_USER_PHONE, student.getPhoneNo())
+                            .putString(Consts.CURRENT_USER_FIRST_NAME, student.getfName())
+                            .putString(Consts.CURRENT_USER_LAST_NAME, student.getlName())
+                            .putString(Consts.CURRENT_USER_INDEX, String.valueOf(student.getIndexNo()))
                             .putBoolean(Consts.CURRENT_USER_CREP, student.iscRep())
                             .putBoolean(Consts.CURRENT_USER_EMAIL_VERIFIED, student.isEmailVerified())
                             .apply();

@@ -138,6 +138,8 @@ public class LecturerLoginActivity extends AppCompatActivity implements View.OnC
                             .edit()
                             .putString(Consts.CURRENT_USER_EMAIL, lecturer.getEmail())
                             .putString(Consts.CURRENT_USER_PHONE, lecturer.getPhoneNo())
+                            .putString(Consts.CURRENT_USER_FIRST_NAME, lecturer.getfName())
+                            .putString(Consts.CURRENT_USER_LAST_NAME, lecturer.getlName())
                             .putBoolean(Consts.CURRENT_USER_EMAIL_VERIFIED, lecturer.isEmailVerified())
                             .apply();
                     loginBtn.revertAnimation();

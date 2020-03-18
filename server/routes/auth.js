@@ -28,4 +28,11 @@ router.post(
   authController.resendVerificationEmail
 );
 
+//get current user route
+router.get(
+  '/me',
+  passport.authenticate('jwt', { session: false }),
+  authController.me
+);
+
 module.exports = router;

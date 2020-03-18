@@ -10,7 +10,6 @@ MERGED from [br.com.simplepass:loading-button-android:1.14.0] C:\Users\fgyim\.gr
 MERGED from [com.github.sadra:AwesomeSpinner:1.5.2] C:\Users\fgyim\.gradle\caches\transforms-2\files-2.1\6a6af5e7295d3b3ad0bae389c643f82a\jetified-AwesomeSpinner-1.5.2\AndroidManifest.xml:2:1-17:12
 MERGED from [com.sdsmdg.tastytoast:tastytoast:0.1.1] C:\Users\fgyim\.gradle\caches\transforms-2\files-2.1\9fd7465debf8e9c146931f2aad2e319f\tastytoast-0.1.1\AndroidManifest.xml:2:1-14:12
 MERGED from [com.karumi:dexter:6.0.0] C:\Users\fgyim\.gradle\caches\transforms-2\files-2.1\61d8b507797f4d6d9c8a572ddf29b2a6\dexter-6.0.0\AndroidManifest.xml:17:1-32:12
-MERGED from [com.github.onurkagan:KSnack:1.1.1] C:\Users\fgyim\.gradle\caches\transforms-2\files-2.1\b630ccf837afb410e38f2dfa4ee07ed3\jetified-KSnack-1.1.1\AndroidManifest.xml:2:1-11:12
 MERGED from [com.wdullaer:materialdatetimepicker:3.2.0] C:\Users\fgyim\.gradle\caches\transforms-2\files-2.1\4b21fcbd437a27ead5e85731efacc30e\jetified-materialdatetimepicker-3.2.0\AndroidManifest.xml:17:1-30:12
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\fgyim\.gradle\caches\transforms-2\files-2.1\c7eb9cd3508ac3959447c14fd76c9fb9\material-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\fgyim\.gradle\caches\transforms-2\files-2.1\6119d746697059b7e1b74aab4d181f56\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -220,8 +219,6 @@ MERGED from [com.sdsmdg.tastytoast:tastytoast:0.1.1] C:\Users\fgyim\.gradle\cach
 MERGED from [com.sdsmdg.tastytoast:tastytoast:0.1.1] C:\Users\fgyim\.gradle\caches\transforms-2\files-2.1\9fd7465debf8e9c146931f2aad2e319f\tastytoast-0.1.1\AndroidManifest.xml:7:5-9:41
 MERGED from [com.karumi:dexter:6.0.0] C:\Users\fgyim\.gradle\caches\transforms-2\files-2.1\61d8b507797f4d6d9c8a572ddf29b2a6\dexter-6.0.0\AndroidManifest.xml:22:5-24:41
 MERGED from [com.karumi:dexter:6.0.0] C:\Users\fgyim\.gradle\caches\transforms-2\files-2.1\61d8b507797f4d6d9c8a572ddf29b2a6\dexter-6.0.0\AndroidManifest.xml:22:5-24:41
-MERGED from [com.github.onurkagan:KSnack:1.1.1] C:\Users\fgyim\.gradle\caches\transforms-2\files-2.1\b630ccf837afb410e38f2dfa4ee07ed3\jetified-KSnack-1.1.1\AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.onurkagan:KSnack:1.1.1] C:\Users\fgyim\.gradle\caches\transforms-2\files-2.1\b630ccf837afb410e38f2dfa4ee07ed3\jetified-KSnack-1.1.1\AndroidManifest.xml:7:5-9:41
 MERGED from [com.wdullaer:materialdatetimepicker:3.2.0] C:\Users\fgyim\.gradle\caches\transforms-2\files-2.1\4b21fcbd437a27ead5e85731efacc30e\jetified-materialdatetimepicker-3.2.0\AndroidManifest.xml:22:5-24:41
 MERGED from [com.wdullaer:materialdatetimepicker:3.2.0] C:\Users\fgyim\.gradle\caches\transforms-2\files-2.1\4b21fcbd437a27ead5e85731efacc30e\jetified-materialdatetimepicker-3.2.0\AndroidManifest.xml:22:5-24:41
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\fgyim\.gradle\caches\transforms-2\files-2.1\c7eb9cd3508ac3959447c14fd76c9fb9\material-1.0.0\AndroidManifest.xml:20:5-44

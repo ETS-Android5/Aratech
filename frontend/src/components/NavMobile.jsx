@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logoutUser } from '../store/actions/authActions';
 
-const NavMobile = props => (
+const NavMobile = ({ isAuthenticated, logoutUser }) => (
   <React.Fragment>
     <div
       id="offcanvas"
@@ -24,19 +26,26 @@ const NavMobile = props => (
           <li>
             <Link to="/contact">Contact</Link>
           </li>
-          <li>
-            <Link to="/lecturer/signin">Lecture Sign In</Link>
-          </li>
-          <li>
-            <Link to="/student/signin">Student Sign In</Link>
-          </li>
+          {!isAuthenticated ? (
+            <React.Fragment>
+              <li>
+                <Link to="/lecturer/signin">Lecture Sign In</Link>
+              </li>
+              <li>
+                <Link to="/student/signin">Student Sign In</Link>
+              </li>
+            </React.Fragment>
+          ) : null}
         </ul>
         <div className="uk-margin-medium-top">
           <button
             className="uk-button uk-width-1-1 uk-button-default uk-padding-medium"
-            data-uk-toggle="target: #signup-modal"
+            data-uk-toggle={
+              !isAuthenticated ? 'target: #signup-modal-mobile' : null
+            }
+            onClick={!isAuthenticated ? null : logoutUser}
           >
-            Sign Up
+            {!isAuthenticated ? 'Sign up' : 'Log out'}
           </button>
         </div>
         <div className="uk-margin-medium-top uk-text-center">
@@ -75,7 +84,7 @@ const NavMobile = props => (
         </div>
       </div>
     </div>
-    <div id="signup-modal" data-uk-modal>
+    <div id="signup-modal-mobile" data-uk-modal>
       <div className="uk-modal-dialog uk-modal-body">
         <button
           className="uk-modal-close-outside"
@@ -97,7 +106,7 @@ const NavMobile = props => (
         </Link>
       </div>
     </div>
-    <div id="signin-modal" data-uk-modal>
+    <div id="signin-modal-mobile" data-uk-modal>
       <div className="uk-modal-dialog uk-modal-body">
         <button
           className="uk-modal-close-outside"
@@ -122,4 +131,8 @@ const NavMobile = props => (
   </React.Fragment>
 );
 
-export default NavMobile;
+const matchStateToProps = ({ auth: { isAuthenticated } }) => ({
+  isAuthenticated
+});
+
+export default connect(matchStateToProps, { logoutUser })(NavMobile);

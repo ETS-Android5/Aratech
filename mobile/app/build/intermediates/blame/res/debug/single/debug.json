@@ -12,12 +12,12 @@
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_person_outline.xml"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\layout_mtrl_layout_snackbar_include.xml.flat",
-        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\c7eb9cd3508ac3959447c14fd76c9fb9\\material-1.0.0\\res\\layout\\mtrl_layout_snackbar_include.xml"
-    },
-    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\layout_dialog_info.xml.flat",
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\layout\\dialog_info.xml"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\layout_mtrl_layout_snackbar_include.xml.flat",
+        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\c7eb9cd3508ac3959447c14fd76c9fb9\\material-1.0.0\\res\\layout\\mtrl_layout_snackbar_include.xml"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
@@ -28,12 +28,12 @@
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_inbox.xml.flat",
-        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_inbox.xml"
-    },
-    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_seek_thumb_primary.xml.flat",
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\seek_thumb_primary.xml"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_inbox.xml.flat",
+        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_inbox.xml"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_list_selector_background_transition_holo_light.xml.flat",
@@ -60,12 +60,12 @@
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_skip_next.xml"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_people_outline.xml.flat",
-        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_people_outline.xml"
-    },
-    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-mdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_people_outline.xml.flat",
+        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_people_outline.xml"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
@@ -104,12 +104,12 @@
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_36dp.png"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
-        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_48dp.png"
-    },
-    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_rounded_amber.xml.flat",
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\btn_rounded_amber.xml"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
+        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_48dp.png"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_coin_ltc.png.flat",
@@ -128,24 +128,24 @@
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\015d976b4b00e7dfdf2d64773eed1508\\jetified-MaterialChipsInput-1.0.5\\res\\drawable-ldpi-v4\\ic_person_white_24dp.png"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_star_black_16dp.png.flat",
-        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-xhdpi-v4\\abc_ic_star_black_16dp.png"
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_shape_round_outline_primary.xml.flat",
+        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\shape_round_outline_primary.xml"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_shape_round_outline_primary.xml.flat",
-        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\shape_round_outline_primary.xml"
-    },
-    {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_radio_off_to_on_mtrl_animation.xml.flat",
-        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable\\btn_radio_off_to_on_mtrl_animation.xml"
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_star_black_16dp.png.flat",
+        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-xhdpi-v4\\abc_ic_star_black_16dp.png"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_arrow_drop.xml.flat",
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_arrow_drop.xml"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_radio_off_to_on_mtrl_animation.xml.flat",
+        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable\\btn_radio_off_to_on_mtrl_animation.xml"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_img_plant_12.jpg.flat",
@@ -156,16 +156,16 @@
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-xhdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
-        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-xxhdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_seek_thumb_red.xml.flat",
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\seek_thumb_red.xml"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
+        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-xxhdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_material_bg_2.png.flat",
@@ -204,20 +204,20 @@
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-xhdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_design_ic_visibility_off.png.flat",
-        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\c7eb9cd3508ac3959447c14fd76c9fb9\\material-1.0.0\\res\\drawable-mdpi-v4\\design_ic_visibility_off.png"
-    },
-    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_search_grey.xml.flat",
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_search_grey.xml"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_image_shop_9.jpg.flat",
-        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\image_shop_9.jpg"
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_design_ic_visibility_off.png.flat",
+        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\c7eb9cd3508ac3959447c14fd76c9fb9\\material-1.0.0\\res\\drawable-mdpi-v4\\design_ic_visibility_off.png"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_ic_cancel_grey_24dp.png.flat",
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\015d976b4b00e7dfdf2d64773eed1508\\jetified-MaterialChipsInput-1.0.5\\res\\drawable-xhdpi-v4\\ic_cancel_grey_24dp.png"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_image_shop_9.jpg.flat",
+        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\image_shop_9.jpg"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_progressbar_red.xml.flat",
@@ -240,24 +240,24 @@
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\layout\\abc_tooltip.xml"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_rect_primary.xml.flat",
-        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\btn_rect_primary.xml"
-    },
-    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_abc_dialog_material_background.xml.flat",
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-v21\\abc_dialog_material_background.xml"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
-        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-xxhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_rect_primary.xml.flat",
+        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\btn_rect_primary.xml"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_screen_content_include.xml.flat",
+        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\layout\\abc_screen_content_include.xml"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\animator_design_fab_hide_motion_spec.xml.flat",
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\c7eb9cd3508ac3959447c14fd76c9fb9\\material-1.0.0\\res\\animator\\design_fab_hide_motion_spec.xml"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_screen_content_include.xml.flat",
-        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\layout\\abc_screen_content_include.xml"
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
+        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-xxhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_coin_btc.png.flat",
@@ -300,12 +300,12 @@
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-xxxhdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_credit_card_grey.xml.flat",
-        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_credit_card_grey.xml"
-    },
-    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_color_state_primary.xml.flat",
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\color_state_primary.xml"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_credit_card_grey.xml.flat",
+        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_credit_card_grey.xml"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
@@ -408,12 +408,12 @@
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\4b21fcbd437a27ead5e85731efacc30e\\jetified-materialdatetimepicker-3.2.0\\res\\color\\mdtp_date_picker_selector.xml"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
-        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-hdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
-    },
-    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_rounded_accent.xml.flat",
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\btn_rounded_accent.xml"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
+        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-hdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
@@ -476,24 +476,24 @@
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_favorite_border.xml"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_textfield_search_material.xml.flat",
-        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable\\abc_textfield_search_material.xml"
-    },
-    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_shopping_basket.xml.flat",
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_shopping_basket.xml"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_textfield_search_material.xml.flat",
+        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable\\abc_textfield_search_material.xml"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-xxhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_queue_music.xml.flat",
-        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_queue_music.xml"
-    },
-    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_search_view.xml.flat",
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_queue_music.xml.flat",
+        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_queue_music.xml"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_image_11.jpg.flat",
@@ -504,12 +504,12 @@
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\photo_male_1.jpg"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\color_mtrl_fab_ripple_color.xml.flat",
-        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\c7eb9cd3508ac3959447c14fd76c9fb9\\material-1.0.0\\res\\color\\mtrl_fab_ripple_color.xml"
-    },
-    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\color_mtrl_fab_ripple_color.xml.flat",
+        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\c7eb9cd3508ac3959447c14fd76c9fb9\\material-1.0.0\\res\\color\\mtrl_fab_ripple_color.xml"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tooltip_frame_light.xml.flat",
@@ -536,12 +536,12 @@
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-xhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
-        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
-    },
-    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-xxhdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
+        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
@@ -608,12 +608,12 @@
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_home.xml"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_tooltip_enter.xml.flat",
-        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\anim\\abc_tooltip_enter.xml"
-    },
-    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_star_border.xml.flat",
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_star_border.xml"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_tooltip_enter.xml.flat",
+        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\anim\\abc_tooltip_enter.xml"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_expand_arrow.xml.flat",
@@ -624,12 +624,12 @@
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\c7eb9cd3508ac3959447c14fd76c9fb9\\material-1.0.0\\res\\animator\\mtrl_fab_transformation_sheet_collapse_spec.xml"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_swap_horiz.xml.flat",
-        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_swap_horiz.xml"
-    },
-    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_ic_person_outline_white_24dp.png.flat",
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\015d976b4b00e7dfdf2d64773eed1508\\jetified-MaterialChipsInput-1.0.5\\res\\drawable-hdpi-v4\\ic_person_outline_white_24dp.png"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_swap_horiz.xml.flat",
+        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_swap_horiz.xml"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_purple_a400.xml.flat",
@@ -654,6 +654,10 @@
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_color_state_light.xml.flat",
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\color_state_light.xml"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_student_notifications.xml.flat",
+        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\layout\\fragment_student_notifications.xml"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_error_outline.xml.flat",
@@ -716,12 +720,12 @@
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-xhdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
-        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-xhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
-    },
-    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tab_rounded_accent.xml.flat",
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\tab_rounded_accent.xml"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
+        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-xhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_16dp.png.flat",
@@ -736,12 +740,12 @@
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_image_19.jpg.flat",
-        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\image_19.jpg"
-    },
-    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_attach_money.xml.flat",
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_attach_money.xml"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_image_19.jpg.flat",
+        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\image_19.jpg"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_vector_test.xml.flat",
@@ -852,6 +856,10 @@
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\4b21fcbd437a27ead5e85731efacc30e\\jetified-materialdatetimepicker-3.2.0\\res\\drawable-v19\\mdtp_done_background_color.xml"
     },
     {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_student_profile.xml.flat",
+        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\layout\\fragment_student_profile.xml"
+    },
+    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4_ic_cancel_grey_24dp.png.flat",
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\015d976b4b00e7dfdf2d64773eed1508\\jetified-MaterialChipsInput-1.0.5\\res\\drawable-ldpi-v4\\ic_cancel_grey_24dp.png"
     },
@@ -900,12 +908,12 @@
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_public.xml"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_view_modul.xml.flat",
-        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_view_modul.xml"
-    },
-    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_ic_arrow_drop_down.png.flat",
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6a6af5e7295d3b3ad0bae389c643f82a\\jetified-AwesomeSpinner-1.5.2\\res\\drawable-xxxhdpi-v4\\ic_arrow_drop_down.png"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_view_modul.xml.flat",
+        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_view_modul.xml"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
@@ -976,24 +984,24 @@
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_face.xml"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_equalizer.xml.flat",
-        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_equalizer.xml"
-    },
-    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_hint_foreground_material_light.xml.flat",
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\color\\abc_hint_foreground_material_light.xml"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_equalizer.xml.flat",
+        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_equalizer.xml"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_img_plant_2.jpg.flat",
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\img_plant_2.jpg"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_seek_thumb_primary_outline.xml.flat",
-        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\seek_thumb_primary_outline.xml"
-    },
-    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_img_social_linkedin.png.flat",
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\img_social_linkedin.png"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_seek_thumb_primary_outline.xml.flat",
+        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\seek_thumb_primary_outline.xml"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_gradient_soft.xml.flat",
@@ -1140,6 +1148,10 @@
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-xhdpi-v4\\abc_list_divider_mtrl_alpha.9.png"
     },
     {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_student_calendar.xml.flat",
+        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\layout\\fragment_student_calendar.xml"
+    },
+    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\layout_mdtp_time_picker_dialog_v2.xml.flat",
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\4b21fcbd437a27ead5e85731efacc30e\\jetified-materialdatetimepicker-3.2.0\\res\\layout\\mdtp_time_picker_dialog_v2.xml"
     },
@@ -1170,10 +1182,6 @@
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
-    },
-    {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_ksnack_normal.xml.flat",
-        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\b630ccf837afb410e38f2dfa4ee07ed3\\jetified-KSnack-1.1.1\\res\\drawable\\background_ksnack_normal.xml"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
@@ -1562,6 +1570,10 @@
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_insert_link.xml.flat",
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_insert_link.xml"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_qr_code.xml.flat",
+        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_qr_code.xml"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_check_circle.xml.flat",
@@ -2252,6 +2264,10 @@
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\image_2.jpg"
     },
     {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_student_attendance.xml.flat",
+        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\layout\\fragment_student_attendance.xml"
+    },
+    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-ldrtl-xhdpi-v17\\abc_spinner_mtrl_am_alpha.9.png"
     },
@@ -2536,6 +2552,10 @@
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_contacts.xml"
     },
     {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_user.png.flat",
+        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\user.png"
+    },
+    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_beach_access.xml.flat",
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_beach_access.xml"
     },
@@ -2786,6 +2806,10 @@
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_fitness_center.xml.flat",
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_fitness_center.xml"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_edit.xml.flat",
+        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_edit.xml"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_img_plant_1.jpg.flat",
@@ -3068,10 +3092,6 @@
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_back_img.xml"
     },
     {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_snack_small.xml.flat",
-        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\b630ccf837afb410e38f2dfa4ee07ed3\\jetified-KSnack-1.1.1\\res\\layout\\layout_snack_small.xml"
-    },
-    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_phone_android.xml.flat",
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_phone_android.xml"
     },
@@ -3334,6 +3354,10 @@
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_lecturer_home.xml.flat",
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\layout\\activity_lecturer_home.xml"
+    },
+    {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_student_home.xml.flat",
+        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\layout\\fragment_student_home.xml"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_design_ic_visibility.png.flat",
@@ -3720,16 +3744,16 @@
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\img_social_dribbble.png"
     },
     {
+        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_star_black_36dp.png.flat",
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-xxhdpi-v4\\abc_ic_star_black_36dp.png"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_pressed_holo_light.9.png.flat",
         "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\drawable-xhdpi-v4\\abc_list_pressed_holo_light.9.png"
-    },
-    {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_foreground.xml.flat",
-        "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_launcher_foreground.xml"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
@@ -3870,10 +3894,6 @@
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_invert_colors.xml.flat",
         "source": "D:\\HUB\\lecture-monitor\\mobile\\app\\src\\main\\res\\drawable\\ic_invert_colors.xml"
-    },
-    {
-        "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_snack_normal.xml.flat",
-        "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\b630ccf837afb410e38f2dfa4ee07ed3\\jetified-KSnack-1.1.1\\res\\layout\\layout_snack_normal.xml"
     },
     {
         "merged": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",

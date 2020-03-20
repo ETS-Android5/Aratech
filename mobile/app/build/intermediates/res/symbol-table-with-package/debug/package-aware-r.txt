@@ -1599,6 +1599,7 @@ drawable btn_rect_black_grey
 drawable btn_rect_grey_black
 drawable btn_rect_grey_outline
 drawable btn_rect_primary
+drawable btn_rect_red
 drawable btn_rect_teal
 drawable btn_rect_teal_outline
 drawable btn_rounded_accent

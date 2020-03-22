@@ -150,3 +150,47 @@ export const setCurrentLecturer = decoded => {
     payload: decoded
   };
 };
+
+//set student profile image
+export const setStudentProfileImg = image => async dispatch => {
+  let response;
+  try {
+    const formData = new FormData();
+    formData.append('avatar', image);
+    response = await API.post('auth/avatar', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    });
+
+    const { student } = response.data.data;
+    dispatch(setCurrentStudent(student));
+    cogoToast.success('Profile picture uploaded successfully');
+    return true;
+  } catch (error) {
+    cogoToast.error(error.response.data.message);
+    return false;
+  }
+};
+
+//set lecturer profile image
+export const setLecturerProfileImg = image => async dispatch => {
+  let response;
+  try {
+    const formData = new FormData();
+    formData.append('avatar', image);
+    response = await API.post('auth/avatar', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    });
+
+    const { lecturer } = response.data.data;
+    dispatch(setCurrentLecturer(lecturer));
+    cogoToast.success('Profile picture uploaded successfully');
+    return true;
+  } catch (error) {
+    cogoToast.error(error.response.data.message);
+    return false;
+  }
+};

@@ -544,3 +544,38 @@ exports.me = async (req, res) => {
     message: 'Ooops... Something went wrong here.. try again later.'
   });
 };
+
+//set user profile picture
+exports.setProfilePic = async (req, res) => {
+  console.log(req.file);
+  const url = req.file.secure_url;
+
+  //check if logged in user is student or lecturer
+  const { student, lecturer } = req.user;
+  if (student) {
+    student.avatar = url;
+    await student.save();
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        student
+      }
+    });
+  } else if (lecturer) {
+    lecturer.avatar = url;
+    await lecturer.save();
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        lecturer
+      }
+    });
+  } else {
+    res.status(500).json({
+      status: 'fail',
+      message: 'Ooops.... something went wrong, try again later'
+    });
+  }
+};

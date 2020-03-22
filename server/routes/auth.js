@@ -3,6 +3,8 @@ const passport = require('passport');
 const router = require('express').Router();
 const authController = require('../controllers/authController');
 
+const uploadMiddleware = require('../utils/upload');
+
 //@POST
 //sign up user
 router.post('/students/register', authController.studentSignup);
@@ -20,6 +22,14 @@ router.post('/forgotpassword', authController.forgotPassword);
 
 //reset password
 router.post('/resetpassword', authController.resetPassword);
+
+//set user profile picture
+router.post(
+  '/avatar',
+  passport.authenticate('jwt', { session: false }),
+  uploadMiddleware.single('avatar'),
+  authController.setProfilePic
+);
 
 //resend email confirmation link
 router.post(

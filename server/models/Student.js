@@ -21,6 +21,7 @@ const StudentSchema = new Schema({
     required: true
   },
   otherNames: String,
+  avatar: String,
   department: {
     type: Schema.Types.ObjectId,
     ref: 'Department'

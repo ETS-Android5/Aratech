@@ -17,6 +17,7 @@ const LecturerSchema = new Schema({
     required: true
   },
   otherNames: String,
+  avatar: String,
   courses: [
     {
       type: Schema.Types.ObjectId,

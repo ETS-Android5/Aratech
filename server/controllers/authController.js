@@ -85,6 +85,7 @@ exports.studentSignup = async (req, res) => {
       id: student._id,
       indexNo: student.indexNo,
       email: student.email,
+      avatar: student.avatar,
       phoneNo: student.phoneNo
     },
     process.env.SECRET_OR_KEY,
@@ -172,6 +173,7 @@ exports.lecturerSignup = async (req, res) => {
     {
       id: lecturer._id,
       email: lecturer.email,
+      avatar: lecturer.avatar,
       phoneNo: lecturer.phoneNo
     },
     process.env.SECRET_OR_KEY,
@@ -233,6 +235,7 @@ exports.studentSignin = async (req, res) => {
       id: student._id,
       indexNo: student.indexNo,
       email: student.email,
+      avatar: student.avatar,
       phoneNo: student.phoneNo
     },
     process.env.SECRET_OR_KEY,
@@ -294,6 +297,7 @@ exports.lecturerSignin = async (req, res) => {
     {
       id: lecturer._id,
       email: lecturer.email,
+      avatar: lecturer.avatar,
       phoneNo: lecturer.phoneNo
     },
     process.env.SECRET_OR_KEY,

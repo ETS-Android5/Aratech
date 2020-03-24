@@ -17,23 +17,11 @@ router.post(
   personalTimetableController.createPersonalTimeTable
 );
 
-//update personal time table
-router.put(
-  '/personal',
+//create a new new class timetable
+router.post(
+  '/classTimetable',
   passport.authenticate('jwt', { session: false }),
-  personalTimetableController.updatePersonalTimetable
-);
-router.patch(
-  '/personal',
-  passport.authenticate('jwt', { session: false }),
-  personalTimetableController.updatePersonalTimetable
-);
-
-//delete personal time table
-router.delete(
-  '/personal',
-  passport.authenticate('jwt', { session: false }),
-  personalTimetableController.deletePersonalTimeTable
+  classTimetableController.createclassTimetable
 );
 
 module.exports = router;

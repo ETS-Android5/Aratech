@@ -27,6 +27,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.aratech.lecturemonitor.ui.activities.ForgotPasswordActivity" />
         <activity android:name="com.aratech.lecturemonitor.ui.activities.lecturers.LecturerHomeActivity" />
         <activity android:name="com.aratech.lecturemonitor.ui.activities.students.StudentHomeActivity" />
         <activity

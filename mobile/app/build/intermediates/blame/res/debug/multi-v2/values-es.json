@@ -4,6 +4,23 @@
             "outputFile": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-es\\values-es.xml",
             "map": [
                 {
+                    "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\861c38c58daa28c60513ff12a5d67d7f\\jetified-materialdatetimepicker-3.2.0\\res\\values-es\\values-es.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,173,245,358,472,552,676,799,927,1023,1117,1215,1306",
+                        "endColumns": "67,71,112,113,79,123,122,127,95,93,97,90,100",
+                        "endOffsets": "168,240,353,467,547,671,794,922,1018,1112,1210,1301,1402"
+                    },
+                    "to": {
+                        "startLines": "29,30,31,32,33,34,35,36,37,38,39,40,41",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "2836,2904,2976,3089,3203,3283,3407,3530,3658,3754,3848,3946,4037",
+                        "endColumns": "67,71,112,113,79,123,122,127,95,93,97,90,100",
+                        "endOffsets": "2899,2971,3084,3198,3278,3402,3525,3653,3749,3843,3941,4032,4133"
+                    }
+                },
+                {
                     "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\e9dab9c67c1ee3668e0bbf86c6d8cbd8\\core-1.1.0\\res\\values-es\\values-es.xml",
                     "from": {
                         "startLines": "2",
@@ -18,23 +35,6 @@
                         "startOffsets": "4220",
                         "endColumns": "100",
                         "endOffsets": "4316"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\4b21fcbd437a27ead5e85731efacc30e\\jetified-materialdatetimepicker-3.2.0\\res\\values-es\\values-es.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,173,245,358,472,552,676,799,927,1023,1117,1215,1306",
-                        "endColumns": "67,71,112,113,79,123,122,127,95,93,97,90,100",
-                        "endOffsets": "168,240,353,467,547,671,794,922,1018,1112,1210,1301,1402"
-                    },
-                    "to": {
-                        "startLines": "29,30,31,32,33,34,35,36,37,38,39,40,41",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "2836,2904,2976,3089,3203,3283,3407,3530,3658,3754,3848,3946,4037",
-                        "endColumns": "67,71,112,113,79,123,122,127,95,93,97,90,100",
-                        "endOffsets": "2899,2971,3084,3198,3278,3402,3525,3653,3749,3843,3941,4032,4133"
                     }
                 },
                 {

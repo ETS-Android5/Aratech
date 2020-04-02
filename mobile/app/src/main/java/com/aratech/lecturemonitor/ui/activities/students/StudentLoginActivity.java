@@ -19,6 +19,7 @@ import com.aratech.lecturemonitor.models.StdLogin;
 import com.aratech.lecturemonitor.models.Student;
 import com.aratech.lecturemonitor.network.ApiClient;
 import com.aratech.lecturemonitor.network.ApiInterface;
+import com.aratech.lecturemonitor.ui.activities.ForgotPasswordActivity;
 import com.aratech.lecturemonitor.utils.Tools;
 import com.sdsmdg.tastytoast.TastyToast;
 
@@ -68,8 +69,9 @@ public class StudentLoginActivity extends AppCompatActivity implements View.OnCl
                 login();
                 break;
             case R.id.txtForgotPassword:
-                TastyToast.makeText(getApplicationContext(), "Forgot password not yet created", TastyToast.LENGTH_SHORT, TastyToast.INFO)
-                        .show();
+                Intent intent = new Intent(StudentLoginActivity.this, ForgotPasswordActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
                 break;
             case R.id.gotoRegister:
             case R.id.slideSignUp:

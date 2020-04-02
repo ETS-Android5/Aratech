@@ -100,12 +100,7 @@ const Footer = props => (
           <div className="uk-flex-first@m">
             <p>
               {' '}
-              <a
-                className="uk-link-border"
-                href="https://drifter.works/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a className="uk-link-border" href="#">
                 Aratech
               </a>
             </p>

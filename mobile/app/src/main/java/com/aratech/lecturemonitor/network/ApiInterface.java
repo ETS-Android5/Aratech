@@ -1,6 +1,8 @@
 package com.aratech.lecturemonitor.network;
 
 import com.aratech.lecturemonitor.models.DtResponse;
+import com.aratech.lecturemonitor.models.ForgotPwd;
+import com.aratech.lecturemonitor.models.ForgotPwdResponse;
 import com.aratech.lecturemonitor.models.LtLogin;
 import com.aratech.lecturemonitor.models.LtResponse;
 import com.aratech.lecturemonitor.models.LtSignup;
@@ -39,4 +41,8 @@ public interface ApiInterface {
     //get current user
     @GET("auth/me")
     Call<MeResponse> me(@Header("Authorization") String header);
+
+    //forgot password
+    @POST("auth/forgotpassword")
+    Call<ForgotPwdResponse> forgotPassword(@Body ForgotPwd forgotPwd);
 }

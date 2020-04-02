@@ -2106,6 +2106,7 @@ id bottom_bar
 id bt_lecturer
 id bt_student
 id btnRegister
+id btnSendReset
 id btn_next
 id buttonPanel
 id cancel_action
@@ -2177,6 +2178,7 @@ id fixed
 id flex_end
 id flex_start
 id forever
+id forgotPasswordView
 id fullNameTxt
 id ghost_view
 id glide_custom_view_target_tag
@@ -2379,6 +2381,7 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id txtEmail
 id txtForgotPassword
 id unchecked
 id uniform
@@ -2447,6 +2450,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_forgot_password
 layout activity_intro
 layout activity_lecturer_home
 layout activity_lecturer_login

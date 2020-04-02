@@ -3,11 +3,17 @@ import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logoutUser } from '../store/actions/authActions';
 
-const Navbar = ({ isAuthenticated, isLecturer, isStudent, logoutUser }) => (
+const Navbar = ({
+  isAuthenticated,
+  isLecturer,
+  isStudent,
+  user,
+  logoutUser
+}) => (
   <React.Fragment>
     <div
       data-uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container  
-	  cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-dark; top: 500"
+	  cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-dark; top: 100"
     >
       <nav className="uk-navbar-container uk-letter-spacing-small uk-text-bold">
         <div className="uk-container uk-container-large">
@@ -67,7 +73,15 @@ const Navbar = ({ isAuthenticated, isLecturer, isStudent, logoutUser }) => (
                       </ul>
                     </div>
                   </li>
-                ) : null}
+                ) : isStudent ? (
+                  <Link to="/student/home" className="uk-navbar-item">
+                    Student' Home
+                  </Link>
+                ) : (
+                  <Link to="/lecturer/home" className="uk-navbar-item">
+                    Lecturer's Home
+                  </Link>
+                )}
               </ul>
             </div>
             <div className="uk-navbar-right">
@@ -94,6 +108,18 @@ const Navbar = ({ isAuthenticated, isLecturer, isStudent, logoutUser }) => (
                       Log out
                     </button>
                   </div>
+                  <Link
+                    to={isLecturer ? '/lecturer/profile' : '/student/profile'}
+                    className="uk-navbar-item"
+                  >
+                    <img
+                      className="uk-border-circle"
+                      src={user.avatar}
+                      width="40"
+                      height="40"
+                      alt="Border rounded"
+                    />
+                  </Link>
                 </div>
               )}
               <a
@@ -159,11 +185,12 @@ const Navbar = ({ isAuthenticated, isLecturer, isStudent, logoutUser }) => (
 );
 
 const mapStateToProps = ({
-  auth: { isAuthenticated, isStudent, isLecturer }
+  auth: { isAuthenticated, isStudent, isLecturer, user }
 }) => ({
   isAuthenticated,
   isStudent,
-  isLecturer
+  isLecturer,
+  user
 });
 
 export default connect(mapStateToProps, { logoutUser })(Navbar);

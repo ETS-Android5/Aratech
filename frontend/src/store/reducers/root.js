@@ -1,11 +1,13 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
-import authReducer from './authReducer';
-import errorReducer from './errorReducer';
-import departmentReducer from './departmentReducer';
+import authReducer from "./authReducer";
+import errorReducer from "./errorReducer";
+import departmentReducer from "./departmentReducer";
+import timetableReducer from "./timetableReducer";
 
 export default combineReducers({
   auth: authReducer,
   error: errorReducer,
-  department: departmentReducer
+  department: departmentReducer,
+  timetable: timetableReducer
 });

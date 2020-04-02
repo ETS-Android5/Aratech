@@ -4,6 +4,23 @@
             "outputFile": "D:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lv\\values-lv.xml",
             "map": [
                 {
+                    "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\861c38c58daa28c60513ff12a5d67d7f\\jetified-materialdatetimepicker-3.2.0\\res\\values-lv\\values-lv.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,174,241,351,467,548,659,779,892,991,1083,1177,1266",
+                        "endColumns": "68,66,109,115,80,110,119,112,98,91,93,88,100",
+                        "endOffsets": "169,236,346,462,543,654,774,887,986,1078,1172,1261,1362"
+                    },
+                    "to": {
+                        "startLines": "29,30,31,32,33,34,35,36,37,38,39,40,41",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "2989,3058,3125,3235,3351,3432,3543,3663,3776,3875,3967,4061,4150",
+                        "endColumns": "68,66,109,115,80,110,119,112,98,91,93,88,100",
+                        "endOffsets": "3053,3120,3230,3346,3427,3538,3658,3771,3870,3962,4056,4145,4246"
+                    }
+                },
+                {
                     "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\e9dab9c67c1ee3668e0bbf86c6d8cbd8\\core-1.1.0\\res\\values-lv\\values-lv.xml",
                     "from": {
                         "startLines": "2",
@@ -18,23 +35,6 @@
                         "startOffsets": "4333",
                         "endColumns": "100",
                         "endOffsets": "4429"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\fgyim\\.gradle\\caches\\transforms-2\\files-2.1\\4b21fcbd437a27ead5e85731efacc30e\\jetified-materialdatetimepicker-3.2.0\\res\\values-lv\\values-lv.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,174,241,351,467,548,659,779,892,991,1083,1177,1266",
-                        "endColumns": "68,66,109,115,80,110,119,112,98,91,93,88,100",
-                        "endOffsets": "169,236,346,462,543,654,774,887,986,1078,1172,1261,1362"
-                    },
-                    "to": {
-                        "startLines": "29,30,31,32,33,34,35,36,37,38,39,40,41",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "2989,3058,3125,3235,3351,3432,3543,3663,3776,3875,3967,4061,4150",
-                        "endColumns": "68,66,109,115,80,110,119,112,98,91,93,88,100",
-                        "endOffsets": "3053,3120,3230,3346,3427,3538,3658,3771,3870,3962,4056,4145,4246"
                     }
                 },
                 {

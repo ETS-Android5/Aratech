@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logoutUser } from '../store/actions/authActions';
 
-const NavMobile = ({ isAuthenticated, logoutUser }) => (
+const NavMobile = ({ isAuthenticated, isStudent, isLecturer, logoutUser }) => (
   <React.Fragment>
     <div
       id="offcanvas"
@@ -35,7 +35,16 @@ const NavMobile = ({ isAuthenticated, logoutUser }) => (
                 <Link to="/student/signin">Student Sign In</Link>
               </li>
             </React.Fragment>
-          ) : null}
+          ) : isStudent ? (
+            <li>
+              <Link to="/student/home">Student's Home</Link>
+            </li>
+          ) : (
+            <li>
+              {' '}
+              <Link to="/lecturer/home">Lecturer's Home</Link>
+            </li>
+          )}
         </ul>
         <div className="uk-margin-medium-top">
           <button
@@ -131,8 +140,12 @@ const NavMobile = ({ isAuthenticated, logoutUser }) => (
   </React.Fragment>
 );
 
-const matchStateToProps = ({ auth: { isAuthenticated } }) => ({
-  isAuthenticated
+const matchStateToProps = ({
+  auth: { isAuthenticated, isStudent, isLecturer }
+}) => ({
+  isAuthenticated,
+  isStudent,
+  isLecturer
 });
 
 export default connect(matchStateToProps, { logoutUser })(NavMobile);

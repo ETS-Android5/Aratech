@@ -1,6 +1,7 @@
 const Joi = require('@hapi/joi');
 
 const PersonalTimeTable = require('../models/PersonalTimetable');
+const Event = require('../models/Event');
 
 //get user personal time table
 exports.getPersonalTimetable = async (req, res) => {
@@ -10,7 +11,8 @@ exports.getPersonalTimetable = async (req, res) => {
   if (!student) {
     return res.status(400).json({
       status: 'fail',
-      message: 'Must be logged in as a student to view your personal time table'
+      message:
+        'Must be logged in as a student to view your personal time table',
     });
   }
 
@@ -19,290 +21,114 @@ exports.getPersonalTimetable = async (req, res) => {
 
   //get user personal time table
   const pTable = await PersonalTimeTable.findOne({
-    userId: id
-  });
-  if (!pTable) {
-    //user does not have a personal time table yet
-    return res.status(404).json({
-      status: 'fail',
-      message:
-        'User does not have a personal time table yet, please create one!'
-    });
-  }
+    userId: id,
+  }).populate('eventId');
 
   res.status(200).json({
     status: 'success',
     data: {
-      personalTimeTable: pTable
-    }
+      personalTimeTable: pTable ? pTable : {},
+    },
   });
 };
 
-//create a new personal time table
-exports.createPersonalTimeTable = async (req, res) => {
-  //check if logged user is a student
+exports.addEventToPersonalTimetable = async (req, res) => {
   const student = req.user.student;
 
   if (!student) {
     return res.status(400).json({
-      status: 'failed',
-      message:
-        'Must be logged in as a student to create your personal time table'
+      status: 'fail',
+      message: 'Must be logged in as student to add to personal time table',
     });
   }
 
-  //get student ID
-  const id = student._id;
+  //validate user data
+  const schema = Joi.object({
+    eventName: Joi.string().required(),
+    startTime: Joi.date().required(),
+    endTime: Joi.string().required(),
+    repeatDaily: Joi.boolean().optional(),
+    repeatWeekly: Joi.boolean().optional(),
+  });
+  try {
+    await schema.validateAsync(req.body);
+  } catch (error) {
+    return res.status(400).json({
+      status: 'fail',
+      message: error.message,
+    });
+  }
 
-  //check if student does not already have a personal time table
-  const pTable = await PersonalTimeTable.findOne({ userId: id });
+  const event = await Event.create(req.body);
+
+  //check if user does not already have a personal time table setup
+  const pTable = await PersonalTimeTable.findOne({ userId: student._id });
   if (pTable) {
-    return res.status(400).json({
-      status: 'fail',
-      message:
-        'Already has a personal time table, consider modifying it instead'
+    //personal time table already exists, push the new event and save it
+    pTable.events.push({ eventId: event._id });
+    await pTable.save();
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        personalTimeTable: pTable,
+      },
+    });
+  } else {
+    //create a new peronsal timetable and add the event
+    const newPT = await PersonalTimeTable.create({
+      userId: student._id,
+      events: [{ eventId: event._id }],
+    });
+    res.status(200).json({
+      status: 'success',
+      data: {
+        personalTimeTable: newPT,
+      },
     });
   }
-
-  //validate incoming data
-  const schema = Joi.schema({
-    monday: Joi.array()
-      .items(
-        Joi.object({
-          event: Joi.string().required(),
-          startTime: Joi.date().required(),
-          endTime: Joi.date().required()
-        })
-      )
-      .required(),
-    tuesday: Joi.array()
-      .items(
-        Joi.object({
-          event: Joi.string().required(),
-          startTime: Joi.date().required(),
-          endTime: Joi.date().required()
-        })
-      )
-      .required(),
-    wednesday: Joi.array()
-      .items(
-        Joi.object({
-          event: Joi.string().required(),
-          startTime: Joi.date().required(),
-          endTime: Joi.date().required()
-        })
-      )
-      .required(),
-    thursday: Joi.array()
-      .items(
-        Joi.object({
-          event: Joi.string().required(),
-          startTime: Joi.date().required(),
-          endTime: Joi.date().required()
-        })
-      )
-      .required(),
-    friday: Joi.array()
-      .items(
-        Joi.object({
-          event: Joi.string().required(),
-          startTime: Joi.date().required(),
-          endTime: Joi.date().required()
-        })
-      )
-      .required(),
-    saturday: Joi.array()
-      .items(
-        Joi.object({
-          event: Joi.string().required(),
-          startTime: Joi.date().required(),
-          endTime: Joi.date().required()
-        })
-      )
-      .required(),
-    sunday: Joi.array()
-      .items(
-        Joi.object({
-          event: Joi.string().required(),
-          startTime: Joi.date().required(),
-          endTime: Joi.date().required()
-        })
-      )
-      .required()
-  });
-  try {
-    await schema.validateAsync(req.body);
-  } catch (error) {
-    //error occurred while validating time table setup inputs
-    return res.status(400).json({
-      status: 'fail',
-      message: error.message
-    });
-  }
-  // create   new  personal timetable document
-  const newPTable = new PersonalTimeTable(req.body);
-  newPTable.userId = id;
-  // save the created document
-  await newPTable.save();
-
-  res.status(201).json({
-    status: 'success',
-    data: {
-      personalTimeTable: newPTable
-    }
-  });
 };
 
-//update personal time table
-exports.updatePersonalTimetable = async (req, res) => {
-  //check if logged user is a student
+exports.deleteEventFromPeronsalTable = async (req, res) => {
+  //check if user is student
   const student = req.user.student;
 
   if (!student) {
     return res.status(400).json({
-      status: 'failed',
+      status: 'fail',
       message:
-        'Must be logged in as a student to create your personal time table'
+        'Must be logged in as a student to view your personal time table',
     });
   }
 
-  //get student ID
-  const id = student._id;
+  const id = req.query.id;
+  if (!id) {
+    return res.status(400).json({
+      status: 'fail',
+      message: 'Must provide an id',
+    });
+  }
 
-  //check if student does not already have a personal time table
-  const pTable = await PersonalTimeTable.findOne({ userId: id });
+  const pTable = await PersonalTimeTable.findOne({ userId: student._id });
   if (!pTable) {
-    return res.status(404).json({
+    return res.status(400).json({
       status: 'fail',
-      message:
-        'User does not have a personal time table, please create a new one!'
+      message: 'No such event with given ID',
     });
   }
 
-  //validate incoming data
-  const schema = Joi.schema({
-    monday: Joi.array()
-      .items(
-        Joi.object({
-          event: Joi.string().required(),
-          startTime: Joi.date().required(),
-          endTime: Joi.date().required()
-        })
-      )
-      .required(),
-    tuesday: Joi.array()
-      .items(
-        Joi.object({
-          event: Joi.string().required(),
-          startTime: Joi.date().required(),
-          endTime: Joi.date().required()
-        })
-      )
-      .required(),
-    wednesday: Joi.array()
-      .items(
-        Joi.object({
-          event: Joi.string().required(),
-          startTime: Joi.date().required(),
-          endTime: Joi.date().required()
-        })
-      )
-      .required(),
-    thursday: Joi.array()
-      .items(
-        Joi.object({
-          event: Joi.string().required(),
-          startTime: Joi.date().required(),
-          endTime: Joi.date().required()
-        })
-      )
-      .required(),
-    friday: Joi.array()
-      .items(
-        Joi.object({
-          event: Joi.string().required(),
-          startTime: Joi.date().required(),
-          endTime: Joi.date().required()
-        })
-      )
-      .required(),
-    saturday: Joi.array()
-      .items(
-        Joi.object({
-          event: Joi.string().required(),
-          startTime: Joi.date().required(),
-          endTime: Joi.date().required()
-        })
-      )
-      .required(),
-    sunday: Joi.array()
-      .items(
-        Joi.object({
-          event: Joi.string().required(),
-          startTime: Joi.date().required(),
-          endTime: Joi.date().required()
-        })
-      )
-      .required()
-  });
-  try {
-    await schema.validateAsync(req.body);
-  } catch (error) {
-    //error occurred while validating time table setup inputs
-    return res.status(400).json({
-      status: 'fail',
-      message: error.message
-    });
-  }
+  await Event.findByIdAndDelete(id);
 
-  //update time table
-  try {
-    await pTable.update(req.body);
-  } catch (err) {
-    console.error(err);
-    return res.status(400).json({
-      status: 'fail',
-      message: err.message
-    });
-  }
+  const events = pTable.events.filter((obj) => obj.eventId !== id);
+  await PersonalTimeTable.findOneAndUpdate(
+    { userId: student._id },
+    {
+      events,
+    }
+  );
 
   res.status(200).json({
     status: 'success',
-    data: {
-      personalTimeTable: pTable
-    }
-  });
-};
-
-//delete personal time table
-exports.deletePersonalTimeTable = async (req, res) => {
-  //check if logged user is a student
-  const student = req.user.student;
-
-  if (!student) {
-    return res.status(400).json({
-      status: 'failed',
-      message:
-        'Must be logged in as a student to create your personal time table'
-    });
-  }
-
-  //get student ID
-  const id = student._id;
-
-  //check if student does not already have a personal time table
-  const pTable = await PersonalTimeTable.findOne({ userId: id });
-  if (!pTable) {
-    return res.status(400).json({
-      status: 'fail',
-      message: 'User does not have a personal time table'
-    });
-  }
-
-  await pTable.remove();
-
-  res.status(200).json({
-    status: 'sucess',
-    message: 'Personal time table deleted, can create a new one now'
+    message: 'Event deleted',
   });
 };

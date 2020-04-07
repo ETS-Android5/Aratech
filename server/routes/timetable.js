@@ -10,18 +10,26 @@ router.get(
   personalTimetableController.getPersonalTimetable
 );
 
-//create a new personal time table
+//add a new event to peronal time table
 router.post(
   '/personal',
   passport.authenticate('jwt', { session: false }),
-  personalTimetableController.createPersonalTimeTable
+  personalTimetableController.addEventToPersonalTimetable
 );
 
+<<<<<<< HEAD
 //create a new new class timetable
 router.post(
   '/classTimetable',
   passport.authenticate('jwt', { session: false }),
   classTimetableController.createclassTimetable
+=======
+//delete event in personal time table
+router.delete(
+  '/personal',
+  passport.authenticate('jwt', { session: false }),
+  personalTimetableController.deleteEventFromPeronsalTable
+>>>>>>> master
 );
 
 module.exports = router;

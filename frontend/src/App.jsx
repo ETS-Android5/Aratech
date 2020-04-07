@@ -7,7 +7,7 @@ import setAuthToken from './network/setAuthToken';
 import {
   setCurrentStudent,
   setCurrentLecturer,
-  logoutUser
+  logoutUser,
 } from './store/actions/authActions';
 
 import PrivateRoute from './components/PrivateRoute';
@@ -47,7 +47,7 @@ if (lecturerToken) {
     store.dispatch(logoutUser());
 
     //redirect to login
-    window.location.href = '/lecturer/login';
+    window.location.href = '/lecturer/signin';
   }
 } else if (studentToken) {
   //check if student token is valid
@@ -66,7 +66,7 @@ if (lecturerToken) {
     store.dispatch(logoutUser());
 
     //redirect to login
-    window.location.href = '/student/login';
+    window.location.href = '/student/signin';
   }
 }
 

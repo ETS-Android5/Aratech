@@ -18,7 +18,7 @@ exports.sendConfirmationEmail = async (email, confirmationToken) => {
       'Complete the verification process\n\n' +
       'http://localhost:3000/confirmemail/' +
       confirmationToken,
-    subject: 'Confirm Your Email'
+    subject: 'Confirm Your Email',
   };
 
   //send email
@@ -42,7 +42,7 @@ exports.sendPasswordResetMail = async (email, token) => {
       'Or ignore and your password will remain unchanged\n\n' +
       'http://localhost:3000/passwordreset/' +
       token,
-    subject: 'Reset your password'
+    subject: 'Reset your password',
   };
 
   //send email
@@ -52,4 +52,4 @@ exports.sendPasswordResetMail = async (email, token) => {
   } catch (error) {
     console.error(error);
   }
-}
+};

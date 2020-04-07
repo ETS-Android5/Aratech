@@ -8,7 +8,6 @@ import ImageUploader from 'react-images-upload';
 import Navbar from '../components/Navbar';
 import { setStudentProfileImg } from '../store/actions/authActions';
 import { getStudentPersonalTimetable } from '../store/actions/timetableActions';
-import { makeEventsArray } from '../utils/timetable-utils';
 
 //use moment as defaullt localizer for calendar
 const localizer = momentLocalizer(moment);
@@ -19,7 +18,7 @@ class Home extends React.Component {
 
     this.state = {
       image: '',
-      events: []
+      events: [],
     };
   }
 
@@ -30,16 +29,16 @@ class Home extends React.Component {
         bgClose: false,
         escClose: false,
         modal: false,
-        keyboard: false
+        keyboard: false,
       }).show();
     }
 
     //load personal timetable
     try {
-      const personalTimeTable = await this.props.getStudentPersonalTimetable();
-      const events = makeEventsArray(personalTimeTable);
+      await this.props.getStudentPersonalTimetable();
+      const events = this.props.personalTimetable;
       this.setState({
-        events
+        events: events ? events : [],
       });
     } catch (error) {
       console.error(error);
@@ -48,9 +47,9 @@ class Home extends React.Component {
     //todo: load class time table
   }
 
-  onFileChange = pictureFiles => {
+  onFileChange = (pictureFiles) => {
     this.setState({
-      image: pictureFiles[0]
+      image: pictureFiles[0],
     });
   };
 
@@ -111,14 +110,14 @@ class Home extends React.Component {
 
 const mapStateToProps = ({
   auth: { user },
-  timetable: { personalTimetable, classTimetable }
+  timetable: { personalTimetable, classTimetable },
 }) => ({
   user,
   personalTimetable,
-  classTimetable
+  classTimetable,
 });
 
 export default connect(mapStateToProps, {
   setStudentProfileImg,
-  getStudentPersonalTimetable
+  getStudentPersonalTimetable,
 })(Home);

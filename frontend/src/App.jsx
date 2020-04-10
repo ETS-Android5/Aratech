@@ -20,7 +20,7 @@ import ResetPassword from './pages/ResetPassword';
 import Footer from './components/Footer';
 import LecturerSignIn from './pages/LecturerSignIn';
 import LecturerSignUp from './pages/LecturerSignUp';
-import EmailVeify from './pages/EmailVerify';
+import EmailVerify from './pages/EmailVerify';
 import NotFound from './pages/NotFound';
 import StdProfile from './pages/StdProfile';
 import StdHome from './pages/StdHome';
@@ -88,7 +88,7 @@ class App extends React.Component {
               path="/passwordreset/:token"
               component={ResetPassword}
             />
-            <Route exact path="/confirmemail/:token" component={EmailVeify} />
+            <Route exact path="/confirmemail/:token" component={EmailVerify} />
 
             {/* private student routes */}
             <PrivateRoute exact path="/student/home" component={StdHome} />

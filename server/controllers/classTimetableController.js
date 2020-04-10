@@ -44,7 +44,7 @@ exports.addEventToClassTimetable = async (req, res) => {
   const event = await Event.create(req.body);
 
   //check if class does not already have a time table setup
-  const cTable = await Classimetable.findOne({ programme: student.programme });
+  const cTable = await Classimetable.findOne({ programme: student.department });
   if (cTable) {
     //class time table already exists, push the new event and save it
     cTable.events.push({ eventId: event._id });
@@ -59,7 +59,7 @@ exports.addEventToClassTimetable = async (req, res) => {
   } else {
     //create a new class timetable and add the event
     const newCT = await ClassTimetable.create({
-      programme: student.programme,
+      programme: student.department,
       events: [{ eventId: event._id }],
     });
     res.status(200).json({
@@ -83,12 +83,9 @@ exports.getClassTimetable = async (req, res) => {
     });
   }
 
-  //get user programme
-  const programme = student.programme;
-
   //get user class time table
   const cTable = await TimeTable.findOne({
-    programme: student.programme,
+    programme: student.department,
   }).populate('eventId');
   res.status(200).json({
     status: 'success',

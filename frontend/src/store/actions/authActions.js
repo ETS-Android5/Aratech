@@ -4,7 +4,7 @@ import cogoToast from 'cogo-toast';
 import { SET_CURRENT_USER } from './types';
 
 //sign in student
-export const signinStudent = (user, history) => async dispatch => {
+export const signinStudent = (user, history) => async (dispatch) => {
   let response;
   try {
     response = await API.post('auth/students/login', user);
@@ -28,7 +28,7 @@ export const signinStudent = (user, history) => async dispatch => {
 };
 
 //lecturer sign in
-export const signinLecturer = (user, history) => async dispatch => {
+export const signinLecturer = (user, history) => async (dispatch) => {
   let response;
   try {
     response = await API.post('auth/lecturers/login', user);
@@ -52,7 +52,7 @@ export const signinLecturer = (user, history) => async dispatch => {
 };
 
 //sign up student
-export const signupStudent = (user, history) => async dispatch => {
+export const signupStudent = (user, history) => async (dispatch) => {
   let response;
   try {
     response = await API.post('auth/students/register', user);
@@ -69,14 +69,14 @@ export const signupStudent = (user, history) => async dispatch => {
     setAuthToken(token);
 
     //redirect the user to the authenticated page
-    history.push('/lecturer/home');
+    history.push('/student/home');
   } catch (err) {
     return err.response.data.message;
   }
 };
 
 //sign up lecturer
-export const signupLecturer = (user, history) => async dispatch => {
+export const signupLecturer = (user, history) => async (dispatch) => {
   let response;
   try {
     response = await API.post('auth/lecturers/register', user);
@@ -100,7 +100,7 @@ export const signupLecturer = (user, history) => async dispatch => {
 };
 
 //log out user
-export const logoutUser = () => dispatch => {
+export const logoutUser = () => (dispatch) => {
   //remove tokens from localstorage
   localStorage.removeItem('lm-student-token');
   localStorage.removeItem('lm-lecturer-token');
@@ -113,7 +113,7 @@ export const logoutUser = () => dispatch => {
     type: SET_CURRENT_USER,
     isLecturer: false,
     isStudent: false,
-    payload: null
+    payload: null,
   });
 };
 
@@ -124,7 +124,7 @@ export const forgotPassword = async (email, history) => {
 
     const message = response.data.message;
     cogoToast.error(message, {
-      position: 'top-center'
+      position: 'top-center',
     });
     history.push('/');
   } catch (err) {
@@ -133,34 +133,34 @@ export const forgotPassword = async (email, history) => {
   }
 };
 
-export const setCurrentStudent = decoded => {
+export const setCurrentStudent = (decoded) => {
   return {
     type: SET_CURRENT_USER,
     isLecturer: false,
     isStudent: true,
-    payload: decoded
+    payload: decoded,
   };
 };
 
-export const setCurrentLecturer = decoded => {
+export const setCurrentLecturer = (decoded) => {
   return {
     type: SET_CURRENT_USER,
     isLecturer: true,
     isStudent: false,
-    payload: decoded
+    payload: decoded,
   };
 };
 
 //set student profile image
-export const setStudentProfileImg = image => async dispatch => {
+export const setStudentProfileImg = (image) => async (dispatch) => {
   let response;
   try {
     const formData = new FormData();
     formData.append('avatar', image);
     response = await API.post('auth/avatar', formData, {
       headers: {
-        'Content-Type': 'multipart/form-data'
-      }
+        'Content-Type': 'multipart/form-data',
+      },
     });
 
     const { student } = response.data.data;
@@ -174,15 +174,15 @@ export const setStudentProfileImg = image => async dispatch => {
 };
 
 //set lecturer profile image
-export const setLecturerProfileImg = image => async dispatch => {
+export const setLecturerProfileImg = (image) => async (dispatch) => {
   let response;
   try {
     const formData = new FormData();
     formData.append('avatar', image);
     response = await API.post('auth/avatar', formData, {
       headers: {
-        'Content-Type': 'multipart/form-data'
-      }
+        'Content-Type': 'multipart/form-data',
+      },
     });
 
     const { lecturer } = response.data.data;

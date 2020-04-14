@@ -33,7 +33,7 @@ import java.util.Objects;
  * A simple {@link Fragment} subclass.
  */
 public class StudentProfileFragment extends Fragment{
-    private TextView fullNameTxt, firstNameTxt, lastNameTxt, indexTxt, isCRepTxt, isEmailVerifiedTxt;
+    private TextView fullNameTxt,emailTxt ,phoneNumberTxt ,firstNameTxt, lastNameTxt, indexTxt, isCRepTxt, isEmailVerifiedTxt;
     private CircularImageView circleImageView;
     private Button logoutBtn;
     private FloatingActionButton editFab;
@@ -114,6 +114,8 @@ public class StudentProfileFragment extends Fragment{
         fullNameTxt.setText(String.format("%s %s", fName, lName));
         firstNameTxt.setText(fName);
         lastNameTxt.setText(lName);
+        emailTxt.setText(email);
+        phoneNumberTxt.setText(phone);
         indexTxt.setText(index);
         isEmailVerifiedTxt.setText(String.valueOf(isEV));
         isCRepTxt.setText(String.valueOf(isRep));
@@ -138,6 +140,8 @@ public class StudentProfileFragment extends Fragment{
         fullNameTxt = view.findViewById(R.id.fullNameTxt);
         firstNameTxt = view.findViewById(R.id.firstNameTxt);
         lastNameTxt = view.findViewById(R.id.lastNameTxt);
+        phoneNumberTxt = view.findViewById(R.id.phoneNumberTxt);
+        emailTxt = view.findViewById(R.id.emailTxt);
         indexTxt = view.findViewById(R.id.indexTxt);
         isCRepTxt = view.findViewById(R.id.isClassRepTxt);
         isEmailVerifiedTxt = view.findViewById(R.id.isEmailVerifiedTxt);

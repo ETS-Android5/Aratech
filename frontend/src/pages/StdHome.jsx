@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import UIKit from 'uikit';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
@@ -7,7 +8,11 @@ import ImageUploader from 'react-images-upload';
 
 import Navbar from '../components/Navbar';
 import { setStudentProfileImg } from '../store/actions/authActions';
-import { getStudentPersonalTimetable } from '../store/actions/timetableActions';
+import {
+  getStudentPersonalTimetable,
+  getStudentClassTimetable,
+} from '../store/actions/timetableActions';
+import isEmpty from '../validations/isEmpty';
 
 //use moment as defaullt localizer for calendar
 const localizer = momentLocalizer(moment);
@@ -19,6 +24,8 @@ class Home extends React.Component {
     this.state = {
       image: '',
       events: [],
+      upcomingEvents: [],
+      onGoingEvents: [],
     };
   }
 
@@ -38,13 +45,41 @@ class Home extends React.Component {
       await this.props.getStudentPersonalTimetable();
       const events = this.props.personalTimetable;
       this.setState({
-        events: events ? events : [],
+        events: events ? this.state.events.concat(events) : this.state.events,
       });
     } catch (error) {
       console.error(error);
     }
 
-    //todo: load class time table
+    //load class timetable
+    try {
+      await this.props.getStudentClassTimetable();
+      const events = this.props.classTimetable;
+      this.setState({
+        events: events ? this.state.events.concat(events) : this.state.events,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+
+    //set upcoming events
+    const upcomingEvents = this.state.events.filter(
+      (event) =>
+        event.startTime - Date.now() < 10800000 &&
+        event.startTime - Date.now() > 0
+    );
+    this.setState({
+      upcomingEvents,
+    });
+
+    //load ongoing events
+    const onGoingEvents = this.state.events.filter(
+      (event) =>
+        event.startTime - Date.now() <= 0 && event.endTime - Date.now() > 0
+    );
+    this.setState({
+      onGoingEvents,
+    });
   }
 
   onFileChange = (pictureFiles) => {
@@ -63,20 +98,52 @@ class Home extends React.Component {
   };
 
   render() {
+    const { events, upcomingEvents, onGoingEvents } = this.state;
     return (
       <React.Fragment>
         <Navbar />
         {/**calendar component */}
         <div className="uk-grid-collapse" data-uk-grid>
-          <div className="uk-width-1-2@m uk-padding-large uk-flex uk-flex-middle uk-flex-center">
+          <div className="uk-width-1-2@m uk-padding-small uk-flex uk-flex-middle uk-flex-center">
             <Calendar
               localizer={localizer}
-              events={this.state.events}
+              events={events}
               startAccessor="startTime"
               endAccessor="endTime"
               views={['day', 'week', 'agenda']}
               defaultView={'day'}
             />
+          </div>
+          <div className="uk-width-1-2@m">
+            <div className="uk-card uk-card-default uk-card-hover uk-card-body uk-text-center">
+              <img
+                onClick={() => this.props.history.push('/student/profile')}
+                src={this.props.user.avatar}
+                alt="avatar"
+                className="uk-border-circle"
+                style={{
+                  width: '100px',
+                  height: '100px',
+                  cursor: 'pointer',
+                }}
+              />
+              <h4>Upcoming events</h4>
+              {isEmpty(upcomingEvents) ? (
+                <p>No Upcoming Events now...</p>
+              ) : null}
+              <ul>
+                {upcomingEvents.map((event) => (
+                  <li>{event}</li>
+                ))}
+              </ul>
+              <h4>Ongoing events</h4>
+              {isEmpty(onGoingEvents) ? <p>No Ongoing Events now...</p> : null}
+              <ul>
+                {upcomingEvents.map((event) => (
+                  <li>{event}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
         {/** modal to set user profile picture */}
@@ -120,4 +187,5 @@ const mapStateToProps = ({
 export default connect(mapStateToProps, {
   setStudentProfileImg,
   getStudentPersonalTimetable,
-})(Home);
+  getStudentClassTimetable,
+})(withRouter(Home));

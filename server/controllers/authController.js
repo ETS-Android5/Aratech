@@ -12,26 +12,14 @@ const Lecturer = require('../models/Lecturer');
 exports.studentSignup = async (req, res) => {
   //validate user input
   const schema = Joi.object({
-    fName: Joi.string()
-      .alphanum()
-      .required(),
-    lName: Joi.string()
-      .alphanum()
-      .required(),
-    otherNames: Joi.string()
-      .alphanum()
-      .optional()
-      .allow(''),
-    email: Joi.string()
-      .email()
-      .required(),
+    fName: Joi.string().alphanum().required(),
+    lName: Joi.string().alphanum().required(),
+    otherNames: Joi.string().alphanum().optional().allow(''),
+    email: Joi.string().email().required(),
     indexNo: Joi.number().required(),
     department: Joi.string().required(),
     phoneNo: Joi.string().required(),
-    password: Joi.string()
-      .min(8)
-      .max(32)
-      .required()
+    password: Joi.string().min(8).max(32).required(),
   });
   try {
     await schema.validateAsync(req.body);
@@ -39,7 +27,7 @@ exports.studentSignup = async (req, res) => {
     //error occured validating user input
     return res.status(400).json({
       status: 'fail',
-      message: error.message
+      message: error.message,
     });
   }
 
@@ -49,14 +37,14 @@ exports.studentSignup = async (req, res) => {
   if (stdEmail) {
     return res.status(400).json({
       status: 'fail',
-      message: 'Student with same email already exists'
+      message: 'Student with same email already exists',
     });
   }
   const stdIndexNo = await Student.findOne({ indexNo: req.body.indexNo });
   if (stdIndexNo) {
     return res.status(400).json({
       status: 'fail',
-      message: 'Student with the same index number already exists'
+      message: 'Student with the same index number already exists',
     });
   }
 
@@ -86,11 +74,11 @@ exports.studentSignup = async (req, res) => {
       indexNo: student.indexNo,
       email: student.email,
       avatar: student.avatar,
-      phoneNo: student.phoneNo
+      phoneNo: student.phoneNo,
     },
     process.env.SECRET_OR_KEY,
     {
-      expiresIn: '2d'
+      expiresIn: '2d',
     }
   );
 
@@ -98,8 +86,8 @@ exports.studentSignup = async (req, res) => {
     status: 'success',
     data: {
       token,
-      student
-    }
+      student,
+    },
   });
 };
 
@@ -107,27 +95,13 @@ exports.studentSignup = async (req, res) => {
 exports.lecturerSignup = async (req, res) => {
   //validate user input
   const schema = Joi.object({
-    fName: Joi.string()
-      .alphanum()
-      .required(),
-    lName: Joi.string()
-      .alphanum()
-      .required(),
-    otherNames: Joi.string()
-      .alphanum()
-      .optional()
-      .allow(''),
-    email: Joi.string()
-      .email()
-      .required(),
-    password: Joi.string()
-      .min(8)
-      .max(32)
-      .required(),
+    fName: Joi.string().alphanum().required(),
+    lName: Joi.string().alphanum().required(),
+    otherNames: Joi.string().alphanum().optional().allow(''),
+    email: Joi.string().email().required(),
+    password: Joi.string().min(8).max(32).required(),
     phoneNo: Joi.string().required(),
-    courses: Joi.array()
-      .items(Joi.string().required())
-      .required()
+    courses: Joi.array().items(Joi.string().required()).required(),
   });
   try {
     await schema.validateAsync(req.body);
@@ -135,7 +109,7 @@ exports.lecturerSignup = async (req, res) => {
     //error occured validating user input
     return res.status(400).json({
       status: 'fail',
-      message: error.message
+      message: error.message,
     });
   }
 
@@ -145,7 +119,7 @@ exports.lecturerSignup = async (req, res) => {
   if (lectEmail) {
     return res.status(400).json({
       status: 'fail',
-      message: 'Lecturer with same email already exists'
+      message: 'Lecturer with same email already exists',
     });
   }
 
@@ -174,11 +148,11 @@ exports.lecturerSignup = async (req, res) => {
       id: lecturer._id,
       email: lecturer.email,
       avatar: lecturer.avatar,
-      phoneNo: lecturer.phoneNo
+      phoneNo: lecturer.phoneNo,
     },
     process.env.SECRET_OR_KEY,
     {
-      expiresIn: '2d'
+      expiresIn: '2d',
     }
   );
 
@@ -186,8 +160,8 @@ exports.lecturerSignup = async (req, res) => {
     status: 'success',
     data: {
       token,
-      lecturer
-    }
+      lecturer,
+    },
   });
 };
 
@@ -196,10 +170,7 @@ exports.studentSignin = async (req, res) => {
   //validate student login inputs
   const schema = Joi.object({
     indexNo: Joi.number().required(),
-    password: Joi.string()
-      .min(8)
-      .max(32)
-      .required()
+    password: Joi.string().min(8).max(32).required(),
   });
   try {
     await schema.validateAsync(req.body);
@@ -207,7 +178,7 @@ exports.studentSignin = async (req, res) => {
     //error occurred while validating logging inputs
     return res.status(400).json({
       status: 'fail',
-      message: error.message
+      message: error.message,
     });
   }
 
@@ -217,7 +188,7 @@ exports.studentSignin = async (req, res) => {
   if (!student) {
     return res.status(404).json({
       status: 'fail',
-      message: 'User is not registered! Please signup first!'
+      message: 'User is not registered! Please signup first!',
     });
   }
   // compare user input password with password in database
@@ -225,7 +196,7 @@ exports.studentSignin = async (req, res) => {
   if (!passMatch) {
     return res.status(400).json({
       status: 'fail',
-      message: 'Password entered is incorrect! Enter the correct password'
+      message: 'Password entered is incorrect! Enter the correct password',
     });
   }
   //no err
@@ -236,11 +207,11 @@ exports.studentSignin = async (req, res) => {
       indexNo: student.indexNo,
       email: student.email,
       avatar: student.avatar,
-      phoneNo: student.phoneNo
+      phoneNo: student.phoneNo,
     },
     process.env.SECRET_OR_KEY,
     {
-      expiresIn: '2d'
+      expiresIn: '2d',
     }
   );
 
@@ -248,8 +219,8 @@ exports.studentSignin = async (req, res) => {
     status: 'success',
     data: {
       token,
-      student
-    }
+      student,
+    },
   });
 };
 
@@ -258,10 +229,7 @@ exports.lecturerSignin = async (req, res) => {
   //validate lecturer login inputs
   const schema = Joi.object({
     email: Joi.string().required(),
-    password: Joi.string()
-      .min(8)
-      .max(32)
-      .required()
+    password: Joi.string().min(8).max(32).required(),
   });
   try {
     await schema.validateAsync(req.body);
@@ -269,7 +237,7 @@ exports.lecturerSignin = async (req, res) => {
     //error occurred while validating logging inputs
     return res.status(400).json({
       status: 'fail',
-      message: error.message
+      message: error.message,
     });
   }
 
@@ -279,7 +247,7 @@ exports.lecturerSignin = async (req, res) => {
   if (!lecturer) {
     return res.status(404).json({
       status: 'fail',
-      message: 'User is not registered! Please signup first!'
+      message: 'User is not registered! Please signup first!',
     });
   }
   // compare user input password with password in database
@@ -288,7 +256,7 @@ exports.lecturerSignin = async (req, res) => {
     return res.status(400).json({
       status: 'fail',
       message:
-        'Password entered does not match user passowrd! Enter the correct password'
+        'Password entered does not match user passowrd! Enter the correct password',
     });
   }
   //no errors found in entered login inputs
@@ -298,11 +266,11 @@ exports.lecturerSignin = async (req, res) => {
       id: lecturer._id,
       email: lecturer.email,
       avatar: lecturer.avatar,
-      phoneNo: lecturer.phoneNo
+      phoneNo: lecturer.phoneNo,
     },
     process.env.SECRET_OR_KEY,
     {
-      expiresIn: '2d'
+      expiresIn: '2d',
     }
   );
 
@@ -310,8 +278,8 @@ exports.lecturerSignin = async (req, res) => {
     status: 'success',
     data: {
       token,
-      lecturer
-    }
+      lecturer,
+    },
   });
 };
 
@@ -323,18 +291,18 @@ exports.verifyEmail = async (req, res) => {
   if (!token) {
     return res.status(400).json({
       status: 'fail',
-      message: 'Must provide a token'
+      message: 'Must provide a token',
     });
   }
 
   //query for student or lectuer with same confirmation token
   const student = await Student.findOne({
     confirmationToken: token,
-    confirmationTokenExpires: { $gt: Date.now() }
+    confirmationTokenExpires: { $gt: Date.now() },
   });
   const lecturer = await Lecturer.findOne({
     confirmationToken: token,
-    confirmationTokenExpires: { $gt: Date.now() }
+    confirmationTokenExpires: { $gt: Date.now() },
   });
 
   if (student) {
@@ -346,7 +314,7 @@ exports.verifyEmail = async (req, res) => {
 
     return res.status(200).json({
       status: 'success',
-      message: 'Email verfied successfully'
+      message: 'Email verfied successfully',
     });
   } else if (lecturer) {
     lecturer.isEmailVerified = true;
@@ -357,13 +325,13 @@ exports.verifyEmail = async (req, res) => {
 
     return res.status(200).json({
       status: 'success',
-      message: 'Email verified successfully'
+      message: 'Email verified successfully',
     });
   } else {
     //token does not exist
     return res.status(404).json({
       status: 'fail',
-      message: 'Link is invalid or has expired'
+      message: 'Link is invalid or has expired',
     });
   }
 };
@@ -383,7 +351,7 @@ exports.forgotPassword = async (req, res) => {
 
       return res.status(200).json({
         status: 'success',
-        message: 'Password reset email successfully sent'
+        message: 'Password reset email successfully sent',
       });
     } else {
       const lecturer = await Lecturer.findOne({ email: req.body.email });
@@ -397,7 +365,7 @@ exports.forgotPassword = async (req, res) => {
 
         return res.status(200).json({
           status: 'success',
-          message: 'Password reset email successfully sent'
+          message: 'Password reset email successfully sent',
         });
       }
     }
@@ -413,7 +381,7 @@ exports.forgotPassword = async (req, res) => {
 
       return res.status(200).json({
         status: 'success',
-        message: 'Password reset email successfully sent'
+        message: 'Password reset email successfully sent',
       });
     }
   }
@@ -425,18 +393,18 @@ exports.resetPassword = async (req, res) => {
   if (!token) {
     return res.status(401).json({
       status: 'fail',
-      message: 'Must provide a token'
+      message: 'Must provide a token',
     });
   }
 
   //query for student or lectuer with same password reset token
   const student = await Student.findOne({
     passwordResetToken: token,
-    passwordResetTokenExpires: { $gt: Date.now() }
+    passwordResetTokenExpires: { $gt: Date.now() },
   });
   const lecturer = await Lecturer.findOne({
     passwordResetToken: token,
-    passwordResetTokenExpires: { $gt: Date.now() }
+    passwordResetTokenExpires: { $gt: Date.now() },
   });
 
   if (student) {
@@ -446,7 +414,7 @@ exports.resetPassword = async (req, res) => {
 
     return res.status(200).json({
       status: 'success',
-      message: 'Password changed successfully'
+      message: 'Password changed successfully',
     });
   } else if (lecturer) {
     lecturer.password = req.body.password;
@@ -455,13 +423,13 @@ exports.resetPassword = async (req, res) => {
 
     return res.status(200).json({
       status: 'success',
-      message: 'Password changed successfully'
+      message: 'Password changed successfully',
     });
   } else {
     //token does not exist
     return res.status(404).json({
       status: 'fail',
-      message: 'Link is invalid or has expired'
+      message: 'Link is invalid or has expired',
     });
   }
 };
@@ -488,7 +456,7 @@ exports.resendVerificationEmail = async (req, res) => {
 
     return res.status(200).json({
       status: 'Success',
-      message: 'Confirmation email sent successfully'
+      message: 'Confirmation email sent successfully',
     });
   } else if (lct) {
     const lecturer = await Lecturer.findById(lct._id);
@@ -506,13 +474,13 @@ exports.resendVerificationEmail = async (req, res) => {
 
     return res.status(200).json({
       status: 'Success',
-      message: 'Confirmation email sent successfully'
+      message: 'Confirmation email sent successfully',
     });
   }
 
   res.status(500).json({
     status: 'Failed',
-    message: 'Oops... something went wrong, try again later...'
+    message: 'Oops... something went wrong, try again later...',
   });
 };
 
@@ -526,22 +494,22 @@ exports.me = async (req, res) => {
     return res.status(200).json({
       status: 'Success',
       data: {
-        student: std
-      }
+        student: std,
+      },
     });
   } else if (lct) {
     return res.status(200).json({
       status: 'Success',
       data: {
-        lecturer: lct
-      }
+        lecturer: lct,
+      },
     });
   }
 
   //something went wrong here
   res.status(500).json({
     status: 'Failed',
-    message: 'Ooops... Something went wrong here.. try again later.'
+    message: 'Ooops... Something went wrong here.. try again later.',
   });
 };
 
@@ -556,26 +524,56 @@ exports.setProfilePic = async (req, res) => {
     student.avatar = url;
     await student.save();
 
+    //sign a token for the user
+    const token = jwt.sign(
+      {
+        id: student._id,
+        email: student.email,
+        avatar: student.avatar,
+        phoneNo: student.phoneNo,
+      },
+      process.env.SECRET_OR_KEY,
+      {
+        expiresIn: '2d',
+      }
+    );
+
     res.status(200).json({
       status: 'success',
       data: {
-        student
-      }
+        token,
+        student,
+      },
     });
   } else if (lecturer) {
     lecturer.avatar = url;
     await lecturer.save();
 
+    //sign a token for the user
+    const token = jwt.sign(
+      {
+        id: lecturer._id,
+        email: lecturer.email,
+        avatar: lecturer.avatar,
+        phoneNo: lecturer.phoneNo,
+      },
+      process.env.SECRET_OR_KEY,
+      {
+        expiresIn: '2d',
+      }
+    );
+
     res.status(200).json({
       status: 'success',
       data: {
-        lecturer
-      }
+        token,
+        lecturer,
+      },
     });
   } else {
     res.status(500).json({
       status: 'fail',
-      message: 'Ooops.... something went wrong, try again later'
+      message: 'Ooops.... something went wrong, try again later',
     });
   }
 };

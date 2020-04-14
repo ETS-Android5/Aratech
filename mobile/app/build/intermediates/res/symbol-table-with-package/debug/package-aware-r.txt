@@ -2160,6 +2160,7 @@ id edtLastName
 id edtMobile
 id edtOtherNames
 id edtPassword
+id emailTxt
 id end
 id end_padder
 id enterAlways

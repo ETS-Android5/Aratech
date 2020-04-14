@@ -65,7 +65,7 @@ exports.addEventToClassTimetable = async (req, res) => {
     res.status(200).json({
       status: 'success',
       data: {
-        classTimeTable: newCT,
+        classTimetable: newCT,
       },
     });
   }
@@ -84,13 +84,13 @@ exports.getClassTimetable = async (req, res) => {
   }
 
   //get user class time table
-  const cTable = await TimeTable.findOne({
+  const cTable = await ClassTimetable.findOne({
     programme: student.department,
   }).populate('eventId');
   res.status(200).json({
     status: 'success',
     data: {
-      classTimeTable: cTable ? cTable : {},
+      classTimetable: cTable ? cTable : {},
     },
   });
 };

@@ -1,7 +1,7 @@
 import { SET_CLASS_TIMETABLE, SET_PERSONAL_TIMETABLE } from '../actions/types';
 
 const initialState = {
-  classTimeTable: [],
+  classTimetable: [],
   personalTimetable: [],
 };
 
@@ -10,7 +10,7 @@ export default function (state = initialState, action) {
     case SET_CLASS_TIMETABLE:
       return {
         ...state,
-        classTimeTable: action.payload,
+        classTimetable: action.payload,
       };
     case SET_PERSONAL_TIMETABLE:
       return {

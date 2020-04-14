@@ -115,6 +115,8 @@ export const logoutUser = () => (dispatch) => {
     isStudent: false,
     payload: null,
   });
+
+  window.location.reload();
 };
 
 export const forgotPassword = async (email, history) => {
@@ -163,7 +165,14 @@ export const setStudentProfileImg = (image) => async (dispatch) => {
       },
     });
 
-    const { student } = response.data.data;
+    const { student, token } = response.data.data;
+
+    //save the token to localstorage
+    localStorage.setItem('lm-student-token', token);
+
+    //set authorization header for axios
+    setAuthToken(token);
+
     dispatch(setCurrentStudent(student));
     cogoToast.success('Profile picture uploaded successfully');
     return true;
@@ -185,7 +194,13 @@ export const setLecturerProfileImg = (image) => async (dispatch) => {
       },
     });
 
-    const { lecturer } = response.data.data;
+    const { lecturer, token } = response.data.data;
+
+    //save the token to localstorage
+    localStorage.setItem('lm-lecturer-token', token);
+
+    //set authorization header for axios
+    setAuthToken(token);
     dispatch(setCurrentLecturer(lecturer));
     cogoToast.success('Profile picture uploaded successfully');
     return true;

@@ -1,10 +1,17 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "C:\\Users\\JOHN\\Documents\\PROJECTS\\Aratech\\new\\lecture-monitor\\mobile\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
             "map": [
                 {
                     "source": "C:\\Users\\JOHN\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\values-watch-v20\\values-watch-v20.xml",
+=======
+            "outputFile": "/home/francis/code/lecture-monitor/mobile/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-watch-v20/values-watch-v20.xml",
+            "map": [
+                {
+                    "source": "/home/francis/.gradle/caches/transforms-2/files-2.1/6119d746697059b7e1b74aab4d181f56/appcompat-1.1.0/res/values-watch-v20/values-watch-v20.xml",
+>>>>>>> master
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",

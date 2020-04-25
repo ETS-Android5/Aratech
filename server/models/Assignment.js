@@ -4,20 +4,20 @@ const Schema = mongoose.Schema;
 const AssignmentSchema = new Schema({
   course: {
     type: Schema.Types.ObjectId,
-    ref: 'Course'
+    ref: 'Course',
   },
   deadline: {
     type: String,
-    required: true
+    required: true,
   },
   content: {
     type: String,
-    required: true
+    required: true,
   },
   submssionType: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 });
 
 module.exports = mongoose.model('Assignment', AssignmentSchema);

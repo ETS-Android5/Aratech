@@ -22,7 +22,7 @@ exports.getPersonalTimetable = async (req, res) => {
   //get user personal time table
   const pTable = await PersonalTimeTable.findOne({
     userId: id,
-  }).populate('eventId');
+  }).populate('events.eventId');
 
   res.status(200).json({
     status: 'success',

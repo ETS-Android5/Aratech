@@ -18,7 +18,7 @@ const validationSchema = Yup.object().shape({
   password: Yup.string()
     .min(8, 'Password must be 8 characters or more')
     .max(32, 'Password cannot be more than 32 characters')
-    .required('Password is required')
+    .required('Password is required'),
 });
 
 //THIS IS THE STUDENT SIGN IN PAGE
@@ -27,7 +27,7 @@ class StdSignIn extends React.Component {
     super(props);
 
     this.state = {
-      isLoading: false
+      isLoading: false,
     };
   }
 
@@ -62,17 +62,17 @@ class StdSignIn extends React.Component {
               <Formik
                 initialValues={{ indexNo: '', password: '' }}
                 validationSchema={validationSchema}
-                onSubmit={async values => {
+                onSubmit={async (values) => {
                   this.setState({
-                    isLoading: true
+                    isLoading: true,
                   });
                   const error = await signinStudent(values, history);
                   if (error) {
                     this.setState({
-                      isLoading: false
+                      isLoading: false,
                     });
                     cogoToast.error(error, {
-                      position: 'top-center'
+                      position: 'top-center',
                     });
                     //reset the fields
                     values.indexNo = '';
@@ -86,7 +86,7 @@ class StdSignIn extends React.Component {
                   touched,
                   handleChange,
                   handleBlur,
-                  handleSubmit
+                  handleSubmit,
                 }) => (
                   <form onSubmit={handleSubmit}>
                     <div className="uk-width-1-1 uk-margin">
@@ -136,16 +136,6 @@ class StdSignIn extends React.Component {
                         <p className="uk-text-danger">{errors.password}</p>
                       ) : null}
                     </div>
-
-                    <div className="uk-width-1-1 uk-margin uk-text-center">
-                      <Link
-                        className="uk-text-small uk-link-muted"
-                        to="/forgotpassword"
-                        disabled={isLoading}
-                      >
-                        Forgot your password?
-                      </Link>
-                    </div>
                     <div className="uk-width-1-1 uk-text-center">
                       <button
                         className="uk-button uk-button__animate uk-button-primary uk-button-large"
@@ -192,11 +182,11 @@ class StdSignIn extends React.Component {
 }
 
 const matchStateToProps = ({
-  auth: { isAuthenticated, isStudent, isLecturer }
+  auth: { isAuthenticated, isStudent, isLecturer },
 }) => ({
   isAuthenticated,
   isStudent,
-  isLecturer
+  isLecturer,
 });
 
 export default connect(matchStateToProps, { signinStudent })(

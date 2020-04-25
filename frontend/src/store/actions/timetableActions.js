@@ -34,3 +34,17 @@ export const getStudentClassTimetable = () => async (dispatch) => {
     cogoToast.error(error.response.data.message);
   }
 };
+
+export const addPersonalEvent = (event) => async (dispatch) => {
+  let response;
+  try {
+    response = await API.post('timetable/personal', event);
+    const { personalTimeTable } = response.data.data;
+    dispatch({
+      type: SET_PERSONAL_TIMETABLE,
+      payload: personalTimeTable.events ? personalTimeTable.events : [],
+    });
+  } catch (error) {
+    cogoToast.error(error.response.data.message);
+  }
+};

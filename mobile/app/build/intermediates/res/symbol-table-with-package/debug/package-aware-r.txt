@@ -2089,6 +2089,7 @@ id all
 id always
 id appbar
 id async
+id attendance
 id attendance_fragment
 id auto
 id avatar
@@ -2109,6 +2110,7 @@ id btnRegister
 id btnSendReset
 id btn_next
 id buttonPanel
+id calendar
 id cancel_action
 id center
 id center_horizontal
@@ -2148,6 +2150,7 @@ id dimensions
 id direct
 id disableHome
 id dotsLayout
+id drawer
 id editFab
 id editTextMobile
 id editTextPassword
@@ -2207,6 +2210,8 @@ id label
 id labeled
 id largeLabel
 id lastNameTxt
+id lecturer_drawer_main
+id lecturer_home
 id left
 id line1
 id line3
@@ -2261,6 +2266,7 @@ id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
 id name
+id navigationView
 id navigation_header_container
 id nested_content
 id never
@@ -2269,6 +2275,7 @@ id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id notifications
 id nowrap
 id off
 id on
@@ -2281,7 +2288,9 @@ id parent_matrix
 id percent
 id phoneNumberTxt
 id pin
+id profile
 id profileImg
+id profileView
 id programTxt
 id progress_circular
 id progress_horizontal
@@ -2364,6 +2373,7 @@ id textInputPassword
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id textView2
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
@@ -2482,6 +2492,12 @@ layout design_text_input_password_icon
 layout detailed_chip_view
 layout dialog_info
 layout error_toast_layout
+layout fragment_lecturer_attendance
+layout fragment_lecturer_calendar
+layout fragment_lecturer_home
+layout fragment_lecturer_notifications
+layout fragment_lecturer_profile
+layout fragment_main_lecturer
 layout fragment_main_school
 layout fragment_student_attendance
 layout fragment_student_calendar
@@ -2491,6 +2507,9 @@ layout fragment_student_profile
 layout info_toast_layout
 layout item_intro
 layout item_list_filterable
+layout lecturer_drawer_content
+layout lecturer_drawer_header
+layout lecturer_drawer_toolbar
 layout list_filterable_view
 layout mdtp_date_picker_dialog
 layout mdtp_date_picker_dialog_v2
@@ -2532,6 +2551,7 @@ layout spinner_view
 layout success_toast_layout
 layout support_simple_spinner_dropdown_item
 layout warning_toast_layout
+menu drawer_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 string CONTINUE
@@ -2570,6 +2590,7 @@ string bottom_sheet_behavior
 string character_counter_content_description
 string character_counter_pattern
 string chip_ellipsis
+string close
 string email_hint
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
@@ -2619,6 +2640,7 @@ string mdtp_time_separator
 string mdtp_year_picker_description
 string mtrl_chip_close_icon_content_description
 string new_user_register_now
+string open
 string password
 string password_hint
 string password_toggle_content_description

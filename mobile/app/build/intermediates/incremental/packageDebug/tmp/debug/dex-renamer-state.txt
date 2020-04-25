@@ -1,7 +1,7 @@
-#Tue Apr 14 20:15:55 GMT 2020
-base.0=D\:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
+#Sat Apr 25 15:15:24 GMT 2020
+base.0=C\:\\Users\\JOHN\\Documents\\PROJECTS\\Aratech\\new\\lecture-monitor\\mobile\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=D\:\\HUB\\lecture-monitor\\mobile\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
+base.1=C\:\\Users\\JOHN\\Documents\\PROJECTS\\Aratech\\new\\lecture-monitor\\mobile\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex

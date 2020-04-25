@@ -49,6 +49,7 @@ public class LecturerSignupActivity extends AppCompatActivity implements View.On
 
         gotoLogin.setOnClickListener(this);
         slideLogin.setOnClickListener(this);
+        registerButton.setOnClickListener(this);
     }
 
     private void initUI(){
@@ -61,6 +62,8 @@ public class LecturerSignupActivity extends AppCompatActivity implements View.On
         passwordEdt = findViewById(R.id.edtPassword);
         confirmPasswordEdt = findViewById(R.id.edtConfirmPassword);
         registerButton = findViewById(R.id.btnRegister);
+
+
     }
 
     @Override
@@ -71,7 +74,10 @@ public class LecturerSignupActivity extends AppCompatActivity implements View.On
                 this.onBackPressed();
                 break;
             case R.id.btnRegister:
-                registerUser();
+                //supposed to register but i passes it directly  to the lecturer home activity
+                Intent intent = new Intent(LecturerSignupActivity.this, LecturerHomeActivity.class);
+                startActivity(intent);
+                finish();
                 break;
         }
     }
@@ -86,7 +92,7 @@ public class LecturerSignupActivity extends AppCompatActivity implements View.On
     private void registerUser(){
         String fName, lName, otherNames, email, mobileNo, course, password, confirmPassword;
 
-        course = "";
+        course = "maths";
         fName = fNameEdt.getText().toString();
         lName = lNameEdt.getText().toString();
         otherNames = otherNamesEdt.getText().toString();
@@ -169,7 +175,7 @@ public class LecturerSignupActivity extends AppCompatActivity implements View.On
                             .putBoolean(Consts.CURRENT_USER_EMAIL_VERIFIED, lecturer.isEmailVerified())
                             .apply();
                     registerButton.revertAnimation();
-                    Intent intent = new Intent(LecturerSignupActivity.this, StudentHomeActivity.class);
+                    Intent intent = new Intent(LecturerSignupActivity.this, LecturerHomeActivity.class);
                     startActivity(intent);
                     finish();
                 }
@@ -196,6 +202,6 @@ public class LecturerSignupActivity extends AppCompatActivity implements View.On
         });
     }
 
-    
+
 }
 

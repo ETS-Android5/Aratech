@@ -36,5 +36,10 @@ router.delete(
   passport.authenticate('jwt', { session: false }),
   personalTimetableController.deleteEventFromPeronsalTable
 );
-
+// delete event in Class Timetable
+router.delete(
+  '/class',
+  passport.authenticate('jwt', { session: false }),
+  classTimetableController.deleteEventFromClassTimetable
+);
 module.exports = router;

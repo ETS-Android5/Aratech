@@ -1,5 +1,4 @@
 const Joi = require('@hapi/joi');
-const jwt = require('jsonwebtoken');
 
 const ClassTimetable = require('../models/ClassTimetable');
 const Event = require('../models/Event');
@@ -92,5 +91,45 @@ exports.getClassTimetable = async (req, res) => {
     data: {
       classTimetable: cTable ? cTable : {},
     },
+  });
+};
+// Deleting and editing an Event in the class timetable,Only done by the classRep
+exports.deleteEventFromClassTimetable = async (req, res) => {
+  const student = req.user.student;
+  // Check if user is a student
+  if (!student) {
+    return res.status(400).json({
+      status: 'fail',
+      message:
+        'Must be logged in as student to delete an event in the class time table',
+    });
+  }
+
+  // check if the user is the class rep
+  if (!student.cRep) {
+    return res.status(403).json({
+      status: 'fail',
+      message:
+        'Unauthorized, must be a classrep to delete an event in class time table',
+    });
+  }
+  // Get the class Timetable
+  const classTimetable = await ClassTimetable.findOne({
+    programme: student.department,
+  });
+
+  //get ID of event to be deleted
+  const { eventId } = req.params;
+  await Event.findOneAndDelete({ _id: eventId });
+
+  //remove event ID from classTimetable
+  classTimetable.events = classTimetable.events.filter(
+    (event) => event.eventId !== eventId
+  );
+  await classTimetable.save();
+
+  res.status(200).json({
+    status: 'success',
+    message: 'Event removed successfully',
   });
 };

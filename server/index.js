@@ -7,6 +7,8 @@ const helmet = require('helmet');
 const authRoutes = require('./routes/auth');
 const departmentRoutes = require('./routes/department');
 const timetableRoutes = require('./routes/timetable');
+const assignmentRoutes = require('./routes/assignment');
+
 
 //create a basic express application
 const app = express();
@@ -28,5 +30,7 @@ app.use(helmet());
 app.use('/api/auth', authRoutes);
 app.use('/api/departments', departmentRoutes);
 app.use('/api/timetable', timetableRoutes);
+app.use('/api/assignment', assignmentRoutes);
+
 
 module.exports = app;

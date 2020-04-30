@@ -1,31 +1,32 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import UIKit from 'uikit';
-import { Calendar, momentLocalizer } from 'react-big-calendar';
-import moment from 'moment';
-import ImageUploader from 'react-images-upload';
-import * as Yup from 'yup';
-import { Formik } from 'formik';
-import DateTimePicker from 'react-datetime-picker';
+import React from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import UIKit from "uikit";
+import { Calendar, momentLocalizer } from "react-big-calendar";
+import moment from "moment";
+import ImageUploader from "react-images-upload";
+import * as Yup from "yup";
+import { Formik } from "formik";
+import DateTimePicker from "react-datetime-picker";
+import SweetAlert from "sweetalert2-react";
 
-import Navbar from '../components/Navbar';
-import { setStudentProfileImg } from '../store/actions/authActions';
+import Navbar from "../components/Navbar";
+import { setStudentProfileImg } from "../store/actions/authActions";
 import {
   getStudentPersonalTimetable,
   getStudentClassTimetable,
   addPersonalEvent,
-} from '../store/actions/timetableActions';
-import isEmpty from '../validations/isEmpty';
+} from "../store/actions/timetableActions";
+import isEmpty from "../validations/isEmpty";
 
 //use moment as defaullt localizer for calendar
 const localizer = momentLocalizer(moment);
 
 //validation schema
 const validationSchema = Yup.object().shape({
-  eventName: Yup.string().required('Event Name is required'),
-  startTime: Yup.date('Must be a date').required(),
-  endTime: Yup.date('Must be a date').required(),
+  eventName: Yup.string().required("Event Name is required"),
+  startTime: Yup.date("Must be a date").required(),
+  endTime: Yup.date("Must be a date").required(),
   repeatDaily: Yup.boolean(),
   repeatWeekly: Yup.boolean(),
 });
@@ -35,19 +36,21 @@ class Home extends React.Component {
     super(props);
 
     this.state = {
-      image: '',
+      image: "",
       events: [],
       upcomingEvents: [],
       onGoingEvents: [],
       uploading: false,
       isLoading: false,
+      currentEvent: null,
+      show: false,
     };
   }
 
   async componentDidMount() {
     //verify if user has a profile image, if not set one
     if (!this.props.user.avatar) {
-      UIKit.modal('#set-avatar', {
+      UIKit.modal("#set-avatar", {
         bgClose: false,
         escClose: false,
         modal: false,
@@ -115,13 +118,22 @@ class Home extends React.Component {
     });
     const isSet = await this.props.setStudentProfileImg(this.state.image);
     if (isSet) {
-      UIKit.modal('#set-avatar').hide();
+      UIKit.modal("#set-avatar").hide();
       this.setState({
         uploading: false,
       });
     } else {
       //todo: decide what to do later
     }
+  };
+
+  //function to show event details
+  showEventDetails = (event) => {
+    console.log(event);
+    this.setState({
+      show: true,
+      currentEvent: event,
+    });
   };
 
   render() {
@@ -132,6 +144,8 @@ class Home extends React.Component {
       image,
       uploading,
       isLoading,
+      currentEvent,
+      show,
     } = this.state;
     return (
       <React.Fragment>
@@ -145,21 +159,22 @@ class Home extends React.Component {
               titleAccessor="eventName"
               startAccessor="startTime"
               endAccessor="endTime"
-              views={['day', 'week', 'agenda']}
-              defaultView={'day'}
+              views={["day", "week", "agenda"]}
+              defaultView={"day"}
+              onSelectEvent={(event) => this.showEventDetails(event)}
             />
           </div>
           <div className="uk-width-1-3@m uk-margin-top">
             <div className="uk-card uk-card-default uk-card-hover uk-card-body uk-text-center">
               <img
-                onClick={() => this.props.history.push('/student/profile')}
+                onClick={() => this.props.history.push("/student/profile")}
                 src={this.props.user.avatar}
                 alt="avatar"
                 className="uk-border-circle"
                 style={{
-                  width: '100px',
-                  height: '100px',
-                  cursor: 'pointer',
+                  width: "100px",
+                  height: "100px",
+                  cursor: "pointer",
                 }}
               />
               <h4>Upcoming events</h4>
@@ -182,7 +197,7 @@ class Home extends React.Component {
             <h5 className="uk-text-center">ADD A NEW PERSONAL EVENT</h5>
             <Formik
               initialValues={{
-                eventName: '',
+                eventName: "",
                 startTime: new Date(),
                 endTime: null,
                 repeatDaily: false,
@@ -221,7 +236,7 @@ class Home extends React.Component {
                       name="eventName"
                       className={`uk-input uk-form-large ${
                         touched.events && errors.eventName
-                          ? 'uk-form-danger'
+                          ? "uk-form-danger"
                           : null
                       }`}
                       type="text"
@@ -245,14 +260,14 @@ class Home extends React.Component {
                       name="startTime"
                       className={`uk-margin-top ${
                         touched.startTime && errors.startTime
-                          ? 'uk-form-danger'
+                          ? "uk-form-danger"
                           : null
                       }`}
                       onChange={(date) => {
-                        setFieldValue('startTime', date);
+                        setFieldValue("startTime", date);
                       }}
                       value={values.startTime}
-                    />{' '}
+                    />{" "}
                     <br />
                     <label
                       className="uk-form-label uk-margin-small-right uk-margin-top"
@@ -264,15 +279,15 @@ class Home extends React.Component {
                       id="endTime"
                       className={`uk-margin-top ${
                         touched.startTime && errors.startTime
-                          ? 'uk-form-danger'
+                          ? "uk-form-danger"
                           : null
                       }`}
                       name="endTime"
                       onChange={(date) => {
-                        setFieldValue('endTime', date);
+                        setFieldValue("endTime", date);
                       }}
                       value={values.endTime}
-                    />{' '}
+                    />{" "}
                     <br />
                     <div className="uk-margin uk-grid-small uk-child-width-auto uk-grid">
                       <label>
@@ -283,7 +298,7 @@ class Home extends React.Component {
                           type="checkbox"
                           defaultChecked={values.repeatDaily}
                           onChange={handleChange}
-                        />{' '}
+                        />{" "}
                         Repeat Daily
                       </label>
                       <label>
@@ -294,7 +309,7 @@ class Home extends React.Component {
                           type="checkbox"
                           defaultChecked={values.repeatWeekly}
                           onChange={handleChange}
-                        />{' '}
+                        />{" "}
                         Repeat Weekly
                       </label>
                     </div>
@@ -304,7 +319,7 @@ class Home extends React.Component {
                         type="submit"
                         disabled={isLoading}
                       >
-                        {isLoading ? 'Creating...' : 'Create Event'}
+                        {isLoading ? "Creating..." : "Create Event"}
                       </button>
                     </div>
                   </div>
@@ -322,7 +337,7 @@ class Home extends React.Component {
               withIcon={true}
               buttonText="Choose image"
               onChange={this.onFileChange}
-              imgExtension={['.jpg', '.png']}
+              imgExtension={[".jpg", ".png"]}
               withPreview={true}
               label="Max file size is 5mb. 
               Accepted image types are .png and .jpg"
@@ -333,10 +348,28 @@ class Home extends React.Component {
               disabled={!image || uploading}
               onClick={this.uploadImage}
             >
-              {uploading ? 'Uploading' : 'Submit'}
+              {uploading ? "Uploading" : "Submit"}
             </button>
           </div>
         </div>
+
+        {/** sweet alert component */}
+        {currentEvent ? (
+          <SweetAlert
+            show={show}
+            title={currentEvent.eventName}
+            text={`Starting at ${moment(currentEvent.startTime).format(
+              "Do MMMM YYYY, h:mm a"
+            )} and ending at ${moment(currentEvent.endTime).format(
+              "Do MMMM YYYY, h:mm a"
+            )}`}
+            onConfirm={() =>
+              this.setState({
+                show: false,
+              })
+            }
+          />
+        ) : null}
       </React.Fragment>
     );
   }

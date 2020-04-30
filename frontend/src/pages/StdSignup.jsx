@@ -1,15 +1,15 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { Formik } from 'formik';
-import cogoToast from 'cogo-toast';
-import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { Formik } from "formik";
+import cogoToast from "cogo-toast";
+import * as Yup from "yup";
+import { Link } from "react-router-dom";
 
-import Navbar from '../components/Navbar';
+import Navbar from "../components/Navbar";
 
-import { signupStudent } from '../store/actions/authActions';
-import { loadAllDepartments } from '../store/actions/departmentActions';
+import { signupStudent } from "../store/actions/authActions";
+import { loadAllDepartments } from "../store/actions/departmentActions";
 
 //THIS THE STUDENT SIGN UP PAGE
 class StdSignUp extends React.Component {
@@ -17,40 +17,40 @@ class StdSignUp extends React.Component {
     super(props);
 
     this.state = {
-      isLoading: false
+      isLoading: false,
     };
   }
 
   //create a validation schema for the form
   createValidationSchema = () => {
     return Yup.object().shape({
-      fName: Yup.string().required('First Name is required'),
-      lName: Yup.string().required('Last Name is required'),
+      fName: Yup.string().required("First Name is required"),
+      lName: Yup.string().required("Last Name is required"),
       otherNames: Yup.string(),
       email: Yup.string()
-        .email('Must be a valid email')
-        .required('Email is required'),
-      indexNo: Yup.number('Must be a number')
-        .min(1000000, 'Should be at least 7 digits')
-        .max(99999999, 'Should not be more than 8 digits')
-        .required('Index No is required'),
+        .email("Must be a valid email")
+        .required("Email is required"),
+      indexNo: Yup.number("Must be a number")
+        .min(1000000, "Should be at least 7 digits")
+        .max(99999999, "Should not be more than 8 digits")
+        .required("Index No is required"),
       department: Yup.string().oneOf(
         this.props.departmentIDs,
-        'Must select a department'
+        "Must select a department"
       ),
       phoneNo: Yup.string()
         .matches(
           /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
-          'Must be a valid phone number'
+          "Must be a valid phone number"
         )
-        .required('Phone number is required'),
+        .required("Phone number is required"),
       password: Yup.string()
-        .min(8, 'Password must be 8 or more characters')
-        .max(32, 'Password must not be more than 32 characters')
-        .required('Password is required'),
+        .min(8, "Password must be 8 or more characters")
+        .max(32, "Password must not be more than 32 characters")
+        .required("Password is required"),
       passwordConfirmation: Yup.string()
-        .oneOf([Yup.ref('password'), null], 'Passwords must match')
-        .required('Confirm password is required')
+        .oneOf([Yup.ref("password"), null], "Passwords must match")
+        .required("Confirm password is required"),
     });
   };
 
@@ -60,15 +60,15 @@ class StdSignUp extends React.Component {
       isStudent,
       isLecturer,
       history,
-      loadAllDepartments
+      loadAllDepartments,
     } = this.props;
     //check if user isn't already authenticated
     if (isAuthenticated) {
       //check if user is logged in as student or lecturer
       if (isStudent) {
-        history.push('/student/home');
+        history.push("/student/home");
       } else if (isLecturer) {
-        history.push('/lecturer/home');
+        history.push("/lecturer/home");
       }
     }
 
@@ -81,7 +81,7 @@ class StdSignUp extends React.Component {
       history,
       signupStudent,
       departmentNames,
-      departmentIDs
+      departmentIDs,
     } = this.props;
     const { isLoading } = this.state;
     return (
@@ -102,20 +102,20 @@ class StdSignUp extends React.Component {
               {/* Create a form for the student to fill */}
               <Formik
                 initialValues={{
-                  fName: '',
-                  lName: '',
-                  otherNames: '',
-                  email: '',
-                  indexNo: '',
-                  department: '',
-                  phoneNo: '',
-                  password: '',
-                  passwordConfirmation: ''
+                  fName: "",
+                  lName: "",
+                  otherNames: "",
+                  email: "",
+                  indexNo: "",
+                  department: "",
+                  phoneNo: "",
+                  password: "",
+                  passwordConfirmation: "",
                 }}
                 validationSchema={this.createValidationSchema}
-                onSubmit={async values => {
+                onSubmit={async (values) => {
                   this.setState({
-                    isLoading: true
+                    isLoading: true,
                   });
                   //delete confirm password
                   delete values.passwordConfirmation;
@@ -123,21 +123,21 @@ class StdSignUp extends React.Component {
                   const error = await signupStudent(values, history);
                   if (error) {
                     this.setState({
-                      isLoading: false
+                      isLoading: false,
                     });
                     cogoToast.error(error, {
-                      position: 'top-center'
+                      position: "top-center",
                     });
                     //reset the fields
-                    values.fName = '';
-                    values.lName = '';
-                    values.otherNames = '';
-                    values.email = '';
-                    values.indexNo = '';
-                    values.department = '';
-                    values.phoneNo = '';
-                    values.password = '';
-                    values.passwordConfirmation = '';
+                    values.fName = "";
+                    values.lName = "";
+                    values.otherNames = "";
+                    values.email = "";
+                    values.indexNo = "";
+                    values.department = "";
+                    values.phoneNo = "";
+                    values.password = "";
+                    values.passwordConfirmation = "";
                   }
                 }}
               >
@@ -147,7 +147,7 @@ class StdSignUp extends React.Component {
                   touched,
                   handleChange,
                   handleBlur,
-                  handleSubmit
+                  handleSubmit,
                 }) => (
                   <form onSubmit={handleSubmit}>
                     <div className="uk-width-1-1 uk-margin">
@@ -159,7 +159,7 @@ class StdSignUp extends React.Component {
                         name="fName"
                         className={`uk-input uk-form-large ${
                           touched.fName && errors.fName
-                            ? 'uk-form-danger'
+                            ? "uk-form-danger"
                             : null
                         }`}
                         type="text"
@@ -183,7 +183,7 @@ class StdSignUp extends React.Component {
                         name="lName"
                         className={`uk-input uk-form-large ${
                           touched.lName && errors.lName
-                            ? 'uk-form-danger'
+                            ? "uk-form-danger"
                             : null
                         }`}
                         type="text"
@@ -207,7 +207,7 @@ class StdSignUp extends React.Component {
                         name="otherNames"
                         className={`uk-input uk-form-large ${
                           touched.otherNames && errors.otherNames
-                            ? 'uk-form-danger'
+                            ? "uk-form-danger"
                             : null
                         }`}
                         type="text"
@@ -231,7 +231,7 @@ class StdSignUp extends React.Component {
                         name="email"
                         className={`uk-input uk-form-large ${
                           touched.email && errors.email
-                            ? 'uk-form-danger'
+                            ? "uk-form-danger"
                             : null
                         }`}
                         value={values.email}
@@ -255,7 +255,7 @@ class StdSignUp extends React.Component {
                         name="indexNo"
                         className={`uk-input uk-form-large ${
                           touched.indexNo && errors.indexNo
-                            ? 'uk-form-danger'
+                            ? "uk-form-danger"
                             : null
                         }`}
                         type="text"
@@ -279,7 +279,7 @@ class StdSignUp extends React.Component {
                         name="department"
                         className={`uk-select uk-form-large ${
                           touched.department && errors.department
-                            ? 'uk-form-danger'
+                            ? "uk-form-danger"
                             : null
                         }`}
                         type="text"
@@ -308,7 +308,7 @@ class StdSignUp extends React.Component {
                         name="phoneNo"
                         className={`uk-input uk-form-large ${
                           touched.phoneNo && errors.phoneNo
-                            ? 'uk-form-danger'
+                            ? "uk-form-danger"
                             : null
                         }`}
                         type="text"
@@ -331,7 +331,7 @@ class StdSignUp extends React.Component {
                         name="password"
                         className={`uk-input uk-form-large ${
                           touched.password && errors.password
-                            ? 'uk-form-danger'
+                            ? "uk-form-danger"
                             : null
                         }`}
                         type="password"
@@ -358,7 +358,7 @@ class StdSignUp extends React.Component {
                         className={`uk-input uk-form-large ${
                           touched.passwordConfirmation &&
                           errors.passwordConfirmation
-                            ? 'uk-form-danger'
+                            ? "uk-form-danger"
                             : null
                         }`}
                         type="password"
@@ -381,19 +381,19 @@ class StdSignUp extends React.Component {
                         type="submit"
                         disabled={isLoading}
                       >
-                        {isLoading ? 'Registering ...' : 'Sign Up'}
+                        {isLoading ? "Registering ..." : "Sign Up"}
                       </button>
                     </div>
                     <div className="uk-width-1-1 uk-margin uk-text-center">
                       <p className="uk-text-small uk-margin-remove">
-                        By signing up you agree to our{' '}
+                        By signing up you agree to our{" "}
                         <Link
                           className="uk-link-border"
                           to="/terms"
                           disabled={isLoading}
                         >
                           terms
-                        </Link>{' '}
+                        </Link>{" "}
                         of service.
                       </p>
                     </div>
@@ -435,16 +435,16 @@ class StdSignUp extends React.Component {
 
 const matchStateToProps = ({
   auth: { isAuthenticated, isStudent, isLecturer },
-  department: { departmentNames, departmentIDs }
+  department: { departmentNames, departmentIDs },
 }) => ({
   isAuthenticated,
   isStudent,
   isLecturer,
   departmentNames,
-  departmentIDs
+  departmentIDs,
 });
 
 export default connect(matchStateToProps, {
   signupStudent,
-  loadAllDepartments
+  loadAllDepartments,
 })(withRouter(StdSignUp));

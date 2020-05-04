@@ -136,13 +136,13 @@ class Landing extends React.Component {
             >
               {/* <!-- @include cards-courses-1.kit --> */}
             </div>
-            <a
-              href="#"
+            <Link
+              to=""
               className="uk-button uk-button-success-outline uk-button-large uk-margin-medium-top"
               data-uk-toggle="target: #signin-modal"
             >
               Login Now
-            </a>
+            </Link>
           </div>
         </div>
         <div className="uk-section uk-section-muted uk-section-large">

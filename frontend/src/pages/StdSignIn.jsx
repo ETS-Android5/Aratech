@@ -137,6 +137,9 @@ class StdSignIn extends React.Component {
                       ) : null}
                     </div>
                     <div className="uk-width-1-1 uk-text-center">
+                      <div className="uk-margin-small uk-text-left">
+                        <Link to="/forgotpassword">Forgot Password?</Link>
+                      </div>
                       <button
                         className="uk-button uk-button__animate uk-button-primary uk-button-large"
                         type="submit"

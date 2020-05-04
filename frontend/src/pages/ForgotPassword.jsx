@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import cogoToast from 'cogo-toast';
 
@@ -11,7 +11,7 @@ import { forgotPassword } from '../store/actions/authActions';
 const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email('Must be a valid email')
-    .required('Email is required')
+    .required('Email is required'),
 });
 
 class ForgotPassword extends Component {
@@ -34,11 +34,11 @@ class ForgotPassword extends Component {
               <Formik
                 initialValues={{ email: '' }}
                 validationSchema={validationSchema}
-                onSubmit={async values => {
+                onSubmit={async (values) => {
                   const error = await forgotPassword(values.email, history);
                   if (error) {
                     cogoToast.error(error, {
-                      position: 'top-center'
+                      position: 'top-center',
                     });
                   }
                 }}
@@ -49,7 +49,7 @@ class ForgotPassword extends Component {
                   touched,
                   errors,
                   handleBlur,
-                  handleChange
+                  handleChange,
                 }) => (
                   <form onSubmit={handleSubmit}>
                     <div className="uk-width-1-1 uk-margin">
@@ -102,12 +102,13 @@ class ForgotPassword extends Component {
                 <p>Enter your personal details and join us</p>
               </div>
               <div className="uk-width-1-1 uk-text-center">
-                <a
-                  href="sign-up.html"
+                <Link
+                  data-uk-toggle="#signup-modal"
+                  to=""
                   className="uk-button uk-button-success-outline uk-button-large"
                 >
                   Sign Up
-                </a>
+                </Link>
               </div>
             </div>
           </div>

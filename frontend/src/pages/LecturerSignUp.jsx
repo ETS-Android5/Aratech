@@ -299,9 +299,9 @@ class LecturerSignUp extends React.Component {
                     <div className="uk-width-1-1 uk-margin uk-text-center">
                       <p className="uk-text-small uk-margin-remove">
                         By signing up you agree to our{' '}
-                        <a className="uk-link-border" href="#">
+                        <Link className="uk-link-border" to="">
                           terms
-                        </a>{' '}
+                        </Link>{' '}
                         of service.
                       </p>
                     </div>

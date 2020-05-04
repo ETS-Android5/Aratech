@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NotFound = props => (
+const NotFound = (props) => (
   <div className="uk-section-default uk-position-relative uk-light">
     <div
       className="uk-background-norepeat uk-background-cover uk-background-primary uk-background-center-center uk-section uk-flex uk-flex-middle"

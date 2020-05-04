@@ -18,7 +18,7 @@ const lecValidationSchema = Yup.object().shape({
   password: Yup.string()
     .min(8, 'Password must be 8 characters or more')
     .max(32, 'Password cannot be more than 32 characters')
-    .required('Must provide password')
+    .required('Must provide password'),
 });
 
 //THIS IS THE LECTURER SIGN IN PAGE
@@ -27,7 +27,7 @@ class LecturerSignIn extends React.Component {
     super(props);
 
     this.state = {
-      isLoading: false
+      isLoading: false,
     };
   }
 
@@ -64,13 +64,13 @@ class LecturerSignIn extends React.Component {
               <Formik
                 initialValues={{ email: '', password: '' }}
                 validationSchema={lecValidationSchema}
-                onSubmit={async values => {
+                onSubmit={async (values) => {
                   this.setState({ isLoading: true });
                   const err = await signinLecturer(values, history);
                   if (err) {
                     this.setState({ isLoading: false });
                     cogoToast.error(err, {
-                      position: 'top-center'
+                      position: 'top-center',
                     });
 
                     //now reset the fields to their initial values
@@ -85,7 +85,7 @@ class LecturerSignIn extends React.Component {
                   touched,
                   handleBlur,
                   handleChange,
-                  handleSubmit
+                  handleSubmit,
                 }) => (
                   <form onSubmit={handleSubmit}>
                     <div className="uk-width-1-1 uk-margin">
@@ -139,6 +139,9 @@ class LecturerSignIn extends React.Component {
                     </div>
 
                     <div className="uk-width-1-1 uk-text-center">
+                      <div className="uk-margin-small uk-text-left">
+                        <Link to="/forgotpassword">Forgot Password?</Link>
+                      </div>
                       <button
                         className="uk-button uk-button__animate uk-button-primary uk-button-large"
                         type="submit"
@@ -184,11 +187,11 @@ class LecturerSignIn extends React.Component {
 }
 
 const mapStateToProps = ({
-  auth: { isAuthenticated, isStudent, isLecturer }
+  auth: { isAuthenticated, isStudent, isLecturer },
 }) => ({
   isAuthenticated,
   isStudent,
-  isLecturer
+  isLecturer,
 });
 
 export default connect(mapStateToProps, { signinLecturer })(

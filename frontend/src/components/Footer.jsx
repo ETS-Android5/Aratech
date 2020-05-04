@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Footer = props => (
+const Footer = (props) => (
   <footer className="uk-border-dark-top">
     <div className="uk-section uk-section-secondary">
       <div className="uk-container uk-h6 uk-margin-top">
@@ -100,9 +100,9 @@ const Footer = props => (
           <div className="uk-flex-first@m">
             <p>
               {' '}
-              <a className="uk-link-border" href="#">
+              <Link to="/" className="uk-link-border">
                 Aratech
-              </a>
+              </Link>
             </p>
           </div>
         </div>

@@ -35,7 +35,7 @@ const Navbar = ({
                 </li>
                 {!isAuthenticated ? (
                   <li>
-                    <Link to="#">Account</Link>
+                    <Link to="">Account</Link>
                     <div className="uk-navbar-dropdown">
                       <ul className="uk-nav uk-navbar-dropdown-nav">
                         <li>
@@ -122,12 +122,13 @@ const Navbar = ({
                   </Link>
                 </div>
               )}
-              <a
+              <Link
+                to=""
                 className="uk-navbar-toggle uk-hidden@m"
                 data-uk-toggle="target: #offcanvas"
               >
                 <span data-uk-navbar-toggle-icon></span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

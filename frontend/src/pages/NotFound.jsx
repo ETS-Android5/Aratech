@@ -36,13 +36,14 @@ const NotFound = (props) => (
                     </Link>
                   </div>
                   <div className="el-item">
-                    <a
+                    <Link
                       className="uk-button uk-button-secondary"
-                      href="javascript:history.go(-1)"
+                      to=""
+                      onClick={() => window.history.go(-1)}
                     >
                       <span uk-icon="reply" className="uk-icon"></span>
                       <span className="uk-text-middle">Back</span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

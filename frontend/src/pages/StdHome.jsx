@@ -8,7 +8,7 @@ import ImageUploader from 'react-images-upload';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import DateTimePicker from 'react-datetime-picker';
-import SweetAlert from 'sweetalert2-react';
+import SweetAlert from 'react-bootstrap-sweetalert';
 
 import Navbar from '../components/Navbar';
 import { setStudentProfileImg } from '../store/actions/authActions';
@@ -18,6 +18,7 @@ import {
   addPersonalEvent,
 } from '../store/actions/timetableActions';
 import isEmpty from '../validations/isEmpty';
+import { dailyEvents, weeklyEvents } from '../utils/timetable-utils';
 
 //use moment as defaullt localizer for calendar
 const localizer = momentLocalizer(moment);
@@ -64,9 +65,13 @@ class Home extends React.Component {
       const personalTimetable = this.props.personalTimetable;
       let events = [];
       personalTimetable.map((event) => {
-        event.eventId.startTime = new Date(event.eventId.startTime);
-        event.eventId.endTime = new Date(event.eventId.endTime);
-        events.push(event.eventId);
+        if (event.eventId.repeatDaily) {
+          events.push(...dailyEvents(event));
+        }
+        if (event.eventId.repeatWeekly) {
+          events.push(...weeklyEvents(event));
+        } else {
+        }
 
         return null;
       });
@@ -131,7 +136,6 @@ class Home extends React.Component {
 
   //function to show event details
   showEventDetails = (event) => {
-    console.log(event);
     this.setState({
       show: true,
       currentEvent: event,
@@ -359,18 +363,45 @@ class Home extends React.Component {
         {currentEvent ? (
           <SweetAlert
             show={show}
+            info
             title={currentEvent.eventName}
-            text={`Starting at ${moment(currentEvent.startTime).format(
-              'Do MMMM YYYY, h:mm a'
-            )} and ending at ${moment(currentEvent.endTime).format(
-              'Do MMMM YYYY, h:mm a'
-            )}`}
             onConfirm={() =>
               this.setState({
                 show: false,
               })
             }
-          />
+            onCancel={() =>
+              this.setState({
+                show: false,
+              })
+            }
+            customButtons={
+              <React.Fragment>
+                <button
+                  className="uk-button uk-button-primary uk-button-large uk-margin-medium-top uk-margin-medium-bottom uk-margin-small-right"
+                  onClick={() =>
+                    this.setState({
+                      show: false,
+                    })
+                  }
+                >
+                  Close
+                </button>
+                <button
+                  className="uk-button uk-button-danger uk-button-large uk-margin-medium-top uk-margin-medium-bottom"
+                  onClick={() => console.log('deleting event...')}
+                >
+                  Delete
+                </button>
+              </React.Fragment>
+            }
+          >
+            {`${currentEvent.eventName} starts at ${moment(
+              currentEvent.startTime
+            ).format('Do MMMM YYYY, h:mm a')} and ends at ${moment(
+              currentEvent.startTime
+            ).format('Do MMMM YYYY, h:mm a')}`}
+          </SweetAlert>
         ) : null}
       </React.Fragment>
     );

@@ -69,7 +69,9 @@ const NavMobile = ({ isAuthenticated, isStudent, isLecturer, logoutUser }) => (
                 className="uk-icon-link"
                 target="_blank"
                 rel="noopener noreferrer"
-              ></a>
+              >
+                twitter
+              </a>
             </div>
             <div>
               <a
@@ -78,7 +80,9 @@ const NavMobile = ({ isAuthenticated, isStudent, isLecturer, logoutUser }) => (
                 className="uk-icon-link"
                 target="_blank"
                 rel="noopener noreferrer"
-              ></a>
+              >
+                facebook
+              </a>
             </div>
             <div>
               <a
@@ -87,7 +91,9 @@ const NavMobile = ({ isAuthenticated, isStudent, isLecturer, logoutUser }) => (
                 className="uk-icon-link"
                 target="_blank"
                 rel="noopener noreferrer"
-              ></a>
+              >
+                instagram
+              </a>
             </div>
           </div>
         </div>
@@ -141,11 +147,11 @@ const NavMobile = ({ isAuthenticated, isStudent, isLecturer, logoutUser }) => (
 );
 
 const matchStateToProps = ({
-  auth: { isAuthenticated, isStudent, isLecturer }
+  auth: { isAuthenticated, isStudent, isLecturer },
 }) => ({
   isAuthenticated,
   isStudent,
-  isLecturer
+  isLecturer,
 });
 
 export default connect(matchStateToProps, { logoutUser })(NavMobile);

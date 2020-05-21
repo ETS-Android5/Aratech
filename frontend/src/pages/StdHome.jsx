@@ -425,7 +425,7 @@ class Home extends React.Component {
             {`${currentEvent.eventName} starts at ${moment(
               currentEvent.startTime
             ).format('Do MMMM YYYY, h:mm a')} and ends at ${moment(
-              currentEvent.startTime
+              currentEvent.endTime
             ).format('Do MMMM YYYY, h:mm a')}`}
           </SweetAlert>
         ) : null}

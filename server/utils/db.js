@@ -10,8 +10,8 @@ const initDB = () => {
   mongoose.connect(db_uri, {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useFindAndModify: true,
-    useUnifiedTopology: true
+    useFindAndModify: false,
+    useUnifiedTopology: true,
   });
 
   //check the connection status of the DB

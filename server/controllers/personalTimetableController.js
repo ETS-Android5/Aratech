@@ -119,7 +119,9 @@ exports.deleteEventFromPeronsalTable = async (req, res) => {
 
   await Event.findByIdAndDelete(id);
 
-  const events = pTable.events.filter((obj) => obj.eventId !== id);
+  const events = pTable.events.filter((obj) => {
+    return obj.eventId != id;
+  });
   await PersonalTimeTable.findOneAndUpdate(
     { userId: student._id },
     {

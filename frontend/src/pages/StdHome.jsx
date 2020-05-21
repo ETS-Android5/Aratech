@@ -16,6 +16,7 @@ import {
   getStudentPersonalTimetable,
   getStudentClassTimetable,
   addPersonalEvent,
+  deleteEventFromPersonalTimetable,
 } from '../store/actions/timetableActions';
 import isEmpty from '../validations/isEmpty';
 import { dailyEvents, weeklyEvents } from '../utils/timetable-utils';
@@ -67,10 +68,13 @@ class Home extends React.Component {
       personalTimetable.map((event) => {
         if (event.eventId.repeatDaily) {
           events.push(...dailyEvents(event));
-        }
-        if (event.eventId.repeatWeekly) {
+        } else if (event.eventId.repeatWeekly) {
           events.push(...weeklyEvents(event));
         } else {
+          const _event = { ...event.eventId };
+          _event.startTime = new Date(_event.startTime);
+          _event.endTime = new Date(_event.endTime);
+          events.push(_event);
         }
 
         return null;
@@ -140,6 +144,22 @@ class Home extends React.Component {
       show: true,
       currentEvent: event,
     });
+  };
+
+  deletePersonalEvent = (id) => {
+    this.setState({
+      show: false,
+    });
+    setTimeout(async () => {
+      if (window.confirm(`Are you sure you want to delete this event?`)) {
+        try {
+          await deleteEventFromPersonalTimetable(id);
+          window.location.reload();
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    }, 1000);
   };
 
   render() {
@@ -299,22 +319,28 @@ class Home extends React.Component {
                       <label>
                         <input
                           id="repeatDaily"
-                          name="repeatDaily"
-                          className="uk-checkbox"
-                          type="checkbox"
+                          name="repeat"
+                          className="uk-radio"
+                          type="radio"
                           defaultChecked={values.repeatDaily}
-                          onChange={handleChange}
+                          onChange={() => {
+                            setFieldValue('repeatWeekly', false);
+                            setFieldValue('repeatDaily', true);
+                          }}
                         />{' '}
                         Repeat Daily
                       </label>
                       <label>
                         <input
                           id="repeatWeekly"
-                          name="repeatWeekly"
-                          className="uk-checkbox"
-                          type="checkbox"
+                          name="repeat"
+                          className="uk-radio"
+                          type="radio"
                           defaultChecked={values.repeatWeekly}
-                          onChange={handleChange}
+                          onChange={() => {
+                            setFieldValue('repeatWeekly', true);
+                            setFieldValue('repeatDaily', false);
+                          }}
                         />{' '}
                         Repeat Weekly
                       </label>
@@ -389,7 +415,7 @@ class Home extends React.Component {
                 </button>
                 <button
                   className="uk-button uk-button-danger uk-button-large uk-margin-medium-top uk-margin-medium-bottom"
-                  onClick={() => console.log('deleting event...')}
+                  onClick={() => this.deletePersonalEvent(currentEvent._id)}
                 >
                   Delete
                 </button>

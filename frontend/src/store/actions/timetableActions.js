@@ -48,3 +48,14 @@ export const addPersonalEvent = (event) => async (dispatch) => {
     cogoToast.error(error.response.data.message);
   }
 };
+
+export const deleteEventFromPersonalTimetable = async (id) => {
+  try {
+    const respopnse = await API.delete(`timetable/personal?id=${id}`);
+    const message = respopnse.data.message;
+
+    cogoToast.success(message);
+  } catch (e) {
+    cogoToast.error(e.response.data.message);
+  }
+};

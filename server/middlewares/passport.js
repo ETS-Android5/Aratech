@@ -8,11 +8,12 @@ const Lecturer = require('../models/Lecturer');
 //jwt options
 const opts = {
   jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
-  secretOrKey: process.env.SECRET_OR_KEY
+  secretOrKey: process.env.SECRET_OR_KEY,
 };
 
 //configure passport
-passport.use('jwt',
+passport.use(
+  'jwt',
   new JWTStrategy(opts, async (payload, done) => {
     //check if it's a lecturer
     try {
@@ -22,7 +23,9 @@ passport.use('jwt',
       } else {
         //check if it's a student
         try {
-          const student = await Student.findById(payload.id);
+          const student = await await Student.findById(payload.id).populate(
+            'department'
+          );
           if (student) {
             done(null, { student });
           }
@@ -34,7 +37,9 @@ passport.use('jwt',
       console.log(error);
       //check if it's a student
       try {
-        const student = await Student.findById(payload.id);
+        const student = await Student.findById(payload.id).populate(
+          'department'
+        );
         if (student) {
           done(null, { student });
         }

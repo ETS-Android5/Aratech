@@ -178,7 +178,7 @@ class Home extends React.Component {
         <Navbar />
         {/**calendar component */}
         <div className="uk-grid-collapse" data-uk-grid>
-          <div className="uk-width-2-3@m uk-padding-small uk-flex uk-flex-middle uk-flex-center">
+          <div className="uk-width-3-4@m uk-padding-small uk-flex uk-flex-middle uk-flex-center">
             <Calendar
               localizer={localizer}
               events={events}
@@ -190,7 +190,7 @@ class Home extends React.Component {
               onSelectEvent={(event) => this.showEventDetails(event)}
             />
           </div>
-          <div className="uk-width-1-3@m uk-margin-top">
+          <div className="uk-width-1-4@m uk-margin-top">
             <div className="uk-card uk-card-default uk-card-hover uk-card-body uk-text-center">
               <img
                 onClick={() => this.props.history.push('/student/profile')}

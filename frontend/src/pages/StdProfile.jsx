@@ -1,18 +1,46 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
+
 import Navbar from '../components/Navbar';
-
 import API from '../network/api';
+import {
+  getStudentClassTimetable,
+  getStudentPersonalTimetable,
+} from '../store/actions/timetableActions';
+import { deleteStudentAccount } from '../store/actions/authActions';
 
-const StdProfile = () => {
+const StdProfile = ({
+  personalTimetable,
+  classTimetable,
+  getStudentClassTimetable,
+  getStudentPersonalTimetable,
+}) => {
   const [currentUser, setCurrentUser] = useState({});
   const [department, setDepartment] = useState('');
 
+  const getClassTable = useRef(getStudentClassTimetable);
+  const getPersonalTable = useRef(getStudentPersonalTimetable);
+
+  const deleteAccount = async () => {
+    if (window.confirm('Are your sure you want to delete your account?')) {
+      await deleteStudentAccount();
+    } else {
+      return;
+    }
+  };
+
   useEffect(() => {
-    API.get('auth/me').then((res) => {
+    const fetchStudentInfo = async () => {
+      //fetch profile details
+      const res = await API.get('auth/me');
       setCurrentUser(res.data.data.student);
       setDepartment(res.data.data.student.department.name);
-    });
+
+      //fetch time table information
+      await getPersonalTable.current();
+      await getClassTable.current();
+    };
+    fetchStudentInfo();
   }, []);
 
   return (
@@ -39,22 +67,51 @@ const StdProfile = () => {
           <p>Email - {currentUser.email}</p>
           <p>Department - {department}</p>
           <p data-uk-margin>
-            <button className="uk-button uk-button-primary uk-margin-right">
+            <button className="uk-button uk-button-primary uk-margin-right  uk-margin-large-bottom">
               Edit Profile
             </button>
-            <button className="uk-button uk-button-danger">
+            <button
+              className="uk-button uk-button-danger uk-margin-large-bottom"
+              onClick={deleteAccount}
+            >
               Delete Account
             </button>
           </p>
         </div>
-        <div className="uk-width-2-5@m"></div>
+        <div className="uk-width-2-5@m">
+          <h3>NUMBER OF EVENTS</h3>
+          <table className="uk-table uk-table-divider">
+            <thead>
+              <tr>
+                <th>Event</th>
+                <th>No:</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Personal</td>
+                <td>{personalTimetable.length}</td>
+              </tr>
+              <tr>
+                <td>Class</td>
+                <td>{classTimetable.length}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   );
 };
 
-const mapStateToProps = ({ auth: { user } }) => ({
-  user,
+const mapStateToProps = ({
+  timetable: { personalTimetable, classTimetable },
+}) => ({
+  personalTimetable,
+  classTimetable,
 });
 
-export default connect(mapStateToProps)(StdProfile);
+export default connect(mapStateToProps, {
+  getStudentClassTimetable,
+  getStudentPersonalTimetable,
+})(StdProfile);

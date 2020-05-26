@@ -577,3 +577,40 @@ exports.setProfilePic = async (req, res) => {
     });
   }
 };
+
+//delete student account
+exports.deleteStudentAccount = async (req, res) => {
+  const { student } = req.user;
+  if (!student) {
+    return res.status(400).json({
+      status: 'fail',
+      message: 'Must be logged in as a student to continue',
+    });
+  }
+
+  //delete user account
+  await Student.findByIdAndDelete(student._id);
+
+  res.status(200).json({
+    status: 'success',
+    message: 'Account successfully deleted',
+  });
+};
+//delete student account
+exports.deleteLecturerAccount = async (req, res) => {
+  const { lecturer } = req.user;
+  if (!lecturer) {
+    return res.status(400).json({
+      status: 'fail',
+      message: 'Must be logged in as a lecturer to continue',
+    });
+  }
+
+  //delete user account
+  await Lecturer.findByIdAndDelete(lecturer._id);
+
+  res.status(200).json({
+    status: 'success',
+    message: 'Account successfully deleted',
+  });
+};

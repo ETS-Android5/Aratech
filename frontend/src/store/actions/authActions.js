@@ -209,3 +209,29 @@ export const setLecturerProfileImg = (image) => async (dispatch) => {
     return false;
   }
 };
+
+export const deleteStudentAccount = () => async (dispatch) => {
+  let response;
+  try {
+    response = await API.delete('auth/student/profile');
+
+    const { message } = response.data;
+    cogoToast.success(message);
+    dispatch(logoutUser());
+  } catch (error) {
+    cogoToast.error(error.response.data.message);
+  }
+};
+
+export const deleteLecturerAccount = () => async (dispatch) => {
+  let response;
+  try {
+    response = await API.delete('auth/lecturer/profile');
+
+    const { message } = response.data;
+    cogoToast.success(message);
+    dispatch(logoutUser());
+  } catch (error) {
+    cogoToast.error(error.response.data.message);
+  }
+};

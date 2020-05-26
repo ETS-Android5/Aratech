@@ -45,4 +45,16 @@ router.get(
   authController.me
 );
 
+router.delete(
+  '/student/profile',
+  passport.authenticate('jwt', { session: false }),
+  authController.deleteStudentAccount
+);
+
+router.delete(
+  '/lecturer/profile',
+  passport.authenticate('jwt', { session: false }),
+  authController.deleteLecturerAccount
+);
+
 module.exports = router;

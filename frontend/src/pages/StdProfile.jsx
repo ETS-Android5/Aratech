@@ -14,6 +14,7 @@ const StdProfile = ({
   classTimetable,
   getStudentClassTimetable,
   getStudentPersonalTimetable,
+  deleteStudentAccount,
 }) => {
   const [currentUser, setCurrentUser] = useState({});
   const [department, setDepartment] = useState('');
@@ -114,4 +115,5 @@ const mapStateToProps = ({
 export default connect(mapStateToProps, {
   getStudentClassTimetable,
   getStudentPersonalTimetable,
+  deleteStudentAccount,
 })(StdProfile);

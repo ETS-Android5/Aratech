@@ -14,7 +14,7 @@ const AssignmentSchema = new Schema({
     type: String,
     required: true,
   },
-  submssionType: {
+  submissionType: {
     type: String,
     required: true,
   },

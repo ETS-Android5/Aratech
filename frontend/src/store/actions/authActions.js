@@ -1,7 +1,7 @@
 import API from '../../network/api';
 import setAuthToken from '../../network/setAuthToken';
 import cogoToast from 'cogo-toast';
-import { SET_CURRENT_USER } from './types';
+import { SET_CURRENT_USER} from './types';
 
 //sign in student
 export const signinStudent = (user, history) => async (dispatch) => {

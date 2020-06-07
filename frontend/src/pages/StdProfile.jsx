@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom'
 
 import Navbar from '../components/Navbar';
 import API from '../network/api';
@@ -68,9 +69,9 @@ const StdProfile = ({
           <p>Email - {currentUser.email}</p>
           <p>Department - {department}</p>
           <p data-uk-margin>
-            <button className="uk-button uk-button-primary uk-margin-right  uk-margin-large-bottom">
+            <Link to="/student/profile/edit" className="uk-button uk-button-primary uk-margin-right  uk-margin-large-bottom">
               Edit Profile
-            </button>
+            </Link>
             <button
               className="uk-button uk-button-danger uk-margin-large-bottom"
               onClick={deleteAccount}

@@ -17,7 +17,7 @@ export default function(state = initialState, action) {
         isLecturer: action.isLecturer,
         isStudent: action.isStudent,
         user: action.payload
-      };
+      };   
     default:
       return state;
   }

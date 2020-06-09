@@ -19,7 +19,7 @@ const EditProfile = ({ user }) => {
       <Navbar />
       <div className="uk-grid-collapse" data-uk-grid>
         <div className="uk-width-1-2@m uk-padding-large uk-flex uk-flex-column uk-flex-middle uk-flex-center">
-          <div className="uk-align-center uk-width-1-1">
+          <div className="uk-align-center uk-width-1-1 uk-text-center">
             <img
               className="uk-border-pill uk-display-inline-block uk-margin"
               src={user.avatar}
@@ -57,14 +57,14 @@ const EditProfile = ({ user }) => {
                 })}
               >
                 {({
-                  onSubmit,
+                  handleSubmit,
                   handleChange,
                   handleBlur,
                   touched,
                   errors,
                   values,
                 }) => (
-                  <form onSubmit={onSubmit}>
+                  <form onSubmit={handleSubmit}>
                     <div className="uk-width-1-1 uk-margin">
                       <label className="uk-form-label" htmlFor="phoneNo">
                         Old Password
@@ -110,7 +110,7 @@ const EditProfile = ({ user }) => {
                       ) : null}
                     </div>
                     <button
-                      className="uk-button uk-button-primary uk-width-1-1"
+                      className="uk-button uk-button-primary uk-button-large uk-width-1-1"
                       type="submit"
                     >
                       Submit

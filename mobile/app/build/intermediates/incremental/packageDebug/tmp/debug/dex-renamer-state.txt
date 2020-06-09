@@ -1,16 +1,7 @@
-<<<<<<< HEAD
-#Sat Apr 25 15:15:24 GMT 2020
-base.0=C\:\\Users\\JOHN\\Documents\\PROJECTS\\Aratech\\new\\lecture-monitor\\mobile\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
-=======
-#Tue Apr 21 14:43:27 GMT 2020
-base.0=/home/francis/code/lecture-monitor/mobile/app/build/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex
->>>>>>> master
+#Tue Jun 09 13:58:33 GMT 2020
+base.0=/home/fgyimah/code/lecture-monitor/mobile/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-<<<<<<< HEAD
-base.1=C\:\\Users\\JOHN\\Documents\\PROJECTS\\Aratech\\new\\lecture-monitor\\mobile\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
-=======
-base.1=/home/francis/code/lecture-monitor/mobile/app/build/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex
->>>>>>> master
+base.1=/home/fgyimah/code/lecture-monitor/mobile/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex

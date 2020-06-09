@@ -316,6 +316,7 @@ class Home extends React.Component {
                     />{' '}
                     <br />
                     <div className="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                      <p>Repeat</p>
                       <label>
                         <input
                           id="repeatDaily"
@@ -328,7 +329,7 @@ class Home extends React.Component {
                             setFieldValue('repeatDaily', true);
                           }}
                         />{' '}
-                        Repeat Daily
+                        Daily
                       </label>
                       <label>
                         <input
@@ -342,7 +343,21 @@ class Home extends React.Component {
                             setFieldValue('repeatDaily', false);
                           }}
                         />{' '}
-                        Repeat Weekly
+                        Weekly
+                      </label>
+                      <label>
+                        <input
+                          id="norepeat"
+                          name="repeat"
+                          className="uk-radio"
+                          type="radio"
+                          defaultChecked={values.repeatWeekly}
+                          onChange={() => {
+                            setFieldValue('repeatWeekly', false);
+                            setFieldValue('repeatDaily', false);
+                          }}
+                        />{' '}
+                        Off
                       </label>
                     </div>
                     <div className="uk-width-1-1 uk-text-center">

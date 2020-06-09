@@ -1,11 +1,10 @@
 {
     "logs": [
         {
-<<<<<<< HEAD
-            "outputFile": "C:\\Users\\JOHN\\Documents\\PROJECTS\\Aratech\\new\\lecture-monitor\\mobile\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
+            "outputFile": "/home/fgyimah/code/lecture-monitor/mobile/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\JOHN\\.gradle\\caches\\transforms-2\\files-2.1\\c7eb9cd3508ac3959447c14fd76c9fb9\\material-1.0.0\\res\\values-land\\values-land.xml",
+                    "source": "/home/fgyimah/.gradle/caches/transforms-2/files-2.1/bcaf2f38bd0e6ffe04a17e5f685cbed4/material-1.0.0/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -24,46 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\JOHN\\.gradle\\caches\\transforms-2\\files-2.1\\6119d746697059b7e1b74aab4d181f56\\appcompat-1.1.0\\res\\values-land\\values-land.xml",
-=======
-            "outputFile": "/home/francis/code/lecture-monitor/mobile/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
-            "map": [
-                {
-                    "source": "/home/francis/.gradle/caches/transforms-2/files-2.1/6119d746697059b7e1b74aab4d181f56/appcompat-1.1.0/res/values-land/values-land.xml",
->>>>>>> master
-                    "from": {
-                        "startLines": "2,3,4",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "55,125,196",
-                        "endColumns": "69,70,67",
-                        "endOffsets": "120,191,259"
-                    }
-                },
-                {
-<<<<<<< HEAD
-                    "source": "C:\\Users\\JOHN\\.gradle\\caches\\transforms-2\\files-2.1\\490ec5a5e52907598b53a04838d4007c\\jetified-materialdatetimepicker-3.2.0\\res\\values-land\\values-land.xml",
-=======
-                    "source": "/home/francis/.gradle/caches/transforms-2/files-2.1/c7eb9cd3508ac3959447c14fd76c9fb9/material-1.0.0/res/values-land/values-land.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "5",
-                        "endColumns": "10",
-                        "endOffsets": "222"
-                    },
-                    "to": {
-                        "startLines": "16",
-                        "startColumns": "4",
-                        "startOffsets": "919",
-                        "endLines": "19",
-                        "endColumns": "10",
-                        "endOffsets": "1086"
-                    }
-                },
-                {
-                    "source": "/home/francis/.gradle/caches/transforms-2/files-2.1/93913f7839bd15c442ae9f6176cf5ed8/jetified-materialdatetimepicker-3.2.0/res/values-land/values-land.xml",
->>>>>>> master
+                    "source": "/home/fgyimah/.gradle/caches/transforms-2/files-2.1/42d473130d645954478c88ec483a5cfd/jetified-materialdatetimepicker-3.2.0/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
@@ -77,6 +37,16 @@
                         "startOffsets": "264,329,392,454,524,576,630,681,741,802,862",
                         "endColumns": "64,62,61,69,51,53,50,59,60,59,56",
                         "endOffsets": "324,387,449,519,571,625,676,736,797,857,914"
+                    }
+                },
+                {
+                    "source": "/home/fgyimah/.gradle/caches/transforms-2/files-2.1/c2c5fa787d66aaf40578b3071f4d283f/appcompat-1.1.0/res/values-land/values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,125,196",
+                        "endColumns": "69,70,67",
+                        "endOffsets": "120,191,259"
                     }
                 }
             ]

@@ -32,20 +32,18 @@ import java.util.Objects;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class StudentProfileFragment extends Fragment{
+public class StudentProfileFragment extends Fragment {
     private TextView fullNameTxt,emailTxt ,phoneNumberTxt ,firstNameTxt, lastNameTxt, indexTxt, isCRepTxt, isEmailVerifiedTxt;
     private CircularImageView circleImageView;
     private Button logoutBtn;
     private FloatingActionButton editFab;
     private NestedScrollView nestedScrollView;
     private ProgressBar loadProfile;
-
     private SharedPreferences sharedPreferences,  authPrefs;
 
     public StudentProfileFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
-import {Link} from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
 import Navbar from '../components/Navbar';
 import API from '../network/api';
@@ -9,6 +9,7 @@ import {
   getStudentPersonalTimetable,
 } from '../store/actions/timetableActions';
 import { deleteStudentAccount } from '../store/actions/authActions';
+import cogoToast from 'cogo-toast';
 
 const StdProfile = ({
   personalTimetable,
@@ -19,17 +20,10 @@ const StdProfile = ({
 }) => {
   const [currentUser, setCurrentUser] = useState({});
   const [department, setDepartment] = useState('');
+  const history = useHistory();
 
   const getClassTable = useRef(getStudentClassTimetable);
   const getPersonalTable = useRef(getStudentPersonalTimetable);
-
-  const deleteAccount = async () => {
-    if (window.confirm('Are your sure you want to delete your account?')) {
-      await deleteStudentAccount();
-    } else {
-      return;
-    }
-  };
 
   useEffect(() => {
     const fetchStudentInfo = async () => {
@@ -44,6 +38,30 @@ const StdProfile = ({
     };
     fetchStudentInfo();
   }, []);
+
+  const deleteAccount = async () => {
+    if (window.confirm('Are your sure you want to delete your account?')) {
+      await deleteStudentAccount();
+    } else {
+      return;
+    }
+  };
+
+  const editProfile = async () => {
+    if (!currentUser.isEmailVerified) {
+      if (
+        window.confirm(
+          'Verify your email to continue, resend email verification message?'
+        )
+      ) {
+        const res = await API.post('/auth/resendemailverify');
+        cogoToast.success(res.data.message);
+      }
+      return;
+    } else {
+      history.push('/student/profile/edit');
+    }
+  };
 
   return (
     <>
@@ -69,9 +87,12 @@ const StdProfile = ({
           <p>Email - {currentUser.email}</p>
           <p>Department - {department}</p>
           <p data-uk-margin>
-            <Link to="/student/profile/edit" className="uk-button uk-button-primary uk-margin-right  uk-margin-large-bottom">
+            <button
+              className="uk-button uk-button-primary uk-margin-right  uk-margin-large-bottom"
+              onClick={editProfile}
+            >
               Edit Profile
-            </Link>
+            </button>
             <button
               className="uk-button uk-button-danger uk-margin-large-bottom"
               onClick={deleteAccount}

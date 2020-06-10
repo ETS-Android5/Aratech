@@ -513,9 +513,86 @@ exports.me = async (req, res) => {
   });
 };
 
+//change user password
+exports.changeuUserPassword = async (req, res) => {
+  const { student, lecturer } = req.user;
+
+  // validate user data
+  const schema = Joi.object({
+    oldPassword: Joi.string().required(),
+    newPassword: Joi.string().min(8).max(32).required(),
+  });
+
+  try {
+    await schema.validateAsync(req.body);
+  } catch (error) {
+    return res.status(400).json({
+      status: 'Failed',
+      message: error.message,
+    });
+  }
+
+  if (student) {
+    const passMatch = await bcrypt.compare(
+      req.body.oldPassword,
+      student.password
+    );
+    if (!passMatch) {
+      return res.status(400).json({
+        status: 'Failed',
+        message: 'Old password invalid!',
+      });
+    }
+
+    //hash new password
+    const password = await bcrypt.hash(req.body.newPassword, 12);
+    await Student.findByIdAndUpdate(
+      student._id,
+      {
+        $set: {
+          password,
+        },
+      },
+      { upsert: true }
+    );
+
+    return res.status(200).json({
+      status: 'success',
+      message: 'Successfully updated your password',
+    });
+  } else {
+    const passMatch = await bcrypt.compare(
+      req.body.oldPassword,
+      lecturer.password
+    );
+    if (!passMatch) {
+      return res.status(400).json({
+        status: 'Failed',
+        message: 'Old password invalid!',
+      });
+    }
+
+    //hash new password
+    const password = await bcrypt.hash(req.body.newPassword, 12);
+    await Lecturer.findByIdAndUpdate(
+      lecturer._id,
+      {
+        $set: {
+          password,
+        },
+      },
+      { upsert: true }
+    );
+
+    return res.status(200).json({
+      status: 'success',
+      message: 'Successfully updated your password',
+    });
+  }
+};
+
 //set user profile picture
 exports.setProfilePic = async (req, res) => {
-  console.log(req.file);
   const url = req.file.secure_url;
 
   //check if logged in user is student or lecturer

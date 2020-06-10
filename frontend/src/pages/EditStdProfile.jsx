@@ -2,11 +2,23 @@ import React from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Navbar from '../components/Navbar';
+import API from '../network/api';
+import { changeUserPassword } from '../store/actions/authActions';
 import { connect } from 'react-redux';
 
-const EditProfile = ({ user }) => {
+const EditProfile = ({ changeUserPassword }) => {
   const [isLoading, setLoading] = React.useState(false);
   const [showEditPassword, setShowEditPassword] = React.useState(false);
+  const [currentUser, setCurrentUser] = React.useState({});
+
+  React.useEffect(() => {
+    const fetchUser = async () => {
+      const res = await API.get('auth/me');
+      setCurrentUser(res.data.data.student);
+    };
+
+    fetchUser();
+  }, []);
 
   const onUpdateProfile = () => {};
 
@@ -22,7 +34,7 @@ const EditProfile = ({ user }) => {
           <div className="uk-align-center uk-width-1-1 uk-text-center">
             <img
               className="uk-border-pill uk-display-inline-block uk-margin"
-              src={user.avatar}
+              src={currentUser.avatar}
               width="300"
               height="200"
               alt="Border pill"
@@ -45,7 +57,11 @@ const EditProfile = ({ user }) => {
           {showEditPassword && (
             <div className="uk-width-1-1">
               <Formik
-                initialValues={{ oldPassword: '', newPassword: '' }}
+                initialValues={{
+                  oldPassword: '',
+                  newPassword: '',
+                  confirmPassword: '',
+                }}
                 validationSchema={Yup.object().shape({
                   oldPassword: Yup.string().required(
                     'Old Password is required'
@@ -54,7 +70,26 @@ const EditProfile = ({ user }) => {
                     .min(8, 'New password must be at least 8 characters')
                     .max(32, 'New password cannot be more than 32 characters')
                     .required('New password is required'),
+                  confirmPassword: Yup.string()
+                    .oneOf(
+                      [Yup.ref('newPassword'), null],
+                      'Passwords must match'
+                    )
+                    .required('Confirm password is required'),
                 })}
+                onSubmit={async (values) => {
+                  setLoading(true);
+                  await changeUserPassword({
+                    oldPassword: values.oldPassword,
+                    newPassword: values.newPassword,
+                  });
+                  setLoading(false);
+
+                  // reset the values
+                  values.newPassword = '';
+                  values.oldPassword = '';
+                  values.confirmPassword = '';
+                }}
               >
                 {({
                   handleSubmit,
@@ -77,7 +112,7 @@ const EditProfile = ({ user }) => {
                             ? 'uk-form-danger'
                             : null
                         }`}
-                        type="text"
+                        type="password"
                         value={values.oldPassword}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -99,7 +134,7 @@ const EditProfile = ({ user }) => {
                             ? 'uk-form-danger'
                             : null
                         }`}
-                        type="text"
+                        type="password"
                         value={values.newPassword}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -109,9 +144,34 @@ const EditProfile = ({ user }) => {
                         <p className="uk-text-danger">{errors.newPassword}</p>
                       ) : null}
                     </div>
+                    <div className="uk-width-1-1 uk-margin">
+                      <label className="uk-form-label" htmlFor="phoneNo">
+                        Confirm New Password
+                      </label>
+                      <input
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        className={`uk-input uk-form-large ${
+                          touched.confirmPassword && errors.confirmPassword
+                            ? 'uk-form-danger'
+                            : null
+                        }`}
+                        type="password"
+                        value={values.confirmPassword}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        disabled={isLoading}
+                      />
+                      {touched.confirmPassword && errors.confirmPassword ? (
+                        <p className="uk-text-danger">
+                          {errors.confirmPassword}
+                        </p>
+                      ) : null}
+                    </div>
                     <button
                       className="uk-button uk-button-primary uk-button-large uk-width-1-1"
                       type="submit"
+                      disabled={isLoading}
                     >
                       Submit
                     </button>
@@ -197,8 +257,4 @@ const EditProfile = ({ user }) => {
   );
 };
 
-const mapStateToProps = ({ auth: { user } }) => ({
-  user,
-});
-
-export default connect(mapStateToProps)(EditProfile);
+export default connect(null, { changeUserPassword })(EditProfile);

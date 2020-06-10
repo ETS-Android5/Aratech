@@ -38,6 +38,13 @@ router.post(
   authController.resendVerificationEmail
 );
 
+//chang user password
+router.put(
+  '/updatepassword',
+  passport.authenticate('jwt', { session: false }),
+  authController.changeuUserPassword
+);
+
 //get current user route
 router.get(
   '/me',

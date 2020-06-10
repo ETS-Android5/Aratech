@@ -1,7 +1,7 @@
 import API from '../../network/api';
 import setAuthToken from '../../network/setAuthToken';
 import cogoToast from 'cogo-toast';
-import { SET_CURRENT_USER} from './types';
+import { SET_CURRENT_USER } from './types';
 
 //sign in student
 export const signinStudent = (user, history) => async (dispatch) => {
@@ -207,6 +207,17 @@ export const setLecturerProfileImg = (image) => async (dispatch) => {
   } catch (error) {
     cogoToast.error(error.response.data.message);
     return false;
+  }
+};
+
+export const changeUserPassword = (data) => async () => {
+  let response;
+  try {
+    response = await API.put('auth/updatepassword', data);
+    const { message } = response.data;
+    cogoToast.success(message);
+  } catch (error) {
+    cogoToast.error(error.response.data.message);
   }
 };
 

@@ -3,13 +3,20 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Navbar from '../components/Navbar';
 import API from '../network/api';
-import { changeUserPassword } from '../store/actions/authActions';
+import {
+  changeUserPassword,
+  setStudentProfileImg,
+} from '../store/actions/authActions';
 import { connect } from 'react-redux';
+import ImageUploader from 'react-images-upload';
+import UIKit from 'uikit';
 
-const EditProfile = ({ changeUserPassword }) => {
+const EditProfile = ({ changeUserPassword, setStudentProfileImg }) => {
   const [isLoading, setLoading] = React.useState(false);
   const [showEditPassword, setShowEditPassword] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
+  const [image, setImage] = React.useState(null);
+  const [uploading, setUploading] = React.useState(false);
 
   React.useEffect(() => {
     const fetchUser = async () => {
@@ -20,7 +27,29 @@ const EditProfile = ({ changeUserPassword }) => {
     fetchUser();
   }, []);
 
-  const onUpdateProfile = () => {};
+  const onUpdateProfile = () => {
+    UIKit.modal('#set-avatar', {
+      bgClose: true,
+      escClose: true,
+      modal: true,
+      keyboard: true,
+    }).show();
+  };
+
+  const onFileChange = (pictureFiles) => {
+    setImage(pictureFiles[0]);
+  };
+
+  const uploadImage = async () => {
+    setUploading(true);
+    const isSet = await setStudentProfileImg(image);
+    if (isSet) {
+      UIKit.modal('#set-avatar').hide();
+      setLoading(false);
+    } else {
+      //todo: decide what to do later
+    }
+  };
 
   const showEP = () => {
     setShowEditPassword(!showEditPassword);
@@ -253,8 +282,34 @@ const EditProfile = ({ changeUserPassword }) => {
           </div>
         </div>
       </div>
+      {/** modal to set user profile picture */}
+      <div id="set-avatar" data-uk-modal>
+        <div className="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+          <h2 className="uk-modal-title">CHANGE YOUR PROFILE PICTURE</h2>
+          <p>Only first image will be uploaded</p>
+          <ImageUploader
+            withIcon={true}
+            buttonText="Choose image"
+            onChange={onFileChange}
+            imgExtension={['.jpg', '.png']}
+            withPreview={true}
+            label="Max file size is 5mb. 
+              Accepted image types are .png and .jpg"
+            maxFileSize={5242880}
+          />
+          <button
+            className="uk-button uk-button-primary uk-button-large uk-margin-medium-top uk-margin-medium-bottom"
+            disabled={!image || uploading}
+            onClick={uploadImage}
+          >
+            {uploading ? 'Uploading' : 'Submit'}
+          </button>
+        </div>
+      </div>
     </>
   );
 };
 
-export default connect(null, { changeUserPassword })(EditProfile);
+export default connect(null, { changeUserPassword, setStudentProfileImg })(
+  EditProfile
+);

@@ -42,13 +42,14 @@ const EditProfile = ({ changeUserPassword, setStudentProfileImg }) => {
 
   const uploadImage = async () => {
     setUploading(true);
-    const isSet = await setStudentProfileImg(image);
-    if (isSet) {
-      UIKit.modal('#set-avatar').hide();
-      setLoading(false);
-    } else {
-      //todo: decide what to do later
-    }
+    await setStudentProfileImg(image);
+
+    UIKit.modal('#set-avatar').hide();
+
+    setLoading(false);
+
+    //reload page
+    window.location.reload();
   };
 
   const showEP = () => {

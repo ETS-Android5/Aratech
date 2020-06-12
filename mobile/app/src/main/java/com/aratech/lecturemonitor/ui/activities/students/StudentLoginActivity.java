@@ -135,6 +135,7 @@ public class StudentLoginActivity extends AppCompatActivity implements View.OnCl
                             .putString(Consts.CURRENT_USER_PHONE, student.getPhoneNo())
                             .putString(Consts.CURRENT_USER_FIRST_NAME, student.getfName())
                             .putString(Consts.CURRENT_USER_LAST_NAME, student.getlName())
+                            .putString(Consts.CURRENT_USER_AVATAR, student.getAvatar())
                             .putString(Consts.CURRENT_USER_INDEX, String.valueOf(student.getIndexNo()))
                             .putBoolean(Consts.CURRENT_USER_CREP, student.iscRep())
                             .putBoolean(Consts.CURRENT_USER_EMAIL_VERIFIED, student.isEmailVerified())

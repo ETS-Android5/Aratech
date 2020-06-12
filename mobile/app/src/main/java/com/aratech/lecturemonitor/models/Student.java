@@ -1,7 +1,11 @@
 package com.aratech.lecturemonitor.models;
 
+import android.os.Build;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Optional;
 
 public class Student {
     @SerializedName("email")
@@ -44,7 +48,11 @@ public class Student {
     @Expose
     private boolean isEmailVerified;
 
-    public Student(String email, int indexNo, String fName, String lName, String otherNames, String department,String phoneNo ,String password, boolean cRep, boolean isEmailVerified) {
+    @SerializedName("avatar")
+    @Expose
+    private String avatar;
+
+    public Student(String email, int indexNo, String fName, String lName, String otherNames, String department, String phoneNo , String password, boolean cRep, boolean isEmailVerified, Optional<String> avatar) {
         this.email = email;
         this.indexNo = indexNo;
         this.fName = fName;
@@ -55,6 +63,9 @@ public class Student {
         this.password = password;
         this.cRep = cRep;
         this.isEmailVerified = isEmailVerified;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            this.avatar = avatar.isPresent() ? avatar.get() : "";
+        }
     }
 
     public Student() {
@@ -138,5 +149,13 @@ public class Student {
 
     public void setEmailVerified(boolean emailVerified) {
         isEmailVerified = emailVerified;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }

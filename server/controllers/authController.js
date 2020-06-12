@@ -101,7 +101,6 @@ exports.lecturerSignup = async (req, res) => {
     email: Joi.string().email().required(),
     password: Joi.string().min(8).max(32).required(),
     phoneNo: Joi.string().required(),
-    courses: Joi.array().items(Joi.string().required()).required(),
   });
   try {
     await schema.validateAsync(req.body);

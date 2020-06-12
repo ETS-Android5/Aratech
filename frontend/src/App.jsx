@@ -24,6 +24,7 @@ import EmailVerify from './pages/EmailVerify';
 import NotFound from './pages/NotFound';
 import StdProfile from './pages/StdProfile';
 import StdHome from './pages/StdHome';
+import LctHome from './pages/LctHome';
 import EditStdProfile from './pages/EditStdProfile';
 
 import './App.css';
@@ -98,7 +99,12 @@ class App extends React.Component {
               path="/student/profile"
               component={StdProfile}
             />
-            <PrivateRoute exact path="/student/profile/edit" component={EditStdProfile}/>
+            <PrivateRoute
+              exact
+              path="/student/profile/edit"
+              component={EditStdProfile}
+            />
+            <PrivateRoute exact path="/lecturer/home" component={LctHome} />
 
             {/* 404 Not founds */}
             <Route path="*" component={NotFound} />

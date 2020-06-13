@@ -55,4 +55,7 @@ dependencies {
 
     //google gson
     implementation 'com.google.code.gson:gson:2.8.5'
+
+    //image cropping library
+    implementation 'com.github.yalantis:ucrop:2.2.2'
 }

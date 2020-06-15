@@ -1,7 +1,26 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
+import { connect } from 'react-redux';
 
-const Home = () => {
+import Navbar from '../components/Navbar';
+import { createNewCourse, getAllCourses } from '../store/actions/courseActions';
+
+const Home = ({ createNewCourse, getAllCourses, courses, user }) => {
+  React.useEffect(() => {
+    const getCourses = async () => {
+      await getAllCourses();
+    };
+
+    getCourses();
+
+    if (user.courses && user.courses.length) {
+      //user has a list of courses
+      console.log('User has courses', user.courses);
+    } else {
+      //user does not have a course, select or create one
+      console.log('User does not have courses');
+    }
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -67,4 +86,11 @@ const Home = () => {
   );
 };
 
-export default Home;
+const mapStateToProps = ({ auth: { user }, course: { courses } }) => ({
+  user,
+  courses,
+});
+
+export default connect(mapStateToProps, { getAllCourses, createNewCourse })(
+  Home
+);

@@ -242,7 +242,9 @@ exports.lecturerSignin = async (req, res) => {
 
   // no error occurred in validating loggin inputs
   //check if the user email exist, if no, direct user to signup
-  const lecturer = await Lecturer.findOne({ email: req.body.email });
+  const lecturer = await Lecturer.findOne({ email: req.body.email }).populate(
+    'courses'
+  );
   if (!lecturer) {
     return res.status(404).json({
       status: 'fail',

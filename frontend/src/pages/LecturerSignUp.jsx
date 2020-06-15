@@ -12,8 +12,8 @@ import Navbar from '../components/Navbar';
 
 //create a validation schema for the form
 const lecValidationSchema = Yup.object().shape({
-  firstName: Yup.string().required('First Name is required'),
-  lastName: Yup.string().required('Last Name is required'),
+  fName: Yup.string().required('First Name is required'),
+  lName: Yup.string().required('Last Name is required'),
   email: Yup.string()
     .email('Must be a valid email')
     .required('Must provide email'),
@@ -29,7 +29,7 @@ const lecValidationSchema = Yup.object().shape({
     .required('Password is required'),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref('password'), null], 'Passwords must match')
-    .required('Must confirm your password')
+    .required('Must confirm your password'),
 });
 
 //THIS THE LECTURER'S SIGN UP PAGE
@@ -38,7 +38,7 @@ class LecturerSignUp extends React.Component {
     super(props);
 
     this.state = {
-      isLoading: false
+      isLoading: false,
     };
   }
 
@@ -76,18 +76,18 @@ class LecturerSignUp extends React.Component {
               {/* Create a form for a lecturer to fill */}
               <Formik
                 initialValues={{
-                  firstName: '',
-                  lastName: '',
+                  fName: '',
+                  lName: '',
                   otherNames: '',
                   email: '',
                   phoneNo: '',
                   password: '',
-                  confirmPassword: ''
+                  confirmPassword: '',
                 }}
                 validationSchema={lecValidationSchema}
-                onSubmit={async values => {
+                onSubmit={async (values) => {
                   this.setState({
-                    isLoading: true
+                    isLoading: true,
                   });
                   //delete the confirm password for it is not needed in the backend
                   delete values.confirmPassword;
@@ -95,15 +95,15 @@ class LecturerSignUp extends React.Component {
                   const err = await signupLecturer(values, history);
                   if (err) {
                     this.setState({
-                      isLoading: false
+                      isLoading: false,
                     });
                     cogoToast.error(err, {
-                      position: 'top-center'
+                      position: 'top-center',
                     });
 
                     //reset the fields
-                    values.firstName = '';
-                    values.lastName = '';
+                    values.fName = '';
+                    values.lName = '';
                     values.otherNames = '';
                     values.email = '';
                     values.phoneNo = '';
@@ -118,7 +118,7 @@ class LecturerSignUp extends React.Component {
                   touched,
                   handleChange,
                   handleBlur,
-                  handleSubmit
+                  handleSubmit,
                 }) => (
                   <form onSubmit={handleSubmit}>
                     <div className="uk-width-1-1 uk-margin">
@@ -126,21 +126,22 @@ class LecturerSignUp extends React.Component {
                         First name
                       </label>
                       <input
-                        id="firstName"
+                        id="fName"
+                        name="fName"
                         className={`uk-input uk-form-large ${
-                          touched.firstName && errors.firstName
+                          touched.fName && errors.fName
                             ? 'uk-form-danger'
                             : null
                         }`}
                         type="text"
                         placeholder="AraTech"
-                        value={values.firstName}
+                        value={values.fName}
                         onChange={handleChange}
                         onBlur={handleBlur}
                         disabled={isLoading}
                       />
-                      {touched.firstName && errors.firstName ? (
-                        <p className="uk-text-danger">{errors.firstName}</p>
+                      {touched.fName && errors.fName ? (
+                        <p className="uk-text-danger">{errors.fName}</p>
                       ) : null}
                     </div>
 
@@ -149,21 +150,22 @@ class LecturerSignUp extends React.Component {
                         Last name
                       </label>
                       <input
-                        id="lastName"
+                        id="lName"
+                        name="lName"
                         className={`uk-input uk-form-large ${
-                          touched.lastName && errors.lastName
+                          touched.lName && errors.lName
                             ? 'uk-form-danger'
                             : null
                         }`}
                         type="text"
                         placeholder="AraTech"
-                        value={values.lastName}
+                        value={values.lName}
                         onChange={handleChange}
                         onBlur={handleBlur}
                         disabled={isLoading}
                       />
-                      {touched.lastName && errors.lastName ? (
-                        <p className="uk-text-danger">{errors.lastName}</p>
+                      {touched.lName && errors.lName ? (
+                        <p className="uk-text-danger">{errors.lName}</p>
                       ) : null}
                     </div>
 
@@ -293,7 +295,7 @@ class LecturerSignUp extends React.Component {
                         // icon: check\'></span> Sumbitting'})"
                         disabled={isLoading}
                       >
-                        Sign Up
+                        {isLoading ? 'Signing up...' : 'Sign Up'}
                       </button>
                     </div>
                     <div className="uk-width-1-1 uk-margin uk-text-center">
@@ -343,11 +345,11 @@ class LecturerSignUp extends React.Component {
 }
 
 const matchStateToProps = ({
-  auth: { isAuthenticated, isLecturer, isStudent }
+  auth: { isAuthenticated, isLecturer, isStudent },
 }) => ({
   isAuthenticated,
   isLecturer,
-  isStudent
+  isStudent,
 });
 
 export default connect(matchStateToProps, { signupLecturer })(

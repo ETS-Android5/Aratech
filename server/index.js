@@ -8,7 +8,7 @@ const authRoutes = require('./routes/auth');
 const departmentRoutes = require('./routes/department');
 const timetableRoutes = require('./routes/timetable');
 const assignmentRoutes = require('./routes/assignment');
-
+const courseRoutes = require('./routes/course');
 
 //create a basic express application
 const app = express();
@@ -31,6 +31,6 @@ app.use('/api/auth', authRoutes);
 app.use('/api/departments', departmentRoutes);
 app.use('/api/timetable', timetableRoutes);
 app.use('/api/assignment', assignmentRoutes);
-
+app.use('/api/courses', courseRoutes);
 
 module.exports = app;

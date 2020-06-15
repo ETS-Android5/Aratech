@@ -5,12 +5,13 @@ const Schema = mongoose.Schema;
 const CourseSchema = new Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   courseCode: {
     type: String,
-    required: true
-  }
+    unique: true,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model('Course', CourseSchema);

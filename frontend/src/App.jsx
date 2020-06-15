@@ -4,7 +4,11 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import store from './store/store';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './network/setAuthToken';
-import { setCurrentStudent, setCurrentLecturer, logoutUser } from './store/actions/authActions';
+import {
+  setCurrentStudent,
+  setCurrentLecturer,
+  logoutUser,
+} from './store/actions/authActions';
 
 import PrivateRoute from './components/PrivateRoute';
 import NavMobile from './components/NavMobile';
@@ -22,7 +26,6 @@ import StdProfile from './pages/StdProfile';
 import StdHome from './pages/StdHome';
 import LctHome from './pages/LctHome';
 import EditStdProfile from './pages/EditStdProfile';
-import LecturerHome from './pages/LecturerHome';
 
 import './App.css';
 
@@ -31,80 +34,45 @@ const studentToken = localStorage.getItem('lm-student-token');
 
 //check if lecturer token is valid
 if (lecturerToken) {
-	//set auth header for lecturer
-	setAuthToken(lecturerToken);
+  //set auth header for lecturer
+  setAuthToken(lecturerToken);
 
-	//decode token
-	const decoded = jwt_decode(lecturerToken);
-	//set lecturer to redux store
-	store.dispatch(setCurrentLecturer(decoded));
+  //decode token
+  const decoded = jwt_decode(lecturerToken);
+  //set lecturer to redux store
+  store.dispatch(setCurrentLecturer(decoded));
 
-	//check for expired tokens
-	const currentTime = Date.now() / 1000;
-	if (decoded.exp < currentTime) {
-		//logout user
-		store.dispatch(logoutUser());
+  //check for expired tokens
+  const currentTime = Date.now() / 1000;
+  if (decoded.exp < currentTime) {
+    //logout user
+    store.dispatch(logoutUser());
 
-		//redirect to login
-		window.location.href = '/lecturer/signin';
-	}
+    //redirect to login
+    window.location.href = '/lecturer/signin';
+  }
 } else if (studentToken) {
-	//check if student token is valid
-	//set auth header for student
-	setAuthToken(studentToken);
+  //check if student token is valid
+  //set auth header for student
+  setAuthToken(studentToken);
 
-	//decode token
-	const decoded = jwt_decode(studentToken);
-	//set lecturer to redux store
-	store.dispatch(setCurrentStudent(decoded));
+  //decode token
+  const decoded = jwt_decode(studentToken);
+  //set lecturer to redux store
+  store.dispatch(setCurrentStudent(decoded));
 
-	//check for expired tokens
-	const currentTime = Date.now() / 1000;
-	if (decoded.exp < currentTime) {
-		//logout user
-		store.dispatch(logoutUser());
+  //check for expired tokens
+  const currentTime = Date.now() / 1000;
+  if (decoded.exp < currentTime) {
+    //logout user
+    store.dispatch(logoutUser());
 
-		//redirect to login
-		window.location.href = '/student/signin';
-	}
+    //redirect to login
+    window.location.href = '/student/signin';
+  }
 }
 
 class App extends React.Component {
-<<<<<<< HEAD
-	render() {
-		return (
-			<React.Fragment>
-				<Router>
-					<Switch>
-						<Route exact path="/" component={Landing} />
-						<Route exact path="/about" component={Landing} />
-						<Route exact path="/student/signup" component={StdSignUp} />
-						<Route exact path="/student/signin" component={StdSignIn} />
-						<Route exact path="/lecturer/signup" component={LecturerSignUp} />
-						<Route exact path="/lecturer/signin" component={LecturerSignIn} />
-						<Route exact path="/forgotpassword" component={ForgotPassword} />
-						<Route exact path="/passwordreset/:token" component={ResetPassword} />
-						<Route exact path="/confirmemail/:token" component={EmailVerify} />
-
-						{/* private student routes */}
-						<PrivateRoute exact path="/student/home" component={StdHome} />
-						<PrivateRoute exact path="/student/profile" component={StdProfile} />
-						<PrivateRoute exact path="/student/profile/edit" component={EditStdProfile} />
-
-						{/* private lecturer routes */}
-						<Route exact path="/lecturer/home" component={LecturerHome} />
-
-						{/* 404 Not founds */}
-						<Route path="*" component={NotFound} />
-					</Switch>
-					{/* Include the mobile nav and footer in every page */}
-					<NavMobile />
-					<Footer />
-				</Router>
-			</React.Fragment>
-		);
-	}
-=======
   render() {
     return (
       <React.Fragment>
@@ -148,7 +116,6 @@ class App extends React.Component {
       </React.Fragment>
     );
   }
->>>>>>> master
 }
 
 export default App;

@@ -135,24 +135,6 @@ export const forgotPassword = async (email, history) => {
   }
 };
 
-export const setCurrentStudent = (decoded) => {
-  return {
-    type: SET_CURRENT_USER,
-    isLecturer: false,
-    isStudent: true,
-    payload: decoded,
-  };
-};
-
-export const setCurrentLecturer = (decoded) => {
-  return {
-    type: SET_CURRENT_USER,
-    isLecturer: true,
-    isStudent: false,
-    payload: decoded,
-  };
-};
-
 //set student profile image
 export const setStudentProfileImg = (image) => async (dispatch) => {
   let response;
@@ -245,4 +227,22 @@ export const deleteLecturerAccount = () => async (dispatch) => {
   } catch (error) {
     cogoToast.error(error.response.data.message);
   }
+};
+
+export const setCurrentStudent = (decoded) => {
+  return {
+    type: SET_CURRENT_USER,
+    isLecturer: false,
+    isStudent: true,
+    payload: decoded,
+  };
+};
+
+export const setCurrentLecturer = (decoded) => {
+  return {
+    type: SET_CURRENT_USER,
+    isLecturer: true,
+    isStudent: false,
+    payload: decoded,
+  };
 };

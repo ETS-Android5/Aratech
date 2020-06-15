@@ -20,8 +20,6 @@ const lecValidationSchema = Yup.object().shape({
     .max(32, 'Password cannot be more than 32 characters')
     .required('Must provide password'),
 });
-
-//THIS IS THE LECTURER SIGN IN PAGE
 class LecturerSignIn extends React.Component {
   constructor(props) {
     super(props);

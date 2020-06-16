@@ -17,7 +17,7 @@ router.get(
   classTimetableController.getClassTimetable
 );
 
-//add a new event to peronal time table
+//add a new event to personal time table
 router.post(
   '/personal',
   passport.authenticate('jwt', { session: false }),

@@ -34,7 +34,7 @@ const Contact = () => {
             alt="Godfred"
             style={{ width: 250, height: 250 }}
           />
-          <p>Godfred Doe(PM)</p>
+          <p>Godfred Doe(Project Manager)</p>
         </div>
         <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
           <img
@@ -43,7 +43,7 @@ const Contact = () => {
             alt="Francis"
             style={{ width: 250, height: 250 }}
           />
-          <p>Gyimah Francis(Deputy PM)</p>
+          <p>Gyimah Francis(Deputy Project Manager)</p>
         </div>
         <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
           <img
@@ -52,7 +52,25 @@ const Contact = () => {
             alt="Austin"
             style={{ width: 250, height: 250 }}
           />
-          <p>Appiah Austin</p>
+          <p>Appiah Augustine(Backend Team Leader)</p>
+        </div>
+        <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
+          <img
+            className="uk-border-circle"
+            src={require('../assets/clifford.jpg')}
+            alt="Clifford"
+            style={{ width: 250, height: 250 }}
+          />
+          <p>Owusu Amponsah Clifford(Frontend Team Leader)</p>
+        </div>
+        <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
+          <img
+            className="uk-border-circle"
+            src={require('../assets/kwame.jpg')}
+            alt="Austin"
+            style={{ width: 250, height: 250 }}
+          />
+          <p>Oppong Kwame(Mobile Team Leader)</p>
         </div>
         <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
           <img
@@ -62,15 +80,6 @@ const Contact = () => {
             style={{ width: 250, height: 250 }}
           />
           <p>Dunyo K. John</p>
-        </div>
-        <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
-          <img
-            className="uk-border-circle"
-            src={require('../assets/clifford.jpg')}
-            alt="Clifford"
-            style={{ width: 250, height: 250 }}
-          />
-          <p>Owusu Amponsah Clifford</p>
         </div>
         <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
           <img
@@ -93,15 +102,6 @@ const Contact = () => {
         <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
           <img
             className="uk-border-circle"
-            src={require('../assets/kwame.jpg')}
-            alt="Austin"
-            style={{ width: 250, height: 250 }}
-          />
-          <p>Oppong Kwame</p>
-        </div>
-        <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
-          <img
-            className="uk-border-circle"
             src={require('../assets/donald.jpg')}
             alt="Donald"
             style={{ width: 250, height: 250 }}
@@ -115,7 +115,7 @@ const Contact = () => {
             alt="Chenti"
             style={{ width: 250, height: 250 }}
           />
-          <p>Chenti Wuni</p>
+          <p>Rafiq Yakubu Chentiwuni</p>
         </div>
       </div>
       <hr className="uk-grid-divider" />

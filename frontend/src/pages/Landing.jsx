@@ -178,10 +178,7 @@ const Landing = ({ isAuthenticated }) => {
                   />
                 </div>
                 <div>
-                  <img
-                    src={require('../assets/francis.jpg')}
-                    alt="Tow Sawyer"
-                  />
+                  <img src={require('../assets/john.jpeg')} alt="Tow Sawyer" />
                 </div>
                 <div>
                   <img src={require('../assets/donald.jpg')} alt="Tow Sawyer" />

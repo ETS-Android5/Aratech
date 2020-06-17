@@ -57,11 +57,11 @@ const Contact = () => {
         <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
           <img
             className="uk-border-circle"
-            src={require('../assets/austin2.jpg')}
-            alt="Austin"
+            src={require('../assets/john.jpeg')}
+            alt="John"
             style={{ width: 250, height: 250 }}
           />
-          <p>Appiah Austin</p>
+          <p>Dunyo K. John</p>
         </div>
         <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
           <img

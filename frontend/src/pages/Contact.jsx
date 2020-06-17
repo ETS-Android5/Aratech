@@ -79,7 +79,7 @@ const Contact = () => {
             alt="John"
             style={{ width: 250, height: 250 }}
           />
-          <p>Dunyo K. John</p>
+          <p>Dunyo K. John(Member, Mobile Team)</p>
         </div>
         <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
           <img
@@ -88,7 +88,7 @@ const Contact = () => {
             alt="Akud"
             style={{ width: 250, height: 250 }}
           />
-          <p>Akudbilla Daniel</p>
+          <p>Akudbilla Daniel(Member, Frontend Team)</p>
         </div>
         <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
           <img
@@ -97,7 +97,7 @@ const Contact = () => {
             alt="Tkay"
             style={{ width: 250, height: 250 }}
           />
-          <p>Tweneboah Koduah Emmanuel</p>
+          <p>Tweneboah Koduah Emmanuel(Member, Mobile Team)</p>
         </div>
         <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
           <img
@@ -106,7 +106,7 @@ const Contact = () => {
             alt="Donald"
             style={{ width: 250, height: 250 }}
           />
-          <p>Adjei Donald</p>
+          <p>Adjei Donald(Member, Frontend Team)</p>
         </div>
         <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
           <img
@@ -115,7 +115,7 @@ const Contact = () => {
             alt="Chenti"
             style={{ width: 250, height: 250 }}
           />
-          <p>Rafiq Yakubu Chentiwuni</p>
+          <p>Rafiq Yakubu Chentiwuni(Member, Backend Team)</p>
         </div>
       </div>
       <hr className="uk-grid-divider" />

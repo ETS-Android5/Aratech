@@ -17,7 +17,7 @@ const Footer = (props) => (
           <div>
             <ul className="uk-list uk-list-large">
               <li>
-                <Link className="uk-link-border" to="/developers">
+                <Link className="uk-link-border" to="/contact">
                   Developers
                 </Link>
               </li>

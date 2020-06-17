@@ -19,7 +19,7 @@ const Home = ({ createNewCourse, getAllCourses, courses, user }) => {
       //user does not have a course, select or create one
       console.log('User does not have courses');
     }
-  }, []);
+  }, [getAllCourses, user.courses]);
 
   return (
     <>

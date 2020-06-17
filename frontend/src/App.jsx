@@ -26,6 +26,7 @@ import StdProfile from './pages/StdProfile';
 import StdHome from './pages/StdHome';
 import LctHome from './pages/LctHome';
 import EditStdProfile from './pages/EditStdProfile';
+import Contact from './pages/Contact';
 
 import './App.css';
 
@@ -72,50 +73,41 @@ if (lecturerToken) {
   }
 }
 
-class App extends React.Component {
-  render() {
-    return (
-      <React.Fragment>
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/about" component={Landing} />
-            <Route exact path="/student/signup" component={StdSignUp} />
-            <Route exact path="/student/signin" component={StdSignIn} />
-            <Route exact path="/lecturer/signup" component={LecturerSignUp} />
-            <Route exact path="/lecturer/signin" component={LecturerSignIn} />
-            <Route exact path="/forgotpassword" component={ForgotPassword} />
-            <Route
-              exact
-              path="/passwordreset/:token"
-              component={ResetPassword}
-            />
-            <Route exact path="/confirmemail/:token" component={EmailVerify} />
+function App() {
+  return (
+    <React.Fragment>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/about" component={Landing} />
+          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/student/signup" component={StdSignUp} />
+          <Route exact path="/student/signin" component={StdSignIn} />
+          <Route exact path="/lecturer/signup" component={LecturerSignUp} />
+          <Route exact path="/lecturer/signin" component={LecturerSignIn} />
+          <Route exact path="/forgotpassword" component={ForgotPassword} />
+          <Route exact path="/passwordreset/:token" component={ResetPassword} />
+          <Route exact path="/confirmemail/:token" component={EmailVerify} />
 
-            {/* private student routes */}
-            <PrivateRoute exact path="/student/home" component={StdHome} />
-            <PrivateRoute
-              exact
-              path="/student/profile"
-              component={StdProfile}
-            />
-            <PrivateRoute
-              exact
-              path="/student/profile/edit"
-              component={EditStdProfile}
-            />
-            <PrivateRoute exact path="/lecturer/home" component={LctHome} />
+          {/* private student routes */}
+          <PrivateRoute exact path="/student/home" component={StdHome} />
+          <PrivateRoute exact path="/student/profile" component={StdProfile} />
+          <PrivateRoute
+            exact
+            path="/student/profile/edit"
+            component={EditStdProfile}
+          />
+          <PrivateRoute exact path="/lecturer/home" component={LctHome} />
 
-            {/* 404 Not founds */}
-            <Route path="*" component={NotFound} />
-          </Switch>
-          {/* Include the mobile nav and footer in every page */}
-          <NavMobile />
-          <Footer />
-        </Router>
-      </React.Fragment>
-    );
-  }
+          {/* 404 Not founds */}
+          <Route path="*" component={NotFound} />
+        </Switch>
+        {/* Include the mobile nav and footer in every page */}
+        <NavMobile />
+        <Footer />
+      </Router>
+    </React.Fragment>
+  );
 }
 
 export default App;

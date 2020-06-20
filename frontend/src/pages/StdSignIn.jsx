@@ -21,7 +21,6 @@ const validationSchema = Yup.object().shape({
     .required('Password is required'),
 });
 
-//THIS IS THE STUDENT SIGN IN PAGE
 class StdSignIn extends React.Component {
   constructor(props) {
     super(props);

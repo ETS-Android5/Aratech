@@ -14,7 +14,7 @@ class ResetPassword extends Component {
 
     this.state = {
       token: '',
-      isLoading: false
+      isLoading: false,
     };
   }
 
@@ -27,7 +27,7 @@ class ResetPassword extends Component {
       this.props.history.push('/');
     } else {
       this.setState({
-        token
+        token,
       });
     }
   }
@@ -40,7 +40,7 @@ class ResetPassword extends Component {
         .required('Password is required'),
       confirmPassword: Yup.string()
         .oneOf([Yup.ref('password'), null])
-        .required('Confirm password is required')
+        .required('Confirm password is required'),
     });
   };
 
@@ -64,14 +64,14 @@ class ResetPassword extends Component {
                 validationSchema={this.validationSchema}
                 onSubmit={async ({ password }) => {
                   this.setState({
-                    isLoading: true
+                    isLoading: true,
                   });
                   let response;
                   try {
                     response = await API.post(
                       `/auth/resetpassword?token=${this.state.token}`,
                       {
-                        password
+                        password,
                       }
                     );
                     const { message } = response.data;
@@ -85,7 +85,7 @@ class ResetPassword extends Component {
                     const errMessage = err.response.data.message;
                     cogoToast.error(errMessage);
                     this.setState({
-                      isLoading: false
+                      isLoading: false,
                     });
                   }
                 }}
@@ -96,7 +96,7 @@ class ResetPassword extends Component {
                   touched,
                   handleChange,
                   handleBlur,
-                  handleSubmit
+                  handleSubmit,
                 }) => (
                   <form onSubmit={handleSubmit}>
                     <div className="uk-width-1-1 uk-margin">

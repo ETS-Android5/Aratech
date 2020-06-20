@@ -32,7 +32,6 @@ const lecValidationSchema = Yup.object().shape({
     .required('Must confirm your password'),
 });
 
-//THIS THE LECTURER'S SIGN UP PAGE
 class LecturerSignUp extends React.Component {
   constructor(props) {
     super(props);

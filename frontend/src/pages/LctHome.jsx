@@ -1,10 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import ImageUploader from 'react-images-upload';
+import UIKit from 'uikit';
 
 import Navbar from '../components/Navbar';
 import { createNewCourse, getAllCourses } from '../store/actions/courseActions';
 
 const Home = ({ createNewCourse, getAllCourses, courses, user }) => {
+  const [image, setImage] = React.useState(null);
+  const [uploading, setUploading] = React.useState(false);
   React.useEffect(() => {
     const getCourses = async () => {
       await getAllCourses();
@@ -12,14 +16,24 @@ const Home = ({ createNewCourse, getAllCourses, courses, user }) => {
 
     getCourses();
 
-    if (user.courses && user.courses.length) {
-      //user has a list of courses
-      console.log('User has courses', user.courses);
+    if ((user.courses && user.courses.length) || user.avatar) {
     } else {
-      //user does not have a course, select or create one
-      console.log('User does not have courses');
+      UIKit.modal('#set-avatar', {
+        bgClose: false,
+        escClose: false,
+        modal: false,
+        keyboard: false,
+      }).show();
     }
-  }, [getAllCourses, user.courses]);
+  }, [getAllCourses, user]);
+
+  const uploadImage = async () => {
+    setUploading(true);
+  };
+
+  const onFileChange = (images) => {
+    setImage(images[0]);
+  };
 
   return (
     <>
@@ -80,6 +94,29 @@ const Home = ({ createNewCourse, getAllCourses, courses, user }) => {
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+      <div id="set-avatar" data-uk-modal>
+        <div className="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+          <h2 className="uk-modal-title">SET YOUR PROFILE PICTURE</h2>
+          <p>Only first image will be uploaded</p>
+          <ImageUploader
+            withIcon={true}
+            buttonText="Choose image"
+            onChange={onFileChange}
+            imgExtension={['.jpg', '.png']}
+            withPreview={true}
+            label="Max file size is 5mb. 
+              Accepted image types are .png and .jpg"
+            maxFileSize={5242880}
+          />
+          <button
+            className="uk-button uk-button-primary uk-button-large uk-margin-medium-top uk-margin-medium-bottom"
+            disabled={!image || uploading}
+            onClick={uploadImage}
+          >
+            {uploading ? 'Uploading' : 'Submit'}
+          </button>
         </div>
       </div>
     </>

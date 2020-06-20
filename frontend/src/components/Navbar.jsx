@@ -8,7 +8,7 @@ const Navbar = ({
   isLecturer,
   isStudent,
   user,
-  logoutUser
+  logoutUser,
 }) => (
   <React.Fragment>
     <div
@@ -115,8 +115,7 @@ const Navbar = ({
                     <img
                       className="uk-border-circle"
                       src={user.avatar}
-                      width="40"
-                      height="40"
+                      style={{ width: 40, height: 40 }}
                       alt="Border rounded"
                     />
                   </Link>
@@ -186,12 +185,12 @@ const Navbar = ({
 );
 
 const mapStateToProps = ({
-  auth: { isAuthenticated, isStudent, isLecturer, user }
+  auth: { isAuthenticated, isStudent, isLecturer, user },
 }) => ({
   isAuthenticated,
   isStudent,
   isLecturer,
-  user
+  user,
 });
 
 export default connect(mapStateToProps, { logoutUser })(Navbar);

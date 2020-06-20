@@ -1,30 +1,34 @@
 import React from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import Navbar from '../components/Navbar';
-import API from '../network/api';
-import { changeUserPassword, setStudentProfileImg, delStudentProfileImg } from '../store/actions/authActions';
 import { connect } from 'react-redux';
 import ImageUploader from 'react-images-upload';
 import UIKit from 'uikit';
 import { useHistory } from 'react-router-dom';
 
-const EditProfile = ({ changeUserPassword, setStudentProfileImg, delStudentProfileImg }) => {
+import Navbar from '../components/Navbar';
+import API from '../network/api';
+import { changeUserPassword, setLecturerProfileImg, delLecturerProfileImg } from '../store/actions/authActions';
+
+const EditLctprofile = ({ changeUserPassword, setLecturerProfileImg, delLecturerProfileImg }) => {
 	const [isLoading, setLoading] = React.useState(false);
-	const [showEditPassword, setShowEditPassword] = React.useState(false);
-	const [currentUser, setCurrentUser] = React.useState({});
 	const [image, setImage] = React.useState(null);
+	const [currentUser, setCurrentUser] = React.useState({});
+	const [showEditPassword, setShowEditPassword] = React.useState(false);
 	const [uploading, setUploading] = React.useState(false);
 	const history = useHistory();
 
 	React.useEffect(() => {
 		const fetchUser = async () => {
 			const res = await API.get('auth/me');
-			setCurrentUser(res.data.data.student);
+			setCurrentUser(res.data.data.lecturer);
 		};
-
 		fetchUser();
 	}, []);
+
+	const showEP = () => {
+		setShowEditPassword(!showEditPassword);
+	};
 
 	const onUpdateProfile = () => {
 		UIKit.modal('#set-avatar', {
@@ -35,8 +39,8 @@ const EditProfile = ({ changeUserPassword, setStudentProfileImg, delStudentProfi
 		}).show();
 	};
 
-	const onDeleteProfileImg = () => {
-		delStudentProfileImg();
+	const onDeleteProfile = () => {
+		delLecturerProfileImg();
 	};
 
 	const onFileChange = (pictureFiles) => {
@@ -45,7 +49,7 @@ const EditProfile = ({ changeUserPassword, setStudentProfileImg, delStudentProfi
 
 	const uploadImage = async () => {
 		setUploading(true);
-		await setStudentProfileImg(image);
+		await setLecturerProfileImg(image);
 
 		UIKit.modal('#set-avatar').hide();
 
@@ -55,12 +59,8 @@ const EditProfile = ({ changeUserPassword, setStudentProfileImg, delStudentProfi
 		window.location.reload();
 	};
 
-	const showEP = () => {
-		setShowEditPassword(!showEditPassword);
-	};
-
 	return (
-		<>
+		<React.Fragment>
 			<Navbar />
 			<div className="uk-grid-collapse" data-uk-grid>
 				<div className="uk-width-1-2@m uk-padding-large uk-flex uk-flex-column uk-flex-middle uk-flex-center">
@@ -68,7 +68,7 @@ const EditProfile = ({ changeUserPassword, setStudentProfileImg, delStudentProfi
 						<img
 							className="uk-border-pill uk-display-inline-block uk-margin"
 							src={currentUser.avatar}
-							width="250"
+							width="300"
 							height="200"
 							alt="Border pill"
 						/>
@@ -82,17 +82,16 @@ const EditProfile = ({ changeUserPassword, setStudentProfileImg, delStudentProfi
 						<button
 							className="uk-button uk-button-danger uk-button-large uk-width-2-3 uk-text-center uk-margin"
 							disabled={isLoading}
-							onClick={onDeleteProfileImg}
+							onClick={onDeleteProfile}
 						>
-							{isLoading ? 'Deleting...' : 'Delete Image'}
+							{isLoading ? 'Deleting Image..' : 'Delete Image'}
 						</button>
 					</div>
 				</div>
-
-				{/* Start of the form part */}
-				<div className="uk-width-1-2@m uk-padding-large uk-flex uk-flex-center" data-uk-height-viewport>
+				{/* Other half part  */}
+				<div className="uk-width-1-2@m uk-padding-large uk-flex" data-uk-height-viewport>
 					<div className="uk-width-3-4@s">
-						<div className="uk-text-center uk-margin">
+						<div className="uk-text-center uk-margin-small-bottom">
 							<h3 className="uk-letter-spacing-small">Change Your Phone Number</h3>
 						</div>
 						<Formik
@@ -186,7 +185,7 @@ const EditProfile = ({ changeUserPassword, setStudentProfileImg, delStudentProfi
 										{({ handleSubmit, handleChange, handleBlur, touched, errors, values }) => (
 											<form onSubmit={handleSubmit}>
 												<div className="uk-width-1-1 uk-margin">
-													<label className="uk-form-label" htmlFor="phoneNo">
+													<label className="uk-form-label uk-text-left" htmlFor="oldPassword">
 														Old Password
 													</label>
 													<input
@@ -208,7 +207,10 @@ const EditProfile = ({ changeUserPassword, setStudentProfileImg, delStudentProfi
 													) : null}
 												</div>
 												<div className="uk-width-1-1 uk-margin">
-													<label className="uk-form-label" htmlFor="phoneNo">
+													<label
+														className="uk-form-label uk-text-bold uk-text-left"
+														htmlFor="newPassword"
+													>
 														New Password
 													</label>
 													<input
@@ -272,7 +274,7 @@ const EditProfile = ({ changeUserPassword, setStudentProfileImg, delStudentProfi
 						<span
 							style={{ cursor: 'pointer' }}
 							onClick={() => {
-								history.push('/student/profile');
+								history.push('/lecturer/profile');
 							}}
 							className="uk-text-primary"
 						>
@@ -282,6 +284,7 @@ const EditProfile = ({ changeUserPassword, setStudentProfileImg, delStudentProfi
 					</p>
 				</h3>
 			</div>
+
 			{/** modal to set user profile picture */}
 			<div id="set-avatar" data-uk-modal>
 				<div className="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
@@ -306,8 +309,8 @@ const EditProfile = ({ changeUserPassword, setStudentProfileImg, delStudentProfi
 					</button>
 				</div>
 			</div>
-		</>
+		</React.Fragment>
 	);
 };
 
-export default connect(null, { changeUserPassword, setStudentProfileImg, delStudentProfileImg })(EditProfile);
+export default connect(null, { changeUserPassword, setLecturerProfileImg, delLecturerProfileImg })(EditLctprofile);

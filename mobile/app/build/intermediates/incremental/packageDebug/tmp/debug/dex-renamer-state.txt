@@ -1,7 +1,7 @@
-#Fri Jun 12 13:51:45 GMT 2020
-base.0=/home/fgyimah/code/lecture-monitor/mobile/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+#Mon Jun 22 11:38:42 GMT 2020
+base.0=/Users/kwameoppong/lecture-monitor/mobile/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=/home/fgyimah/code/lecture-monitor/mobile/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex
+base.1=/Users/kwameoppong/lecture-monitor/mobile/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex

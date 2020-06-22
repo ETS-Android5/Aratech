@@ -1,27 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "/home/fgyimah/code/lecture-monitor/mobile/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sv/values-sv.xml",
+            "outputFile": "/Users/kwameoppong/lecture-monitor/mobile/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sv/values-sv.xml",
             "map": [
                 {
-                    "source": "/home/fgyimah/.gradle/caches/transforms-2/files-2.1/42d473130d645954478c88ec483a5cfd/jetified-materialdatetimepicker-3.2.0/res/values-sv/values-sv.xml",
+                    "source": "/Users/kwameoppong/.gradle/caches/transforms-2/files-2.1/03736cf4bc3669a69d502627b70a527e/core-1.1.0/res/values-sv/values-sv.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,166,231,334,454,533,645,769,884,977,1065,1156,1239",
-                        "endColumns": "60,64,102,119,78,111,123,114,92,87,90,82,100",
-                        "endOffsets": "161,226,329,449,528,640,764,879,972,1060,1151,1234,1335"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "29,30,31,32,33,34,35,36,37,38,39,40,41",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "2778,2839,2904,3007,3127,3206,3318,3442,3557,3650,3738,3829,3912",
-                        "endColumns": "60,64,102,119,78,111,123,114,92,87,90,82,100",
-                        "endOffsets": "2834,2899,3002,3122,3201,3313,3437,3552,3645,3733,3824,3907,4008"
+                        "startLines": "43",
+                        "startColumns": "4",
+                        "startOffsets": "4092",
+                        "endColumns": "100",
+                        "endOffsets": "4188"
                     }
                 },
                 {
-                    "source": "/home/fgyimah/.gradle/caches/transforms-2/files-2.1/c2c5fa787d66aaf40578b3071f4d283f/appcompat-1.1.0/res/values-sv/values-sv.xml",
+                    "source": "/Users/kwameoppong/.gradle/caches/transforms-2/files-2.1/c2c5fa787d66aaf40578b3071f4d283f/appcompat-1.1.0/res/values-sv/values-sv.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,20 +38,20 @@
                     }
                 },
                 {
-                    "source": "/home/fgyimah/.gradle/caches/transforms-2/files-2.1/03736cf4bc3669a69d502627b70a527e/core-1.1.0/res/values-sv/values-sv.xml",
+                    "source": "/Users/kwameoppong/.gradle/caches/transforms-2/files-2.1/d256c2380147cf7df60a27e0f23655b6/jetified-materialdatetimepicker-3.2.0/res/values-sv/values-sv.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,166,231,334,454,533,645,769,884,977,1065,1156,1239",
+                        "endColumns": "60,64,102,119,78,111,123,114,92,87,90,82,100",
+                        "endOffsets": "161,226,329,449,528,640,764,879,972,1060,1151,1234,1335"
                     },
                     "to": {
-                        "startLines": "43",
-                        "startColumns": "4",
-                        "startOffsets": "4092",
-                        "endColumns": "100",
-                        "endOffsets": "4188"
+                        "startLines": "29,30,31,32,33,34,35,36,37,38,39,40,41",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "2778,2839,2904,3007,3127,3206,3318,3442,3557,3650,3738,3829,3912",
+                        "endColumns": "60,64,102,119,78,111,123,114,92,87,90,82,100",
+                        "endOffsets": "2834,2899,3002,3122,3201,3313,3437,3552,3645,3733,3824,3907,4008"
                     }
                 }
             ]

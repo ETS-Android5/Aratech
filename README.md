@@ -22,7 +22,7 @@ These technologies include:
 Other services that were used in the application includes
 
 - [SendGrid](https://sendgrid.com) - For easy sending of transactional emails within the application.
-- [MongoDB Atlas](https://cloud.mongodb.org) - A free cloud mongodb server, useful when deploying the application.
+- [MongoDB Atlas](https://cloud.mongodb.com) - A free cloud mongodb server, useful when deploying the application.
 - [Cloudinary](https://cloudinary.com) - A free file hosting service for storing images, as well as all other types of file documents.
 - [Heroku](https://heroku.com) - A free hosting platform where the production version of the application is hosted.
 - [Netlify](https://netlify.com) - A free hosting platform for frontend javascript applications.

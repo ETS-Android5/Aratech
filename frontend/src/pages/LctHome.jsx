@@ -5,6 +5,7 @@ import UIKit from 'uikit';
 
 import Navbar from '../components/Navbar';
 import { createNewCourse, getAllCourses } from '../store/actions/courseActions';
+import { setLecturerProfileImg } from '../store/actions/authActions';
 
 const Home = ({ createNewCourse, getAllCourses, courses, user }) => {
   const [image, setImage] = React.useState(null);
@@ -29,6 +30,15 @@ const Home = ({ createNewCourse, getAllCourses, courses, user }) => {
 
   const uploadImage = async () => {
     setUploading(true);
+    const isSet = await setLecturerProfileImg(image);
+    if (isSet) {
+      UIKit.modal('#set-avatar').hide();
+      this.setState({
+        uploading: false,
+      });
+    } else {
+      //todo: decide what to do later
+    }
   };
 
   const onFileChange = (images) => {

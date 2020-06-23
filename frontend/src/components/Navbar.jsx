@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { logoutUser } from '../store/actions/authActions';
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import { logoutUser } from "../store/actions/authActions";
 
 const Navbar = ({
   isAuthenticated,
@@ -19,23 +19,35 @@ const Navbar = ({
         <div className="uk-container uk-container-large">
           <div className="uk-position-z-index" data-uk-navbar>
             <div className="uk-navbar-left">
-              <Link className="uk-navbar-item uk-logo" to="/">
+              <Link
+                className="uk-navbar-item uk-logo"
+                to="/"
+                style={{ fontSize: "2em" }}
+              >
                 LM
               </Link>
             </div>
             <div className="uk-navbar-center">
               <ul className="uk-navbar-nav uk-visible@m">
                 <li>
-                  <NavLink to="/" activeClassName="uk-active">
+                  <NavLink
+                    to="/"
+                    activeClassName="uk-active"
+                    style={{ fontSize: "1.3em" }}
+                  >
                     Home
                   </NavLink>
                 </li>
                 <li>
-                  <Link to="/contact">contact</Link>
+                  <Link to="/contact" style={{ fontSize: "1.3em" }}>
+                    contact
+                  </Link>
                 </li>
                 {!isAuthenticated ? (
                   <li>
-                    <Link to="">Account</Link>
+                    <Link to="" style={{ fontSize: "1.3em" }}>
+                      Account
+                    </Link>
                     <div className="uk-navbar-dropdown">
                       <ul className="uk-nav uk-navbar-dropdown-nav">
                         <li>
@@ -109,7 +121,7 @@ const Navbar = ({
                     </button>
                   </div>
                   <Link
-                    to={isLecturer ? '/lecturer/profile' : '/student/profile'}
+                    to={isLecturer ? "/lecturer/profile" : "/student/profile"}
                     className="uk-navbar-item"
                   >
                     <img

@@ -17,7 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.ForgotPasswordActivity"></activity>
+        <activity android:name=".ui.activities.ForgotPasswordActivity" />
         <activity android:name=".ui.activities.lecturers.LecturerHomeActivity" />
         <activity android:name=".ui.activities.students.StudentHomeActivity" />
         <activity

@@ -7,17 +7,17 @@ import java.util.List;
 
 public class ClassTimeTable {
     
-    @SerializedName('programme')
+    @SerializedName("programme")
     @Expose
     private String programme;
 
-    @SerializedName('events')
+    @SerializedName("events")
     @Expose
     private List<Event> events;
 
     public ClassTimeTable() {}
 
-    public PersonalTimeTable(String programme, List<Event> events) {
+    public ClassTimeTable(String programme, List<Event> events) {
         this.programme = programme;
         this.events = events;
     }
@@ -34,7 +34,7 @@ public class ClassTimeTable {
         this.events = events;
     }
 
-    private List<Events> getEvents() {
+    private List<Event> getEvents() {
         return events;
     }
 

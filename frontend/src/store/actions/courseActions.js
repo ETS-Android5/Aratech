@@ -9,9 +9,14 @@ export const getAllCourses = () => async (dispatch) => {
     response = await API.get('courses');
 
     const { courses } = response.data.data;
+
+    //get the department names and IDs
+    const courseNames = courses.map((course) => course.name);
+    const courseIDs = courses.map((course) => course._id);
+
     dispatch({
       type: SET_COURSES,
-      payload: courses,
+      payload: { courseNames, courseIDs },
     });
   } catch (error) {
     cogoToast.error(error.response.data.message);
@@ -30,7 +35,7 @@ export const createNewCourse = (data) => async (dispatch) => {
 
     dispatch({
       type: ADD_COURSE,
-      payload: course,
+      payload: { courseName: course.name, courseID: course._id },
     });
   } catch (error) {
     cogoToast.error(error.response.data.message);

@@ -7,9 +7,19 @@ import Navbar from '../components/Navbar';
 import { createNewCourse, getAllCourses } from '../store/actions/courseActions';
 import { setLecturerProfileImg } from '../store/actions/authActions';
 
-const Home = ({ createNewCourse, getAllCourses, courses, user }) => {
+const Home = ({
+  createNewCourse,
+  getAllCourses,
+  courseNames,
+  courseIDs,
+  user,
+}) => {
   const [image, setImage] = React.useState(null);
   const [uploading, setUploading] = React.useState(false);
+  const [isLoading, setLoading] = React.useState(false);
+  const [course, selectCourse] = React.useState('');
+  const [courseName, setCourseName] = React.useState('');
+  const [courseCode, setCourseCode] = React.useState('');
   React.useEffect(() => {
     const getCourses = async () => {
       await getAllCourses();
@@ -45,6 +55,35 @@ const Home = ({ createNewCourse, getAllCourses, courses, user }) => {
     setImage(images[0]);
   };
 
+  const onCourseChange = (e) => {
+    selectCourse(e.target.value);
+  };
+
+  const onCourseNameChange = (e) => {
+    setCourseName(e.target.value);
+  };
+  const onCourseCodeChange = (e) => {
+    setCourseCode(e.target.value);
+  };
+
+  const createCourse = async () => {
+    setLoading(true);
+    if (!courseName || !courseCode) {
+      window.alert('Course name and course code are both needed');
+      setLoading(false);
+      return;
+    }
+
+    try {
+      await createNewCourse({ name: courseName, courseCode: courseCode });
+    } catch (error) {
+      setLoading(false);
+    }
+    setCourseCode('');
+    setCourseName('');
+    setLoading(false);
+  };
+
   return (
     <>
       <Navbar />
@@ -69,6 +108,7 @@ const Home = ({ createNewCourse, getAllCourses, courses, user }) => {
               src="../assets/students"
               className="uk-border-circle"
               alt="avatar"
+              false
               style={{
                 width: '100px',
                 height: '100px',
@@ -108,7 +148,9 @@ const Home = ({ createNewCourse, getAllCourses, courses, user }) => {
       </div>
       <div id="set-avatar" data-uk-modal>
         <div className="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-          <h2 className="uk-modal-title">SET YOUR PROFILE PICTURE</h2>
+          <h3 className="uk-modal-title">
+            SET YOUR PROFILE PICTURE AND COURSE
+          </h3>
           <p>Only first image will be uploaded</p>
           <ImageUploader
             withIcon={true}
@@ -120,10 +162,54 @@ const Home = ({ createNewCourse, getAllCourses, courses, user }) => {
               Accepted image types are .png and .jpg"
             maxFileSize={5242880}
           />
+          <select
+            id="courses"
+            name="courses"
+            className={`uk-select uk-form-large`}
+            type="text"
+            placeholder="Computer Engineering"
+            value={course}
+            onChange={onCourseChange}
+            disabled={uploading || isLoading}
+          >
+            <option value="default">Select a course</option>
+            {courseIDs.map((course, i) => (
+              <option key={course} value={course}>
+                {courseNames[i]}
+              </option>
+            ))}
+          </select>
+          <input
+            id="courseName"
+            name="courseName"
+            className="uk-input uk-form-large uk-margin-medium-top"
+            type="text"
+            placeholder="Course Name"
+            value={courseName}
+            onChange={onCourseNameChange}
+            disabled={isLoading}
+          />
+          <input
+            id="courseCode"
+            name="courseCode"
+            className="uk-input uk-form-large"
+            type="text"
+            placeholder="Course Code"
+            value={courseCode}
+            onChange={onCourseCodeChange}
+            disabled={isLoading}
+          />
+          <button
+            className="uk-button uk-button-primary uk-button-large uk-margin-top uk-margin-medium-bottom"
+            onClick={createCourse}
+          >
+            Create a new course
+          </button>{' '}
+          <br />
           <button
             className="uk-button uk-button-primary uk-button-large uk-margin-medium-top uk-margin-medium-bottom"
             disabled={!image || uploading}
-            onClick={uploadImage}
+            onClick={uploadImage || isLoading}
           >
             {uploading ? 'Uploading' : 'Submit'}
           </button>
@@ -133,9 +219,13 @@ const Home = ({ createNewCourse, getAllCourses, courses, user }) => {
   );
 };
 
-const mapStateToProps = ({ auth: { user }, course: { courses } }) => ({
+const mapStateToProps = ({
+  auth: { user },
+  course: { courseNames, courseIDs },
+}) => ({
   user,
-  courses,
+  courseNames,
+  courseIDs,
 });
 
 export default connect(mapStateToProps, { getAllCourses, createNewCourse })(

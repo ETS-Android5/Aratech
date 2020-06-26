@@ -80,6 +80,5 @@ The web app can be accessed at https://lecture-monitor.netlify.app
 ![screenshot 10](github/img_10.jpg)
 ![screenshot 11](github/img_11.jpg)
 ![screenshot 12](github/img_12.jpg)
-![screenshot 13](github/img_13.jpg)
 ![screenshot 14](github/img_14.jpg)
 ![screenshot 15](github/img_15.jpg)

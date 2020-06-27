@@ -4,7 +4,7 @@ const passport = require('passport');
 const assignmentController = require('../controllers/assignmentController');
 
 router
-  .route('/')
+  .route('/:courseId')
   .get(
     passport.authenticate('jwt', { session: false }),
     assignmentController.getActiveAssignments

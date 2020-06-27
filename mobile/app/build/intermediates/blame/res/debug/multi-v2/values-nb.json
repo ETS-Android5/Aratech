@@ -1,10 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "/home/fgyimah/code/lecture-monitor/mobile/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-nb/values-nb.xml",
+            "outputFile": "C:\\Users\\TKAYY\\Desktop\\lecture-monitor\\mobile\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-nb\\values-nb.xml",
             "map": [
                 {
-                    "source": "/home/fgyimah/.gradle/caches/transforms-2/files-2.1/c2c5fa787d66aaf40578b3071f4d283f/appcompat-1.1.0/res/values-nb/values-nb.xml",
+                    "source": "C:\\Users\\TKAYY\\.gradle\\caches\\transforms-2\\files-2.1\\a2dc90720c918cada546998b48f88651\\jetified-materialdatetimepicker-3.2.0\\res\\values-nb\\values-nb.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,166,232,343,458,539,657,776,899,995,1082,1174,1259",
+                        "endColumns": "60,65,110,114,80,117,118,122,95,86,91,84,95",
+                        "endOffsets": "161,227,338,453,534,652,771,894,990,1077,1169,1254,1350"
+                    },
+                    "to": {
+                        "startLines": "29,30,31,32,33,34,35,36,37,38,39,40,41",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "2737,2798,2864,2975,3090,3171,3289,3408,3531,3627,3714,3806,3891",
+                        "endColumns": "60,65,110,114,80,117,118,122,95,86,91,84,95",
+                        "endOffsets": "2793,2859,2970,3085,3166,3284,3403,3526,3622,3709,3801,3886,3982"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\TKAYY\\.gradle\\caches\\transforms-2\\files-2.1\\c2c5fa787d66aaf40578b3071f4d283f\\appcompat-1.1.0\\res\\values-nb\\values-nb.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/home/fgyimah/.gradle/caches/transforms-2/files-2.1/03736cf4bc3669a69d502627b70a527e/core-1.1.0/res/values-nb/values-nb.xml",
+                    "source": "C:\\Users\\TKAYY\\.gradle\\caches\\transforms-2\\files-2.1\\03736cf4bc3669a69d502627b70a527e\\core-1.1.0\\res\\values-nb\\values-nb.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -35,23 +52,6 @@
                         "startOffsets": "4066",
                         "endColumns": "100",
                         "endOffsets": "4162"
-                    }
-                },
-                {
-                    "source": "/home/fgyimah/.gradle/caches/transforms-2/files-2.1/42d473130d645954478c88ec483a5cfd/jetified-materialdatetimepicker-3.2.0/res/values-nb/values-nb.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,166,232,343,458,539,657,776,899,995,1082,1174,1259",
-                        "endColumns": "60,65,110,114,80,117,118,122,95,86,91,84,95",
-                        "endOffsets": "161,227,338,453,534,652,771,894,990,1077,1169,1254,1350"
-                    },
-                    "to": {
-                        "startLines": "29,30,31,32,33,34,35,36,37,38,39,40,41",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "2737,2798,2864,2975,3090,3171,3289,3408,3531,3627,3714,3806,3891",
-                        "endColumns": "60,65,110,114,80,117,118,122,95,86,91,84,95",
-                        "endOffsets": "2793,2859,2970,3085,3166,3284,3403,3526,3622,3709,3801,3886,3982"
                     }
                 }
             ]

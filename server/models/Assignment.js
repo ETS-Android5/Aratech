@@ -10,13 +10,17 @@ const AssignmentSchema = new Schema({
     type: String,
     required: true,
   },
+  submissionType: {
+    type: String,
+    required: true,
+  },
   content: {
     type: String,
     required: true,
   },
-  submissionType: {
-    type: String,
-    required: true,
+  submitted: {
+    type: Boolean,
+    default: false,
   },
 });
 

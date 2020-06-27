@@ -30,7 +30,7 @@ app.use(helmet());
 app.use('/api/auth', authRoutes);
 app.use('/api/departments', departmentRoutes);
 app.use('/api/timetable', timetableRoutes);
-app.use('/api/assignment', assignmentRoutes);
+app.use('/api/assignments', assignmentRoutes);
 app.use('/api/courses', courseRoutes);
 
 module.exports = app;

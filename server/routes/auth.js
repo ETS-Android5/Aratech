@@ -38,11 +38,18 @@ router.post(
   authController.resendVerificationEmail
 );
 
+//add course for lecturer
+router.post(
+  '/addcourse',
+  passport.authenticate('jwt', { session: false }),
+  authController.addCourseForLecturer
+);
+
 //chang user password
 router.put(
   '/updatepassword',
   passport.authenticate('jwt', { session: false }),
-  authController.changeuUserPassword
+  authController.changeUserPassword
 );
 
 //get current user route

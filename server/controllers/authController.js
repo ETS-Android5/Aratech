@@ -284,6 +284,40 @@ exports.lecturerSignin = async (req, res) => {
   });
 };
 
+exports.addCourseForLecturer = async (req, res) => {
+  const { lecturer } = req.user;
+
+  const id = req.body.courseId;
+  if (!id) {
+    return res.status(400).json({
+      status: 'fail',
+      message: 'Course Id is required',
+    });
+  }
+
+  if (!lecturer) {
+    return res.status(401).json({
+      status: 'fail',
+      message: 'Must be logged in as a lecturer to create or add new courses',
+    });
+  }
+
+  await Lecturer.findByIdAndUpdate(
+    lecturer._id,
+    {
+      $set: {
+        courses: [...lecturer.courses, id],
+      },
+    },
+    { upsert: true }
+  );
+
+  res.status(200).json({
+    status: 'success',
+    message: 'Course added successfully',
+  });
+};
+
 //check email verification
 exports.verifyEmail = async (req, res) => {
   //get the validation token
@@ -499,10 +533,11 @@ exports.me = async (req, res) => {
       },
     });
   } else if (lct) {
+    const lecturer = await Lecturer.findById(lct._id).populate('courses');
     return res.status(200).json({
       status: 'Success',
       data: {
-        lecturer: lct,
+        lecturer,
       },
     });
   }
@@ -515,7 +550,7 @@ exports.me = async (req, res) => {
 };
 
 //change user password
-exports.changeuUserPassword = async (req, res) => {
+exports.changeUserPassword = async (req, res) => {
   const { student, lecturer } = req.user;
 
   // validate user data

@@ -45,11 +45,9 @@ exports.createNewCourse = async (req, res) => {
   }
 
   //validate data
-  const schema = Joi.schema({
+  const schema = Joi.object({
     name: Joi.string().required(),
-    courseCode: Joi.string()
-      .pattern(/\b[A-Z]{3,5}\d{3,5}\b/)
-      .required(),
+    courseCode: Joi.string().required(),
   });
 
   try {
@@ -62,9 +60,7 @@ exports.createNewCourse = async (req, res) => {
   }
 
   const course = await Course.findOne({
-    $where: {
-      courseCode: req.body.courseCode,
-    },
+    courseCode: req.body.courseCode,
   });
 
   if (course) {

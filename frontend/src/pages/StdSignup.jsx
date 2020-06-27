@@ -338,7 +338,7 @@ class StdSignUp extends React.Component {
                         value={values.password}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        placeholder="Min 8 characters"
+                        placeholder="Password"
                         disabled={isLoading}
                       />
                       {touched.password && errors.password ? (
@@ -365,7 +365,7 @@ class StdSignUp extends React.Component {
                         value={values.passwordConfirmation}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        placeholder="Min 8 characters"
+                        placeholder="Confirm Password"
                         disabled={isLoading}
                       />
                       {touched.passwordConfirmation &&

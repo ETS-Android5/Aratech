@@ -42,7 +42,7 @@ const LctProfile = () => {
         <div className="uk-width-1-5@m uk-align-center">
           <img
             className="uk-border-pill uk-display-inline-block uk-margin"
-            src="../assets/clifford.jpg"
+            src={currentUser.avatar}
             width="200"
             height="200"
             alt="avatar"
@@ -81,18 +81,13 @@ const LctProfile = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Software Engineering</td>
-                <td>COE 356</td>
-              </tr>
-              <tr>
-                <td>Embeeded Systems</td>
-                <td>COE 354</td>
-              </tr>
-              <tr>
-                <td>Operating Systems</td>
-                <td>COE 358</td>
-              </tr>
+              {currentUser.courses &&
+                currentUser.courses.map((course, i) => (
+                  <tr key={i}>
+                    <td>{course.name}</td>
+                    <td>{course.courseCode}</td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>

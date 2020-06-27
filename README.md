@@ -65,3 +65,20 @@ The mobile application uses Java as the programming language of choice, which is
 - Retrofit and okhttp - For connnecting to the backend rest api, etc
 
 The web app can be accessed at https://lecture-monitor.netlify.app
+
+### Screenshots
+
+![screenshot 1](github/img_1.png)
+![screenshot 2](github/img_2.png)
+![screenshot 3](github/img_3.png)
+![screenshot 4](github/img_4.png)
+![screenshot 5](github/img_5.png)
+![screenshot 6](github/img_6.png)
+![screenshot 7](github/img_7.png)
+![screenshot 8](github/img_8.jpg)
+![screenshot 9](github/img_9.jpg)
+![screenshot 10](github/img_10.jpg)
+![screenshot 11](github/img_11.jpg)
+![screenshot 12](github/img_12.jpg)
+![screenshot 14](github/img_14.jpg)
+![screenshot 15](github/img_15.jpg)

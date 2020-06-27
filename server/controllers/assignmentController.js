@@ -1,112 +1,65 @@
-const Joi = require("@hapi/joi");
+const Joi = require('@hapi/joi');
 
-const Assignment = require("../models/Assignment");
-const Event = require("../models/Assignment");
+const Assignment = require('../models/Assignment');
 
-// Creating an assignment. this is done by the Lecturer
-exports.addToAssignment = async (req, res) => {
-  const Lecturer = req.user.Lecturer;
+exports.getActiveAssignments = async (req, res) => {
+  const courseId = req.params.courseId;
 
-  // check if user is the Lecturer
-  if (!Lecturer) {
-    return res.status(403).json({
-      status: "fail",
-      message: "Unauthorized, must be a Lecturer to add an Assignment",
+  const assignments = await Assignment.find({
+    course: courseId,
+    submitted: false,
+  });
+  res.status(200).json({
+    status: 'success',
+    data: {
+      assignments,
+    },
+  });
+};
+
+exports.createNewAssignment = async (req, res) => {
+  const { lecturer } = req.user;
+
+  if (!lecturer) {
+    return res.status(401).json({
+      status: 'fail',
+      message: 'Must be a lecturer to create assignments',
     });
   }
-  //validate user data
+
+  const courseId = req.params.courseId;
+
+  if (!courseId) {
+    return res.status(400).json({
+      status: 'fail',
+      message: 'Course Id must be present',
+    });
+  }
+
+  // validate user data
   const schema = Joi.object({
-    course: Joi.string().required(),
-    deadline: Joi.string().required(),
-    content: Joi.date().required(),
+    deadline: Joi.date().required(),
     submissionType: Joi.string().required(),
+    content: Joi.string().required(),
   });
   try {
     await schema.validateAsync(req.body);
   } catch (error) {
     return res.status(400).json({
-      status: "fail",
+      status: 'fail',
       message: error.message,
     });
   }
 
-  const event = await Event.create(req.body);
-
-  //create a new Assignment
-  const newCT = await Assignment.create({
-    course: student.department,
-    events: [{ eventId: event._id }],
+  const assignment = await Assignment.create({
+    ...req.body,
+    course: courseId,
   });
+
   res.status(200).json({
-    status: "success",
+    status: 'success',
     data: {
-      Assignment: newCT,
+      assignment,
     },
   });
 };
-
-exports.getAssignment = async (req, res) => {
-  //check if user is student
-  const student = req.user.student;
-
-  if (!student) {
-    return res.status(400).json({
-      status: "fail",
-      message: "Must be logged in as a student to view your Assignment",
-    });
-  }
-
-  //get user Assignment
-  const cTable = await Assignment.findOne({
-    course: student.department,
-  }).populate("eventId");
-  res.status(200).json({
-    status: "success",
-    data: {
-      Assignment: cTable ? cTable : {},
-    },
-  });
-};
-
-// Deleting and Updating an Assignment,Only done by the Lecturer
-exports.deleteFromAssignment = async (req, res) => {
-  const student = req.user.student;
-  // Check if user is a Lecturer
-  if (!Lecturer) {
-    return res.status(403).json({
-      status: "fail",
-      message: "Unauthorized, must be a Lecturer to delete an Assignment",
-    });
-  }
-  // Get the Assignment
-  const Assignment = await Assignment.findOne({
-    course: student.department,
-  });
-
-  //get ID of event to be deleted
-  const { eventId } = req.params;
-  await Event.findOneAndDelete({ _id: eventId });
-
-  //remove event ID from Assignment
-  Assignment.events = Assignment.events.filter(
-    (event) => event.eventId !== eventId
-  );
-  await Assignment.save();
-
-  res.status(200).json({
-    status: "success",
-    message: "Event removed successfully",
-  });
-};
-//upload assignment files
-
-const multer = require("multer");
-const upload = multer({
-  limits: { fileSize: 5000000 },
-  fileFliter(req, file, cb) {
-    if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
-      return cb(new Error("Please upload png,jpeg or jpg"));
-    }
-    cb(undefined, true);
-  },
-});

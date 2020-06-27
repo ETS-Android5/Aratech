@@ -1,8 +1,5 @@
-import axios from 'axios';
+import axios from "axios";
 
 export default axios.create({
-	baseURL:
-		process.env.NODE_ENV === 'production'
-			? 'https://lecture-monitor.herokuapp.com/api/'
-			: 'https://lecture-monitor.herokuapp.com/api/',
+  baseURL: "https://lecture-monitor.herokuapp.com/api/",
 });

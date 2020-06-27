@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-import Navbar from '../components/Navbar';
+import Navbar from "../components/Navbar";
 
 const Landing = ({ isAuthenticated }) => {
   return (
@@ -10,7 +10,7 @@ const Landing = ({ isAuthenticated }) => {
       <header
         className="uk-cover-container uk-background-cover uk-background-norepeat uk-background-center-center"
         style={{
-          backgroundImage: 'url(' + require('../assets/students.jpg') + ')',
+          backgroundImage: "url(" + require("../assets/students.jpg") + ")",
         }}
       >
         <div className="uk-overlay uk-position-cover uk-overlay-video"></div>
@@ -42,7 +42,7 @@ const Landing = ({ isAuthenticated }) => {
                   data-uk-scrollspy="cls: uk-animation-slide-bottom-medium; repeat: true"
                 >
                   <mark>The World's </mark>
-                  Smartest <mark>Lecture Monitoring</mark> system{' '}
+                  Smartest <mark>Lecture Monitoring</mark> system{" "}
                 </h1>
                 <div
                   className="uk-grid-collapse uk-width-3-4@m uk-margin-medium-top"
@@ -151,41 +151,41 @@ const Landing = ({ isAuthenticated }) => {
                 data-uk-grid="parallax: 150"
               >
                 <div>
-                  <img src={require('../assets/kwame.jpg')} alt="Tow Sawyer" />
+                  <img src={require("../assets/kwame.jpg")} alt="Tow Sawyer" />
                 </div>
                 <div>
-                  <img src={require('../assets/tkay.jpg')} alt="Tow Sawyer" />
+                  <img src={require("../assets/tkay.jpg")} alt="Tow Sawyer" />
                 </div>
                 <div>
-                  <img src={require('../assets/chenti.jpg')} alt="Tow Sawyer" />
+                  <img src={require("../assets/chenti.jpg")} alt="Tow Sawyer" />
                 </div>
                 <div>
-                  <img src={require('../assets/dakud.jpg')} alt="Tow Sawyer" />
+                  <img src={require("../assets/dakud.jpg")} alt="Tow Sawyer" />
                 </div>
                 <div>
                   <img
-                    src={require('../assets/clifford.jpg')}
+                    src={require("../assets/clifford.jpg")}
                     alt="Tow Sawyer"
                   />
                 </div>
                 <div>
-                  <img src={require('../assets/godoe.jpg')} alt="Tow Sawyer" />
+                  <img src={require("../assets/godoe.jpg")} alt="Tow Sawyer" />
                 </div>
                 <div>
                   <img
-                    src={require('../assets/francis.jpg')}
+                    src={require("../assets/francis.jpg")}
                     alt="Tow Sawyer"
                   />
                 </div>
                 <div>
-                  <img src={require('../assets/john.jpeg')} alt="Tow Sawyer" />
+                  <img src={require("../assets/john.jpeg")} alt="Tow Sawyer" />
                 </div>
                 <div>
-                  <img src={require('../assets/donald.jpg')} alt="Tow Sawyer" />
+                  <img src={require("../assets/donald.jpg")} alt="Tow Sawyer" />
                 </div>
                 <div>
                   <img
-                    src={require('../assets/austin2.jpg')}
+                    src={require("../assets/austin2.jpg")}
                     alt="Tow Sawyer"
                   />
                 </div>
@@ -216,7 +216,12 @@ const Landing = ({ isAuthenticated }) => {
 
       <div className="uk-section uk-section-muted uk-section-large uk-padding-remove-bottom">
         <div className="uk-container uk-container-small uk-text-center">
-          <h2 className="uk-heading-small">
+          <h2
+            style={{
+              marginBottom: "55px",
+            }}
+            className="uk-heading-small"
+          >
             <mark>Plan</mark> for the <mark>EXAM</mark>
           </h2>
           {!isAuthenticated && (

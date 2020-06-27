@@ -19,6 +19,7 @@ const Home = ({
   courseNames,
   courseIDs,
   user,
+  history,
 }) => {
   const [image, setImage] = React.useState(null);
   const [uploading, setUploading] = React.useState(false);
@@ -112,6 +113,7 @@ const Home = ({
           {/* show profile pic and upcoming class on this card */}
           <div className="uk-card uk-card-default uk-card-hover uk-card-body uk-text-center">
             <img
+              onClick={() => history.push('/lecturer/profile')}
               src={user.avatar}
               className="uk-border-circle"
               alt="avatar"

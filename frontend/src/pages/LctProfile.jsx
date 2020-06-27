@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar';
 import API from '../network/api';
 import { deleteLecturerAccount } from '../store/actions/authActions';
 
-const LctProfile = () => {
+const LctProfile = ({ deleteLecturerAccount }) => {
   const [currentUser, setCurrentUser] = useState({});
   const history = useHistory();
 

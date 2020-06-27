@@ -86,13 +86,25 @@ const Navbar = ({
                     </div>
                   </li>
                 ) : isStudent ? (
-                  <Link to="/student/home" className="uk-navbar-item">
-                    Student' Home
-                  </Link>
+                  <li>
+                    <Link
+                      to="/student/home"
+                      className="uk-navbar-item"
+                      style={{ fontSize: "1.2em" }}
+                    >
+                      Student' Home
+                    </Link>
+                  </li>
                 ) : (
-                  <Link to="/lecturer/home" className="uk-navbar-item">
-                    Lecturer's Home
-                  </Link>
+                  <li>
+                    <Link
+                      to="/lecturer/home"
+                      className="uk-navbar-item"
+                      style={{ fontSize: "1.2em" }}
+                    >
+                      Lecturer's Home
+                    </Link>
+                  </li>
                 )}
               </ul>
             </div>

@@ -4,7 +4,7 @@
 
 ## OVERVIEW
 
-A lecture monitor project which helps in attendance checking, monitoring students activities and lecturers.
+Lecture monitor is a project which helps in monitoring the academic activities of students and lecturers.
 
 Lecture Monitor allows students set easily set up accounts and setup personal time tables to easily track their activities and events. Students too are part of a class or department which has it's timetables as well
 

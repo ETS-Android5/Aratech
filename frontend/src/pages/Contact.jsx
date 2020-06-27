@@ -1,13 +1,13 @@
-import React from 'react';
-import { Formik } from 'formik';
-import * as Yup from 'yup';
+import React from "react";
+import { Formik } from "formik";
+import * as Yup from "yup";
 
-import Navbar from '../components/Navbar';
+import Navbar from "../components/Navbar";
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string().required(),
   email: Yup.string().email().required(),
   message: Yup.string().required(),
+  name: Yup.string().required(),
 });
 
 const Contact = () => {
@@ -18,7 +18,13 @@ const Contact = () => {
       <Navbar />
       <div className="uk-grid uk-text-center" data-uk-grid>
         <h3 className="uk-width-1-1">Meet The Developers</h3>
-        <p className="uk-text-large uk-text-left uk-padding-large">
+        <p
+          style={{
+            position: "relative",
+            top: "-20px",
+          }}
+          className="uk-text-large uk-padding-large uk-width-1-1"
+        >
           Meet the People behind Aratech and Lecture Monitor, who made this
           project a huge success
         </p>
@@ -30,92 +36,92 @@ const Contact = () => {
         <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
           <img
             className="uk-border-circle"
-            src={require('../assets/godoe.jpg')}
+            src={require("../assets/godoe.jpg")}
             alt="Godfred"
             style={{ width: 250, height: 250 }}
           />
-          <p>Godfred Doe(Project Manager)</p>
+          <p>Godfred Doe (Project Manager)</p>
         </div>
         <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
           <img
             className="uk-border-circle"
-            src={require('../assets/francis.jpg')}
+            src={require("../assets/francis.jpg")}
             alt="Francis"
             style={{ width: 250, height: 250 }}
           />
-          <p>Gyimah Francis(Deputy Project Manager)</p>
+          <p>Gyimah Francis (Deputy Project Manager)</p>
         </div>
         <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
           <img
             className="uk-border-circle"
-            src={require('../assets/austin2.jpg')}
+            src={require("../assets/austin2.jpg")}
             alt="Austin"
             style={{ width: 250, height: 250 }}
           />
-          <p>Appiah Augustine(Backend Team Leader)</p>
+          <p>Appiah Augustine (Backend Team Leader)</p>
         </div>
         <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
           <img
             className="uk-border-circle"
-            src={require('../assets/clifford.jpg')}
+            src={require("../assets/clifford.jpg")}
             alt="Clifford"
             style={{ width: 250, height: 250 }}
           />
-          <p>Owusu Amponsah Clifford(Frontend Team Leader)</p>
+          <p>Owusu Amponsah Clifford (Frontend Team Leader)</p>
         </div>
         <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
           <img
             className="uk-border-circle"
-            src={require('../assets/kwame.jpg')}
+            src={require("../assets/kwame.jpg")}
             alt="Austin"
             style={{ width: 250, height: 250 }}
           />
-          <p>Oppong Kwame(Mobile Team Leader)</p>
+          <p>Oppong Kwame (Mobile Team Leader)</p>
         </div>
         <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
           <img
             className="uk-border-circle"
-            src={require('../assets/john.jpeg')}
+            src={require("../assets/john.jpeg")}
             alt="John"
             style={{ width: 250, height: 250 }}
           />
-          <p>Dunyo K. John(Member, Mobile Team)</p>
+          <p>Dunyo K. John (Member, Mobile Team)</p>
         </div>
         <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
           <img
             className="uk-border-circle"
-            src={require('../assets/dakud.jpg')}
+            src={require("../assets/dakud.jpg")}
             alt="Akud"
             style={{ width: 250, height: 250 }}
           />
-          <p>Akudbilla Daniel(Member, Frontend Team)</p>
+          <p>Akudbilla Daniel (Member, Frontend Team)</p>
         </div>
         <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
           <img
             className="uk-border-circle"
-            src={require('../assets/tkay.jpg')}
+            src={require("../assets/tkay.jpg")}
             alt="Tkay"
             style={{ width: 250, height: 250 }}
           />
-          <p>Tweneboah Koduah Emmanuel(Member, Mobile Team)</p>
+          <p>Tweneboah Koduah Emmanuel (Member, Mobile Team)</p>
         </div>
         <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
           <img
             className="uk-border-circle"
-            src={require('../assets/donald.jpg')}
+            src={require("../assets/donald.jpg")}
             alt="Donald"
             style={{ width: 250, height: 250 }}
           />
-          <p>Adjei Donald(Member, Frontend Team)</p>
+          <p>Adjei Donald (Member, Frontend Team)</p>
         </div>
         <div className="uk-thumbnail uk-border-cirle uk-overlay-hover">
           <img
             className="uk-border-circle"
-            src={require('../assets/chenti.jpg')}
+            src={require("../assets/chenti.jpg")}
             alt="Chenti"
             style={{ width: 250, height: 250 }}
           />
-          <p>Rafiq Yakubu Chentiwuni(Member, Backend Team)</p>
+          <p>Rafiq Yakubu Chentiwuni (Member, Backend Team)</p>
         </div>
       </div>
       <hr className="uk-grid-divider" />
@@ -124,7 +130,7 @@ const Contact = () => {
           <div className="uk-panel uk-panel-header">
             <h3 className="uk-panel-title">Get In Touch</h3>
             <Formik
-              initialValues={{ name: '', email: '', message: '' }}
+              initialValues={{ name: "", email: "", message: "" }}
               validationSchema={validationSchema}
               onSubmit={async (values) => {
                 setLoading(true);
@@ -147,7 +153,7 @@ const Contact = () => {
                       id="name"
                       name="name"
                       className={`uk-input uk-form-large ${
-                        touched.name && errors.name ? 'uk-form-danger' : null
+                        touched.name && errors.name ? "uk-form-danger" : null
                       }`}
                       type="text"
                       value={values.name}
@@ -169,7 +175,7 @@ const Contact = () => {
                       id="email"
                       name="email"
                       className={`uk-input uk-form-large ${
-                        touched.email && errors.email ? 'uk-form-danger' : null
+                        touched.email && errors.email ? "uk-form-danger" : null
                       }`}
                       type="email"
                       value={values.email}
@@ -192,7 +198,7 @@ const Contact = () => {
                       name="message"
                       className={`uk-textarea uk-form-large ${
                         touched.message && errors.message
-                          ? 'uk-form-danger'
+                          ? "uk-form-danger"
                           : null
                       }`}
                       type="text"
@@ -212,7 +218,7 @@ const Contact = () => {
                       type="submit"
                       disabled={isLoading}
                     >
-                      {isLoading ? 'Submitting...' : 'Submit'}
+                      {isLoading ? "Submitting..." : "Submit"}
                     </button>
                   </div>
                 </form>

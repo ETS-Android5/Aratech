@@ -1,15 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ImageUploader from 'react-images-upload';
+import ImageUpload from 'react-images-upload';
 import UIKit from 'uikit';
 
 import Navbar from '../components/Navbar';
-import { createNewCourse, getAllCourses } from '../store/actions/courseActions';
+import {
+  createNewCourse,
+  getAllCourses,
+  addCourseForLecturer,
+} from '../store/actions/courseActions';
 import { setLecturerProfileImg } from '../store/actions/authActions';
 
 const Home = ({
   createNewCourse,
   getAllCourses,
+  addCourseForLecturer,
+  setLecturerProfileImg,
   courseNames,
   courseIDs,
   user,
@@ -40,12 +46,13 @@ const Home = ({
 
   const uploadImage = async () => {
     setUploading(true);
+
+    //set lecturer course
     const isSet = await setLecturerProfileImg(image);
+    await addCourseForLecturer(course);
     if (isSet) {
       UIKit.modal('#set-avatar').hide();
-      this.setState({
-        uploading: false,
-      });
+      setLoading(false);
     } else {
       //todo: decide what to do later
     }
@@ -105,10 +112,9 @@ const Home = ({
           {/* show profile pic and upcoming class on this card */}
           <div className="uk-card uk-card-default uk-card-hover uk-card-body uk-text-center">
             <img
-              src="../assets/students"
+              src={user.avatar}
               className="uk-border-circle"
               alt="avatar"
-              false
               style={{
                 width: '100px',
                 height: '100px',
@@ -152,14 +158,14 @@ const Home = ({
             SET YOUR PROFILE PICTURE AND COURSE
           </h3>
           <p>Only first image will be uploaded</p>
-          <ImageUploader
+          <ImageUpload
             withIcon={true}
             buttonText="Choose image"
             onChange={onFileChange}
             imgExtension={['.jpg', '.png']}
             withPreview={true}
             label="Max file size is 5mb. 
-              Accepted image types are .png and .jpg"
+              Accepted image types are .png, .jpeg and .jpg"
             maxFileSize={5242880}
           />
           <select
@@ -208,8 +214,8 @@ const Home = ({
           <br />
           <button
             className="uk-button uk-button-primary uk-button-large uk-margin-medium-top uk-margin-medium-bottom"
-            disabled={!image || uploading}
-            onClick={uploadImage || isLoading}
+            disabled={!image || uploading || !course || course === 'default'}
+            onClick={uploadImage}
           >
             {uploading ? 'Uploading' : 'Submit'}
           </button>
@@ -228,6 +234,9 @@ const mapStateToProps = ({
   courseIDs,
 });
 
-export default connect(mapStateToProps, { getAllCourses, createNewCourse })(
-  Home
-);
+export default connect(mapStateToProps, {
+  getAllCourses,
+  createNewCourse,
+  addCourseForLecturer,
+  setLecturerProfileImg,
+})(Home);

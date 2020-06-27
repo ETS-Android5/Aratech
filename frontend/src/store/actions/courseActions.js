@@ -41,3 +41,17 @@ export const createNewCourse = (data) => async (dispatch) => {
     cogoToast.error(error.response.data.message);
   }
 };
+
+export const addCourseForLecturer = (id) => async () => {
+  let response;
+  try {
+    response = await API.post('auth/addcourse', { courseId: id });
+    const message = response.data.message;
+
+    cogoToast.success(message);
+    return true;
+  } catch (error) {
+    cogoToast.error(error.response.data.message);
+    return false;
+  }
+};

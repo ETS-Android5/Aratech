@@ -32,7 +32,7 @@ class StdSignUp extends React.Component {
         .required('Email is required'),
       indexNo: Yup.number('Must be a number')
         .min(1000000, 'Should be at least 7 digits')
-        .max(999999999999, 'Should not be more than 8 digits')
+        .max(999999999999, 'Should not be more than 12 digits')
         .required('Index No is required'),
       department: Yup.string().oneOf(
         this.props.departmentIDs,

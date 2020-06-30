@@ -124,6 +124,13 @@ const Home = ({
               }}
             />
             <h4>Upcoming Class</h4>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://lm-forum.herokuapp.com"
+            >
+              <h4>Enter Live Chat</h4>
+            </a>
           </div>
 
           {/* show the list of student here */}

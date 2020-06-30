@@ -7,7 +7,7 @@
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
-  "author": "Godfred Doe",
+  "author": "Lecture Monitor",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",

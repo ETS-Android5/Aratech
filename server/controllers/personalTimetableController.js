@@ -31,7 +31,7 @@ exports.getPersonalTimetable = async (req, res) => {
     },
   });
 };
-
+//add to the timetable
 exports.addEventToPersonalTimetable = async (req, res) => {
   const student = req.user.student;
 

@@ -4,7 +4,7 @@ const passport = require('passport');
 const personalTimetableController = require('../controllers/personalTimetableController');
 const classTimetableController = require('../controllers/classTimetableController');
 
-//get student personal timetable
+//get student user personal timetable
 router.get(
   '/personal',
   passport.authenticate('jwt', { session: false }),
@@ -17,13 +17,13 @@ router.get(
   classTimetableController.getClassTimetable
 );
 
-//add a new event to personal time table
+//add a new event to personal timetable
 router.post(
   '/personal',
   passport.authenticate('jwt', { session: false }),
   personalTimetableController.addEventToPersonalTimetable
 );
-//add a new event to class time table
+//add a new event to class timetable
 router.post(
   '/class',
   passport.authenticate('jwt', { session: false }),

@@ -9,7 +9,7 @@ router
   .post(
     passport.authenticate('jwt', { session: false }),
     courseController.createNewCourse
-  ); //create a new course
+  ); //creates a new course
 
 router.get('/:id', courseController.getSingleCourse);
 

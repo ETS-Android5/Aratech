@@ -2,6 +2,7 @@ const router = require('express').Router();
 const passport = require('passport');
 
 const assignmentController = require('../controllers/assignmentController');
+const uploadMiddleware = require('../utils/upload');
 
 router
   .route('/:courseId')
@@ -11,6 +12,7 @@ router
   )
   .post(
     passport.authenticate('jwt', { session: false }),
+    uploadMiddleware.single('file'),
     assignmentController.createNewAssignment
   );
 

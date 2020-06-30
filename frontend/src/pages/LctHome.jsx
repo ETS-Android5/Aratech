@@ -1,17 +1,19 @@
-import React from "react";
-import { connect } from "react-redux";
-import ImageUpload from "react-images-upload";
-import UIKit from "uikit";
-import { Calendar, momentLocalizer } from "react-big-calendar";
-import moment from "moment";
-import Navbar from "../components/Navbar";
+import React from 'react';
+import { connect } from 'react-redux';
+import ImageUpload from 'react-images-upload';
+import UIKit from 'uikit';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
+import moment from 'moment';
+import Navbar from '../components/Navbar';
 import {
   createNewCourse,
   getAllCourses,
   addCourseForLecturer,
-} from "../store/actions/courseActions";
-import { setLecturerProfileImg } from "../store/actions/authActions";
-import FileUpload from "../components/FileUpload";
+} from '../store/actions/courseActions';
+import { setLecturerProfileImg } from '../store/actions/authActions';
+import FileUpload from '../components/FileUpload';
+import API from '../network/api';
+import cogoToast from 'cogo-toast';
 
 const localizer = momentLocalizer(moment);
 
@@ -28,9 +30,9 @@ const Home = ({
   const [image, setImage] = React.useState(null);
   const [uploading, setUploading] = React.useState(false);
   const [isLoading, setLoading] = React.useState(false);
-  const [course, selectCourse] = React.useState("");
-  const [courseName, setCourseName] = React.useState("");
-  const [courseCode, setCourseCode] = React.useState("");
+  const [course, selectCourse] = React.useState('');
+  const [courseName, setCourseName] = React.useState('');
+  const [courseCode, setCourseCode] = React.useState('');
   React.useEffect(() => {
     const getCourses = async () => {
       await getAllCourses();
@@ -40,7 +42,7 @@ const Home = ({
 
     if ((user.courses && user.courses.length) || user.avatar) {
     } else {
-      UIKit.modal("#set-avatar", {
+      UIKit.modal('#set-avatar', {
         bgClose: false,
         escClose: false,
         modal: false,
@@ -56,10 +58,28 @@ const Home = ({
     const isSet = await setLecturerProfileImg(image);
     await addCourseForLecturer(course);
     if (isSet) {
-      UIKit.modal("#set-avatar").hide();
+      UIKit.modal('#set-avatar').hide();
       setLoading(false);
     } else {
       //todo: decide what to do later
+    }
+  };
+
+  const createAssignment = async ({ file, deadline }) => {
+    const res = await API.get('auth/me');
+    const courses = res.data.data.lecturer.courses;
+
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('deadline', deadline);
+
+    try {
+      await API.post(`assignments/${courses[0]._id}`, formData);
+      cogoToast.success(
+        `Assignment created for course ${course.name} successfully`
+      );
+    } catch (error) {
+      cogoToast.error(error.response.data.message);
     }
   };
 
@@ -81,7 +101,7 @@ const Home = ({
   const createCourse = async () => {
     setLoading(true);
     if (!courseName || !courseCode) {
-      window.alert("Course name and course code are both needed");
+      window.alert('Course name and course code are both needed');
       setLoading(false);
       return;
     }
@@ -91,8 +111,8 @@ const Home = ({
     } catch (error) {
       setLoading(false);
     }
-    setCourseCode("");
-    setCourseName("");
+    setCourseCode('');
+    setCourseName('');
     setLoading(false);
   };
 
@@ -108,8 +128,8 @@ const Home = ({
               titleAccessor="eventName"
               startAccessor="startTime"
               endAccessor="endTime"
-              views={["day", "week", "agenda"]}
-              defaultView={"day"}
+              views={['day', 'week', 'agenda']}
+              defaultView={'day'}
               onSelectEvent={(event) => this.showEventDetails(event)}
             />
           }
@@ -119,19 +139,19 @@ const Home = ({
           {/* show profile pic and upcoming class on this card */}
           <div className="uk-card uk-card-default uk-card-hover uk-card-body uk-text-center">
             <img
-              onClick={() => history.push("/lecturer/profile")}
+              onClick={() => history.push('/lecturer/profile')}
               src={user.avatar}
               className="uk-border-circle"
               alt="avatar"
               style={{
-                width: "100px",
-                height: "100px",
-                cursor: "pointer",
+                width: '100px',
+                height: '100px',
+                cursor: 'pointer',
               }}
             />
             <h4>Upcoming Class</h4>
 
-            <FileUpload />
+            <FileUpload upload={createAssignment} />
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -179,7 +199,7 @@ const Home = ({
             withIcon={true}
             buttonText="Choose image"
             onChange={onFileChange}
-            imgExtension={[".jpg", ".png"]}
+            imgExtension={['.jpg', '.png']}
             withPreview={true}
             label="Max file size is 5mb. 
               Accepted image types are .png, .jpeg and .jpg"
@@ -227,14 +247,14 @@ const Home = ({
             onClick={createCourse}
           >
             Create a new course
-          </button>{" "}
+          </button>{' '}
           <br />
           <button
             className="uk-button uk-button-primary uk-button-large uk-margin-medium-top uk-margin-medium-bottom"
-            disabled={!image || uploading || !course || course === "default"}
+            disabled={!image || uploading || !course || course === 'default'}
             onClick={uploadImage}
           >
-            {uploading ? "Uploading" : "Submit"}
+            {uploading ? 'Uploading' : 'Submit'}
           </button>
         </div>
       </div>

@@ -9,7 +9,7 @@ app.listen(port, () => {
 });
 
 //catch unhandled promise rejections
-process.on('unhandledRejection', err => {
+process.on('unhandledRejection', (err) => {
   console.error(err);
   console.log('Unhandled rejection, server terminating...');
   process.exit(1);

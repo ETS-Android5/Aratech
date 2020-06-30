@@ -10,11 +10,7 @@ const AssignmentSchema = new Schema({
     type: String,
     required: true,
   },
-  submissionType: {
-    type: String,
-    required: true,
-  },
-  content: {
+  file: {
     type: String,
     required: true,
   },

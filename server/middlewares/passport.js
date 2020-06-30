@@ -17,7 +17,9 @@ passport.use(
   new JWTStrategy(opts, async (payload, done) => {
     //check if it's a lecturer
     try {
-      const lecturer = await Lecturer.findById(payload.id);
+      const lecturer = await (await Lecturer.findById(payload.id)).populate(
+        'courses'
+      );
       if (lecturer) {
         done(null, { lecturer });
       } else {

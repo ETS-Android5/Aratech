@@ -39,8 +39,6 @@ exports.createNewAssignment = async (req, res) => {
   // validate user data
   const schema = Joi.object({
     deadline: Joi.date().required(),
-    submissionType: Joi.string().required(),
-    content: Joi.string().required(),
   });
   try {
     await schema.validateAsync(req.body);
@@ -53,6 +51,7 @@ exports.createNewAssignment = async (req, res) => {
 
   const assignment = await Assignment.create({
     ...req.body,
+    file: req.file.secure_url,
     course: courseId,
   });
 

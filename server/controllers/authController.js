@@ -268,6 +268,7 @@ exports.lecturerSignin = async (req, res) => {
       email: lecturer.email,
       avatar: lecturer.avatar,
       phoneNo: lecturer.phoneNo,
+      courses: lecturer.courses,
     },
     process.env.SECRET_OR_KEY,
     {

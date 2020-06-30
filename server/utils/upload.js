@@ -13,7 +13,6 @@ cloudinary.v2.config({
 const storage = cloudinaryStorage({
   cloudinary,
   folder: process.env.NODE_ENV === 'production' ? 'avatars' : 'demo-avatars',
-  allowedFormats: ['jpg', 'png'],
 });
 
 const uploadMiddleware = multer({ storage });

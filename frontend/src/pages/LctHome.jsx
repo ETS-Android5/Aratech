@@ -130,8 +130,18 @@ const Home = ({
               }}
             />
             <h4>Upcoming Class</h4>
+<<<<<<< HEAD
 
             <FileUpload />
+=======
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://lm-forum.herokuapp.com"
+            >
+              <h4>Enter Live Chat</h4>
+            </a>
+>>>>>>> 4b305e73bca35dc251d6875709bd5391c4ddd83a
           </div>
 
           {/* show the list of student here */}

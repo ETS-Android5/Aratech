@@ -13,7 +13,7 @@ import { signinStudent } from '../store/actions/authActions';
 const validationSchema = Yup.object().shape({
   indexNo: Yup.number('Must be a number')
     .min(1000000, 'Should be at least 7 digits')
-    .max(99999999, 'Should not be more than 8 digits')
+    .max(999999999999, 'Should not be more than 12 digits')
     .required('Index No is required'),
   password: Yup.string()
     .min(8, 'Password must be 8 characters or more')

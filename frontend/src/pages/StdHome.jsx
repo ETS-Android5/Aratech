@@ -17,17 +17,29 @@ import {
   getStudentClassTimetable,
   addPersonalEvent,
   deleteEventFromPersonalTimetable,
+<<<<<<< HEAD
 } from "../store/actions/timetableActions";
 import isEmpty from "../validations/isEmpty";
 import { dailyEvents, weeklyEvents } from "../utils/timetable-utils";
+=======
+} from '../store/actions/timetableActions';
+import isEmpty from '../validations/isEmpty';
+import { dailyEvents, weeklyEvents } from '../utils/timetable-utils';
+>>>>>>> 4b305e73bca35dc251d6875709bd5391c4ddd83a
 
 const localizer = momentLocalizer(moment);
 
 //validation schema
 const validationSchema = Yup.object().shape({
+<<<<<<< HEAD
   eventName: Yup.string().required("Event Name is required"),
   startTime: Yup.date("Must be a date").required(),
   endTime: Yup.date("Must be a date").required(),
+=======
+  eventName: Yup.string().required('Event Name is required'),
+  startTime: Yup.date('Must be a date').required(),
+  endTime: Yup.date('Must be a date').required(),
+>>>>>>> 4b305e73bca35dc251d6875709bd5391c4ddd83a
   repeatDaily: Yup.boolean(),
   repeatWeekly: Yup.boolean(),
 });
@@ -37,7 +49,11 @@ class Home extends React.Component {
     super(props);
 
     this.state = {
+<<<<<<< HEAD
       image: "",
+=======
+      image: '',
+>>>>>>> 4b305e73bca35dc251d6875709bd5391c4ddd83a
       events: [],
       upcomingEvents: [],
       onGoingEvents: [],
@@ -51,7 +67,11 @@ class Home extends React.Component {
   async componentDidMount() {
     //verify if user has a profile image, if not set one
     if (!this.props.user.avatar) {
+<<<<<<< HEAD
       UIKit.modal("#set-avatar", {
+=======
+      UIKit.modal('#set-avatar', {
+>>>>>>> 4b305e73bca35dc251d6875709bd5391c4ddd83a
         bgClose: false,
         escClose: false,
         modal: false,
@@ -128,7 +148,11 @@ class Home extends React.Component {
     });
     const isSet = await this.props.setStudentProfileImg(this.state.image);
     if (isSet) {
+<<<<<<< HEAD
       UIKit.modal("#set-avatar").hide();
+=======
+      UIKit.modal('#set-avatar').hide();
+>>>>>>> 4b305e73bca35dc251d6875709bd5391c4ddd83a
       this.setState({
         uploading: false,
       });
@@ -174,7 +198,10 @@ class Home extends React.Component {
     } = this.state;
     return (
       <React.Fragment>
+<<<<<<< HEAD
         {console.log(events)}
+=======
+>>>>>>> 4b305e73bca35dc251d6875709bd5391c4ddd83a
         <Navbar />
         {/**calendar component */}
         <div className="uk-grid-collapse" data-uk-grid>
@@ -185,22 +212,37 @@ class Home extends React.Component {
               titleAccessor="eventName"
               startAccessor="startTime"
               endAccessor="endTime"
+<<<<<<< HEAD
               views={["day", "week", "agenda"]}
               defaultView={"day"}
+=======
+              views={['day', 'week', 'agenda']}
+              defaultView={'day'}
+>>>>>>> 4b305e73bca35dc251d6875709bd5391c4ddd83a
               onSelectEvent={(event) => this.showEventDetails(event)}
             />
           </div>
           <div className="uk-width-1-2@m uk-padding-large uk-flex uk-flex-column">
             <div className="uk-card uk-card-default uk-card-hover uk-card-body uk-text-center">
               <img
+<<<<<<< HEAD
                 onClick={() => this.props.history.push("/student/profile")}
+=======
+                onClick={() => this.props.history.push('/student/profile')}
+>>>>>>> 4b305e73bca35dc251d6875709bd5391c4ddd83a
                 src={this.props.user.avatar}
                 alt="avatar"
                 className="uk-border-circle"
                 style={{
+<<<<<<< HEAD
                   width: "100px",
                   height: "100px",
                   cursor: "pointer",
+=======
+                  width: '100px',
+                  height: '100px',
+                  cursor: 'pointer',
+>>>>>>> 4b305e73bca35dc251d6875709bd5391c4ddd83a
                 }}
               />
               <h4>Upcoming events</h4>
@@ -220,15 +262,32 @@ class Home extends React.Component {
                 ))}
               </ul>
               <ul>
+<<<<<<< HEAD
                 <h4>
                   <Link to="/student/ass">Go to Assignments</Link>
                 </h4>
+=======
+                <Link to="/student/assignments">
+                  <h4>Go to Assignments</h4>
+                </Link>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://lm-forum.herokuapp.com"
+                >
+                  <h4>Enter Live Chat</h4>
+                </a>
+>>>>>>> 4b305e73bca35dc251d6875709bd5391c4ddd83a
               </ul>
             </div>
             <h3>ADD A NEW PERSONAL EVENT</h3>
             <Formik
               initialValues={{
+<<<<<<< HEAD
                 eventName: "",
+=======
+                eventName: '',
+>>>>>>> 4b305e73bca35dc251d6875709bd5391c4ddd83a
                 startTime: new Date(),
                 endTime: null,
                 repeatDaily: false,
@@ -267,7 +326,11 @@ class Home extends React.Component {
                       name="eventName"
                       className={`uk-input uk-form-large ${
                         touched.events && errors.eventName
+<<<<<<< HEAD
                           ? "uk-form-danger"
+=======
+                          ? 'uk-form-danger'
+>>>>>>> 4b305e73bca35dc251d6875709bd5391c4ddd83a
                           : null
                       }`}
                       type="text"
@@ -291,6 +354,7 @@ class Home extends React.Component {
                       name="startTime"
                       className={`uk-margin-top ${
                         touched.startTime && errors.startTime
+<<<<<<< HEAD
                           ? "uk-form-danger"
                           : null
                       }`}
@@ -299,6 +363,16 @@ class Home extends React.Component {
                       }}
                       value={values.startTime}
                     />{" "}
+=======
+                          ? 'uk-form-danger'
+                          : null
+                      }`}
+                      onChange={(date) => {
+                        setFieldValue('startTime', date);
+                      }}
+                      value={values.startTime}
+                    />{' '}
+>>>>>>> 4b305e73bca35dc251d6875709bd5391c4ddd83a
                     <br />
                     <label
                       className="uk-form-label uk-margin-small-right uk-margin-top"
@@ -310,15 +384,26 @@ class Home extends React.Component {
                       id="endTime"
                       className={`uk-margin-top ${
                         touched.startTime && errors.startTime
+<<<<<<< HEAD
                           ? "uk-form-danger"
+=======
+                          ? 'uk-form-danger'
+>>>>>>> 4b305e73bca35dc251d6875709bd5391c4ddd83a
                           : null
                       }`}
                       name="endTime"
                       onChange={(date) => {
+<<<<<<< HEAD
                         setFieldValue("endTime", date);
                       }}
                       value={values.endTime}
                     />{" "}
+=======
+                        setFieldValue('endTime', date);
+                      }}
+                      value={values.endTime}
+                    />{' '}
+>>>>>>> 4b305e73bca35dc251d6875709bd5391c4ddd83a
                     <br />
                     <div className="uk-margin uk-grid-small uk-child-width-auto uk-grid">
                       <p>Repeat</p>
@@ -330,10 +415,17 @@ class Home extends React.Component {
                           type="radio"
                           defaultChecked={values.repeatDaily}
                           onChange={() => {
+<<<<<<< HEAD
                             setFieldValue("repeatWeekly", false);
                             setFieldValue("repeatDaily", true);
                           }}
                         />{" "}
+=======
+                            setFieldValue('repeatWeekly', false);
+                            setFieldValue('repeatDaily', true);
+                          }}
+                        />{' '}
+>>>>>>> 4b305e73bca35dc251d6875709bd5391c4ddd83a
                         Daily
                       </label>
                       <label>
@@ -344,10 +436,17 @@ class Home extends React.Component {
                           type="radio"
                           defaultChecked={values.repeatWeekly}
                           onChange={() => {
+<<<<<<< HEAD
                             setFieldValue("repeatWeekly", true);
                             setFieldValue("repeatDaily", false);
                           }}
                         />{" "}
+=======
+                            setFieldValue('repeatWeekly', true);
+                            setFieldValue('repeatDaily', false);
+                          }}
+                        />{' '}
+>>>>>>> 4b305e73bca35dc251d6875709bd5391c4ddd83a
                         Weekly
                       </label>
                       <label>
@@ -358,10 +457,17 @@ class Home extends React.Component {
                           type="radio"
                           defaultChecked={values.repeatWeekly}
                           onChange={() => {
+<<<<<<< HEAD
                             setFieldValue("repeatWeekly", false);
                             setFieldValue("repeatDaily", false);
                           }}
                         />{" "}
+=======
+                            setFieldValue('repeatWeekly', false);
+                            setFieldValue('repeatDaily', false);
+                          }}
+                        />{' '}
+>>>>>>> 4b305e73bca35dc251d6875709bd5391c4ddd83a
                         Off
                       </label>
                     </div>
@@ -371,7 +477,11 @@ class Home extends React.Component {
                         type="submit"
                         disabled={isLoading}
                       >
+<<<<<<< HEAD
                         {isLoading ? "Creating..." : "Create Event"}
+=======
+                        {isLoading ? 'Creating...' : 'Create Event'}
+>>>>>>> 4b305e73bca35dc251d6875709bd5391c4ddd83a
                       </button>
                     </div>
                   </div>
@@ -389,7 +499,11 @@ class Home extends React.Component {
               withIcon={true}
               buttonText="Choose image"
               onChange={this.onFileChange}
+<<<<<<< HEAD
               imgExtension={[".jpg", ".png"]}
+=======
+              imgExtension={['.jpg', '.png']}
+>>>>>>> 4b305e73bca35dc251d6875709bd5391c4ddd83a
               withPreview={true}
               label="Max file size is 5mb. 
               Accepted image types are .png and .jpg"
@@ -400,7 +514,11 @@ class Home extends React.Component {
               disabled={!image || uploading}
               onClick={this.uploadImage}
             >
+<<<<<<< HEAD
               {uploading ? "Uploading" : "Submit"}
+=======
+              {uploading ? 'Uploading' : 'Submit'}
+>>>>>>> 4b305e73bca35dc251d6875709bd5391c4ddd83a
             </button>
           </div>
         </div>
@@ -444,9 +562,15 @@ class Home extends React.Component {
           >
             {`${currentEvent.eventName} starts at ${moment(
               currentEvent.startTime
+<<<<<<< HEAD
             ).format("Do MMMM YYYY, h:mm a")} and ends at ${moment(
               currentEvent.endTime
             ).format("Do MMMM YYYY, h:mm a")}`}
+=======
+            ).format('Do MMMM YYYY, h:mm a')} and ends at ${moment(
+              currentEvent.endTime
+            ).format('Do MMMM YYYY, h:mm a')}`}
+>>>>>>> 4b305e73bca35dc251d6875709bd5391c4ddd83a
           </SweetAlert>
         ) : null}
       </React.Fragment>

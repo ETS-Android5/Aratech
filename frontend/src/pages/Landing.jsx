@@ -120,11 +120,6 @@ const Landing = ({ isAuthenticated }) => {
 
       <div id="about" className="uk-section uk-section-muted uk-section-large">
         <div className="uk-container">
-          <div className="uk-width-4-5@m">
-            <h2 className="uk-heading-small">
-              <mark>Highly</mark> Encrypted <mark>Attendance </mark>System
-            </h2>
-          </div>
           <div
             className="uk-child-width-1-2@s uk-child-width-1-3@m uk-margin-large-top uk-grid-match"
             data-uk-grid
